@@ -1,0 +1,9 @@
+{
+  "output": "CHANGELOG.md",
+  "template": "keepachangelog",
+  "unreleased": true,
+  "commitLimit": false,
+  "backfillLimit": false,
+  "tagPattern": null,
+  "ignoreCommitPattern": "^(chore|ci|docs|style|refactor|perf|test):|^Merge (pull request|branch)"
+}

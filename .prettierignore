@@ -19,3 +19,6 @@ test-results/
 
 # Lock files (optional, depending on preference)
 package-lock.json
+
+# Changelog (managed by auto-changelog)
+CHANGELOG.md
