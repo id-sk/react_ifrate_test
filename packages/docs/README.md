@@ -11,10 +11,10 @@ Dokumentácia a Storybook pre knižnicu UI komponentov IDSK. Tento balík slúž
 
 ## 🛠️ Vývoj a skripty
 
-Tieto príkazy spúšťajte v adresári `packages/docs` (alebo pomocou `-w packages/docs` z koreňa):
+Tieto príkazy spúšťajte z koreňa monorepa:
 
-- `npm run storybook`: Spustí lokálny Storybook server na `http://localhost:6006`.
-- `npm run build`: Zostaví statickú verziu Storybooku do adresára `dist`.
+- `pnpm dev:docs`: Spustí lokálny Storybook server na `http://localhost:6006` (alias: `pnpm storybook`).
+- `pnpm build`: Zostaví statickú verziu Storybooku do adresára `dist`.
 
 ## 📂 Štruktúra projektu
 

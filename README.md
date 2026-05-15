@@ -1,6 +1,6 @@
 # IDSK UI Library
 
-Moderná knižnica UI komponentov pre digitálne služby štátu, založená na React, Tailwind CSS v4 a Radix UI. Projekt je spravovaný ako monorepo pomocou npm workspaces.
+Moderná knižnica UI komponentov pre digitálne služby štátu, založená na React, Tailwind CSS v4 a Radix UI. Projekt je spravovaný ako monorepo pomocou pnpm workspaces a Turborepo.
 
 ## 🚀 Technologický zásobník
 
@@ -23,7 +23,7 @@ Moderná knižnica UI komponentov pre digitálne služby štátu, založená na 
 Pre lokálny vývoj a inštaláciu všetkých závislostí v monorepe spustite:
 
 ```bash
-npm install
+pnpm install
 ```
 
 ## 📜 Dostupné skripty
@@ -32,19 +32,20 @@ Tieto príkazy môžete spúšťať z koreňového adresára:
 
 ### Vývoj a zostavenie
 
-- `npm run dev`: Spustí vývojové prostredie pre core komponenty.
-- `npm run build`: Zostaví všetky balíky v projekte (core aj docs).
-- `npm run storybook`: Spustí Storybook dokumentáciu na `http://localhost:6006`.
+- `pnpm dev`: Spustí Vite dev server pre `@idsk/core`.
+- `pnpm dev:docs`: Spustí Storybook dokumentáciu na `http://localhost:6006` (alias: `pnpm storybook`).
+- `pnpm build`: Spustí lint, typecheck a zostaví všetky balíky cez Turborepo.
 
 ### Testovanie a kvalita
 
-- `npm run test`: Spustí unit a integračné testy (Vitest).
-- `npm run test-ct`: Spustí testovanie komponentov v prehliadači (Playwright CT).
-- `npm run lint`: Skontroluje kód pomocou ESLint.
-- `npm run lint:style`: Skontroluje CSS súbory pomocou Stylelint.
-- `npm run lint:fix`: Automaticky opraví chyby v kóde pomocou ESLint.
-- `npm run format`: Sformátuje kód pomocou Prettier.
-- `npm run typecheck`: Spustí kontrolu TypeScript typov.
+- `pnpm test`: Spustí Vitest unit testy aj Playwright CT testy (všetky balíky).
+- `pnpm test-ct`: Spustí Playwright component testy iba pre `@idsk/core`.
+- `pnpm lint`: Skontroluje kód pomocou ESLint.
+- `pnpm lint:style`: Skontroluje CSS súbory pomocou Stylelint.
+- `pnpm lint:fix`: Automaticky opraví chyby v kóde pomocou ESLint.
+- `pnpm format`: Sformátuje kód pomocou Prettier.
+- `pnpm format:check`: Skontroluje formátovanie bez zmien.
+- `pnpm typecheck`: Spustí kontrolu TypeScript typov.
 
 ## 📖 Dokumentácia
 

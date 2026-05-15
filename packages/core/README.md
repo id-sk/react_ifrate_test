@@ -14,6 +14,8 @@ komponentov založených na IDSK dizajnovom systéme.
 ## 📦 Inštalácia
 
 ```bash
+pnpm add @idsk/core
+# alebo
 npm install @idsk/core
 ```
 
@@ -55,29 +57,30 @@ automaticky po načítaní stránky.
 
 ## 🛠️ Vývoj a skripty
 
-Ak chcete pracovať na vývoji komponentov v tomto balíku, použite nasledujúce príkazy:
+Ak chcete pracovať na vývoji komponentov v tomto balíku, spúšťajte príkazy z koreňa monorepa:
 
-- `npm run dev`: Spustí Vite vývojový server pre core balík.
-- `npm run build`: Zostaví produkčnú verziu balíka (React aj Vanilla verziu).
+- `pnpm dev`: Spustí Vite vývojový server pre core balík.
+- `pnpm build`: Spustí lint, typecheck a zostaví React aj Vanilla verziu balíka.
 
 ### Testovanie
 
 Pre zabezpečenie kvality používame dva typy testov:
 
-1. **Vitest (Unit/Integration)**: Rýchle testy v prostredí JSDOM.
+1. **Vitest (Unit)**: Rýchle testy v prostredí JSDOM.
    ```bash
-   npm run test
+   pnpm test
    ```
-2. **Playwright (Component Testing)**: Testovanie komponentov v reálnom prehliadači pre maximálnu vernosť interakcií.
+2. **Playwright (Component Testing)**: Testovanie komponentov v reálnom prehliadači.
    ```bash
-   npm run test-ct
+   pnpm test-ct
    ```
 
 ## 📂 Štruktúra balíka
 
 - `src/assets/fonts`: Adresár pre binárne súbory fontov (ttf, woff2).
-- `src/components`: Zdrojové kódy React komponentov.
-- `src/vanilla`: Implementácia vanilla JS wrapperov.
+- `src/components`: Zdrojové kódy React komponentov (každý obsahuje aj `vanilla.ts` ak je potrebný).
+- `src/vanilla.ts`: Vstupný bod pre Vanilla JS build — auto-objavuje `vanilla.ts` súbory komponentov.
+- `src/style`: Tailwind konfigurácia, globálne CSS a typografia.
 - `dist`: Vygenerované distribučné súbory po zostavení.
 - `playwright-ct.config.ts`: Konfigurácia pre Playwright Component Testing.
 
