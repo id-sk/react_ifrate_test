@@ -1,0 +1,50 @@
+# Dependencies
+node_modules/
+.npm
+
+# Build outputs
+dist/
+build/
+out/
+.turbo/
+
+# Storybook
+storybook-static/
+
+# TypeScript
+*.tsbuildinfo
+tsconfig.tsbuildinfo
+
+# Test
+coverage/
+playwright-report/
+test-results/
+**/playwright/.cache/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Cache
+.eslintcache
+.stylelintcache
+.prettier-cache
+.cache/

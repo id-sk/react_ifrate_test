@@ -1,0 +1,29 @@
+import React from 'react';
+
+export interface ZoomInIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const ZoomInIcon = ({ size, ...props }: ZoomInIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M16.4115 14.849H15.5885L15.2969 14.5677C16.3177 13.3802 16.9323 11.8385 16.9323 10.1615C16.9323 6.42188 13.901 3.39062 10.1615 3.39062C6.42188 3.39062 3.39062 6.42188 3.39062 10.1615C3.39062 13.901 6.42188 16.9323 10.1615 16.9323C11.8385 16.9323 13.3802 16.3177 14.5677 15.2969L14.849 15.5885V16.4115L20.0573 21.6094L21.6094 20.0573L16.4115 14.849ZM10.1615 14.849C7.56771 14.849 5.47396 12.7552 5.47396 10.1615C5.47396 7.56771 7.56771 5.47396 10.1615 5.47396C12.7552 5.47396 14.849 7.56771 14.849 10.1615C14.849 12.7552 12.7552 14.849 10.1615 14.849Z"
+        fill="currentColor"
+      />
+      <path
+        d="M12.7656 10.6823H10.6823V12.7656H9.64062V10.6823H7.55729V9.64062H9.64062V7.55729H10.6823V9.64062H12.7656V10.6823Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default ZoomInIcon;

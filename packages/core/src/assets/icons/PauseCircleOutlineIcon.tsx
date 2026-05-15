@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface PauseCircleOutlineIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const PauseCircleOutlineIcon = ({ size, ...props }: PauseCircleOutlineIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M9.37492 16.6667H11.4583V8.33337H9.37492V16.6667ZM12.4999 2.08337C6.74992 2.08337 2.08325 6.75004 2.08325 12.5C2.08325 18.25 6.74992 22.9167 12.4999 22.9167C18.2499 22.9167 22.9166 18.25 22.9166 12.5C22.9166 6.75004 18.2499 2.08337 12.4999 2.08337ZM12.4999 20.8334C7.90617 20.8334 4.16659 17.0938 4.16659 12.5C4.16659 7.90629 7.90617 4.16671 12.4999 4.16671C17.0937 4.16671 20.8333 7.90629 20.8333 12.5C20.8333 17.0938 17.0937 20.8334 12.4999 20.8334ZM13.5416 16.6667H15.6249V8.33337H13.5416V16.6667Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default PauseCircleOutlineIcon;

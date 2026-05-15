@@ -1,0 +1,124 @@
+import { Meta, Subtitle, Primary, Controls, Story, Stories } from '@storybook/addon-docs/blocks';
+import * as CheckboxStories from './Checkbox.stories';
+
+<Meta of={CheckboxStories} />
+
+# Checkbox
+
+<Subtitle>
+  Komponent pre výber jednej alebo viacerých možností s podporou veľkostí, pomocného textu,
+  tooltipov a indeterminate stavu.
+</Subtitle>
+
+## Overview (Prehľad)
+
+Komponent `Checkbox` umožňuje používateľovi vybrať alebo zrušiť výber jednej možnosti. Pre skupiny checkboxov slúži komponent `CheckboxGroup`. Podporuje dve veľkosti, pomocný text (`hint`), chybovú správu, tooltip a indeterminate stav pre hierarchické výbery.
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Veľkosti
+
+### Veľký (default)
+
+Štandardná veľkosť pre formuláre na desktope.
+
+<Story of={CheckboxStories.Velky} />
+
+### Malý (sm)
+
+Zmenšená veľkosť pre kompaktné rozhrania. Odsadenie labelu je 34 px namiesto 44 px.
+
+<Story of={CheckboxStories.Maly} />
+<br />
+<Story of={CheckboxStories.MalyDlhyText} />
+
+## Pomocný text (hint)
+
+`hint` zobrazí vysvetľujúci text pod labelom checkboxu.
+
+<Story of={CheckboxStories.S_PomocnymTextom} />
+<br />
+<Story of={CheckboxStories.DlhyPomocnyText} />
+
+## Tooltip
+
+Tooltip zobrazí ikonu „i" vedľa labelu s kontextovou nápovedom.
+
+<Story of={CheckboxStories.Tooltip} />
+
+## Chybový stav
+
+`errorMessage` zobrazí chybovú správu pod checkboxom.
+
+<Story of={CheckboxStories.S_Chybou} />
+
+## Povinný a zakázaný stav
+
+<Story of={CheckboxStories.Povinny} />
+<br />
+<Story of={CheckboxStories.Zakazany} />
+
+## Dlhý a viacriadkový label
+
+Label sa správne zalamuje a zachováva odsadenie od checkboxu.
+
+<Story of={CheckboxStories.DlhyText} />
+<br />
+<Story of={CheckboxStories.ViacriadkovyText} />
+
+## Indeterminate stav
+
+Indeterminate stav vizuálne signalizuje čiastočný výber (niektoré podpoložky sú vybrané, nie všetky).
+
+<Story of={CheckboxStories.Indeterminate} />
+
+### Implementácia s hierarchickým výberom
+
+Praktická ukážka „Vybrať všetko" s podpoložkami, ktorá riadi indeterminate stav cez React stav.
+
+<Story of={CheckboxStories.IndeterminateImplementacia} />
+
+## Skupina checkboxov (CheckboxGroup)
+
+`CheckboxGroup` obaľuje viacero checkboxov do skupiny s legendou a voliteľným hintom.
+
+<Story of={CheckboxStories.Skupina} />
+
+## Mobile
+
+<Story of={CheckboxStories.Mobile} />
+
+## Prístupnosť (Accessibility)
+
+- Každý checkbox je natívny `<input type="checkbox">` — prístupný cez Tab a Space
+- `hint` a `errorMessage` sú prepojené cez `aria-describedby`
+- Indeterminate stav nastavuje `aria-checked="mixed"` (spravované Radix UI primitívom)
+- `CheckboxGroup` používa `<fieldset>` a `<legend>` pre správnu sémantiku skupiny
+
+## Použitie
+
+```tsx
+import { Checkbox, CheckboxGroup } from '@idsk/core';
+
+// Jednoduchý checkbox
+<Checkbox
+  label="Súhlasím s podmienkami"
+  required
+  hint="Prečítajte si podmienky pred odoslaním."
+/>
+
+// Skupina checkboxov
+<CheckboxGroup legend="Obľúbené ovocie" hint="Vyberte aspoň jednu možnosť">
+  <Checkbox label="Jablko" name="fruit" value="apple" />
+  <Checkbox label="Banán" name="fruit" value="banana" />
+  <Checkbox label="Pomaranč" name="fruit" value="orange" />
+</CheckboxGroup>
+```
+
+## Všetky príbehy
+
+<Stories />

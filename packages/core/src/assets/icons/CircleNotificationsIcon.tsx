@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface CircleNotificationsIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const CircleNotificationsIcon = ({ size, ...props }: CircleNotificationsIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M12.4999 2.08331C6.74992 2.08331 2.08325 6.74998 2.08325 12.5C2.08325 18.25 6.74992 22.9166 12.4999 22.9166C18.2499 22.9166 22.9166 18.25 22.9166 12.5C22.9166 6.74998 18.2499 2.08331 12.4999 2.08331ZM12.4999 19.2708C11.6353 19.2708 10.9374 18.5729 10.9374 17.7083H14.0624C14.0624 18.5729 13.3645 19.2708 12.4999 19.2708ZM17.7083 16.6666H7.29159V15.625L8.33325 14.5833V11.8646C8.33325 9.65623 9.40617 7.78123 11.4583 7.29165V6.77081C11.4583 6.17706 11.9062 5.72915 12.4999 5.72915C13.0937 5.72915 13.5416 6.17706 13.5416 6.77081V7.29165C15.5937 7.78123 16.6666 9.66665 16.6666 11.8646V14.5833L17.7083 15.625V16.6666Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default CircleNotificationsIcon;

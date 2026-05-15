@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface ElectricMeterIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const ElectricMeterIcon = ({ size, ...props }: ElectricMeterIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M12.5 2.0835C7.33333 2.0835 3.125 6.29183 3.125 11.4585C3.125 15.5314 5.73958 19.0002 9.375 20.2814V22.9168H11.4583V20.771C11.8021 20.8127 12.1458 20.8335 12.5 20.8335C12.8542 20.8335 13.1979 20.8127 13.5417 20.771V22.9168H15.625V20.2814C19.2604 18.9897 21.875 15.521 21.875 11.4585C21.875 6.29183 17.6667 2.0835 12.5 2.0835ZM14.8438 14.5835L11.7188 17.7085L10.1562 16.146L11.4583 14.8439L10.1562 13.5418L13.2812 10.4168L14.8438 11.9793L13.5417 13.2814L14.8438 14.5835ZM16.6667 9.37516H8.33333V7.29183H16.6667V9.37516Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default ElectricMeterIcon;

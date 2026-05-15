@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface GppBadIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const GppBadIcon = ({ size, ...props }: GppBadIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M12.5001 2.08325L4.16675 5.20825V11.552C4.16675 16.8124 7.71883 21.7187 12.5001 22.9166C17.2813 21.7187 20.8334 16.8124 20.8334 11.552V5.20825L12.5001 2.08325ZM16.1459 14.677L14.6772 16.1458L12.5001 13.9791L10.323 16.1458L8.85425 14.677L11.0313 12.4999L8.85425 10.3228L10.323 8.85409L12.5001 11.0312L14.6772 8.85409L16.1459 10.3228L13.9792 12.4999L16.1459 14.677Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default GppBadIcon;

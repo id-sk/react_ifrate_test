@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface VideoChatIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const VideoChatIcon = ({ size, ...props }: VideoChatIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M20.8333 2.0835H4.16659C3.02075 2.0835 2.09367 3.021 2.09367 4.16683L2.08325 22.9168L6.24992 18.7502H20.8333C21.9791 18.7502 22.9166 17.8127 22.9166 16.6668V4.16683C22.9166 3.021 21.9791 2.0835 20.8333 2.0835ZM17.7083 13.5418L15.6249 11.4689V13.5418C15.6249 14.1147 15.1562 14.5835 14.5833 14.5835H8.33325C7.76034 14.5835 7.29159 14.1147 7.29159 13.5418V7.29183C7.29159 6.71891 7.76034 6.25016 8.33325 6.25016H14.5833C15.1562 6.25016 15.6249 6.71891 15.6249 7.29183V9.36475L17.7083 7.29183V13.5418Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default VideoChatIcon;

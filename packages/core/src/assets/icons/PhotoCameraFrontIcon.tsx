@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface PhotoCameraFrontIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const PhotoCameraFrontIcon = ({ size, ...props }: PhotoCameraFrontIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M18.75 10.9165L22.9167 6.77067V18.229L18.75 14.0832V18.7498C18.75 19.8957 17.8125 20.8332 16.6667 20.8332H4.16671C3.02087 20.8332 2.08337 19.8957 2.08337 18.7498V6.24984C2.08337 5.104 3.02087 4.1665 4.16671 4.1665H16.6667C17.8125 4.1665 18.75 5.104 18.75 6.24984V10.9165ZM16.6667 6.24984H4.16671V18.7498H16.6667V6.24984ZM10.4167 12.4998C9.27087 12.4998 8.33337 11.5623 8.33337 10.4165C8.33337 9.27067 9.27087 8.33317 10.4167 8.33317C11.5625 8.33317 12.5 9.27067 12.5 10.4165C12.5 11.5623 11.5625 12.4998 10.4167 12.4998ZM10.4167 13.5415C11.8125 13.5415 14.5834 14.2394 14.5834 15.6248V16.6665H6.25004V15.6248C6.25004 14.2394 9.02087 13.5415 10.4167 13.5415Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default PhotoCameraFrontIcon;

@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface UnpublishedIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const UnpublishedIcon = ({ size, ...props }: UnpublishedIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M22.3906 21.7552L3.24479 2.60937L1.76562 4.07812L4.13021 6.44271C3.03646 8.08854 2.40104 10.0573 2.40104 12.1823C2.40104 17.9323 7.06771 22.599 12.8177 22.599C14.9427 22.599 16.9115 21.9635 18.5573 20.8698L20.9219 23.2344L22.3906 21.7552ZM11.349 16.974L6.93229 12.5573L8.40104 11.0885L11.349 14.0365L11.5365 13.849L13.0052 15.3177L11.349 16.974ZM14.474 10.8906L7.07812 3.49479C8.72396 2.40104 10.6927 1.76562 12.8177 1.76562C18.5677 1.76562 23.2344 6.43229 23.2344 12.1823C23.2344 14.3073 22.599 16.276 21.5052 17.9219L15.9427 12.3594L18.7031 9.59896L17.2344 8.13021L14.474 10.8906Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default UnpublishedIcon;

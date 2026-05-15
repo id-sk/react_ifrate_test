@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface PresentToAllIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const PresentToAllIcon = ({ size, ...props }: PresentToAllIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M21.8751 3.125H3.12508C1.96883 3.125 1.04175 4.05208 1.04175 5.20833V19.7917C1.04175 20.9479 1.96883 21.875 3.12508 21.875H21.8751C23.0313 21.875 23.9584 20.9479 23.9584 19.7917V5.20833C23.9584 4.05208 23.0313 3.125 21.8751 3.125ZM21.8751 19.8125H3.12508V5.1875H21.8751V19.8125ZM10.4167 12.5H8.33341L12.5001 8.33333L16.6667 12.5H14.5834V16.6667H10.4167V12.5Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default PresentToAllIcon;

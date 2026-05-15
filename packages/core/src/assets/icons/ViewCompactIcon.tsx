@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface ViewCompactIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const ViewCompactIcon = ({ size, ...props }: ViewCompactIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M4.16675 18.75H6.77091V16.1458H4.16675V18.75ZM4.16675 13.8021H6.77091V11.1979H4.16675V13.8021ZM4.16675 8.85417H6.77091V6.25H4.16675V8.85417ZM18.2292 6.25V8.85417H20.8334V6.25H18.2292ZM13.5417 8.85417H16.1459V6.25H13.5417V8.85417ZM18.2292 18.75H20.8334V16.1458H18.2292V18.75ZM18.2292 13.8021H20.8334V11.1979H18.2292V13.8021ZM8.85425 18.75H11.4584V16.1458H8.85425V18.75ZM13.5417 18.75H16.1459V16.1458H13.5417V18.75ZM8.85425 8.85417H11.4584V6.25H8.85425V8.85417ZM13.5417 13.8021H16.1459V11.1979H13.5417V13.8021ZM8.85425 13.8021H11.4584V11.1979H8.85425V13.8021Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default ViewCompactIcon;

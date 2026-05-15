@@ -1,0 +1,26 @@
+import React from 'react';
+
+export interface TimerIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const TimerIcon = ({ size, ...props }: TimerIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path d="M15.625 1.5625H9.375V3.64583H15.625V1.5625Z" fill="currentColor" />
+      <path
+        d="M19.8229 8.21875L21.3021 6.73958C20.8542 6.20833 20.3646 5.70833 19.8333 5.27083L18.3542 6.75C16.7396 5.45833 14.7083 4.6875 12.5 4.6875C7.32292 4.6875 3.125 8.88542 3.125 14.0625C3.125 19.2396 7.3125 23.4375 12.5 23.4375C17.6875 23.4375 21.875 19.2396 21.875 14.0625C21.875 11.8542 21.1042 9.82292 19.8229 8.21875ZM13.5417 15.1042H11.4583V8.85417H13.5417V15.1042Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default TimerIcon;

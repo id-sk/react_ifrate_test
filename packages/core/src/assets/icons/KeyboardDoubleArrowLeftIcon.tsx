@@ -1,0 +1,29 @@
+import React from 'react';
+
+export interface KeyboardDoubleArrowLeftIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const KeyboardDoubleArrowLeftIcon = ({ size, ...props }: KeyboardDoubleArrowLeftIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M18.3228 18.75L19.7916 17.2812L15.0208 12.5L19.7916 7.71875L18.3228 6.25L12.0728 12.5L18.3228 18.75Z"
+        fill="currentColor"
+      />
+      <path
+        d="M11.4583 18.75L12.927 17.2812L8.15617 12.5L12.927 7.71875L11.4583 6.25L5.20825 12.5L11.4583 18.75Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default KeyboardDoubleArrowLeftIcon;

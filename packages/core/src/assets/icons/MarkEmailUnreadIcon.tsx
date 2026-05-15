@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface MarkEmailUnreadIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const MarkEmailUnreadIcon = ({ size, ...props }: MarkEmailUnreadIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M22.9167 10.3958V19.7917C22.9167 20.9375 21.9792 21.875 20.8334 21.875H4.16671C3.02087 21.875 2.08337 20.9375 2.08337 19.7917V7.29167C2.08337 6.14583 3.02087 5.20833 4.16671 5.20833H14.6875C14.625 5.54167 14.5834 5.89583 14.5834 6.25C14.5834 7.79167 15.2605 9.15625 16.323 10.1146L12.5 12.5L4.16671 7.29167V9.375L12.5 14.5833L18.0209 11.125C18.5834 11.3333 19.1667 11.4583 19.7917 11.4583C20.9688 11.4583 22.0417 11.0521 22.9167 10.3958ZM16.6667 6.25C16.6667 7.97917 18.0625 9.375 19.7917 9.375C21.5209 9.375 22.9167 7.97917 22.9167 6.25C22.9167 4.52083 21.5209 3.125 19.7917 3.125C18.0625 3.125 16.6667 4.52083 16.6667 6.25Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default MarkEmailUnreadIcon;

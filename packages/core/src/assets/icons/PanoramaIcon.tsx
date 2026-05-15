@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface PanoramaIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const PanoramaIcon = ({ size, ...props }: PanoramaIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M23.9584 18.7498V6.24984C23.9584 5.104 23.0209 4.1665 21.8751 4.1665H3.12508C1.97925 4.1665 1.04175 5.104 1.04175 6.24984V18.7498C1.04175 19.8957 1.97925 20.8332 3.12508 20.8332H21.8751C23.0209 20.8332 23.9584 19.8957 23.9584 18.7498ZM8.85425 13.0207L11.4584 16.1561L15.1042 11.4582L19.7917 17.7082H5.20841L8.85425 13.0207Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default PanoramaIcon;

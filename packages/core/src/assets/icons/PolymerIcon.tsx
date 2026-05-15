@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface PolymerIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const PolymerIcon = ({ size, ...props }: PolymerIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M19.7916 4.16663H15.6249L7.40617 17.3229L4.68742 12.5L9.37492 4.16663H5.20825L0.520752 12.5L5.20825 20.8333H9.37492L17.5937 7.67704L20.3124 12.5L15.6249 20.8333H19.7916L24.4791 12.5L19.7916 4.16663Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default PolymerIcon;

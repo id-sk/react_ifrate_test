@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface NoDrinksIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const NoDrinksIcon = ({ size, ...props }: NoDrinksIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M6.8125 2.38542H22.6146V4.46875L16.1563 11.7292L10.9792 6.55208H18L19.8542 4.46875H8.89583L6.8125 2.38542ZM21.3438 22.8125L19.4896 20.9583V21.1354H6.98958V19.0521H12.1979V13.8438L10.7708 12.2396L2.1875 3.65625L3.65625 2.1875L3.86458 2.38542L22.8125 21.3333L21.3438 22.8125ZM17.5833 19.0521L14.2813 15.75V19.0521H17.5833Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default NoDrinksIcon;

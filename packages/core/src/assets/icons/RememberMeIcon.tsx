@@ -1,0 +1,29 @@
+import React from 'react';
+
+export interface RememberMeIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const RememberMeIcon = ({ size, ...props }: RememberMeIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M17.7083 1.04175H7.29159C6.14575 1.04175 5.20825 1.97925 5.20825 3.12508V21.8751C5.20825 23.0209 6.14575 23.9584 7.29159 23.9584H17.7083C18.8541 23.9584 19.7916 23.0209 19.7916 21.8751V3.12508C19.7916 1.97925 18.8541 1.04175 17.7083 1.04175ZM17.7083 15.8438C16.1458 15.0417 14.3749 14.5834 12.4999 14.5834C10.6249 14.5834 8.85409 15.0417 7.29159 15.8438V6.25008H17.7083V15.8438Z"
+        fill="currentColor"
+      />
+      <path
+        d="M12.4999 13.5417C14.2258 13.5417 15.6249 12.1426 15.6249 10.4167C15.6249 8.69086 14.2258 7.29175 12.4999 7.29175C10.774 7.29175 9.37492 8.69086 9.37492 10.4167C9.37492 12.1426 10.774 13.5417 12.4999 13.5417Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default RememberMeIcon;

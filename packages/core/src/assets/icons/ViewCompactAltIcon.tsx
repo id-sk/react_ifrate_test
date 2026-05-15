@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface ViewCompactAltIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const ViewCompactAltIcon = ({ size, ...props }: ViewCompactAltIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M20.8333 4.16663H4.16659C3.02075 4.16663 2.08325 5.10413 2.08325 6.24996V18.75C2.08325 19.8958 3.02075 20.8333 4.16659 20.8333H20.8333C21.9791 20.8333 22.9166 19.8958 22.9166 18.75V6.24996C22.9166 5.10413 21.9791 4.16663 20.8333 4.16663ZM11.9791 17.1875H7.81242V13.0208H11.9791V17.1875ZM11.9791 11.9791H7.81242V7.81246H11.9791V11.9791ZM17.1874 17.1875H13.0208V13.0208H17.1874V17.1875ZM17.1874 11.9791H13.0208V7.81246H17.1874V11.9791Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default ViewCompactAltIcon;

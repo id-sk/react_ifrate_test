@@ -1,0 +1,29 @@
+import React from 'react';
+
+export interface CancelScheduleSendIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const CancelScheduleSendIcon = ({ size, ...props }: CancelScheduleSendIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M16.6666 7.8125C16.2291 7.8125 15.802 7.85417 15.3749 7.92708L0.531169 1.5625L0.520752 8.85417L9.89575 10.9375L0.520752 13.0208L0.531169 20.3125L8.93742 16.7083C9.46867 20.5104 12.7187 23.4375 16.6666 23.4375C20.9791 23.4375 24.4791 19.9375 24.4791 15.625C24.4791 11.3125 20.9791 7.8125 16.6666 7.8125ZM16.6666 21.3542C13.5103 21.3542 10.9374 18.7812 10.9374 15.625C10.9374 12.4688 13.5103 9.89583 16.6666 9.89583C19.8228 9.89583 22.3958 12.4688 22.3958 15.625C22.3958 18.7812 19.8228 21.3542 16.6666 21.3542Z"
+        fill="currentColor"
+      />
+      <path
+        d="M18.5103 13.0521L16.6666 14.8854L14.8228 13.0521L14.0937 13.7812L15.927 15.625L14.0937 17.4688L14.8228 18.1979L16.6666 16.3646L18.5103 18.1979L19.2395 17.4688L17.4062 15.625L19.2395 13.7812L18.5103 13.0521Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default CancelScheduleSendIcon;

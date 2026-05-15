@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface FontDownloadOffIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const FontDownloadOffIcon = ({ size, ...props }: FontDownloadOffIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M13.7865 9.47404L12.8803 8.56779L13.1199 7.88029H13.224L13.7865 9.47404ZM11.4636 7.15112L12.0574 5.56779H14.2865L16.9428 12.6407L23.599 19.2865V3.48446C23.599 2.33862 22.6615 1.40112 21.5157 1.40112H5.71362L11.4636 7.15112ZM22.0261 23.599L20.6511 22.2345H4.84904C3.70321 22.2345 2.76571 21.297 2.76571 20.1511V4.34904L1.40112 2.97404L2.86987 1.50529L23.4949 22.1303L22.0261 23.599ZM13.2865 14.8699L9.84904 11.4324L7.35946 18.0678H9.52612L10.6615 14.8699H13.2865Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default FontDownloadOffIcon;

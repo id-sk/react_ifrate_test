@@ -1,0 +1,37 @@
+import React from 'react';
+
+export interface SportsHockeyIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const SportsHockeyIcon = ({ size, ...props }: SportsHockeyIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M2.08337 17.7082V20.8332H4.16671V16.6665H3.12504C2.55212 16.6665 2.08337 17.1353 2.08337 17.7082Z"
+        fill="currentColor"
+      />
+      <path
+        d="M9.37504 16.6665H5.20837V20.8332L10.0938 20.8228C10.4896 20.8228 10.8438 20.604 11.0209 20.2498L11.9271 18.2707L10.2709 14.6457L9.37504 16.6665Z"
+        fill="currentColor"
+      />
+      <path
+        d="M22.6146 16.9686C22.4271 16.7811 22.1667 16.6665 21.875 16.6665H20.8334V20.8332H22.9167V17.7082C22.9167 17.4165 22.8021 17.1561 22.6146 16.9686Z"
+        fill="currentColor"
+      />
+      <path
+        d="M14.1667 13.3748L18.3855 4.1665H14.8959L13.0625 8.30192L12.5521 9.44775L12.5 9.59359L10.1042 4.1665H6.61462L12.4167 16.8332L12.5 17.0207L13.9792 20.2498C14.1563 20.604 14.5105 20.8228 14.9063 20.8228L19.7917 20.8332V16.6665H15.625L14.1667 13.3748Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default SportsHockeyIcon;

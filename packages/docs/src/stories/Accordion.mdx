@@ -1,0 +1,86 @@
+import { Meta, Subtitle, Primary, Controls, Story, Stories } from '@storybook/addon-docs/blocks';
+import * as AccordionStories from './Accordion.stories';
+
+<Meta of={AccordionStories} />
+
+# Accordion (Akordeón)
+
+<Subtitle>
+  Skladací komponent pre zobrazovanie a skrývanie obsahu v sekciách, ovládaný vanilla JS.
+</Subtitle>
+
+## Overview (Prehľad)
+
+Komponent `Accordion` zobrazuje zoznam sekcií, kde každá sekcia má nadpis a skrytý obsah. Kliknutím na nadpis sa obsah rozbalí alebo zabalí. Komponent je implementovaný ako čistý HTML s vanilla JS inicializáciou — nevyžaduje React stav na ovládanie otvárania/zatvárania.
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Varianty
+
+### Predvolený
+
+Základný akordeón s dvoma alebo viacerými sekciami.
+
+<Story of={AccordionStories.Default} />
+
+### Mobile
+
+<Story of={AccordionStories.Mobile} />
+
+## Štruktúra položky
+
+Každá položka (`AccordionItemProps`) prijíma:
+
+| Prop       | Typ                  | Popis                                                                   |
+| ---------- | -------------------- | ----------------------------------------------------------------------- |
+| `title`    | `string`             | Nadpis sekcie zobrazený v tlačidle                                      |
+| `children` | `ReactNode`          | Obsah sekcie (ľubovoľné JSX)                                            |
+| `id`       | `string` (voliteľné) | ID pre `aria-controls` / `id` obsahu; ak chýba, generuje sa automaticky |
+
+## Prístupnosť (Accessibility)
+
+- Tlačidlo sekcie má `aria-expanded` — automaticky prepínané vanilla JS skriptom
+- `aria-controls` odkazuje na `id` obsahu sekcie
+- Ikona šípky má `aria-hidden="true"` — je dekoratívna
+- Obsah je skrytý cez natívny atribút `hidden` — správne interpretovaný čítačkami obrazovky
+
+## Inicializácia
+
+Komponent vyžaduje zavolanie `initIDSK()` po vložení do DOM:
+
+```tsx
+import { Accordion } from '@idsk/core';
+import { initIDSK } from '@idsk/core/vanilla';
+
+// V React komponente
+useEffect(() => {
+  initIDSK();
+}, []);
+```
+
+## Použitie
+
+```tsx
+import { Accordion } from '@idsk/core';
+
+<Accordion
+  items={[
+    {
+      title: 'Prvá sekcia',
+      children: <p>Obsah prvej sekcie.</p>,
+    },
+    {
+      title: 'Druhá sekcia',
+      children: <p>Obsah druhej sekcie.</p>,
+    },
+  ]}
+/>;
+```
+
+## Všetky príbehy
+
+<Stories />

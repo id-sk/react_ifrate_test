@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface SimCardIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const SimCardIcon = ({ size, ...props }: SimCardIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M20.823 4.16659C20.823 3.02075 19.8959 2.08325 18.7501 2.08325H10.4167L4.16675 8.33325V20.8333C4.16675 21.9791 5.10425 22.9166 6.25008 22.9166H18.7605C19.9063 22.9166 20.8334 21.9791 20.8334 20.8333L20.823 4.16659ZM9.37508 19.7916H7.29175V17.7083H9.37508V19.7916ZM17.7084 19.7916H15.6251V17.7083H17.7084V19.7916ZM9.37508 15.6249H7.29175V11.4583H9.37508V15.6249ZM13.5417 19.7916H11.4584V15.6249H13.5417V19.7916ZM13.5417 13.5416H11.4584V11.4583H13.5417V13.5416ZM17.7084 15.6249H15.6251V11.4583H17.7084V15.6249Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default SimCardIcon;

@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface NumbersIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const NumbersIcon = ({ size, ...props }: NumbersIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M21.3542 10.4167L21.875 8.33341H17.7083L18.75 4.16675H16.6667L15.625 8.33341H11.4583L12.5 4.16675H10.4167L9.375 8.33341H5.20833L4.6875 10.4167H8.85417L7.8125 14.5834H3.64583L3.125 16.6667H7.29167L6.25 20.8334H8.33333L9.375 16.6667H13.5417L12.5 20.8334H14.5833L15.625 16.6667H19.7917L20.3125 14.5834H16.1458L17.1875 10.4167H21.3542ZM14.0625 14.5834H9.89583L10.9375 10.4167H15.1042L14.0625 14.5834Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default NumbersIcon;

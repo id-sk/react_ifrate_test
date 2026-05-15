@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface KitchenIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const KitchenIcon = ({ size, ...props }: KitchenIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M20.8334 9.37516V4.16683C20.8334 3.021 19.8959 2.0835 18.7501 2.0835H6.25008C5.10425 2.0835 4.16675 3.021 4.16675 4.16683V9.37516H20.8334ZM8.33341 5.2085H10.4167V8.3335H8.33341V5.2085ZM4.16675 11.4585V20.8335C4.16675 21.9793 5.10425 22.9168 6.25008 22.9168H18.7501C19.8959 22.9168 20.8334 21.9793 20.8334 20.8335V11.4585H4.16675ZM10.4167 17.7085H8.33341V12.5002H10.4167V17.7085Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default KitchenIcon;

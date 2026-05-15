@@ -1,0 +1,23 @@
+/* Suppress hover ring and pointer cursor on form controls when a tooltip trigger
+   nested inside their associated label is hovered.
+
+   Root cause: browsers propagate :hover from <label> to its associated <input>
+   via the htmlFor/for relationship. When the tooltip trigger is inside the label,
+   hovering it puts the label in :hover, which the browser forwards to the linked
+   form control — causing an unwanted hover ring on the input/checkbox/radio.
+
+   Fix: use :has() on the component container (common ancestor of both the label
+   and the form control) to cancel box-shadow when the trigger is hovered.
+   No @media (hover: hover) wrapper needed — on touch devices the ring is never
+   applied, so box-shadow: none is a safe no-op. */
+
+label:has(.idsk-tooltip__trigger:hover) {
+  cursor: default;
+}
+
+.idsk-input-container:has(.idsk-tooltip__trigger:hover) .idsk-input,
+.idsk-textarea-container:has(.idsk-tooltip__trigger:hover) .idsk-textarea,
+.idsk-checkbox:has(.idsk-tooltip__trigger:hover) .idsk-checkbox__input,
+.idsk-radio:has(.idsk-tooltip__trigger:hover) .idsk-radio__input {
+  box-shadow: none;
+}

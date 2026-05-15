@@ -1,0 +1,18 @@
+@reference "tailwindcss";
+
+@import 'tw-animate-css';
+@import './fonts.css';
+
+@source '..';
+
+@custom-variant dark (&:is(.dark *));
+
+@import '../style/tailwind.css';
+@import './tooltip-hover-guard.css';
+@import '../components/Button/style.css';
+@import '../components/Input/style.css';
+@import '../components/Checkbox/style.css';
+@import '../components/Accordion/style.css';
+@import '../components/Tooltip/style.css';
+@import '../components/Textarea/style.css';
+@import '../components/Radio/style.css';

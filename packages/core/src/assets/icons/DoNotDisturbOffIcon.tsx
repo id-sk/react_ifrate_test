@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface DoNotDisturbOffIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const DoNotDisturbOffIcon = ({ size, ...props }: DoNotDisturbOffIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M18.2292 10.9375V13.0208H16.7083L21.5833 17.8958C22.75 16.2188 23.4375 14.1771 23.4375 11.9792C23.4375 6.22917 18.7708 1.5625 13.0208 1.5625C10.8229 1.5625 8.78125 2.25 7.10417 3.41667L14.625 10.9375H18.2292ZM2.88542 1.84375L1.5625 3.16667L4.45833 6.0625C3.29167 7.73958 2.60417 9.78125 2.60417 11.9792C2.60417 17.7292 7.27083 22.3958 13.0208 22.3958C15.2187 22.3958 17.2604 21.7083 18.9375 20.5417L21.8333 23.4375L23.1562 22.1146L2.88542 1.84375ZM7.8125 13.0208V10.9375H9.33333L11.4167 13.0208H7.8125Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default DoNotDisturbOffIcon;

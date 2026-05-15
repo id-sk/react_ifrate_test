@@ -1,0 +1,38 @@
+import React from 'react';
+
+export interface AppRegistrationIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const AppRegistrationIcon = ({ size, ...props }: AppRegistrationIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path d="M14.0624 4.16675H9.89575V8.33341H14.0624V4.16675Z" fill="currentColor" />
+      <path d="M7.81242 16.6667H3.64575V20.8334H7.81242V16.6667Z" fill="currentColor" />
+      <path d="M7.81242 10.4167H3.64575V14.5834H7.81242V10.4167Z" fill="currentColor" />
+      <path d="M7.81242 4.16675H3.64575V8.33341H7.81242V4.16675Z" fill="currentColor" />
+      <path
+        d="M14.0624 12.9376V10.4167H9.89575V14.5834H12.4166L14.0624 12.9376Z"
+        fill="currentColor"
+      />
+      <path
+        d="M21.2291 11.7605L20.0103 10.5417C19.8437 10.3751 19.5728 10.3751 19.4062 10.5417L18.4895 11.4584L20.3124 13.2813L21.2291 12.3647C21.3958 12.198 21.3958 11.9272 21.2291 11.7605Z"
+        fill="currentColor"
+      />
+      <path
+        d="M10.9374 19.0105V20.8334H12.7603L19.7083 13.8855L17.8853 12.0626L10.9374 19.0105Z"
+        fill="currentColor"
+      />
+      <path d="M20.3124 4.16675H16.1458V8.33341H20.3124V4.16675Z" fill="currentColor" />
+    </svg>
+  );
+};
+
+export default AppRegistrationIcon;

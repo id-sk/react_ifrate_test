@@ -1,0 +1,109 @@
+import { Meta, Subtitle, Primary, Controls, Story, Stories } from '@storybook/addon-docs/blocks';
+import * as InputStories from './Input.stories';
+
+<Meta of={InputStories} />
+
+# Input (Textové pole)
+
+<Subtitle>
+  Vstupný komponent pre zadávanie textu s podporou popisu, validácie a ARIA atribútov.
+</Subtitle>
+
+## Overview (Prehľad)
+
+Komponent `Input` slúži na zadávanie textového vstupu používateľom. Podporuje povinné aj nepovinné polia, pomocné popisy, chybové stavy s ikonou varovania a rôzne veľkosti. Automaticky generuje `id` pre správne prepojenie labelu s vstupným poľom a nastavuje ARIA atribúty pre prístupnosť.
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Varianty
+
+### Povinné a nepovinné pole
+
+Povinné pole zobrazuje hviezdičku (`*`) vedľa labelu s `aria-hidden`, nepovinné pole zobrazuje text `(nepovinné pole)`.
+
+<Story of={InputStories.Required} />
+<br />
+<Story of={InputStories.Optional} />
+
+### S podnadpisom
+
+`labelDescription` pridáva vysvetľujúci text pod label, pred vstupné pole.
+
+<Story of={InputStories.WithSubheading} />
+
+### S popisom
+
+`inputDescription` zobrazí pomocný text pod vstupným poľom. Je prepojený cez `aria-describedby` pre čítačky obrazovky.
+
+<Story of={InputStories.WithDescription} />
+
+### S tooltipom
+
+`tooltip` zobrazí ikonu „i" vedľa labelu s kontextovou nápovedom.
+
+<Story of={InputStories.WithTooltip} />
+
+### Chybový stav
+
+Variant `error` zobrazí ikonu varovania vo vstupnom poli a `errorDescription` pod ním. Nastaví sa `aria-invalid="true"` a `aria-describedby` na id chybového textu.
+
+<Story of={InputStories.Error} />
+
+### Zakázané pole
+
+`disabled` zablokuje interakciu s poľom.
+
+<Story of={InputStories.Disabled} />
+
+### Veľkosti
+
+Komponent podporuje dve veľkosti: `sm` (malé) a `default` (štandardné).
+
+<Story of={InputStories.Sizes} />
+
+## Kompletné príklady
+
+### Desktop
+
+<Story of={InputStories.Desktop} />
+
+### Mobile
+
+<Story of={InputStories.Mobile} />
+
+## Prístupnosť (Accessibility)
+
+- Label je vždy prepojený s vstupom cez `htmlFor` / `id` (automaticky generované cez `useId` ak nie je zadané)
+- `aria-describedby` odkazuje na `inputDescription` (hint) a/alebo `errorDescription` pokiaľ sú prítomné
+- `aria-invalid="true"` je nastavené pri variante `error`
+- Hviezdička pre povinné pole má `aria-hidden="true"` — povinnosť je komunikovaná cez `required` atribút na `<input>`
+
+## Použitie
+
+```tsx
+import { Input } from '@idsk/core';
+
+<Input
+  label="Meno"
+  labelDescription="Zadajte vaše celé meno"
+  placeholder="Napr. Ján Novák"
+  required
+  inputDescription="Použite diakritiku"
+/>
+
+<Input
+  label="E-mail"
+  type="email"
+  variant="error"
+  errorDescription="Neplatná e-mailová adresa"
+  required
+/>
+```
+
+## Všetky príbehy
+
+<Stories />

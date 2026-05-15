@@ -1,0 +1,152 @@
+import { cva, type VariantProps } from 'class-variance-authority';
+import { Label } from 'radix-ui';
+
+import React, { useId, useState } from 'react';
+
+import { cn } from '../../lib/utils';
+import AsteriskIcon from '../../assets/icons/AsteriskIcon.tsx';
+import WarningIcon from '../../assets/icons/WarningIcon.tsx';
+import { Tooltip, type TooltipProps } from '../Tooltip';
+
+const textareaVariants = cva('idsk-textarea', {
+  variants: {
+    variant: {
+      default: 'idsk-textarea--default',
+      error: 'idsk-textarea--error',
+    },
+  },
+  defaultVariants: {
+    variant: 'default',
+  },
+});
+
+export interface TextareaProps
+  extends React.TextareaHTMLAttributes<HTMLTextAreaElement>, VariantProps<typeof textareaVariants> {
+  ref?: React.Ref<HTMLTextAreaElement>;
+  label?: string;
+  labelDescription?: string;
+  required?: boolean;
+  inputDescription?: string;
+  disabled?: boolean;
+  errorDescription?: string;
+  tooltip?: TooltipProps;
+  maxLength: number;
+}
+
+/**
+ * Textarea component for multi-line text entry.
+ */
+function Textarea({
+  className,
+  variant,
+  label,
+  labelDescription,
+  id,
+  required,
+  inputDescription,
+  disabled,
+  errorDescription,
+  tooltip,
+  maxLength,
+  value,
+  defaultValue,
+  onChange,
+  ref,
+  ...props
+}: TextareaProps) {
+    const generatedId = useId();
+    const textareaId = id || generatedId;
+    const hintId = `${textareaId}-hint`;
+    const errorId = `${textareaId}-error`;
+
+    const isError = variant === 'error';
+
+    // For uncontrolled usage, track char count via state; for controlled, derive from value directly.
+    const [uncontrolledCount, setUncontrolledCount] = useState(() =>
+      String(defaultValue ?? '').length,
+    );
+
+    const charCount = value !== undefined ? String(value).length : uncontrolledCount;
+
+    const handleOnChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+      if (value === undefined) {
+        setUncontrolledCount(event.target.value.length);
+      }
+      onChange?.(event);
+    };
+
+    const ariaDescribedBy =
+      [inputDescription ? hintId : null, isError && errorDescription ? errorId : null]
+        .filter(Boolean)
+        .join(' ') || undefined;
+
+    return (
+      <div className="idsk-textarea-container">
+        {label && (
+          <Label.Root htmlFor={textareaId} className="idsk-textarea__label">
+            <span className="idsk-textarea__label-text">
+              {label}{' '}
+              {required ? (
+                <span className="idsk-textarea__label-required" aria-hidden={true}>
+                  <AsteriskIcon size={7} />
+                </span>
+              ) : (
+                <span className="idsk-textarea__label-not-required">(nepovinné pole)</span>
+              )}
+              {tooltip && <Tooltip {...tooltip} />}
+            </span>
+
+            {labelDescription && (
+              <span className="idsk-textarea__label-description">{labelDescription}</span>
+            )}
+          </Label.Root>
+        )}
+        <div className={cn('idsk-textarea__wrapper')}>
+          <textarea
+            id={textareaId}
+            className={cn(textareaVariants({ variant, className }))}
+            ref={ref}
+            required={required}
+            disabled={disabled}
+            maxLength={maxLength}
+            onChange={handleOnChange}
+            value={value}
+            defaultValue={defaultValue}
+            {...props}
+            aria-invalid={isError ? true : undefined}
+            aria-describedby={ariaDescribedBy}
+          />
+
+          {isError && (
+            <span className="idsk-textarea__wrapper__error-icon">
+              <WarningIcon size={20} />
+            </span>
+          )}
+
+          {maxLength !== undefined && (
+            <span className="idsk-character-count" aria-live="polite">
+              {charCount}/{maxLength}
+            </span>
+          )}
+        </div>
+
+        <div className="idsk-textarea__footer">
+          <div className="idsk-textarea__footer-left">
+            {inputDescription && (
+              <span id={hintId} className="idsk-textarea__description">
+                {inputDescription}
+              </span>
+            )}
+
+            {isError && errorDescription && (
+              <span id={errorId} className="idsk-textarea__error-description">
+                {errorDescription}
+              </span>
+            )}
+          </div>
+        </div>
+      </div>
+    );
+}
+
+export { Textarea, textareaVariants };

@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface InputIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const InputIcon = ({ size, ...props }: InputIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M21.8751 3.13544H3.12508C1.97925 3.13544 1.04175 4.07294 1.04175 5.21877V9.37502H3.12508V5.19794H21.8751V19.8125H3.12508V15.625H1.04175V19.8021C1.04175 20.9479 1.97925 21.8646 3.12508 21.8646H21.8751C23.0209 21.8646 23.9584 20.9479 23.9584 19.8021V5.21877C23.9584 4.06252 23.0209 3.13544 21.8751 3.13544ZM11.4584 16.6667L15.6251 12.5L11.4584 8.33335V11.4584H1.04175V13.5417H11.4584V16.6667Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default InputIcon;

@@ -1,0 +1,29 @@
+import React from 'react';
+
+export interface SportsMartialArtsIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const SportsMartialArtsIcon = ({ size, ...props }: SportsMartialArtsIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M20.625 2.60417L12.0833 9.58333L10.8229 8.5L14.5729 6.33333L9.80208 1.5625L8.33333 3.03125L11.1875 5.88542L5.20833 9.33333L3.96875 13.8021L6.53125 18.2292L8.33333 17.1875L6.21875 13.5208L6.58333 12.1667L9.89583 14.0625L10.4167 23.4375H12.5L13.0208 13.0208L21.875 4.0625L20.625 2.60417Z"
+        fill="currentColor"
+      />
+      <path
+        d="M5.20833 7.8125C6.35893 7.8125 7.29167 6.87976 7.29167 5.72917C7.29167 4.57857 6.35893 3.64583 5.20833 3.64583C4.05774 3.64583 3.125 4.57857 3.125 5.72917C3.125 6.87976 4.05774 7.8125 5.20833 7.8125Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default SportsMartialArtsIcon;

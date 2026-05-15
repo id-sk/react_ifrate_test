@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface TextRotationAngleupIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const TextRotationAngleupIcon = ({ size, ...props }: TextRotationAngleupIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M4.67716 3.75525L3.573 4.85942L8.17716 16.4532L9.71883 14.9115L8.7605 12.6302L12.448 8.94275L14.7292 9.90108L16.2709 8.35942L4.67716 3.75525ZM7.89591 10.8386L5.58341 5.76567L10.6563 8.08858L7.89591 10.8386ZM21.4272 9.08858H17.0105L18.4792 10.5573L9.27091 19.7657L10.7501 21.2448L19.9584 12.0365L21.4272 13.5052V9.08858Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default TextRotationAngleupIcon;

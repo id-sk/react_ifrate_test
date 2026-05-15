@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface CellWifiIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const CellWifiIcon = ({ size, ...props }: CellWifiIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M5.24487 22.3971H21.9115V5.69914L5.24487 22.3971ZM19.8282 20.3137H17.7449V12.7929L19.8282 10.7096V20.3137ZM4.43237 7.00122L3.08862 5.65747C7.15112 1.58455 13.7553 1.58455 17.8282 5.65747L16.4845 7.00122C13.1615 3.6783 7.75529 3.6783 4.43237 7.00122ZM12.4636 11.0116L10.4532 13.0221L8.44279 11.0116C9.55737 9.90747 11.349 9.90747 12.4636 11.0116ZM13.8074 9.6783C11.9532 7.83455 8.95321 7.83455 7.10946 9.6783L5.76571 8.33455C8.34904 5.75122 12.5574 5.75122 15.1407 8.33455L13.8074 9.6783Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default CellWifiIcon;

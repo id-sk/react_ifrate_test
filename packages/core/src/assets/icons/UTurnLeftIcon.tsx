@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface UTurnLeftIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const UTurnLeftIcon = ({ size, ...props }: UTurnLeftIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M20.3125 9.375V21.875H18.2292V9.375C18.2292 7.07292 16.3646 5.20833 14.0625 5.20833C11.7604 5.20833 9.89583 7.07292 9.89583 9.375V13.7188L11.5521 12.0625L13.0208 13.5417L8.85417 17.7083L4.6875 13.5417L6.15625 12.0729L7.8125 13.7188V9.375C7.8125 5.92708 10.6146 3.125 14.0625 3.125C17.5104 3.125 20.3125 5.92708 20.3125 9.375Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default UTurnLeftIcon;

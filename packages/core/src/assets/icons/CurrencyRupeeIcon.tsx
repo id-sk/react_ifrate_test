@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface CurrencyRupeeIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const CurrencyRupeeIcon = ({ size, ...props }: CurrencyRupeeIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M14.2292 7.29167C13.6458 6.0625 12.3958 5.20833 10.9375 5.20833H6.25V3.125H18.75V5.20833H15.3542C15.8542 5.8125 16.2292 6.52083 16.4479 7.29167H18.75V9.375H16.6458C16.3854 12.2917 13.9271 14.5833 10.9375 14.5833H10.1771L17.1875 21.875H14.3021L7.29167 14.5833V12.5H10.9375C12.7708 12.5 14.2917 11.1458 14.5417 9.375H6.25V7.29167H14.2292Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default CurrencyRupeeIcon;

@@ -1,0 +1,29 @@
+import React from 'react';
+
+export interface HomeRepairServiceIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const HomeRepairServiceIcon = ({ size, ...props }: HomeRepairServiceIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M18.7499 16.6665H16.6666V15.6248H8.33325V16.6665H6.24992V15.6248H2.08325V20.8332H22.9166V15.6248H18.7499V16.6665Z"
+        fill="currentColor"
+      />
+      <path
+        d="M20.8333 8.33317H17.7083V6.24984C17.7083 5.104 16.7708 4.1665 15.6249 4.1665H9.37492C8.22909 4.1665 7.29159 5.104 7.29159 6.24984V8.33317H4.16659C3.02075 8.33317 2.08325 9.27067 2.08325 10.4165V14.5832H6.24992V12.4998H8.33325V14.5832H16.6666V12.4998H18.7499V14.5832H22.9166V10.4165C22.9166 9.27067 21.9791 8.33317 20.8333 8.33317ZM15.6249 8.33317H9.37492V6.24984H15.6249V8.33317Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default HomeRepairServiceIcon;

@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface ArtTrackIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const ArtTrackIcon = ({ size, ...props }: ArtTrackIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M22.9166 13.5416H14.5833V11.4583H22.9166V13.5416ZM22.9166 7.29163H14.5833V9.37496H22.9166V7.29163ZM14.5833 17.7083H22.9166V15.625H14.5833V17.7083ZM12.4999 9.37496V15.625C12.4999 16.7708 11.5624 17.7083 10.4166 17.7083H4.16659C3.02075 17.7083 2.08325 16.7708 2.08325 15.625V9.37496C2.08325 8.22913 3.02075 7.29163 4.16659 7.29163H10.4166C11.5624 7.29163 12.4999 8.22913 12.4999 9.37496ZM10.9374 15.625L8.59367 12.5L6.77075 14.8541L5.46867 13.2812L3.64575 15.625H10.9374Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default ArtTrackIcon;

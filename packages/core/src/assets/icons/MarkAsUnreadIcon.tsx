@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface MarkAsUnreadIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const MarkAsUnreadIcon = ({ size, ...props }: MarkAsUnreadIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M19.6145 7.81246H16.9062L10.9374 4.68746L4.16659 8.22913V18.2291C3.02075 18.2291 2.08325 17.2916 2.08325 16.1458V7.98954C2.08325 7.43746 2.41659 6.85413 2.91659 6.59371L10.9374 2.60413L18.7916 6.59371C19.2395 6.83329 19.552 7.32288 19.6145 7.81246ZM20.8333 8.85413H7.29159C6.14575 8.85413 5.20825 9.79163 5.20825 10.9375V20.3125C5.20825 21.4583 6.14575 22.3958 7.29159 22.3958H20.8333C21.9791 22.3958 22.9166 21.4583 22.9166 20.3125V10.9375C22.9166 9.79163 21.9791 8.85413 20.8333 8.85413ZM20.8333 12.677L14.0624 16.1458L7.29159 12.677V10.9375L14.0624 14.4062L20.8333 10.9375V12.677Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default MarkAsUnreadIcon;

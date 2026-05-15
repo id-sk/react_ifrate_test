@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface LoopIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const LoopIcon = ({ size, ...props }: LoopIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M12.5 4.16663V1.04163L8.33329 5.20829L12.5 9.37496V6.24996C15.9479 6.24996 18.75 9.05204 18.75 12.5C18.75 13.552 18.4895 14.552 18.0208 15.4166L19.5416 16.9375C20.3541 15.6562 20.8333 14.1354 20.8333 12.5C20.8333 7.89579 17.1041 4.16663 12.5 4.16663ZM12.5 18.75C9.05204 18.75 6.24996 15.9479 6.24996 12.5C6.24996 11.4479 6.51038 10.4479 6.97913 9.58329L5.45829 8.06246C4.64579 9.34371 4.16663 10.8645 4.16663 12.5C4.16663 17.1041 7.89579 20.8333 12.5 20.8333V23.9583L16.6666 19.7916L12.5 15.625V18.75Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default LoopIcon;

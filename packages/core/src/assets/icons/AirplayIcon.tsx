@@ -1,0 +1,26 @@
+import React from 'react';
+
+export interface AirplayIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const AirplayIcon = ({ size, ...props }: AirplayIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path d="M6.25008 22.3958H18.7501L12.5001 16.1458L6.25008 22.3958Z" fill="currentColor" />
+      <path
+        d="M21.8751 2.60413H3.12508C1.97925 2.60413 1.04175 3.54163 1.04175 4.68746V17.1875C1.04175 18.3333 1.97925 19.2708 3.12508 19.2708H7.29175V17.1875H3.12508V4.68746H21.8751V17.1875H17.7084V19.2708H21.8751C23.0209 19.2708 23.9584 18.3333 23.9584 17.1875V4.68746C23.9584 3.54163 23.0209 2.60413 21.8751 2.60413Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default AirplayIcon;

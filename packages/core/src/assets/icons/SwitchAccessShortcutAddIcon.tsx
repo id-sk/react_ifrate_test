@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface SwitchAccessShortcutAddIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const SwitchAccessShortcutAddIcon = ({ size, ...props }: SwitchAccessShortcutAddIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M23.4375 14.5834H21.3542V12.5H19.2708V14.5834H17.1875V16.6667H19.2708V18.75H21.3542V16.6667H23.4375V14.5834ZM5.79167 9.31254L3.64583 8.33337L5.79167 7.35421L6.77083 5.20837L7.75 7.35421L9.89583 8.33337L7.75 9.31254L6.77083 11.4584L5.79167 9.31254ZM6.77083 21.875L7.75 19.7292L9.89583 18.75L7.75 17.7709L6.77083 15.625L5.79167 17.7709L3.64583 18.75L5.79167 19.7292L6.77083 21.875ZM2.98958 12.8855L1.5625 13.5417L2.98958 14.198L3.64583 15.625L4.30208 14.198L5.72917 13.5417L4.30208 12.8855L3.64583 11.4584L2.98958 12.8855ZM10.9375 12.5C10.9375 9.65629 12.0625 7.01046 13.8021 4.94796L10.9375 2.08337H18.2292V9.37504L15.2917 6.43754C13.8958 8.14587 13.0208 10.2917 13.0208 12.5C13.0208 15.9584 15.2083 19.125 18.2292 20.6459V22.9167C13.9687 21.2605 10.9375 17.0313 10.9375 12.5Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default SwitchAccessShortcutAddIcon;

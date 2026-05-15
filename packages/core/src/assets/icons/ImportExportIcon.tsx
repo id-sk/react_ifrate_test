@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface ImportExportIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const ImportExportIcon = ({ size, ...props }: ImportExportIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M9.37492 3.125L5.20825 7.28125H8.33325V14.5833H10.4166V7.28125H13.5416L9.37492 3.125ZM16.6666 17.7188V10.4167H14.5833V17.7188H11.4583L15.6249 21.875L19.7916 17.7188H16.6666Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default ImportExportIcon;

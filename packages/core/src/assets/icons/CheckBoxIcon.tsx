@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface CheckBoxIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const CheckBoxIcon = ({ size, ...props }: CheckBoxIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M19.7917 3.125H5.20833C4.05208 3.125 3.125 4.0625 3.125 5.20833V19.7917C3.125 20.9375 4.05208 21.875 5.20833 21.875H19.7917C20.9479 21.875 21.875 20.9375 21.875 19.7917V5.20833C21.875 4.0625 20.9479 3.125 19.7917 3.125ZM10.4167 17.7083L5.20833 12.5L6.67708 11.0312L10.4167 14.7604L18.3229 6.85417L19.7917 8.33333L10.4167 17.7083Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default CheckBoxIcon;

@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface SignpostIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const SignpostIcon = ({ size, ...props }: SignpostIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M13.5417 10.4168H18.75L21.875 7.29183L18.75 4.16683H13.5417V2.0835H11.4583V4.16683H4.16667V10.4168H11.4583V12.5002H6.25L3.125 15.6252L6.25 18.7502H11.4583V22.9168H13.5417V18.7502H20.8333V12.5002H13.5417V10.4168Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default SignpostIcon;

@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface Icon4gMobiledataIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const Icon4gMobiledataIcon = ({ size, ...props }: Icon4gMobiledataIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M9.375 7.29175H7.29167V12.5001H5.20833V7.29175H3.125V14.5834H7.29167V17.7084H9.375V14.5834H11.4583V12.5001H9.375V7.29175ZM17.7083 11.4584V13.5417H19.7917V15.6251H14.5833V9.37508H21.875C21.875 8.22925 20.9375 7.29175 19.7917 7.29175H14.5833C13.4375 7.29175 12.5 8.22925 12.5 9.37508V15.6251C12.5 16.7709 13.4375 17.7084 14.5833 17.7084H19.7917C20.9375 17.7084 21.875 16.7709 21.875 15.6251V11.4584H17.7083Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default Icon4gMobiledataIcon;

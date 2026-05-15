@@ -1,0 +1,29 @@
+import React from 'react';
+
+export interface InstallDesktopIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const InstallDesktopIcon = ({ size, ...props }: InstallDesktopIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M20.8333 17.7083H4.16659V5.20833H12.4999V3.125H4.16659C3.01034 3.125 2.08325 4.05208 2.08325 5.20833V17.7083C2.08325 18.8542 3.01034 19.7917 4.16659 19.7917H8.33325V21.875H16.6666V19.7917H20.8333C21.9791 19.7917 22.9166 18.8542 22.9166 17.7083V14.5833H20.8333V17.7083Z"
+        fill="currentColor"
+      />
+      <path
+        d="M17.7083 14.5833L22.9166 9.375L21.4478 7.90625L18.7499 10.5938V3.125H16.6666V10.5938L13.9687 7.90625L12.4999 9.375L17.7083 14.5833Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default InstallDesktopIcon;

@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface TerminalIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const TerminalIcon = ({ size, ...props }: TerminalIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M20.8333 4.16663H4.16659C3.01034 4.16663 2.08325 5.10413 2.08325 6.24996V18.75C2.08325 19.8958 3.01034 20.8333 4.16659 20.8333H20.8333C21.9791 20.8333 22.9166 19.8958 22.9166 18.75V6.24996C22.9166 5.10413 21.9895 4.16663 20.8333 4.16663ZM20.8333 18.75H4.16659V8.33329H20.8333V18.75ZM18.7499 17.7083H12.4999V15.625H18.7499V17.7083ZM7.81242 17.7083L6.34367 16.2395L9.03117 13.5416L6.33325 10.8437L7.81242 9.37496L11.9791 13.5416L7.81242 17.7083Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default TerminalIcon;

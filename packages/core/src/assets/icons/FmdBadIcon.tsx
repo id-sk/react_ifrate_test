@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface FmdBadIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const FmdBadIcon = ({ size, ...props }: FmdBadIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M12.5001 2.08325C8.12508 2.08325 4.16675 5.43742 4.16675 10.6249C4.16675 14.0833 6.948 18.177 12.5001 22.9166C18.0522 18.177 20.8334 14.0833 20.8334 10.6249C20.8334 5.43742 16.8751 2.08325 12.5001 2.08325ZM13.5417 15.6249H11.4584V13.5416H13.5417V15.6249ZM13.5417 11.4583H11.4584V6.24992H13.5417V11.4583Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default FmdBadIcon;

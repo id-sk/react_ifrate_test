@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface AccessAlarmIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const AccessAlarmIcon = ({ size, ...props }: AccessAlarmIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M22.9166 6.03133L18.1249 2.0105L16.7812 3.60425L21.5728 7.62508L22.9166 6.03133ZM8.20825 3.60425L6.87492 2.0105L2.08325 6.02091L3.427 7.61466L8.20825 3.60425ZM13.0208 8.40633H11.4583V14.6563L16.4062 17.6251L17.1874 16.3438L13.0208 13.8751V8.40633ZM12.4999 4.23966C7.32284 4.23966 3.12492 8.43758 3.12492 13.6147C3.12492 18.7917 7.31242 22.9897 12.4999 22.9897C17.677 22.9897 21.8749 18.7917 21.8749 13.6147C21.8749 8.43758 17.677 4.23966 12.4999 4.23966ZM12.4999 20.9063C8.46867 20.9063 5.20825 17.6459 5.20825 13.6147C5.20825 9.58342 8.46867 6.323 12.4999 6.323C16.5312 6.323 19.7916 9.58342 19.7916 13.6147C19.7916 17.6459 16.5312 20.9063 12.4999 20.9063Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default AccessAlarmIcon;

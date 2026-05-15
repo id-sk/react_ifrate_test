@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface NetworkWifiIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const NetworkWifiIcon = ({ size, ...props }: NetworkWifiIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M25 8.83325C21.8021 5.62492 17.3854 3.64575 12.5 3.64575C7.61458 3.64575 3.19792 5.62492 0 8.83325L12.5 21.3541L25 8.83325ZM3.04167 8.927C5.73958 6.85409 9.03125 5.72909 12.5 5.72909C15.9687 5.72909 19.2604 6.85409 21.9583 8.927L20.4687 10.4166C18.2292 8.79159 15.4792 7.81242 12.5 7.81242C9.52083 7.81242 6.77083 8.79159 4.53125 10.427L3.04167 8.927Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default NetworkWifiIcon;

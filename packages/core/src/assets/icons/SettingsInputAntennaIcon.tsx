@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface SettingsInputAntennaIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const SettingsInputAntennaIcon = ({ size, ...props }: SettingsInputAntennaIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M12.5001 5.51567C8.46883 5.51567 5.20841 8.77608 5.20841 12.8073H7.29175C7.29175 9.93233 9.62508 7.599 12.5001 7.599C15.3751 7.599 17.7084 9.93233 17.7084 12.8073H19.7917C19.7917 8.77608 16.5313 5.51567 12.5001 5.51567ZM13.5417 15.1927C14.4584 14.7865 15.1042 13.8802 15.1042 12.8073C15.1042 11.3698 13.9376 10.2032 12.5001 10.2032C11.0626 10.2032 9.89591 11.3698 9.89591 12.8073C9.89591 13.8698 10.5417 14.7865 11.4584 15.1927V18.6303L7.90633 22.1823L9.37508 23.6511L12.5001 20.5261L15.6251 23.6511L17.0938 22.1823L13.5417 18.6303V15.1927ZM12.5001 1.349C6.17716 1.349 1.04175 6.48442 1.04175 12.8073H3.12508C3.12508 7.63025 7.323 3.43233 12.5001 3.43233C17.6772 3.43233 21.8751 7.63025 21.8751 12.8073H23.9584C23.9584 6.48442 18.823 1.349 12.5001 1.349Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default SettingsInputAntennaIcon;

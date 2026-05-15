@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface AutoAwesomeMotionIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const AutoAwesomeMotionIcon = ({ size, ...props }: AutoAwesomeMotionIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M14.5833 2.0835H4.16659C3.01034 2.0835 2.08325 3.021 2.08325 4.16683V14.5835H4.16659V4.16683H14.5833V2.0835ZM18.7499 6.25016H8.33325C7.177 6.25016 6.24992 7.18766 6.24992 8.3335V18.7502H8.33325V8.3335H18.7499V6.25016ZM20.8333 10.4168H12.4999C11.3437 10.4168 10.4166 11.3543 10.4166 12.5002V20.8335C10.4166 21.9793 11.3437 22.9168 12.4999 22.9168H20.8333C21.9791 22.9168 22.9166 21.9793 22.9166 20.8335V12.5002C22.9166 11.3543 21.9791 10.4168 20.8333 10.4168Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default AutoAwesomeMotionIcon;

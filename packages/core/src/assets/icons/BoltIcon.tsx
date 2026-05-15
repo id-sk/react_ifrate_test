@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface BoltIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const BoltIcon = ({ size, ...props }: BoltIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M11.4545 21.875H10.4128L11.4545 14.5833H7.80863C7.20446 14.5833 7.21488 14.25 7.4128 13.8958C7.61071 13.5417 7.46488 13.8125 7.48571 13.7708C8.82946 11.3958 10.8503 7.85417 13.5378 3.125H14.5795L13.5378 10.4167H17.1836C17.694 10.4167 17.767 10.7604 17.6732 10.9479L17.6003 11.1042C13.4961 18.2812 11.4545 21.875 11.4545 21.875Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default BoltIcon;

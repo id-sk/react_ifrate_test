@@ -1,0 +1,27 @@
+import React from 'react';
+
+export interface SecurityUpdateWarningIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const SecurityUpdateWarningIcon = ({ size, ...props }: SecurityUpdateWarningIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path d="M13.5365 15.6251H11.4532V17.7084H13.5365V15.6251Z" fill="currentColor" />
+      <path d="M13.5365 7.29175H11.4532V13.5417H13.5365V7.29175Z" fill="currentColor" />
+      <path
+        d="M17.7032 1.04175H7.28654C6.14071 1.04175 5.21362 1.97925 5.21362 3.12508V21.8751C5.21362 23.0209 6.14071 23.9584 7.28654 23.9584H17.7032C18.849 23.9584 19.7865 23.0209 19.7865 21.8751V3.12508C19.7865 1.97925 18.849 1.04175 17.7032 1.04175ZM17.7032 18.7501H7.28654V6.25008H17.7032V18.7501Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default SecurityUpdateWarningIcon;

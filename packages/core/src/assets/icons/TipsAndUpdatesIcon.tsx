@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface TipsAndUpdatesIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const TipsAndUpdatesIcon = ({ size, ...props }: TipsAndUpdatesIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M6.51042 21.875H10.6771C10.6771 23.0208 9.73958 23.9583 8.59375 23.9583C7.44792 23.9583 6.51042 23.0208 6.51042 21.875ZM4.42708 20.8333H12.7604V18.75H4.42708V20.8333ZM16.4062 10.9375C16.4062 14.9166 13.6354 17.0416 12.4792 17.7083H4.70833C3.55208 17.0416 0.78125 14.9166 0.78125 10.9375C0.78125 6.62496 4.28125 3.12496 8.59375 3.12496C12.9062 3.12496 16.4062 6.62496 16.4062 10.9375ZM21.4792 8.71871L20.0521 9.37496L21.4792 10.0312L22.1354 11.4583L22.7917 10.0312L24.2188 9.37496L22.7917 8.71871L22.1354 7.29163L21.4792 8.71871ZM19.0104 7.29163L19.9896 5.14579L22.1354 4.16663L19.9896 3.18746L19.0104 1.04163L18.0312 3.18746L15.8854 4.16663L18.0312 5.14579L19.0104 7.29163Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default TipsAndUpdatesIcon;

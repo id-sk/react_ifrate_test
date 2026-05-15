@@ -1,0 +1,21 @@
+# Artifacts
+dist/
+build/
+coverage/
+.turbo/
+**/playwright/.cache/
+
+# Dependencies
+node_modules/
+
+# IDEs and Tools
+.vscode/
+.idea/
+.DS_Store
+
+# Reports
+playwright-report/
+test-results/
+
+# Lock files (optional, depending on preference)
+package-lock.json

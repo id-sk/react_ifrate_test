@@ -1,0 +1,26 @@
+{
+  "extends": ["stylelint-config-standard", "stylelint-config-tailwindcss"],
+  "rules": {
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "theme",
+          "utility",
+          "variant",
+          "reference",
+          "source",
+          "apply",
+          "layer",
+          "config",
+          "custom-variant"
+        ]
+      }
+    ],
+    "no-descending-specificity": null,
+    "selector-class-pattern": null,
+    "no-invalid-position-at-import-rule": null,
+    "custom-property-pattern": ["^[_a-z][a-z0-9-]*$", {}],
+    "nesting-selector-no-missing-scoping-root": null
+  }
+}

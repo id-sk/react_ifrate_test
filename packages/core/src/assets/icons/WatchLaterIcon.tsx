@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface WatchLaterIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const WatchLaterIcon = ({ size, ...props }: WatchLaterIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M12.4999 2.08337C6.77075 2.08337 2.08325 6.77087 2.08325 12.5C2.08325 18.2292 6.77075 22.9167 12.4999 22.9167C18.2291 22.9167 22.9166 18.2292 22.9166 12.5C22.9166 6.77087 18.2291 2.08337 12.4999 2.08337ZM16.8749 16.875L11.4583 13.5417V7.29171H13.0208V12.7084L17.7083 15.5209L16.8749 16.875Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default WatchLaterIcon;

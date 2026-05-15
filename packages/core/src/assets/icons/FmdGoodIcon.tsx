@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface FmdGoodIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const FmdGoodIcon = ({ size, ...props }: FmdGoodIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M12.5001 2.08325C8.12508 2.08325 4.16675 5.43742 4.16675 10.6249C4.16675 14.0833 6.948 18.177 12.5001 22.9166C18.0522 18.177 20.8334 14.0833 20.8334 10.6249C20.8334 5.43742 16.8751 2.08325 12.5001 2.08325ZM12.5001 12.4999C11.3542 12.4999 10.4167 11.5624 10.4167 10.4166C10.4167 9.27075 11.3542 8.33325 12.5001 8.33325C13.6459 8.33325 14.5834 9.27075 14.5834 10.4166C14.5834 11.5624 13.6459 12.4999 12.5001 12.4999Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default FmdGoodIcon;

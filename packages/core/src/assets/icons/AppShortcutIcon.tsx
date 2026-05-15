@@ -1,0 +1,37 @@
+import React from 'react';
+
+export interface AppShortcutIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const AppShortcutIcon = ({ size, ...props }: AppShortcutIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M15.625 18.75H5.20833V6.25002H15.625V7.29169H17.7083V3.12502C17.7083 1.97919 16.7708 1.04169 15.625 1.04169H5.20833C4.0625 1.04169 3.125 1.97919 3.125 3.12502V21.875C3.125 23.0209 4.0625 23.9584 5.20833 23.9584H15.625C16.7708 23.9584 17.7083 23.0209 17.7083 21.875V17.7084H15.625V18.75Z"
+        fill="currentColor"
+      />
+      <path
+        d="M19.1458 10.0209L19.7917 11.4584L20.4375 10.0209L21.875 9.37502L20.4375 8.72919L19.7917 7.29169L19.1458 8.72919L17.7083 9.37502L19.1458 10.0209Z"
+        fill="currentColor"
+      />
+      <path
+        d="M14.5833 8.33335L13.2812 11.1979L10.4167 12.5L13.2812 13.8021L14.5833 16.6667L15.8854 13.8021L18.75 12.5L15.8854 11.1979L14.5833 8.33335Z"
+        fill="currentColor"
+      />
+      <path
+        d="M19.7917 13.5417L19.1458 14.9792L17.7083 15.625L19.1458 16.2709L19.7917 17.7084L20.4375 16.2709L21.875 15.625L20.4375 14.9792L19.7917 13.5417Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default AppShortcutIcon;

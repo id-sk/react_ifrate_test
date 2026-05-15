@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface VignetteIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const VignetteIcon = ({ size, ...props }: VignetteIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M21.8751 3.125H3.12508C1.97925 3.125 1.04175 4.0625 1.04175 5.20833V19.7917C1.04175 20.9375 1.97925 21.875 3.12508 21.875H21.8751C23.0209 21.875 23.9584 20.9375 23.9584 19.7917V5.20833C23.9584 4.0625 23.0209 3.125 21.8751 3.125ZM12.5001 18.75C7.89591 18.75 4.16675 15.9479 4.16675 12.5C4.16675 9.05208 7.89591 6.25 12.5001 6.25C17.1042 6.25 20.8334 9.05208 20.8334 12.5C20.8334 15.9479 17.1042 18.75 12.5001 18.75Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default VignetteIcon;

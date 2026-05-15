@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface AssistantDirectionIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const AssistantDirectionIcon = ({ size, ...props }: AssistantDirectionIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M14.5834 10.4165H9.37508C8.75008 10.4165 8.33341 10.8332 8.33341 11.4582V15.6248H10.4167V12.4998H14.5834V15.104L18.2292 11.4582L14.5834 7.81234V10.4165ZM12.5001 1.0415C6.14591 1.0415 1.04175 6.14567 1.04175 12.4998C1.04175 18.854 6.14591 23.9582 12.5001 23.9582C18.8542 23.9582 23.9584 18.854 23.9584 12.4998C23.9584 6.14567 18.8542 1.0415 12.5001 1.0415ZM20.5522 13.104L13.0626 20.6248C12.698 20.9061 12.2397 20.9061 11.8647 20.6248L4.37508 13.104C4.09383 12.729 4.09383 12.2707 4.37508 11.8957L11.8647 4.37484C12.2292 4.09359 12.6876 4.09359 13.0626 4.37484L20.5522 11.8957C20.9272 12.1769 20.9272 12.729 20.5522 13.104Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default AssistantDirectionIcon;

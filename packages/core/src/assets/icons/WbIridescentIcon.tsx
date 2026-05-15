@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface WbIridescentIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const WbIridescentIcon = ({ size, ...props }: WbIridescentIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M5.20304 15.625H19.7864V9.375H5.20304V15.625ZM11.453 1.09375V4.16667H13.5364V1.09375H11.453ZM19.828 3.69792L17.9635 5.5625L19.4322 7.03125L21.3072 5.16667L19.828 3.69792ZM13.5364 23.9062V20.8333H11.453V23.9062H13.5364ZM21.2968 19.8333L19.4218 17.9688L17.953 19.4375L19.8176 21.3125L21.2968 19.8333ZM3.69263 5.16667L5.55721 7.03125L7.02596 5.5625L5.16138 3.69792L3.69263 5.16667ZM5.16138 21.3021L7.02596 19.4271L5.55721 17.9583L3.69263 19.8229L5.16138 21.3021Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default WbIridescentIcon;

@@ -1,0 +1,34 @@
+import React from 'react';
+
+export interface GavelIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const GavelIcon = ({ size, ...props }: GavelIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M8.82639 5.46121L5.87847 8.40579L20.6014 23.1454L23.5493 20.2008L8.82639 5.46121Z"
+        fill="currentColor"
+      />
+      <path
+        d="M13.237 1.04083L10.2912 3.9875L16.1845 9.87917L19.1303 6.9325L13.237 1.04083Z"
+        fill="currentColor"
+      />
+      <path
+        d="M4.39693 9.88235L1.45068 12.8286L7.34318 18.7211L10.2894 15.7748L4.39693 9.88235Z"
+        fill="currentColor"
+      />
+      <path d="M13.9518 21.8758H1.45184V23.9591H13.9518V21.8758Z" fill="currentColor" />
+    </svg>
+  );
+};
+
+export default GavelIcon;

@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface MpIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const MpIcon = ({ size, ...props }: MpIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M19.7917 3.125H5.20833C4.0625 3.125 3.125 4.0625 3.125 5.20833V19.7917C3.125 20.9375 4.0625 21.875 5.20833 21.875H19.7917C20.9375 21.875 21.875 20.9375 21.875 19.7917V5.20833C21.875 4.0625 20.9375 3.125 19.7917 3.125ZM6.77083 9.375H11.4583C12.0312 9.375 12.5 9.84375 12.5 10.4167V15.625H10.9375V10.9375H9.89583V14.0625H8.33333V10.9375H7.29167V15.625H5.72917V10.4167C5.72917 9.84375 6.19792 9.375 6.77083 9.375ZM16.1458 15.625H14.5833V9.375H18.2292C18.8021 9.375 19.2708 9.84375 19.2708 10.4167V13.0208C19.2708 13.5938 18.8021 14.0625 18.2292 14.0625H16.1458V15.625ZM16.1458 12.5H17.7083V10.9375H16.1458V12.5Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default MpIcon;

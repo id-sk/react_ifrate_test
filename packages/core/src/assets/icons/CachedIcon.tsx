@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface CachedIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const CachedIcon = ({ size, ...props }: CachedIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M19.7917 8.33335L15.6251 12.5H18.7501C18.7501 15.9479 15.948 18.75 12.5001 18.75C11.448 18.75 10.448 18.4896 9.58341 18.0209L8.06258 19.5417C9.34383 20.3542 10.8647 20.8334 12.5001 20.8334C17.1042 20.8334 20.8334 17.1042 20.8334 12.5H23.9584L19.7917 8.33335ZM6.25008 12.5C6.25008 9.0521 9.05216 6.25002 12.5001 6.25002C13.5522 6.25002 14.5522 6.51044 15.4167 6.97919L16.9376 5.45835C15.6563 4.64585 14.1355 4.16669 12.5001 4.16669C7.89591 4.16669 4.16675 7.89585 4.16675 12.5H1.04175L5.20841 16.6667L9.37508 12.5H6.25008Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default CachedIcon;

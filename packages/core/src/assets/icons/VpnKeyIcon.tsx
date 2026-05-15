@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface VpnKeyIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const VpnKeyIcon = ({ size, ...props }: VpnKeyIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M13.1772 10.4167C12.323 7.98958 10.0105 6.25 7.29175 6.25C3.84383 6.25 1.04175 9.05208 1.04175 12.5C1.04175 15.9479 3.84383 18.75 7.29175 18.75C10.0105 18.75 12.323 17.0104 13.1772 14.5833H17.7084V18.75H21.8751V14.5833H23.9584V10.4167H13.1772ZM7.29175 14.5833C6.14591 14.5833 5.20841 13.6458 5.20841 12.5C5.20841 11.3542 6.14591 10.4167 7.29175 10.4167C8.43758 10.4167 9.37508 11.3542 9.37508 12.5C9.37508 13.6458 8.43758 14.5833 7.29175 14.5833Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default VpnKeyIcon;

@@ -1,0 +1,96 @@
+import { Meta, Subtitle, Primary, Controls, Story, Stories } from '@storybook/addon-docs/blocks';
+import * as RadioStories from './Radio.stories';
+
+<Meta of={RadioStories} />
+
+# Radio
+
+<Subtitle>
+  Komponent pre výber jednej možnosti zo skupiny s podporou veľkostí, pomocného textu, tooltipov a
+  chybových stavov.
+</Subtitle>
+
+## Overview (Prehľad)
+
+Komponent `Radio` umožňuje používateľovi vybrať práve jednu možnosť zo skupiny. Pre skupiny radio buttonov slúži komponent `RadioGroup`. Podporuje dve veľkosti, pomocný text (`hint`), chybovú správu a tooltip.
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Veľkosti
+
+### Veľký (default)
+
+Štandardná veľkosť pre formuláre na desktope.
+
+<Story of={RadioStories.Velky} />
+
+### Malý (sm)
+
+Zmenšená veľkosť pre kompaktné rozhrania.
+
+<Story of={RadioStories.Maly} />
+
+## Pomocný text (hint)
+
+`hint` zobrazí vysvetľujúci text pod labelom radio buttonu.
+
+<Story of={RadioStories.S_PomocnymTextom} />
+
+## Chybový stav
+
+`errorMessage` zobrazí chybovú správu pod radio buttonom.
+
+<Story of={RadioStories.S_Chybou} />
+
+## Povinný a zakázaný stav
+
+<Story of={RadioStories.Povinny} />
+<br />
+<Story of={RadioStories.Zakazany} />
+
+## Skupina radio buttonov (RadioGroup)
+
+`RadioGroup` obaľuje viacero radio buttonov do skupiny s legendou a voliteľným hintom.
+
+<Story of={RadioStories.Skupina} />
+
+## Skupina s chybou
+
+<Story of={RadioStories.SkupinaS_Chybou} />
+
+## Prístupnosť (Accessibility)
+
+- Každý radio button je natívny `<input type="radio">` — prístupný cez Tab a šípkové klávesy
+- `hint` a `errorMessage` sú prepojené cez `aria-describedby`
+- `RadioGroup` používa `<fieldset>` a `<legend>` pre správnu sémantiku skupiny
+- Šípky ↑↓ alebo ←→ prepínajú výber medzi radio buttonmi v rámci skupiny
+
+## Použitie
+
+```tsx
+import { Radio, RadioGroup } from '@idsk/core';
+
+// Jednoduchý radio button
+<Radio
+  label="Možnosť A"
+  name="moznost"
+  value="a"
+  required
+  hint="Vyberte jednu z možností."
+/>
+
+// Skupina radio buttonov
+<RadioGroup legend="Obľúbené ovocie" hint="Vyberte jednu možnosť">
+  <Radio label="Jablko" name="fruit" value="apple" />
+  <Radio label="Banán" name="fruit" value="banana" />
+  <Radio label="Pomaranč" name="fruit" value="orange" />
+</RadioGroup>
+```
+
+## Všetky príbehy
+
+<Stories />

@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface SnowmobileIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const SnowmobileIcon = ({ size, ...props }: SnowmobileIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M22.9167 17.1875C22.9167 17.7604 22.4479 18.2292 21.875 18.2292H21.6979L19.4062 15.9375C21.4375 15.4896 22.9167 14.4792 22.9167 13.0208C22.9167 11.9792 14.5833 4.6875 14.5833 4.6875H11.4583V6.77083H13.8021L15.3125 8.125L11.4583 10.9375L1.5625 9.89583L0 13.0208L4.72917 14.4375L1.09375 16.3958C-0.802083 17.4167 -0.0729166 20.3125 2.08333 20.3125H8.33333C10.6354 20.3125 12.5 18.4479 12.5 16.1458H16.6667L18.75 18.2292H15.625V20.3125H21.875C23.6042 20.3125 25 18.9167 25 17.1875H22.9167ZM8.33333 18.2292H2.08333L7.55208 15.2812L10.4167 16.1458C10.4167 17.2917 9.48958 18.2292 8.33333 18.2292Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default SnowmobileIcon;

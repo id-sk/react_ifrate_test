@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface HeartBrokenIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const HeartBrokenIcon = ({ size, ...props }: HeartBrokenIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M17.1874 3.125C16.1874 3.125 15.2083 3.38542 14.3437 3.84375L12.4999 9.375H15.6249L12.4999 19.7917L13.5416 10.4167H10.4166L12.0208 4.80208C10.9062 3.76042 9.38534 3.125 7.81242 3.125C4.60409 3.125 2.08325 5.64583 2.08325 8.85417C2.08325 13.1562 6.41659 16.3333 12.4999 21.875C18.1978 16.7292 22.9166 13.2708 22.9166 8.85417C22.9166 5.64583 20.3958 3.125 17.1874 3.125Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default HeartBrokenIcon;

@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface RunningWithErrorsIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const RunningWithErrorsIcon = ({ size, ...props }: RunningWithErrorsIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M22.9166 10.4168V18.7502H20.8333V10.4168H22.9166ZM20.8333 20.8335V22.9168H22.9166V20.8335H20.8333ZM18.7499 18.0106C17.2187 19.7397 14.9895 20.8335 12.4999 20.8335C7.90617 20.8335 4.16659 17.0939 4.16659 12.5002C4.16659 7.90641 7.90617 4.16683 12.4999 4.16683V13.5418L20.3645 5.67725C18.4583 3.47933 15.6458 2.0835 12.4999 2.0835C6.74992 2.0835 2.08325 6.75016 2.08325 12.5002C2.08325 18.2502 6.74992 22.9168 12.4999 22.9168C14.8437 22.9168 17.0103 22.146 18.7499 20.8335V18.0106Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default RunningWithErrorsIcon;

@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface ConfirmationNumberIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const ConfirmationNumberIcon = ({ size, ...props }: ConfirmationNumberIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M22.9166 10.4165V6.24984C22.9166 5.09359 21.9791 4.1665 20.8333 4.1665H4.16659C3.02075 4.1665 2.09367 5.09359 2.09367 6.24984V10.4165C3.2395 10.4165 4.16659 11.354 4.16659 12.4998C4.16659 13.6457 3.2395 14.5832 2.08325 14.5832V18.7498C2.08325 19.8957 3.02075 20.8332 4.16659 20.8332H20.8333C21.9791 20.8332 22.9166 19.8957 22.9166 18.7498V14.5832C21.7708 14.5832 20.8333 13.6457 20.8333 12.4998C20.8333 11.354 21.7708 10.4165 22.9166 10.4165ZM13.5416 18.229H11.4583V16.1457H13.5416V18.229ZM13.5416 13.5415H11.4583V11.4582H13.5416V13.5415ZM13.5416 8.854H11.4583V6.77067H13.5416V8.854Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default ConfirmationNumberIcon;

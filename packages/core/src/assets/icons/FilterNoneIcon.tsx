@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface FilterNoneIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const FilterNoneIcon = ({ size, ...props }: FilterNoneIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M3.12508 5.20817H1.04175V21.8748C1.04175 23.0207 1.97925 23.9582 3.12508 23.9582H19.7917V21.8748H3.12508V5.20817ZM21.8751 1.0415H7.29175C6.14591 1.0415 5.20841 1.979 5.20841 3.12484V17.7082C5.20841 18.854 6.14591 19.7915 7.29175 19.7915H21.8751C23.0209 19.7915 23.9584 18.854 23.9584 17.7082V3.12484C23.9584 1.979 23.0209 1.0415 21.8751 1.0415ZM21.8751 17.7082H7.29175V3.12484H21.8751V17.7082Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default FilterNoneIcon;

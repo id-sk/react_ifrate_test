@@ -1,0 +1,168 @@
+@reference "../../style/tailwind.css";
+
+@layer components {
+  .idsk-button {
+    @apply inline-flex cursor-pointer items-center justify-center no-underline select-none;
+    @apply gap-space-2 rounded-rounding-1;
+    @apply font-sans text-button;
+    @apply transition-colors;
+    @apply idsk-focus-outline idsk-hover-outline;
+    @apply idsk-hover-underline-2;
+    @apply disabled:pointer-events-none;
+  }
+
+  /* ========== SIZES ========== */
+  .idsk-button--sm {
+    @apply px-(--component-button-padding-side) py-(--component-button-padding-vertical-s);
+  }
+
+  .idsk-button--md {
+    @apply min-w-[41px] px-(--component-button-padding-side) py-(--component-button-padding-vertical-m);
+  }
+
+  .idsk-button--lg {
+    @apply min-w-[49px] px-(--component-button-padding-side) py-(--component-button-padding-vertical-l);
+  }
+
+  /* ========== ICON ONLY ========== */
+  .idsk-button--icon-only.idsk-button--sm {
+    @apply px-(--component-button-padding-vertical-s);
+  }
+
+  .idsk-button--icon-only.idsk-button--md {
+    @apply min-w-0 px-(--component-button-padding-vertical-m);
+  }
+
+  .idsk-button--icon-only.idsk-button--lg {
+    @apply min-w-0 px-(--component-button-padding-vertical-l);
+  }
+
+  /* ========== WHITE COLOR SCHEME — ring overrides for dark backgrounds ========== */
+  @media (hover: hover) {
+    .idsk-button.idsk-button--color-white:hover {
+      @apply ring-base-white;
+    }
+  }
+
+  .idsk-button.idsk-button--color-white:focus-visible::after {
+    @apply border-base-white;
+  }
+
+  /* ========== PRIMARY ========== */
+  .idsk-button--primary {
+    @apply bg-primary-400 text-base-white;
+  }
+
+  .idsk-button--primary:active {
+    @apply bg-primary-600;
+  }
+
+  .idsk-button--primary:disabled {
+    @apply bg-neutral-400;
+  }
+
+  .idsk-button--primary.idsk-button--color-success {
+    @apply bg-status-success-base;
+  }
+
+  .idsk-button--primary.idsk-button--color-success:active {
+    @apply bg-status-success-strong;
+  }
+
+  /* ========== SECONDARY ========== */
+  .idsk-button--secondary {
+    @apply border-2 border-primary-500 bg-base-white text-primary-500;
+
+    --idsk-focus-ring-gap: 4px; /* compensates for the 2px border so the gap stays visually 2px */
+  }
+
+  .idsk-button--secondary:active {
+    @apply bg-primary-100;
+  }
+
+  .idsk-button--secondary:disabled {
+    @apply border-text-disabled text-text-disabled;
+  }
+
+  .idsk-button--secondary.idsk-button--color-error {
+    @apply border-status-error-base text-status-error-base;
+  }
+
+  .idsk-button--secondary.idsk-button--color-error:active {
+    @apply bg-status-error-background;
+  }
+
+  .idsk-button--secondary.idsk-button--color-success {
+    @apply border-status-success-base text-status-success-base;
+  }
+
+  .idsk-button--secondary.idsk-button--color-success:active {
+    @apply bg-status-success-background;
+  }
+
+  /* ========== TERTIARY ========== */
+  .idsk-button--tertiary {
+    @apply bg-transparent text-primary-500 idsk-hover-underline-3 underline decoration-solid decoration-skip-ink-none;
+  }
+
+  .idsk-button--tertiary:active {
+    @apply bg-primary-100;
+  }
+
+  .idsk-button--tertiary:disabled {
+    @apply text-text-disabled;
+  }
+
+  .idsk-button--tertiary.idsk-button--color-error {
+    @apply text-status-error-base;
+  }
+
+  .idsk-button--tertiary.idsk-button--color-error:active {
+    @apply bg-status-error-background;
+  }
+
+  .idsk-button--tertiary.idsk-button--color-success {
+    @apply text-status-success-base;
+  }
+
+  .idsk-button--tertiary.idsk-button--color-success:active {
+    @apply bg-status-success-background;
+  }
+
+  .idsk-button--tertiary.idsk-button--color-white {
+    @apply text-base-white;
+  }
+
+  /* ========== TERTIARY NO PADDING ========== */
+  .idsk-button--tertiary-nopadding {
+    @apply bg-transparent px-0 text-primary-500 underline decoration-solid decoration-2 decoration-skip-ink-none;
+  }
+
+  .idsk-button--tertiary-nopadding:active {
+    @apply bg-primary-100;
+  }
+
+  .idsk-button--tertiary-nopadding:disabled {
+    @apply text-text-disabled;
+  }
+
+  .idsk-button--tertiary-nopadding.idsk-button--color-error {
+    @apply text-status-error-base;
+  }
+
+  .idsk-button--tertiary-nopadding.idsk-button--color-error:active {
+    @apply bg-status-error-background;
+  }
+
+  .idsk-button--tertiary-nopadding.idsk-button--color-success {
+    @apply text-status-success-base;
+  }
+
+  .idsk-button--tertiary-nopadding.idsk-button--color-success:active {
+    @apply bg-status-success-background;
+  }
+
+  .idsk-button--tertiary-nopadding.idsk-button--color-white {
+    @apply text-base-white;
+  }
+}

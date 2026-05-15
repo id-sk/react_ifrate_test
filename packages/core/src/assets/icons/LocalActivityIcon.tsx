@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface LocalActivityIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const LocalActivityIcon = ({ size, ...props }: LocalActivityIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M20.8333 12.4998C20.8333 11.354 21.7708 10.4165 22.9166 10.4165V6.24984C22.9166 5.104 21.9791 4.1665 20.8333 4.1665H4.16659C3.02075 4.1665 2.09367 5.104 2.09367 6.24984V10.4165C3.2395 10.4165 4.16659 11.354 4.16659 12.4998C4.16659 13.6457 3.2395 14.5832 2.08325 14.5832V18.7498C2.08325 19.8957 3.02075 20.8332 4.16659 20.8332H20.8333C21.9791 20.8332 22.9166 19.8957 22.9166 18.7498V14.5832C21.7708 14.5832 20.8333 13.6457 20.8333 12.4998ZM16.2291 17.4998L12.4999 15.104L8.77075 17.4998L9.89575 13.2082L6.46867 10.4061L10.8853 10.1457L12.4999 6.0415L14.1041 10.1561L18.5208 10.4165L15.0937 13.2186L16.2291 17.4998Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default LocalActivityIcon;

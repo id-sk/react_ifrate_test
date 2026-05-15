@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "skipLibCheck": true,
+    "paths": {
+      "@idsk/core": ["./packages/core/src/index.ts"],
+      "@idsk/core/vanilla": ["./packages/core/src/vanilla.ts"],
+      "@idsk/css": ["./packages/core/src/style/global.css"]
+    },
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "jsx": "react-jsx",
+    "types": ["vitest/globals", "@testing-library/jest-dom", "node", "vite/client"]
+  },
+  "include": ["packages/core/src", "packages/core/vitest.setup.ts", "packages/docs/src"]
+}

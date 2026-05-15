@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface RampLeftIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const RampLeftIcon = ({ size, ...props }: RampLeftIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M11.9791 21.875H9.89575V7.11458L8.2395 8.76042L6.77075 7.29167L10.9374 3.125L15.1041 7.29167L13.6353 8.76042L11.9791 7.11458V9.375C11.9791 13.8229 16.177 16.8021 18.2291 17.9896L16.7083 19.5104C14.7187 18.3021 13.1249 16.875 11.9791 15.3229V21.875Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default RampLeftIcon;

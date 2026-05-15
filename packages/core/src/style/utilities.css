@@ -1,0 +1,88 @@
+@reference "tailwindcss";
+
+/* Utility classes */
+
+/*
+ * Shared pseudo-element properties for the focus ring.
+ * @apply this inside ::after or ::before rules.
+ * Default z-index is 1 — override per component if needed.
+ */
+@utility idsk-focus-ring-pseudo {
+  @apply pointer-events-none absolute z-1 rounded-(--idsk-focus-ring-radius) content-[''];
+
+  inset: calc(-1 * var(--idsk-focus-ring-width) - var(--idsk-focus-ring-gap));
+  border: var(--idsk-focus-ring-width) solid var(--idsk-focus-ring-color);
+}
+
+/*
+ * Primary focus ring — pseudo-element approach.
+ * Achieves a fixed 7px border-radius independent of the element's own border-radius,
+ * with a transparent gap between the element edge and the ring.
+ *
+ * Use on non-replaced elements: <button>, <a>, wrappers.
+ * NOT suitable for replaced elements (<input>, <textarea>) — see idsk-focus-outline-native.
+ */
+@utility idsk-focus-outline {
+  @apply relative;
+
+  &:focus-visible {
+    @apply outline-none;
+  }
+
+  &:focus-visible::after {
+    @apply idsk-focus-ring-pseudo;
+  }
+}
+
+/*
+ * Fallback focus ring — box-shadow approach for replaced elements.
+ * The ring radius follows the element's own border-radius + gap offset.
+ *
+ * Use on: <input>, <textarea>, <input type="checkbox">, <input type="radio">
+ * where ::after pseudo-elements are not rendered by the browser.
+ */
+@utility idsk-focus-outline-native {
+  @apply focus-visible:ring-[3px] focus-visible:ring-focus-default focus-visible:ring-offset-2 focus-visible:outline-none;
+}
+
+@utility idsk-hover-outline {
+  @media (hover: hover) {
+    @apply hover:ring-[5px] hover:ring-hover-default hover:ring-offset-0 hover:outline-none;
+  }
+}
+
+@utility idsk-text-main-body {
+  @apply font-sans text-main-body;
+
+  font-feature-settings:
+    'liga' off,
+    'clig' off;
+}
+
+@utility idsk-text-main-body-1 {
+  @apply font-sans text-main-body-1;
+
+  font-feature-settings:
+    'liga' off,
+    'clig' off;
+}
+
+@utility idsk-text-hint {
+  @apply font-sans text-hint text-neutral-600;
+}
+
+@utility decoration-skip-ink-none {
+  text-decoration-skip-ink: none;
+}
+
+@utility idsk-hover-underline-2 {
+  @media (hover: hover) {
+    @apply hover:underline hover:decoration-solid hover:decoration-2 hover:decoration-skip-ink-none;
+  }
+}
+
+@utility idsk-hover-underline-3 {
+  @media (hover: hover) {
+    @apply hover:underline hover:decoration-solid hover:decoration-[3px] hover:decoration-skip-ink-none;
+  }
+}

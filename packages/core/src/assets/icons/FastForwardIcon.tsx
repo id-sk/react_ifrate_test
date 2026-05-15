@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface FastForwardIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const FastForwardIcon = ({ size, ...props }: FastForwardIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M3.3855 18.75L12.2397 12.5L3.3855 6.25V18.75ZM12.7605 6.25V18.75L21.6147 12.5L12.7605 6.25Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default FastForwardIcon;

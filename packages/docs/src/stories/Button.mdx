@@ -1,0 +1,125 @@
+import { Meta, Subtitle, Primary, Controls, Story, Stories } from '@storybook/addon-docs/blocks';
+import * as ButtonStories from './Button.stories';
+
+<Meta of={ButtonStories} />
+
+# Button (Tlačidlo)
+
+<Subtitle>
+  Základný interaktívny prvok pre spúšťanie akcií s podporou variantov, farebných schém, ikon a
+  prístupnosti.
+</Subtitle>
+
+## Overview (Prehľad)
+
+Komponent `Button` slúži na spúšťanie akcií a navigáciu. Podporuje štyri vizuálne varianty (`primary`, `secondary`, `tertiary`, `tertiaryNoPadding`), farebné schémy (`primary`, `error`, `success`, `white`), tri veľkosti a ikony pred/za textom. Pomocou prop `asChild` môže byť vykreslený ako akýkoľvek iný element (napr. `<a>`).
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Varianty
+
+### Primary
+
+Hlavné tlačidlo pre primárne akcie na stránke. Používajte ho iba raz na každej obrazovke.
+
+<Story of={ButtonStories.Primary} />
+<br />
+<Story of={ButtonStories.PrimarySuccess} />
+<br />
+<Story of={ButtonStories.PrimaryDisabled} />
+
+### Secondary
+
+Sekundárne tlačidlo pre doplnkové akcie vedľa primárneho tlačidla.
+
+<Story of={ButtonStories.Secondary} />
+<br />
+<Story of={ButtonStories.SecondaryError} />
+<br />
+<Story of={ButtonStories.SecondarySuccess} />
+<br />
+<Story of={ButtonStories.SecondaryDisabled} />
+
+### Tertiary
+
+Terciárne tlačidlo pre menej dôležité akcie. Zobrazuje sa ako textový odkaz s podčiarknutím pri hover.
+
+<Story of={ButtonStories.Tertiary} />
+<br />
+<Story of={ButtonStories.TertiaryError} />
+<br />
+<Story of={ButtonStories.TertiarySuccess} />
+<br />
+<Story of={ButtonStories.TertiaryDisabled} />
+<br />
+<Story of={ButtonStories.TertiaryWhite} />
+
+### Tertiary No Padding
+
+Variant bez paddingu pre vkladanie tlačidla priamo do textu alebo do iných komponentov.
+
+<Story of={ButtonStories.TertiaryNoPadding} />
+
+## Veľkosti
+
+Tlačidlo má tri veľkosti. Predvolená je `lg`.
+
+<Story of={ButtonStories.SizeSM} />
+<br />
+<Story of={ButtonStories.SizeMD} />
+<br />
+<Story of={ButtonStories.SizeLG} />
+
+## Ikony
+
+Ikony je možné pridať pred alebo za text tlačidla pomocou props `startIcon` a `endIcon`. Sú automaticky zabalené do `aria-hidden` spanu.
+
+<Story of={ButtonStories.WithStartIcon} />
+<br />
+<Story of={ButtonStories.WithEndIcon} />
+<br />
+<Story of={ButtonStories.WithBothIcons} />
+
+## AsChild
+
+Prop `asChild` umožňuje vykresliť tlačidlo ako iný element (napr. `<a>`) pri zachovaní všetkých štýlov. Využíva Radix UI `Slot`.
+
+<Story of={ButtonStories.AsChild} />
+
+## Prístupnosť (Accessibility)
+
+- Tlačidlo je štandardný `<button>` element — dostupné cez klávesnicu (`Tab`, `Enter`, `Space`)
+- `disabled` nastavuje `disabled` atribút, nie len vizuálny štýl
+- Ikony majú `aria-hidden="true"` — sú dekoratívne a nečítajú ich čítačky obrazovky
+- `asChild` s `<a>` vykreslí semantický odkaz s tlačidlovými štýlmi
+
+## Použitie
+
+```tsx
+import { Button } from '@idsk/core';
+
+// Základné tlačidlo
+<Button>Odoslať</Button>
+
+// S variantom a farebnou schémou
+<Button variant="secondary" colorScheme="error">Zmazať</Button>
+
+// S ikonou
+<Button startIcon={<SendIcon />}>Odoslať správu</Button>
+
+// Ako odkaz
+<Button asChild>
+  <a href="/dalsia-stranka">Pokračovať</a>
+</Button>
+
+// Zakázané
+<Button disabled>Nedostupné</Button>
+```
+
+## Všetky príbehy
+
+<Stories />

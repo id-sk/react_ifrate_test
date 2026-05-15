@@ -1,0 +1,30 @@
+import React from 'react';
+
+export interface BedroomChildIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const BedroomChildIcon = ({ size, ...props }: BedroomChildIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path d="M15.6249 8.85433H9.37492V10.9377H15.6249V8.85433Z" fill="currentColor" />
+      <path
+        d="M16.2916 12.5002H8.71867C8.21867 12.5002 7.81242 12.9064 7.81242 13.4064H7.82284V14.5835H17.1978V13.4064C17.1978 12.9064 16.7916 12.5002 16.2916 12.5002Z"
+        fill="currentColor"
+      />
+      <path
+        d="M20.8333 2.0835H4.16659C3.02075 2.0835 2.08325 3.021 2.08325 4.16683V20.8335C2.08325 21.9793 3.02075 22.9168 4.16659 22.9168H20.8333C21.9791 22.9168 22.9166 21.9793 22.9166 20.8335V4.16683C22.9166 3.021 21.9791 2.0835 20.8333 2.0835ZM18.7499 17.7085H17.1874V16.146H7.81242V17.7085H6.24992V13.4064C6.24992 12.3647 6.89575 11.4793 7.81242 11.1147V9.37516C7.81242 8.22933 8.74992 7.29183 9.89575 7.29183H15.1041C16.2499 7.29183 17.1874 8.22933 17.1874 9.37516V11.1147C18.1041 11.4793 18.7499 12.3647 18.7499 13.4064V17.7085Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default BedroomChildIcon;

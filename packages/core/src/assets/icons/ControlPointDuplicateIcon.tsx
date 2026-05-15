@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface ControlPointDuplicateIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const ControlPointDuplicateIcon = ({ size, ...props }: ControlPointDuplicateIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M16.6667 8.33333H14.5833V11.4583H11.4583V13.5417H14.5833V16.6667H16.6667V13.5417H19.7917V11.4583H16.6667V8.33333ZM2.08333 12.5C2.08333 9.59375 3.79167 7.08333 6.26042 5.91667V3.66667C2.625 4.95833 0 8.42708 0 12.5C0 16.5729 2.625 20.0417 6.26042 21.3333V19.0833C3.79167 17.9167 2.08333 15.4062 2.08333 12.5ZM15.625 3.125C10.4583 3.125 6.25 7.33333 6.25 12.5C6.25 17.6667 10.4583 21.875 15.625 21.875C20.7917 21.875 25 17.6667 25 12.5C25 7.33333 20.7917 3.125 15.625 3.125ZM15.625 19.7917C11.6042 19.7917 8.33333 16.5208 8.33333 12.5C8.33333 8.47917 11.6042 5.20833 15.625 5.20833C19.6458 5.20833 22.9167 8.47917 22.9167 12.5C22.9167 16.5208 19.6458 19.7917 15.625 19.7917Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default ControlPointDuplicateIcon;

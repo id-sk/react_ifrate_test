@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface EggAltIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const EggAltIcon = ({ size, ...props }: EggAltIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M19.7921 9.37516C17.7088 7.29183 16.6567 2.0835 10.3859 2.0835C5.15672 2.0835 2.0213 6.25016 2.0838 12.0002C2.1463 17.7502 7.25047 19.7918 10.3859 19.7918C12.4796 19.7918 12.4796 22.9168 16.6567 22.9168C19.7921 22.9168 22.9171 19.7918 22.9171 15.646C22.9171 12.5002 21.8859 11.4585 19.7921 9.37516ZM12.5005 16.146C10.4901 16.146 8.85464 14.5106 8.85464 12.5002C8.85464 10.4897 10.4901 8.85433 12.5005 8.85433C14.5109 8.85433 16.1463 10.4897 16.1463 12.5002C16.1463 14.5106 14.5109 16.146 12.5005 16.146Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default EggAltIcon;

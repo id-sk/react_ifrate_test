@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface LegendToggleIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const LegendToggleIcon = ({ size, ...props }: LegendToggleIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M20.8334 15.6252H4.16675V13.5418H20.8334V15.6252ZM20.8334 17.7085H4.16675V19.7918H20.8334V17.7085ZM15.6251 11.4585L20.8334 7.76058V5.2085L15.6251 8.90641L10.4167 5.2085L4.16675 9.021V11.4585L10.3334 7.69808L15.6251 11.4585Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default LegendToggleIcon;

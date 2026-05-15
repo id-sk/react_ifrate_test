@@ -1,0 +1,29 @@
+import React from 'react';
+
+export interface Person2IconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const Person2Icon = ({ size, ...props }: Person2IconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M19.1563 15.1665C17.4063 14.2707 15.1355 13.5415 12.5001 13.5415C9.86466 13.5415 7.59383 14.2707 5.84383 15.1665C4.80216 15.6978 4.16675 16.7707 4.16675 17.9373V20.8332H20.8334V17.9373C20.8334 16.7707 20.198 15.6978 19.1563 15.1665Z"
+        fill="currentColor"
+      />
+      <path
+        d="M10.1876 12.4998H14.8126C16.073 12.4998 17.0417 11.3957 16.8751 10.1457L16.5417 7.59359C16.2188 5.61442 14.5001 4.1665 12.5001 4.1665C10.5001 4.1665 8.78133 5.61442 8.45841 7.59359L8.12508 10.1457C7.95842 11.3957 8.92716 12.4998 10.1876 12.4998Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default Person2Icon;

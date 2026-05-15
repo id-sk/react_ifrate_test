@@ -1,0 +1,30 @@
+import React from 'react';
+
+export interface AddBusinessIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const AddBusinessIcon = ({ size, ...props }: AddBusinessIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M15.6251 16.1457H17.7084V13.0207H18.7501V10.9373L17.7084 5.729H2.08341L1.04175 10.9373V13.0207H2.08341V19.2707H11.4584V13.0207H15.6251V16.1457ZM9.37508 17.1873H4.16675V13.0207H9.37508V17.1873Z"
+        fill="currentColor"
+      />
+      <path d="M17.7084 2.604H2.08341V4.68734H17.7084V2.604Z" fill="currentColor" />
+      <path
+        d="M20.8334 17.1873V14.0623H18.7501V17.1873H15.6251V19.2707H18.7501V22.3957H20.8334V19.2707H23.9584V17.1873H20.8334Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default AddBusinessIcon;

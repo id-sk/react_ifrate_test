@@ -1,0 +1,80 @@
+@reference "../../style/tailwind.css";
+
+@layer components {
+  .idsk-tooltip__wrapper {
+    @apply inline-flex items-center gap-x-space-1;
+  }
+
+  .idsk-tooltip__label {
+    @apply idsk-text-main-body;
+  }
+
+  /* Circular "i" trigger button */
+  .idsk-tooltip__trigger {
+    @apply inline-flex items-center justify-center;
+    @apply rounded-full border-none bg-transparent;
+    @apply h-[21px] w-[21px];
+    @apply text-icon-link;
+    @apply cursor-pointer transition-colors;
+    @apply idsk-focus-outline;
+    @apply idsk-hover-outline hover:text-icon-info;
+
+    --idsk-focus-ring-radius: 9999px;
+  }
+
+  .idsk-tooltip__trigger > span {
+    @apply inline-flex items-center justify-center;
+  }
+
+  .idsk-tooltip__trigger-text {
+    @apply hidden;
+  }
+
+  /* Floating tooltip content */
+  .idsk-tooltip__content {
+    @apply rounded-(--spacing-space-2);
+    @apply bg-neutral-900 text-base-white;
+    @apply p-5;
+    @apply idsk-text-main-body-1;
+    @apply shadow-middle;
+    @apply z-50;
+
+    box-sizing: border-box;
+    max-width: min(400px, var(--radix-popper-available-width));
+  }
+
+  .idsk-tooltip__content[data-state='delayed-open'],
+  .idsk-tooltip__content[data-state='instant-open'] {
+    @apply animate-in fade-in-0 zoom-in-95;
+  }
+
+  .idsk-tooltip__content[data-state='closed'] {
+    @apply animate-out fade-out-0 zoom-out-95;
+  }
+
+  .idsk-tooltip__content[data-side='top'] {
+    @apply slide-in-from-bottom-1;
+  }
+
+  .idsk-tooltip__content[data-side='bottom'] {
+    @apply slide-in-from-top-1;
+  }
+
+  .idsk-tooltip__content[data-side='left'] {
+    @apply slide-in-from-right-1;
+  }
+
+  .idsk-tooltip__content[data-side='right'] {
+    @apply slide-in-from-left-1;
+  }
+
+  /* Arrow */
+  .idsk-tooltip__arrow {
+    @apply text-neutral-900;
+  }
+
+  .idsk-tooltip__content[data-side='left'] .idsk-tooltip__arrow,
+  .idsk-tooltip__content[data-side='right'] .idsk-tooltip__arrow {
+    @apply -mt-0.5;
+  }
+}

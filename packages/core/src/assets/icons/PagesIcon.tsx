@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface PagesIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const PagesIcon = ({ size, ...props }: PagesIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M3.125 5.20833V11.4583H8.33333L7.29167 7.29167L11.4583 8.33333V3.125H5.20833C4.0625 3.125 3.125 4.0625 3.125 5.20833ZM8.33333 13.5417H3.125V19.7917C3.125 20.9375 4.0625 21.875 5.20833 21.875H11.4583V16.6667L7.29167 17.7083L8.33333 13.5417ZM17.7083 17.7083L13.5417 16.6667V21.875H19.7917C20.9375 21.875 21.875 20.9375 21.875 19.7917V13.5417H16.6667L17.7083 17.7083ZM19.7917 3.125H13.5417V8.33333L17.7083 7.29167L16.6667 11.4583H21.875V5.20833C21.875 4.0625 20.9375 3.125 19.7917 3.125Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default PagesIcon;

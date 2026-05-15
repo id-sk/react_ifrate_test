@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface TranslateIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const TranslateIcon = ({ size, ...props }: TranslateIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M13.4062 15.698L10.7604 13.0834L10.7916 13.0521C12.6041 11.0313 13.8958 8.70837 14.6562 6.25004H17.7083V4.16671H10.4166V2.08337H8.33329V4.16671H1.04163V6.23962H12.677C11.9791 8.25004 10.875 10.1563 9.37496 11.823C8.40621 10.75 7.60413 9.57296 6.96871 8.33337H4.88538C5.64579 10.0313 6.68746 11.6355 7.98954 13.0834L2.68746 18.3125L4.16663 19.7917L9.37496 14.5834L12.6145 17.823L13.4062 15.698ZM19.2708 10.4167H17.1875L12.5 22.9167H14.5833L15.75 19.7917H20.6979L21.875 22.9167H23.9583L19.2708 10.4167ZM16.5416 17.7084L18.2291 13.198L19.9166 17.7084H16.5416Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default TranslateIcon;

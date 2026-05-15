@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface BluetoothSearchingIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const BluetoothSearchingIcon = ({ size, ...props }: BluetoothSearchingIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M14.8282 12.5103L17.2449 14.927C17.5365 14.177 17.7032 13.3541 17.7032 12.4999C17.7032 11.6458 17.5365 10.8437 17.2553 10.0937L14.8282 12.5103ZM20.3386 6.9895L19.0261 8.302C19.6824 9.56242 20.047 10.9791 20.047 12.4895C20.047 13.9999 19.672 15.427 19.0261 16.677L20.2761 17.927C21.2865 16.3228 21.8803 14.427 21.8803 12.3958C21.8699 10.427 21.3074 8.57284 20.3386 6.9895ZM16.3595 8.03117L10.4115 2.08325H9.36987V9.9895L4.58862 5.20825L3.11987 6.677L8.94279 12.4999L3.11987 18.3228L4.58862 19.7916L9.36987 15.0103V22.9166H10.4115L16.3595 16.9687L11.8803 12.4999L16.3595 8.03117ZM11.4532 6.07284L13.4115 8.03117L11.4532 9.9895V6.07284ZM13.4115 16.9687L11.4532 18.927V15.0103L13.4115 16.9687Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default BluetoothSearchingIcon;

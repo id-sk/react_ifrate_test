@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface ModeEditIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const ModeEditIcon = ({ size, ...props }: ModeEditIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M3.12378 17.9701V21.8764H7.03003L18.5509 10.3556L14.6446 6.4493L3.12378 17.9701ZM21.5717 7.33472C21.9779 6.92847 21.9779 6.27222 21.5717 5.86597L19.1342 3.42847C18.7279 3.02222 18.0717 3.02222 17.6654 3.42847L15.7592 5.33472L19.6654 9.24097L21.5717 7.33472Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default ModeEditIcon;

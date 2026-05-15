@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface InvertColorsOffIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const InvertColorsOffIcon = ({ size, ...props }: InvertColorsOffIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M22.8125 21.7603L3.66667 2.6145L2.1875 4.08325L6.5625 8.45825C5.52083 9.82283 4.89583 11.5208 4.89583 13.3541C4.90625 17.8958 8.63542 21.5624 13.2396 21.5624C15.0625 21.5624 16.7396 20.9791 18.1042 19.9999L21.3333 23.2291L22.8125 21.7603ZM13.2396 19.4791C9.79167 19.4791 6.98958 16.7395 6.98958 13.3645C6.98958 12.1249 7.36458 10.9478 8.05208 9.94783L13.2396 15.1353V19.4791ZM9.46875 5.47908L13.2396 1.77075L19.125 7.56242C20.6354 9.052 21.5729 11.1041 21.5729 13.3645C21.5729 14.5937 21.2917 15.7499 20.8021 16.802L13.2396 9.2395V4.69784L10.9479 6.94783L9.46875 5.47908Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default InvertColorsOffIcon;

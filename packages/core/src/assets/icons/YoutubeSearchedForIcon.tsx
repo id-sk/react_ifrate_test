@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface YoutubeSearchedForIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const YoutubeSearchedForIcon = ({ size, ...props }: YoutubeSearchedForIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M17.7187 14.8542H16.8853L16.6041 14.573C17.6249 13.3855 18.2395 11.8542 18.2395 10.1667C18.2395 6.42712 15.2083 3.39587 11.4687 3.39587C7.72909 3.39587 4.69784 6.52087 4.69784 10.1667H2.08325L6.08325 14.3334L10.4166 10.1667H6.78117C6.78117 7.56254 8.88534 5.47921 11.4687 5.47921C14.052 5.47921 16.1562 7.57296 16.1562 10.1667C16.1562 12.75 14.052 14.8542 11.4687 14.8542C10.7916 14.8542 10.1562 14.7084 9.57284 14.4584L8.03117 16C9.04159 16.5938 10.2083 16.9375 11.4687 16.9375C13.1458 16.9375 14.677 16.323 15.8645 15.3021L16.1458 15.5834V16.4063L21.3645 21.6042L22.9166 20.0625L17.7187 14.8542Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default YoutubeSearchedForIcon;

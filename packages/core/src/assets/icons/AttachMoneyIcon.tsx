@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface AttachMoneyIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const AttachMoneyIcon = ({ size, ...props }: AttachMoneyIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M12.9063 11.3542C10.5417 10.7396 9.78133 10.1042 9.78133 9.11458C9.78133 7.97917 10.8334 7.1875 12.5938 7.1875C14.448 7.1875 15.1355 8.07292 15.198 9.375H17.5001C17.4272 7.58333 16.3334 5.9375 14.1563 5.40625V3.125H11.0313V5.375C9.0105 5.8125 7.3855 7.125 7.3855 9.13542C7.3855 11.5417 9.37508 12.7396 12.2813 13.4375C14.8855 14.0625 15.4063 14.9792 15.4063 15.9479C15.4063 16.6667 14.8959 17.8125 12.5938 17.8125C10.448 17.8125 9.60425 16.8542 9.48967 15.625H7.198C7.323 17.9062 9.03133 19.1875 11.0313 19.6146V21.875H14.1563V19.6354C16.1876 19.25 17.8022 18.0729 17.8022 15.9375C17.8022 12.9792 15.2709 11.9687 12.9063 11.3542Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default AttachMoneyIcon;

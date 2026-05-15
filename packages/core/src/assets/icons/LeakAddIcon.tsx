@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface LeakAddIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const LeakAddIcon = ({ size, ...props }: LeakAddIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M6.25 3.125H3.125V6.25C4.85417 6.25 6.25 4.85417 6.25 3.125ZM14.5833 3.125H12.5C12.5 8.30208 8.30208 12.5 3.125 12.5V14.5833C9.45833 14.5833 14.5833 9.44792 14.5833 3.125ZM10.4167 3.125H8.33333C8.33333 6 6 8.33333 3.125 8.33333V10.4167C7.15625 10.4167 10.4167 7.15625 10.4167 3.125ZM10.4167 21.875H12.5C12.5 16.6979 16.6979 12.5 21.875 12.5V10.4167C15.5521 10.4167 10.4167 15.5521 10.4167 21.875ZM18.75 21.875H21.875V18.75C20.1458 18.75 18.75 20.1458 18.75 21.875ZM14.5833 21.875H16.6667C16.6667 19 19 16.6667 21.875 16.6667V14.5833C17.8438 14.5833 14.5833 17.8438 14.5833 21.875Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default LeakAddIcon;

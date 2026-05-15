@@ -1,0 +1,30 @@
+import React from 'react';
+
+export interface MedicationLiquidIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const MedicationLiquidIcon = ({ size, ...props }: MedicationLiquidIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path d="M15.1042 3.125H2.60417V5.20833H15.1042V3.125Z" fill="currentColor" />
+      <path
+        d="M14.0625 6.25H3.64583C2.5 6.25 1.5625 7.1875 1.5625 8.33333V19.7917C1.5625 20.9375 2.5 21.875 3.64583 21.875H14.0625C15.2083 21.875 16.1458 20.9375 16.1458 19.7917V8.33333C16.1458 7.1875 15.2083 6.25 14.0625 6.25ZM13.0208 15.625H10.4167V18.2292H7.29167V15.625H4.6875V12.5H7.29167V9.89583H10.4167V12.5H13.0208V15.625Z"
+        fill="currentColor"
+      />
+      <path
+        d="M20.3125 6.25C18.5625 6.25 17.1875 8.08333 17.1875 10.4167C17.1875 12.2604 18.0521 13.7708 19.2708 14.3333V20.8333C19.2708 21.4062 19.7396 21.875 20.3125 21.875C20.8854 21.875 21.3542 21.4062 21.3542 20.8333V14.3333C22.5729 13.7708 23.4375 12.2604 23.4375 10.4167C23.4375 8.08333 22.0625 6.25 20.3125 6.25Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default MedicationLiquidIcon;

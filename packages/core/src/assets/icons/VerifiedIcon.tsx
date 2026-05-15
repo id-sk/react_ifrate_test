@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface VerifiedIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const VerifiedIcon = ({ size, ...props }: VerifiedIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M23.9584 12.5L21.4167 9.59375L21.7709 5.75L18.0105 4.89583L16.0417 1.5625L12.5001 3.08333L8.95842 1.5625L6.98966 4.88542L3.22925 5.72917L3.58341 9.58333L1.04175 12.5L3.58341 15.4062L3.22925 19.2604L6.98966 20.1146L8.95842 23.4375L12.5001 21.9062L16.0417 23.4271L18.0105 20.1042L21.7709 19.25L21.4167 15.4062L23.9584 12.5ZM10.5105 17.4167L6.55216 13.4479L8.09383 11.9062L10.5105 14.3333L16.6042 8.21875L18.1459 9.76042L10.5105 17.4167Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default VerifiedIcon;

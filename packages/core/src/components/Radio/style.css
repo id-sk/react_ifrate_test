@@ -1,0 +1,94 @@
+@reference "../../style/tailwind.css";
+
+.idsk-radio {
+  @apply relative block pl-6 md:pl-space-7;
+}
+
+.idsk-radio__input {
+  @apply absolute top-0 left-0 z-1 m-0 h-6 w-6 cursor-pointer appearance-none rounded-full border-none bg-transparent p-0 text-neutral-800 md:h-space-7 md:w-space-7;
+  @apply flex items-center justify-center;
+}
+
+.idsk-radio__input:not(:disabled) {
+  @apply idsk-focus-outline-native;
+  @apply idsk-hover-outline;
+}
+
+.idsk-radio__label {
+  @apply flex cursor-pointer touch-manipulation gap-space-1 px-space-2 pt-0.5 idsk-text-main-body text-neutral-900 md:pt-1.5;
+}
+
+.idsk-radio__input:checked + .idsk-radio__label::before,
+.idsk-radio__input:not(:checked) + .idsk-radio__label::before {
+  @apply absolute top-0 left-0 box-border h-6 w-6 rounded-full border-2 border-neutral-800 bg-transparent content-[''] md:h-space-7 md:w-space-7;
+}
+
+.idsk-radio__input:checked + .idsk-radio__label::after {
+  @apply absolute top-[7px] left-[7px] h-space-2 w-space-2 rounded-full bg-neutral-800 content-[''] md:top-space-2 md:left-space-2 md:h-space-4 md:w-space-4;
+}
+
+.idsk-radio__input:disabled,
+.idsk-radio__input:disabled + .idsk-radio__label {
+  @apply cursor-default text-neutral-400;
+}
+
+.idsk-radio__input:disabled + .idsk-radio__label::before {
+  @apply border-neutral-400;
+}
+
+.idsk-radio__input:disabled + .idsk-radio__label::after {
+  @apply bg-neutral-400;
+}
+
+.idsk-radio__hint {
+  @apply pl-space-2 idsk-text-hint;
+}
+
+.idsk-radio__error-message {
+  @apply block pl-space-2 idsk-text-hint text-text-error;
+}
+
+.idsk-radio__required {
+  @apply text-text-error;
+}
+
+.idsk-radio-group {
+  @apply m-0 border-0 p-0;
+}
+
+.idsk-radio-group__legend {
+  @apply idsk-text-main-body;
+}
+
+.idsk-radio-group__hint {
+  @apply idsk-text-hint;
+}
+
+.idsk-radio-group__error-message {
+  @apply block idsk-text-hint text-text-error;
+}
+
+.idsk-radio-group__items {
+  @apply mt-space-4 flex flex-col gap-y-space-4;
+}
+
+.idsk-radio--sm {
+  @apply pl-6;
+}
+
+.idsk-radio--sm .idsk-radio__input {
+  @apply h-6 w-6;
+}
+
+.idsk-radio--sm .idsk-radio__label {
+  @apply px-space-2 pt-0;
+}
+
+.idsk-radio--sm .idsk-radio__input:checked + .idsk-radio__label::before,
+.idsk-radio--sm .idsk-radio__input:not(:checked) + .idsk-radio__label::before {
+  @apply h-6 w-6;
+}
+
+.idsk-radio--sm .idsk-radio__input:checked + .idsk-radio__label::after {
+  @apply top-[7px] left-[7px] h-space-2 w-space-2;
+}

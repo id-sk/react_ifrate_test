@@ -1,0 +1,50 @@
+{
+  "name": "@idsk/core",
+  "version": "3.1.0",
+  "description": "IDSK React komponenty (core)",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js"
+    },
+    "./vanilla": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/vanilla.es.js",
+      "require": "./dist/vanilla.js"
+    },
+    "./style.css": "./dist/style.css"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && vite build --mode vanilla",
+    "test": "vitest run --exclude '**/*.ct.test.tsx'",
+    "test-ct": "playwright test -c playwright-ct.config.ts"
+  },
+  "dependencies": {
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^1.14.0",
+    "radix-ui": "^1.4.3",
+    "tailwind-merge": "^3.6.0"
+  },
+  "peerDependencies": {
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.0",
+    "@vitejs/plugin-react": "^6.0.1",
+    "vite": "^8.0.12",
+    "vite-plugin-css-injected-by-js": "^5.0.1",
+    "vite-plugin-dts": "^5.0.0"
+  }
+}

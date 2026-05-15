@@ -1,0 +1,32 @@
+import React from 'react';
+
+export interface ContactsIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const ContactsIcon = ({ size, ...props }: ContactsIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <g clipPath="url(#clip0_3239_30799)">
+        <path
+          d="M20.8334 0H4.16671V2.08333H20.8334V0ZM4.16671 25H20.8334V22.9167H4.16671V25ZM20.8334 4.16667H4.16671C3.02087 4.16667 2.08337 5.10417 2.08337 6.25V18.75C2.08337 19.8958 3.02087 20.8333 4.16671 20.8333H20.8334C21.9792 20.8333 22.9167 19.8958 22.9167 18.75V6.25C22.9167 5.10417 21.9792 4.16667 20.8334 4.16667ZM12.5 7.03125C13.7917 7.03125 14.8438 8.08333 14.8438 9.375C14.8438 10.6667 13.7917 11.7188 12.5 11.7188C11.2084 11.7188 10.1563 10.6667 10.1563 9.375C10.1563 8.08333 11.2084 7.03125 12.5 7.03125ZM17.7084 17.7083H7.29171V16.1458C7.29171 14.4062 10.7605 13.5417 12.5 13.5417C14.2396 13.5417 17.7084 14.4062 17.7084 16.1458V17.7083Z"
+          fill="currentColor"
+        />
+      </g>
+      <defs>
+        <clipPath id="clip0_3239_30799">
+          <rect width="25" height="25" fill="white" />
+        </clipPath>
+      </defs>
+    </svg>
+  );
+};
+
+export default ContactsIcon;

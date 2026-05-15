@@ -1,0 +1,81 @@
+@reference "../../style/tailwind.css";
+
+@layer components {
+  .idsk-textarea-container {
+    @apply flex w-full max-w-[610px] flex-col gap-y-(--spacing-space-1);
+  }
+
+  .idsk-textarea__wrapper {
+    @apply relative flex w-full;
+
+    &:has(.idsk-textarea:focus-visible)::before {
+      @apply idsk-focus-ring-pseudo;
+    }
+
+    &::after {
+      @apply pointer-events-none absolute right-[2px] bottom-[2px] z-10 h-4 w-4 bg-base-white content-[''];
+
+      background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='4.80078' y='4.80078' width='2.4' height='2.4' fill='%23757575'/%3E%3Crect x='9.60156' width='2.4' height='2.4' fill='%23757575'/%3E%3Crect y='9.59961' width='2.4' height='2.4' fill='%23757575'/%3E%3Crect x='9.60156' y='4.80078' width='2.4' height='2.4' fill='%23757575'/%3E%3Crect x='9.60156' y='9.59961' width='2.4' height='2.4' fill='%23757575'/%3E%3Crect x='4.80078' y='9.59961' width='2.4' height='2.4' fill='%23757575'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+
+  .idsk-textarea {
+    @apply flex min-h-[100px] w-full resize-y rounded-rounding-1 border-2 border-neutral-800 bg-base-white px-space-3 pt-2.5 pb-8 idsk-text-main-body transition-colors;
+    @apply placeholder:text-text-secondary;
+    @apply focus-visible:outline-none;
+    @apply idsk-hover-outline;
+    @apply disabled:cursor-not-allowed disabled:border-neutral-400;
+
+    &::-webkit-resizer {
+      display: none !important;
+    }
+  }
+
+  .idsk-textarea__label {
+    @apply flex w-full flex-col;
+  }
+
+  .idsk-textarea__label-text {
+    @apply flex items-center gap-x-(--spacing-space-1) idsk-text-main-body;
+  }
+
+  .idsk-textarea__label-required {
+    @apply flex h-6 items-start gap-x-1 text-text-error;
+  }
+
+  .idsk-textarea__label-not-required {
+    @apply idsk-text-main-body-1 text-text-secondary;
+  }
+
+  .idsk-textarea__label-description,
+  .idsk-textarea__description {
+    @apply idsk-text-hint;
+  }
+
+  .idsk-textarea--error {
+    @apply border-border-error;
+  }
+
+  .idsk-textarea__wrapper__error-icon {
+    @apply absolute top-space-3 right-space-3 flex;
+    @apply text-text-error;
+  }
+
+  .idsk-textarea__error-description {
+    @apply idsk-text-hint text-text-error;
+  }
+
+  .idsk-textarea__footer {
+    @apply flex w-full items-start justify-between gap-x-space-3;
+  }
+
+  .idsk-textarea__footer-left {
+    @apply flex flex-1 flex-col;
+  }
+
+  .idsk-character-count {
+    @apply absolute right-[27px] bottom-space-1 idsk-text-main-body-1 whitespace-nowrap text-text-secondary;
+  }
+}

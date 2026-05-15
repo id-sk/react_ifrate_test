@@ -1,0 +1,128 @@
+@reference "../../style/tailwind.css";
+
+.idsk-checkbox {
+  @apply relative block pl-6 md:pl-11;
+}
+
+.idsk-checkbox__input {
+  @apply absolute top-0 left-0 z-1 m-0 h-6 w-6 cursor-pointer appearance-none rounded-rounding-1 border-none bg-transparent p-0 text-neutral-800 md:h-11 md:w-11;
+  @apply flex items-center justify-center;
+}
+
+.idsk-checkbox__input:not(:disabled) {
+  @apply focus-visible:outline-none;
+  @apply idsk-hover-outline;
+}
+
+/* Focus ring around the indicator only (top-left corner of .idsk-checkbox).
+   --_indicator-size matches the indicator: 1.5rem mobile, 2.75rem desktop. */
+.idsk-checkbox:has(.idsk-checkbox__input:focus-visible)::after {
+  @apply pointer-events-none absolute z-3 rounded-(--idsk-focus-ring-radius) content-[''];
+
+  --_ring-offset: calc(-1 * var(--idsk-focus-ring-width) - var(--idsk-focus-ring-gap));
+  --_indicator-size: 1.5rem;
+
+  top: var(--_ring-offset);
+  left: var(--_ring-offset);
+  width: calc(
+    var(--_indicator-size) + 2 * (var(--idsk-focus-ring-width) + var(--idsk-focus-ring-gap))
+  );
+  height: calc(
+    var(--_indicator-size) + 2 * (var(--idsk-focus-ring-width) + var(--idsk-focus-ring-gap))
+  );
+  border: var(--idsk-focus-ring-width) solid var(--idsk-focus-ring-color);
+}
+
+@media (width >= 768px) {
+  .idsk-checkbox:not(.idsk-checkbox--sm):has(.idsk-checkbox__input:focus-visible)::after {
+    --_indicator-size: 2.75rem;
+  }
+}
+
+.idsk-checkbox__label {
+  @apply flex cursor-pointer touch-manipulation gap-space-1 px-2.5 pt-0.5 idsk-text-main-body md:pt-2;
+}
+
+.idsk-checkbox__input:checked + .idsk-checkbox__label::before,
+.idsk-checkbox__input:indeterminate + .idsk-checkbox__label::before,
+.idsk-checkbox__input:not(:checked) + .idsk-checkbox__label::before {
+  @apply absolute top-0 left-0 box-border h-6 w-6 rounded-rounding-1 border-2 border-current bg-transparent content-[''] md:h-11 md:w-11;
+}
+
+.idsk-checkbox__indicator {
+  @apply pointer-events-none absolute top-0 left-0 z-2 flex h-6 w-6 items-center justify-center opacity-0 md:h-11 md:w-11;
+}
+
+.idsk-checkbox__input:checked ~ .idsk-checkbox__indicator--check,
+.idsk-checkbox__input:indeterminate ~ .idsk-checkbox__indicator--indeterminate {
+  @apply opacity-100;
+}
+
+.idsk-checkbox__input:disabled,
+.idsk-checkbox__input:disabled + .idsk-checkbox__label {
+  @apply cursor-default text-neutral-400;
+}
+
+.idsk-checkbox__hint {
+  @apply pl-2.5 idsk-text-hint;
+}
+
+.idsk-checkbox__error-message {
+  @apply block pl-2.5 idsk-text-hint text-text-error;
+}
+
+.idsk-checkbox-group {
+  @apply m-0 border-0 p-0;
+}
+
+.idsk-checkbox-group__legend {
+  @apply idsk-text-main-body;
+}
+
+.idsk-checkbox-group__hint {
+  @apply idsk-text-hint;
+}
+
+.idsk-checkbox__required {
+  @apply text-text-error;
+}
+
+.idsk-checkbox-group__items {
+  @apply mt-5;
+}
+
+.idsk-checkbox-group__items,
+.idsk-checkbox-group__subgroup {
+  @apply flex flex-col gap-y-5;
+}
+
+.idsk-checkbox-group__subgroup {
+  @apply pl-6;
+}
+
+.idsk-checkbox--sm {
+  @apply pl-6;
+}
+
+.idsk-checkbox--sm .idsk-checkbox__input {
+  @apply h-6 w-6;
+}
+
+.idsk-checkbox--sm .idsk-checkbox__label {
+  @apply px-2.5 pt-0;
+}
+
+.idsk-checkbox--sm .idsk-checkbox__input:checked + .idsk-checkbox__label::before,
+.idsk-checkbox--sm .idsk-checkbox__input:indeterminate + .idsk-checkbox__label::before,
+.idsk-checkbox--sm .idsk-checkbox__input:not(:checked) + .idsk-checkbox__label::before {
+  @apply h-6 w-6;
+}
+
+.idsk-checkbox--sm .idsk-checkbox__indicator {
+  @apply h-6 w-6;
+}
+
+.idsk-checkbox--sm .idsk-checkbox__hint,
+.idsk-checkbox--sm .idsk-checkbox__error-message {
+  @apply pl-[10px];
+}

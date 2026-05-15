@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface BeenhereIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const BeenhereIcon = ({ size, ...props }: BeenhereIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M19.7917 1.0415H5.20833C4.0625 1.0415 3.13542 1.979 3.13542 3.12484L3.125 16.5936C3.125 17.3123 3.48958 17.9478 4.04167 18.3228L12.5 23.9582L20.9479 18.3228C21.5 17.9478 21.8646 17.3123 21.8646 16.5936L21.875 3.12484C21.875 1.979 20.9375 1.0415 19.7917 1.0415ZM10.4167 16.6665L5.20833 11.4582L6.67708 9.98942L10.4167 13.7186L18.3229 5.81234L19.7917 7.2915L10.4167 16.6665Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default BeenhereIcon;

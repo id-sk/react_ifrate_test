@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface LocalAtmIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const LocalAtmIcon = ({ size, ...props }: LocalAtmIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M11.4583 17.7082H13.5416V16.6665H14.5833C15.1562 16.6665 15.6249 16.1978 15.6249 15.6248V12.4998C15.6249 11.9269 15.1562 11.4582 14.5833 11.4582H11.4583V10.4165H15.6249V8.33317H13.5416V7.2915H11.4583V8.33317H10.4166C9.84367 8.33317 9.37492 8.80192 9.37492 9.37484V12.4998C9.37492 13.0728 9.84367 13.5415 10.4166 13.5415H13.5416V14.5832H9.37492V16.6665H11.4583V17.7082ZM20.8333 4.1665H4.16659C3.01034 4.1665 2.09367 5.09359 2.09367 6.24984L2.08325 18.7498C2.08325 19.9061 3.01034 20.8332 4.16659 20.8332H20.8333C21.9895 20.8332 22.9166 19.9061 22.9166 18.7498V6.24984C22.9166 5.09359 21.9895 4.1665 20.8333 4.1665ZM20.8333 18.7498H4.16659V6.24984H20.8333V18.7498Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default LocalAtmIcon;

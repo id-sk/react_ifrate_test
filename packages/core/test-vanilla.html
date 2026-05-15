@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="sk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IDSK Vanilla Test</title>
+    <link rel="stylesheet" href="dist/style.css" />
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 2rem;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      h1 {
+        border-bottom: 2px solid #005eb8;
+        padding-bottom: 0.5rem;
+      }
+      section {
+        margin-bottom: 3rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>IDSK Vanilla Interactivity Test</h1>
+
+    <section>
+      <h2>Accordion</h2>
+      <div class="idsk-accordion" data-idsk="accordion">
+        <div class="idsk-accordion__item">
+          <button class="idsk-accordion__button" aria-expanded="false">
+            <span>Čo je IDSK?</span>
+            <span class="idsk-accordion__icon"></span>
+          </button>
+          <div class="idsk-accordion__content" hidden>
+            <div class="idsk-accordion__inner">
+              IDSK (Informačný Dizajnový Systém Komponentov) je sada pravidiel a nástrojov na tvorbu
+              jednotných digitálnych služieb štátu.
+            </div>
+          </div>
+        </div>
+        <div class="idsk-accordion__item">
+          <button class="idsk-accordion__button" aria-expanded="false">
+            <span>Prečo používať Vanilla verziu?</span>
+            <span class="idsk-accordion__icon"></span>
+          </button>
+          <div class="idsk-accordion__content" hidden>
+            <div class="idsk-accordion__inner">
+              Umožňuje integráciu IDSK komponentov do projektov, ktoré nepoužívajú React (napr. PHP,
+              static HTML, legacy systémy).
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Button (Static)</h2>
+      <button class="idsk-button">Primárne tlačidlo</button>
+      <button class="idsk-button idsk-button--secondary">Sekundárne tlačidlo</button>
+    </section>
+
+    <script src="dist/vanilla.js"></script>
+  </body>
+</html>

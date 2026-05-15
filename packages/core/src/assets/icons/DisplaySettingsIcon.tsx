@@ -1,0 +1,35 @@
+import React from 'react';
+
+export interface DisplaySettingsIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const DisplaySettingsIcon = ({ size, ...props }: DisplaySettingsIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M20.8334 3.125H4.16671C3.01046 3.125 2.08337 4.05208 2.08337 5.20833V17.7083C2.08337 18.8542 3.01046 19.7917 4.16671 19.7917H8.33337V21.875H16.6667V19.7917H20.8334C21.9792 19.7917 22.9167 18.8542 22.9167 17.7083V5.20833C22.9167 4.05208 21.9792 3.125 20.8334 3.125ZM20.8334 17.7083H4.16671V5.20833H20.8334V17.7083Z"
+        fill="currentColor"
+      />
+      <path d="M14.5834 8.59375H6.25004V10.1562H14.5834V8.59375Z" fill="currentColor" />
+      <path
+        d="M17.1875 10.1562H18.75V8.59375H17.1875V7.29167H15.625V11.4583H17.1875V10.1562Z"
+        fill="currentColor"
+      />
+      <path d="M18.75 12.7604H10.4167V14.3229H18.75V12.7604Z" fill="currentColor" />
+      <path
+        d="M7.81254 15.625H9.37504V11.4583H7.81254V12.7604H6.25004V14.3229H7.81254V15.625Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default DisplaySettingsIcon;

@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface DesktopAccessDisabledIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const DesktopAccessDisabledIcon = ({ size, ...props }: DesktopAccessDisabledIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M24.4792 15.7292C24.4792 16.875 23.5417 17.8125 22.3959 17.8125H21.3542L19.2709 15.7292H22.3959V3.22917H6.77087L4.68754 1.14583H22.3959C23.5417 1.14583 24.4792 2.08333 24.4792 3.22917V15.7292ZM16.0417 17.8125L22.2917 24.0625L23.6459 22.7083L16.6667 15.7292L1.77087 0.9375L0.520874 2.29167L1.56254 3.33333V15.7292C1.56254 16.875 2.50004 17.8125 3.64587 17.8125H10.9375V19.8958H8.85421V21.9792H17.1875V19.8958H15.1042V17.8125H16.0417ZM3.64587 15.7292V5.41667L13.9584 15.7292H3.64587Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default DesktopAccessDisabledIcon;

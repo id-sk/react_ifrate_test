@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface TextRotationNoneIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const TextRotationNoneIcon = ({ size, ...props }: TextRotationNoneIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M12.4999 3.125H10.9374L5.9895 14.5833H8.177L9.1145 12.2917H14.3228L15.2603 14.5833H17.4478L12.4999 3.125ZM9.77075 10.4167L11.7187 5.1875L13.6666 10.4167H9.77075ZM20.5728 18.75L17.4478 15.625V17.7083H4.427V19.7917H17.4478V21.875L20.5728 18.75Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default TextRotationNoneIcon;

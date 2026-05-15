@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface ExposurePlus1IconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const ExposurePlus1Icon = ({ size, ...props }: ExposurePlus1IconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M10.4167 7.81234H8.33341V11.979H4.16675V14.0623H8.33341V18.229H10.4167V14.0623H14.5834V11.979H10.4167V7.81234ZM20.8334 19.2707H18.7501V8.20817L15.6251 9.27067V7.49984L20.5209 5.729H20.8334V19.2707Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default ExposurePlus1Icon;

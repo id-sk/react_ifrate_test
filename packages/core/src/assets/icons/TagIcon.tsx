@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface TagIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const TagIcon = ({ size, ...props }: TagIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M20.8334 10.4167V8.33341H16.6667V4.16675H14.5834V8.33341H10.4167V4.16675H8.33341V8.33341H4.16675V10.4167H8.33341V14.5834H4.16675V16.6667H8.33341V20.8334H10.4167V16.6667H14.5834V20.8334H16.6667V16.6667H20.8334V14.5834H16.6667V10.4167H20.8334ZM14.5834 14.5834H10.4167V10.4167H14.5834V14.5834Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default TagIcon;

@@ -1,0 +1,45 @@
+import React from 'react';
+
+export interface HdrAutoSelectIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const HdrAutoSelectIcon = ({ size, ...props }: HdrAutoSelectIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M10.4167 16.6666H6.77083V22.9166H10.4167C11.25 22.9166 11.9792 22.1874 11.9792 21.3541V18.2291C11.9792 17.3958 11.25 16.6666 10.4167 16.6666ZM10.4167 21.3541H8.33333V18.2291H10.4167V21.3541Z"
+        fill="currentColor"
+      />
+      <path
+        d="M17.1875 16.6666H13.5417V22.9166H15.1042V20.8333H16.25L17.1875 22.9166H18.75L17.8125 20.7291C18.3333 20.4166 18.75 19.8958 18.75 19.2708V18.2291C18.75 17.3958 18.0208 16.6666 17.1875 16.6666ZM17.1875 19.2708H15.1042V18.2291H17.1875V19.2708Z"
+        fill="currentColor"
+      />
+      <path
+        d="M3.64583 18.7499H1.5625V16.6666H0V22.9166H1.5625V20.3124H3.64583V22.9166H5.20833V16.6666H3.64583V18.7499Z"
+        fill="currentColor"
+      />
+      <path
+        d="M22.9167 19.2708V17.1874H21.3542V19.2708H19.2708V20.8333H21.3542V22.9166H22.9167V20.8333H25V19.2708H22.9167Z"
+        fill="currentColor"
+      />
+      <path
+        d="M12.4688 5.52075L11.4062 8.53117H13.5938L12.5312 5.52075H12.4688Z"
+        fill="currentColor"
+      />
+      <path
+        d="M12.5 2.08325C9.05208 2.08325 6.25 4.88534 6.25 8.33325C6.25 11.7812 9.05208 14.5833 12.5 14.5833C15.9479 14.5833 18.75 11.7812 18.75 8.33325C18.75 4.88534 15.9479 2.08325 12.5 2.08325ZM14.625 11.4583L13.9687 9.59367H11.0208L10.375 11.4583H9.10417L11.8437 4.16659H13.1458L15.8854 11.4583H14.625Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default HdrAutoSelectIcon;

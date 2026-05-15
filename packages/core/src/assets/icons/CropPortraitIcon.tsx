@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface CropPortraitIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const CropPortraitIcon = ({ size, ...props }: CropPortraitIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M17.7084 3.125H7.29171C6.14587 3.125 5.20837 4.0625 5.20837 5.20833V19.7917C5.20837 20.9375 6.14587 21.875 7.29171 21.875H17.7084C18.8542 21.875 19.7917 20.9375 19.7917 19.7917V5.20833C19.7917 4.0625 18.8542 3.125 17.7084 3.125ZM17.7084 19.7917H7.29171V5.20833H17.7084V19.7917Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default CropPortraitIcon;

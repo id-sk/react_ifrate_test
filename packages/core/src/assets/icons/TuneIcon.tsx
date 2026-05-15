@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface TuneIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const TuneIcon = ({ size, ...props }: TuneIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M3.125 17.7083V19.7917H9.375V17.7083H3.125ZM3.125 5.20833V7.29167H13.5417V5.20833H3.125ZM13.5417 21.875V19.7917H21.875V17.7083H13.5417V15.625H11.4583V21.875H13.5417ZM7.29167 9.375V11.4583H3.125V13.5417H7.29167V15.625H9.375V9.375H7.29167ZM21.875 13.5417V11.4583H11.4583V13.5417H21.875ZM15.625 9.375H17.7083V7.29167H21.875V5.20833H17.7083V3.125H15.625V9.375Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default TuneIcon;

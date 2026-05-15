@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface AirlineSeatLegroomReducedIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const AirlineSeatLegroomReducedIcon = ({ size, ...props }: AirlineSeatLegroomReducedIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M21.3243 20C21.5118 21 20.7514 21.875 19.793 21.875H15.1055V18.75L16.1472 14.5833H9.89722C8.17847 14.5833 6.77222 13.1771 6.77222 11.4583V3.125H13.0222V9.375H18.2305C19.3764 9.375 20.3139 10.3125 20.3139 11.4583L18.2305 18.75H19.7306C20.491 18.75 21.1785 19.2604 21.3243 20ZM5.73055 12.5V3.125H3.64722V12.5C3.64722 15.375 5.98055 17.7083 8.85555 17.7083H13.0222V15.625H8.85555C7.12638 15.625 5.73055 14.2292 5.73055 12.5Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default AirlineSeatLegroomReducedIcon;

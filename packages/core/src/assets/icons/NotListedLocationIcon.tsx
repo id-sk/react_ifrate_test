@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface NotListedLocationIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const NotListedLocationIcon = ({ size, ...props }: NotListedLocationIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M12.5 2.0835C8.47921 2.0835 5.20837 5.35433 5.20837 9.37516C5.20837 14.8439 12.5 22.9168 12.5 22.9168C12.5 22.9168 19.7917 14.8439 19.7917 9.37516C19.7917 5.35433 16.5209 2.0835 12.5 2.0835ZM13.4167 16.4064H11.5938V14.5835H13.4167V16.4064ZM13.4167 13.4168H11.5938C11.5938 10.4585 14.323 10.6877 14.323 8.85433C14.323 7.85433 13.5 7.03141 12.5 7.03141C11.5 7.03141 10.6771 7.85433 10.6771 8.85433H8.85421C8.85421 6.84391 10.4896 5.2085 12.5 5.2085C14.5105 5.2085 16.1459 6.84391 16.1459 8.85433C16.1459 11.1356 13.4167 11.3647 13.4167 13.4168Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default NotListedLocationIcon;

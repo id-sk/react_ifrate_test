@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface ChargingStationIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const ChargingStationIcon = ({ size, ...props }: ChargingStationIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M15.1041 11.4582L11.9791 17.7082V13.5415H9.89575L13.0208 7.2915V11.4582H15.1041ZM7.29159 1.0415H17.7083C18.8541 1.0415 19.7916 1.979 19.7916 3.12484V21.8748C19.7916 23.0207 18.8541 23.9582 17.7083 23.9582H7.29159C6.14575 23.9582 5.20825 23.0207 5.20825 21.8748V3.12484C5.20825 1.979 6.14575 1.0415 7.29159 1.0415ZM7.29159 6.24984V18.7498H17.7083V6.24984H7.29159Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default ChargingStationIcon;

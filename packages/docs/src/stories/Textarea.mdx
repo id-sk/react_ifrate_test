@@ -1,0 +1,97 @@
+import { Meta, Subtitle, Primary, Controls, Story, Stories } from '@storybook/addon-docs/blocks';
+import * as TextareaStories from './Textarea.stories';
+
+<Meta of={TextareaStories} />
+
+# Textarea (Viacriadkové textové pole)
+
+<Subtitle>
+  Viacriadkový vstupný komponent pre zadávanie dlhšieho textu s podporou počítadla znakov, popisu a
+  validácie.
+</Subtitle>
+
+## Overview (Prehľad)
+
+Komponent `Textarea` slúži na zadávanie dlhšieho textového vstupu používateľom. Podporuje dynamické počítadlo znakov, povinné aj nepovinné polia, pomocné popisy a chybové stavy. Automaticky generuje `id` pre správne prepojenie labelu s textovým poľom a nastavuje ARIA atribúty pre prístupnosť vrátane `aria-live` pre počítadlo.
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Varianty
+
+### Povinné a nepovinné pole
+
+Povinné pole zobrazuje hviezdičku (`*`) vedľa labelu, nepovinné pole zobrazuje text `(nepovinné pole)`.
+
+<Story of={TextareaStories.Required} />
+<br />
+<Story of={TextareaStories.Optional} />
+
+### Počítadlo znakov
+
+V pravom dolnom rohu sa zobrazuje dynamické počítadlo znakov vo formáte `aktuálny_počet/maximálny_počet`. Prop `maxLength` je povinný.
+
+<Story of={TextareaStories.WithCharacterCount} />
+
+### S podnadpisom
+
+`labelDescription` pridáva vysvetľujúci text pod label, pred textové pole.
+
+<Story of={TextareaStories.WithSubheading} />
+
+### S popisom (hintom)
+
+`inputDescription` zobrazí pomocný text pod poľom, ktorý je prepojený cez `aria-describedby`.
+
+<Story of={TextareaStories.WithDescription} />
+
+### S tooltipom
+
+`tooltip` zobrazí ikonu „i" vedľa labelu s kontextovou nápovedom.
+
+<Story of={TextareaStories.WithTooltip} />
+
+### Chybový stav
+
+Variant `error` zvýrazní border červenou farbou, zobrazí ikonu varovania a chybovú správu `errorDescription`.
+
+<Story of={TextareaStories.Error} />
+
+### Zakázané pole
+
+<Story of={TextareaStories.Disabled} />
+
+## Kompletné príklady
+
+### Desktop
+
+<Story of={TextareaStories.Desktop} />
+
+### Mobile
+
+<Story of={TextareaStories.Mobile} />
+
+## Prístupnosť (Accessibility)
+
+- Label je prepojený s `textarea` cez `for` a `id`.
+- Počítadlo znakov používa `aria-live="polite"`.
+- Popis a chybová správa sú prepojené cez `aria-describedby`.
+- Pri chybe je nastavený atribút `aria-invalid="true"`.
+- Hviezdička pri povinnom poli má `aria-hidden="true"`.
+
+## Použitie
+
+```tsx
+import { Textarea } from '@idsk/core';
+
+<Textarea
+  label="Vaša správa"
+  placeholder="Napíšte nám vašu spätnú väzbu..."
+  maxLength={500}
+  required
+  inputDescription="Maximálne 500 znakov"
+/>;
+```

@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface WineBarIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const WineBarIcon = ({ size, ...props }: WineBarIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M6.25 3.125V9.375C6.25 12.4688 8.5 15.0312 11.4583 15.5312V19.7917H8.33333V21.875H16.6667V19.7917H13.5417V15.5312C16.5 15.0312 18.75 12.4688 18.75 9.375V3.125H6.25ZM16.6667 8.33333H8.33333V5.20833H16.6667V8.33333Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default WineBarIcon;

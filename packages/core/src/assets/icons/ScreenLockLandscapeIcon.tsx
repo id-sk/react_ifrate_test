@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface ScreenLockLandscapeIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const ScreenLockLandscapeIcon = ({ size, ...props }: ScreenLockLandscapeIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M21.8751 5.20825H3.12508C1.97925 5.20825 1.04175 6.14575 1.04175 7.29159V17.7083C1.04175 18.8541 1.97925 19.7916 3.12508 19.7916H21.8751C23.0209 19.7916 23.9584 18.8541 23.9584 17.7083V7.29159C23.9584 6.14575 23.0209 5.20825 21.8751 5.20825ZM19.7917 17.7083H5.20841V7.29159H19.7917V17.7083ZM10.4167 16.6666H14.5834C15.1563 16.6666 15.6251 16.1978 15.6251 15.6249V12.4999C15.6251 11.927 15.1563 11.4583 14.5834 11.4583V10.4166C14.5834 9.26033 13.6459 8.33325 12.5001 8.33325C11.3438 8.33325 10.4167 9.27075 10.4167 10.4166V11.4583C9.84383 11.4583 9.37508 11.927 9.37508 12.4999V15.6249C9.37508 16.1978 9.84383 16.6666 10.4167 16.6666ZM11.2501 10.4166C11.2501 9.72908 11.8126 9.16659 12.5001 9.16659C13.1876 9.16659 13.7501 9.72908 13.7501 10.4166V11.4583H11.2501V10.4166Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default ScreenLockLandscapeIcon;

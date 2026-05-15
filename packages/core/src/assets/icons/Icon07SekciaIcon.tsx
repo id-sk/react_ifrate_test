@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface Icon07SekciaIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const Icon07SekciaIcon = ({ size, ...props }: Icon07SekciaIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M15.625 3.125L18.0208 5.52083L15.0104 8.51042L16.4896 9.98958L19.4792 6.97917L21.875 9.375V3.125H15.625ZM3.125 9.375L5.52083 6.97917L8.51042 9.98958L9.98958 8.51042L6.97917 5.52083L9.375 3.125H3.125V9.375ZM9.375 21.875L6.97917 19.4792L9.98958 16.4896L8.51042 15.0104L5.52083 18.0208L3.125 15.625V21.875H9.375ZM21.875 15.625L19.4792 18.0208L16.4896 15.0104L15.0104 16.4896L18.0208 19.4792L15.625 21.875H21.875V15.625Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default Icon07SekciaIcon;

@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface WebAssetOffIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const WebAssetOffIcon = ({ size, ...props }: WebAssetOffIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M7.79696 3.43229H21.5157C22.672 3.43229 23.599 4.36979 23.599 5.51563V18.0156C23.599 18.3698 23.5053 18.7031 23.3595 18.9948L21.5157 17.151V7.59896H11.9636L7.79696 3.43229ZM22.0261 23.5469L18.5678 20.099H4.84904C3.69279 20.099 2.76571 19.1615 2.76571 18.0156V5.51563C2.76571 5.16146 2.84904 4.82813 3.00529 4.53646L1.40112 2.92188L2.86987 1.45312L23.4949 22.0781L22.0261 23.5469ZM16.4845 18.0156L6.06779 7.59896H4.84904V18.0156H16.4845Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default WebAssetOffIcon;

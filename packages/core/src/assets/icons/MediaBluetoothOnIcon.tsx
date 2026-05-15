@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface MediaBluetoothOnIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const MediaBluetoothOnIcon = ({ size, ...props }: MediaBluetoothOnIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M9.375 3.125L9.38542 14.1146C8.76042 13.7604 8.05208 13.5417 7.30208 13.5417C4.98958 13.5417 3.125 15.4062 3.125 17.7083C3.125 20.0104 4.98958 21.875 7.30208 21.875C9.61458 21.875 11.4583 20.0104 11.4583 17.7083V7.29167H15.625V3.125H9.375ZM21.875 12.9479L18.3021 9.375H17.6771V14.1146L14.8125 11.25L13.9271 12.1354L17.4271 15.625L13.9375 19.1146L14.8229 20L17.6875 17.1354V21.875H18.3125L21.875 18.3021L19.1875 15.625L21.875 12.9479ZM18.9271 11.7708L20.1042 12.9479L18.9271 14.125V11.7708ZM20.1042 18.3021L18.9271 19.4792V17.125L20.1042 18.3021Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default MediaBluetoothOnIcon;

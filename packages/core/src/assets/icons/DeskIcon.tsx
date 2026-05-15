@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface DeskIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const DeskIcon = ({ size, ...props }: DeskIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M2.08325 6.25V18.75H4.16659V8.33333H14.5833V18.75H16.6666V16.6667H20.8333V18.75H22.9166V6.25H2.08325ZM20.8333 8.33333V10.4167H16.6666V8.33333H20.8333ZM16.6666 14.5833V12.5H20.8333V14.5833H16.6666Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default DeskIcon;

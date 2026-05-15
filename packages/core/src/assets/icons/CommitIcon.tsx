@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface CommitIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const CommitIcon = ({ size, ...props }: CommitIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M17.6042 11.4584C17.125 9.08335 15.0209 7.29169 12.5 7.29169C9.97921 7.29169 7.87504 9.08335 7.39587 11.4584H2.08337V13.5417H7.39587C7.87504 15.9167 9.97921 17.7084 12.5 17.7084C15.0209 17.7084 17.125 15.9167 17.6042 13.5417H22.9167V11.4584H17.6042ZM12.5 15.625C10.7709 15.625 9.37504 14.2292 9.37504 12.5C9.37504 10.7709 10.7709 9.37502 12.5 9.37502C14.2292 9.37502 15.625 10.7709 15.625 12.5C15.625 14.2292 14.2292 15.625 12.5 15.625Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default CommitIcon;

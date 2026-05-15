@@ -1,0 +1,33 @@
+import React from 'react';
+
+export interface MoreTimeIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const MoreTimeIcon = ({ size, ...props }: MoreTimeIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M9.89583 8.33325V14.5833L14.7917 17.6041L15.625 16.3541L11.4583 13.8541V8.33325H9.89583Z"
+        fill="currentColor"
+      />
+      <path
+        d="M18.1458 12.4999C18.1979 12.8437 18.2292 13.1874 18.2292 13.5416C18.2292 17.6041 15 20.8333 10.9375 20.8333C6.875 20.8333 3.64583 17.6041 3.64583 13.5416C3.64583 9.47909 6.875 6.24992 10.9375 6.24992C11.6667 6.24992 12.3646 6.35409 13.0208 6.552V4.40617C12.3542 4.24992 11.6562 4.16659 10.9375 4.16659C5.72917 4.16659 1.5625 8.33325 1.5625 13.5416C1.5625 18.7499 5.72917 22.9166 10.9375 22.9166C16.1458 22.9166 20.3125 18.7499 20.3125 13.5416C20.3125 13.1874 20.2917 12.8437 20.25 12.4999H18.1458Z"
+        fill="currentColor"
+      />
+      <path
+        d="M20.3125 5.20825V2.08325H18.2292V5.20825H15.1042V7.29159H18.2292V10.4166H20.3125V7.29159H23.4375V5.20825H20.3125Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default MoreTimeIcon;

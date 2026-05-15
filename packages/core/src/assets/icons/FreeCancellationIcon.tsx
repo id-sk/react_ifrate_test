@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface FreeCancellationIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const FreeCancellationIcon = ({ size, ...props }: FreeCancellationIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M11.0626 20.5729H4.59383V10.1563H19.1772V14.7188L21.2605 12.6354V5.9896C21.2605 4.84377 20.323 3.90627 19.1772 3.90627H18.1355V1.82294H16.0522V3.90627H7.71883V1.82294H5.6355V3.90627H4.59383C3.43758 3.90627 2.52091 4.84377 2.52091 5.9896L2.5105 20.5729C2.5105 21.7188 3.43758 22.6563 4.59383 22.6563H13.1459L11.0626 20.5729ZM16.6147 23.1771L12.9272 19.4896L14.3959 18.0209L16.6042 20.2292L21.0209 15.8125L22.4897 17.2813L16.6147 23.1771ZM10.2292 14.3229L11.8855 15.9792L10.4167 17.4479L8.7605 15.7917L7.10425 17.4479L5.6355 15.9792L7.29175 14.3229L5.6355 12.6667L7.10425 11.1979L8.7605 12.8542L10.4167 11.1979L11.8855 12.6667L10.2292 14.3229Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default FreeCancellationIcon;

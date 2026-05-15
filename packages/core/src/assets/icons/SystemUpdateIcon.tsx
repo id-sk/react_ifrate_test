@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface SystemUpdateIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const SystemUpdateIcon = ({ size, ...props }: SystemUpdateIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M17.7083 1.05192L7.29159 1.0415C6.14575 1.0415 5.20825 1.979 5.20825 3.12484V21.8748C5.20825 23.0207 6.14575 23.9582 7.29159 23.9582H17.7083C18.8541 23.9582 19.7916 23.0207 19.7916 21.8748V3.12484C19.7916 1.979 18.8541 1.05192 17.7083 1.05192ZM17.7083 19.7915H7.29159V5.20817H17.7083V19.7915ZM16.6666 13.5415H13.5416V8.33317H11.4583V13.5415H8.33325L12.4999 17.7082L16.6666 13.5415Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default SystemUpdateIcon;

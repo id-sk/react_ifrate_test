@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface SegmentIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const SegmentIcon = ({ size, ...props }: SegmentIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M9.375 18.75H21.875V16.6667H9.375V18.75ZM3.125 6.25V8.33333H21.875V6.25H3.125ZM9.375 13.5417H21.875V11.4583H9.375V13.5417Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default SegmentIcon;

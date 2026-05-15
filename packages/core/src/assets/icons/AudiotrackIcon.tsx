@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface AudiotrackIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const AudiotrackIcon = ({ size, ...props }: AudiotrackIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M11.9792 3.125V12.7917C11.4897 12.6146 10.9688 12.5 10.4167 12.5C7.823 12.5 5.72925 14.5938 5.72925 17.1875C5.72925 19.7812 7.823 21.875 10.4167 21.875C12.823 21.875 14.7917 20.0521 15.0522 17.7083H15.1042V6.25H19.2709V3.125H11.9792Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default AudiotrackIcon;

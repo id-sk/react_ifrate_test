@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface UploadFileIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const UploadFileIcon = ({ size, ...props }: UploadFileIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M14.5834 2.08325H6.25008C5.10425 2.08325 4.17716 3.02075 4.17716 4.16659L4.16675 20.8333C4.16675 21.9791 5.09383 22.9166 6.23966 22.9166H18.7501C19.8959 22.9166 20.8334 21.9791 20.8334 20.8333V8.33325L14.5834 2.08325ZM18.7501 20.8333H6.25008V4.16659H13.5417V9.37492H18.7501V20.8333ZM8.33341 15.6353L9.80216 17.1041L11.4584 15.4583V19.7916H13.5417V15.4583L15.198 17.1145L16.6667 15.6353L12.5105 11.4583L8.33341 15.6353Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default UploadFileIcon;

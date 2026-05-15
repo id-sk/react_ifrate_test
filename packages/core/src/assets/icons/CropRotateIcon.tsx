@@ -1,0 +1,32 @@
+import React from 'react';
+
+export interface CropRotateIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const CropRotateIcon = ({ size, ...props }: CropRotateIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <g clipPath="url(#clip0_3239_32758)">
+        <path
+          d="M7.78125 22.3854C4.375 20.7604 1.9375 17.4583 1.5625 13.5417H0C0.53125 19.9583 5.89583 25 12.4479 25C12.6875 25 12.9062 24.9792 13.1354 24.9687L9.16667 20.9896L7.78125 22.3854ZM12.5521 0C12.3125 0 12.0938 0.0208333 11.8646 0.0416667L15.8333 4.01042L17.2188 2.625C20.625 4.23958 23.0625 7.54167 23.4375 11.4583H25C24.4688 5.04167 19.1042 0 12.5521 0ZM16.6667 14.5833H18.75V8.33333C18.75 7.17708 17.8125 6.25 16.6667 6.25H10.4167V8.33333H16.6667V14.5833ZM8.33333 16.6667V4.16667H6.25V6.25H4.16667V8.33333H6.25V16.6667C6.25 17.8125 7.17708 18.75 8.33333 18.75H16.6667V20.8333H18.75V18.75H20.8333V16.6667H8.33333Z"
+          fill="currentColor"
+        />
+      </g>
+      <defs>
+        <clipPath id="clip0_3239_32758">
+          <rect width="25" height="25" fill="white" />
+        </clipPath>
+      </defs>
+    </svg>
+  );
+};
+
+export default CropRotateIcon;

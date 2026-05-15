@@ -1,0 +1,25 @@
+import React from 'react';
+
+export interface AddLocationIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const AddLocationIcon = ({ size, ...props }: AddLocationIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M12.4999 2.0835C8.47909 2.0835 5.20825 5.35433 5.20825 9.37516C5.20825 14.8439 12.4999 22.9168 12.4999 22.9168C12.4999 22.9168 19.7916 14.8439 19.7916 9.37516C19.7916 5.35433 16.5208 2.0835 12.4999 2.0835ZM16.6666 10.4168H13.5416V13.5418H11.4583V10.4168H8.33325V8.3335H11.4583V5.2085H13.5416V8.3335H16.6666V10.4168Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default AddLocationIcon;

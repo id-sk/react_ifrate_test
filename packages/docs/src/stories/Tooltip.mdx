@@ -1,0 +1,99 @@
+import { Meta, Subtitle, Primary, Controls, Story, Stories } from '@storybook/addon-docs/blocks';
+import * as TooltipStories from './Tooltip.stories';
+
+<Meta of={TooltipStories} />
+
+# Tooltip
+
+<Subtitle>Kontextová nápoveda s ikonou „i" — WCAG 2.1 kompatibilný komponent.</Subtitle>
+
+## Overview (Prehľad)
+
+Komponent `Tooltip` zobrazuje krátky pomocný text v plávajúcom kontajneri po nabehnutí myšou alebo kliknutí na ikonu „i". Ikona je vždy umiestnená vpravo od popisku. Kontajner sa automaticky prispôsobí dostupnému miestu vo viewporte.
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Správanie
+
+| Akcia                     | Desktop                                     | Mobile                   |
+| ------------------------- | ------------------------------------------- | ------------------------ |
+| Nabehnúť myšou            | Otvorí po 200 ms (predchádza preblikávaniu) | —                        |
+| Kliknúť / ťuknúť na ikonu | Prepne (toggle)                             | Prepne (toggle)          |
+| Tab fokus                 | Fokus na ikonu, vizuálne zvýraznenie        | —                        |
+| Enter / Medzerník         | Otvorí alebo zatvorí                        | —                        |
+| Escape                    | Zatvorí otvorený tooltip                    | —                        |
+| Ťuknutie mimo tooltipu    | —                                           | Zatvorí otvorený tooltip |
+
+## Varianty
+
+### Pozícia
+
+Tooltip podporuje 4 smery. Ak nie je dostatok miesta vo viewporte, automaticky sa prepne na opačnú stranu.
+
+<Story of={TooltipStories.PositionTop} />
+<Story of={TooltipStories.PositionBottom} />
+<Story of={TooltipStories.PositionLeft} />
+<Story of={TooltipStories.PositionRight} />
+
+### Dlhý obsah
+
+Obsah by nemal presiahnuť **290 znakov**. Pri prekročení limitu sa zobrazí upozornenie v konzole (len v dev prostredí).
+
+<Story of={TooltipStories.LongContent} />
+
+### Všetky smery naraz
+
+<Story of={TooltipStories.AllPositions} />
+
+## Mobile
+
+Na mobilných zariadeniach sa tooltip otvára na ťuknutie a zostáva otvorený, kým používateľ neťukne znova na ikonu alebo mimo plochu tooltipu. Tlačidlo obsahuje `aria-expanded` pre čítačky obrazovky.
+
+<Story of={TooltipStories.Mobile} />
+
+## Integrácia s formulárom
+
+Príklad prepojenia s textovým poľom, radio buttonmi a selectom.
+
+<Story of={TooltipStories.FormIntegration} />
+
+## Prístupnosť (Accessibility)
+
+- Spúšťač je natívny `<button type="button">` — dostupný cez Tab
+- Text „i" vo vnútri buttonu je obalený `<span aria-hidden="true">` — neprehováraný čítačkou
+- Obsah tooltipu má `role="tooltip"` (nastavené automaticky cez Radix UI)
+- Tlačidlo je prepojené s obsahom cez `aria-describedby`
+- Na mobile je prítomný `aria-expanded` pre správne oznamovanie stavu
+- Klávesa **Escape** vždy zatvorí otvorený tooltip
+- Vizuálne zvýraznenie fokusu (`focus-visible`) je viditeľné a spĺňa kontrastný pomer WCAG 2.1 SC 1.4.3
+
+## Obmedzenia obsahu
+
+```tsx
+// SPRÁVNE — čistý text
+<Tooltip content="Zadajte dátum v tvare DD.MM.RRRR" ... />
+
+// NESPRÁVNE — interaktívne prvky v toolipe porušujú WCAG 2.1 SC 1.4.13
+// Prop content je typovaný ako string, TypeScript toto zachytí pri kompilácii
+```
+
+## Použitie
+
+```tsx
+import { Tooltip } from '@idsk/core';
+
+<Tooltip
+  label="Dátum narodenia"
+  content="Zadajte dátum v tvare DD.MM.RRRR."
+  ariaLabel="Nápoveda k dátumu narodenia"
+  preferredPosition="top"
+/>;
+```
+
+## Všetky príbehy
+
+<Stories />

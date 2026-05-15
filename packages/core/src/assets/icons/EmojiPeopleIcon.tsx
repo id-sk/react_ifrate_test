@@ -1,0 +1,29 @@
+import React from 'react';
+
+export interface EmojiPeopleIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+const EmojiPeopleIcon = ({ size, ...props }: EmojiPeopleIconProps) => {
+  return (
+    <svg
+      width={size || '1em'}
+      height={size || '1em'}
+      viewBox="0 0 25 25"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M12.3126 6.25016C13.4632 6.25016 14.3959 5.31742 14.3959 4.16683C14.3959 3.01624 13.4632 2.0835 12.3126 2.0835C11.162 2.0835 10.2292 3.01624 10.2292 4.16683C10.2292 5.31742 11.162 6.25016 12.3126 6.25016Z"
+        fill="currentColor"
+      />
+      <path
+        d="M16.3647 8.44808C15.9584 8.04183 15.2605 7.29183 13.9063 7.29183C13.6876 7.29183 12.4272 7.29183 11.2605 7.29183C8.39592 7.28141 6.06258 4.94808 6.06258 2.0835H3.97925C3.97925 5.37516 6.17716 8.16683 9.18758 9.07308V22.9168H11.2709V16.6668H13.3542V22.9168H15.4376V10.4689L19.5522 14.5835L21.0209 13.1147L16.3647 8.44808Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
+export default EmojiPeopleIcon;
