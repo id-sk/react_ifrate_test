@@ -45,8 +45,6 @@ const Tooltip: React.FC<TooltipProps> = ({
       ? window.matchMedia('(hover: none) and (pointer: coarse)').matches
       : false,
   );
-  // Prevents Radix from reopening via focus/hover immediately after a manual click-to-close.
-  const manuallyClosedRef = useRef(false);
 
   if (process.env.NODE_ENV !== 'production' && content.length > MAX_CONTENT_LENGTH) {
     console.warn(
@@ -55,46 +53,22 @@ const Tooltip: React.FC<TooltipProps> = ({
     );
   }
 
-  const handleOpenChange = (nextOpen: boolean) => {
-    // We only allow programmatic opening (via click/keypress) OR closing.
-    // Radix triggers onOpenChange(true) on hover or focus.
-    // We want to ignore those.
-    if (nextOpen && !manuallyClosedRef.current && !open) {
-      // If it's trying to open, but it's not from our click (which sets open=true already),
-      // we ignore it.
-      return;
-    }
-    setOpen(nextOpen);
-    if (!nextOpen) {
-      manuallyClosedRef.current = false;
-    }
-  };
-
   const handleClick = () => {
-    // Prevent Radix from handling the click in its own way if necessary
-    const next = !open;
-    manuallyClosedRef.current = false; // reset
-    setOpen(next);
-  };
-
-  const handleBlur = () => {
-    manuallyClosedRef.current = false;
+    setOpen((prev) => !prev);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
     if (e.key === 'Enter' || e.key === ' ') {
-      // Handle explicitly so the browser's native click-from-keypress doesn't double-toggle.
       e.preventDefault();
       handleClick();
     } else if (e.key === 'Escape') {
-      manuallyClosedRef.current = true;
       setOpen(false);
     }
   };
 
   return (
     <RadixTooltip.Provider delayDuration={200}>
-      <RadixTooltip.Root open={open} onOpenChange={handleOpenChange}>
+      <RadixTooltip.Root open={open}>
         <div className={cn('idsk-tooltip__wrapper', className)}>
           {label && <span className="idsk-tooltip__label">{label}</span>}
 
@@ -104,7 +78,6 @@ const Tooltip: React.FC<TooltipProps> = ({
               aria-label={ariaLabel}
               aria-expanded={isTouchDevice ? open : undefined}
               onClick={handleClick}
-              onBlur={handleBlur}
               onKeyDown={handleKeyDown}
               className="idsk-tooltip__trigger"
             >
