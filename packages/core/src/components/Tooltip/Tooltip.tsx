@@ -7,7 +7,7 @@
  */
 
 import { Tooltip as RadixTooltip } from 'radix-ui';
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { cn } from '../../lib/utils';
 import InfoOutlineIcon from '../../assets/icons/InfoOutlineIcon.tsx';
 
