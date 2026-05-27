@@ -52,7 +52,7 @@ const meta = {
   args: {
     variant: 'default',
     label: 'Label',
-    placeholder: 'Zadajte text...',
+    placeholder: 'Napr. Placeholder',
   },
   parameters: {
     layout: 'centered',
@@ -156,7 +156,7 @@ export const Disabled: Story = {
   name: 'Zakázané (disabled)',
   args: {
     label: 'Zakázané pole',
-    placeholder: 'Toto pole nie je dostupné',
+    placeholder: 'Napr. Placeholder',
     disabled: true,
   },
   decorators: desktopDecorator,

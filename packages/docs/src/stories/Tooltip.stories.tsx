@@ -140,7 +140,7 @@ export const FormIntegration: Story = {
           ariaLabel="Nápoveda k rodnému číslu"
           preferredPosition="top"
         />
-        <Input placeholder="900101/1234" aria-label="Rodné číslo" />
+        <Input placeholder="Napr. 900101/1234" aria-label="Rodné číslo" />
       </div>
 
       {/* Radio group s tooltipom */}
