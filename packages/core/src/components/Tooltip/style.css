@@ -70,7 +70,8 @@
 
   /* Arrow */
   .idsk-tooltip__arrow {
-    @apply text-neutral-900 pointer-events-[bounding-box];
+    @apply text-neutral-900;
+    pointer-events: bounding-box;
   }
 
   .idsk-tooltip__content[data-side='left'] .idsk-tooltip__arrow,
