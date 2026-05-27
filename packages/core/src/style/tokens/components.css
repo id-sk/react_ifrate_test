@@ -1,0 +1,72 @@
+:root {
+  /* Button primary */
+  --component-button-primary-background-default: var(--primary-400);
+  --component-button-primary-background-active: var(--primary-600);
+  --component-button-primary-background-disabled: var(--neutral-400);
+  --component-button-primary-background-error: var(--status-error-base);
+  --component-button-primary-background-error-active: var(--status-error-strong);
+  --component-button-primary-background-success: var(--status-success-base);
+  --component-button-primary-background-success-active: var(--status-success-strong);
+  --component-button-primary-foreground-default: var(--base-white);
+
+  /* Button secondary */
+  --component-button-secondary-background-default: var(--base-white);
+  --component-button-secondary-background-active: var(--primary-100);
+  --component-button-secondary-background-error-active: var(--status-error-background);
+  --component-button-secondary-background-success-active: var(--status-success-background);
+  --component-button-secondary-background-error-active2: var(--status-error-background);
+  --component-button-secondary-background-success-active2: var(--status-success-background);
+  --component-button-secondary-border-default: var(--primary-500);
+  --component-button-secondary-border-disabled: var(--neutral-400);
+  --component-button-secondary-border-error: var(--status-error-base);
+  --component-button-secondary-border-success: var(--status-success-base);
+  --component-button-secondary-foreground-default: var(--primary-500);
+  --component-button-secondary-foreground-disabled: var(--text-disabled);
+  --component-button-secondary-foreground-error: var(--status-error-base);
+  --component-button-secondary-foreground-success: var(--status-success-base);
+
+  /* Button tertiary */
+  --component-button-tertiary-background-active: var(--primary-100);
+  --component-button-tertiary-background-error-active: var(--status-error-background);
+  --component-button-tertiary-background-success-active: var(--status-success-background);
+  --component-button-tertiary-foreground-default: var(--primary-500);
+  --component-button-tertiary-foreground-inverted: var(--base-white);
+  --component-button-tertiary-foreground-disabled: var(--text-disabled);
+  --component-button-tertiary-foreground-error: var(--status-error-base);
+  --component-button-tertiary-foreground-success: var(--status-success-base);
+
+  /* Header */
+  --component-header-header-surface: var(--primary-600);
+
+  /* Tags */
+  --component-tag-blue-background: var(--primary-100);
+  --component-tag-blue-border: var(--primary-300);
+  --component-tag-blue-foreground: var(--primary-500);
+  --component-tag-white-background: var(--base-white);
+  --component-tag-white-border: var(--neutral-300);
+  --component-tag-white-foreground: var(--neutral-900);
+  --component-tag-green-background: var(--status-success-background);
+  --component-tag-green-border: var(--status-success-soft);
+  --component-tag-green-foreground: var(--status-success-strong);
+  --component-tag-orange-background: var(--status-warning-background);
+  --component-tag-orange-border: var(--status-warning-soft);
+  --component-tag-orange-foreground: var(--status-warning-strong);
+  --component-tag-red-background: var(--status-error-background);
+  --component-tag-red-border: var(--status-error-soft);
+  --component-tag-red-foreground: var(--status-error-strong);
+  --component-tag-pink-background: var(--accent-magenta-100);
+  --component-tag-pink-border: var(--accent-magenta-300);
+  --component-tag-pink-foreground: var(--accent-magenta-600);
+  --component-tag-purple-background: var(--accent-violet-100);
+  --component-tag-purple-border: var(--accent-violet-300);
+  --component-tag-purple-foreground: var(--accent-violet-600);
+  --component-tag-teal-background: var(--accent-teal-100);
+  --component-tag-teal-border: var(--accent-teal-300);
+  --component-tag-teal-foreground: var(--accent-teal-600);
+  --component-tag-olive-background: var(--accent-olive-100);
+  --component-tag-olive-border: var(--accent-olive-300);
+  --component-tag-olive-foreground: var(--accent-olive-600);
+  --component-tag-disabled-background: var(--neutral-090);
+  --component-tag-disabled-border: var(--neutral-400);
+  --component-tag-disabled-foreground: var(--neutral-400);
+}

@@ -1,0 +1,35 @@
+@theme inline {
+  /* Spacing */
+  --spacing-space-0: var(--spacing-space-0);
+  --spacing-space-1: var(--spacing-space-1);
+  --spacing-space-2: var(--spacing-space-2);
+  --spacing-space-3: var(--spacing-space-3);
+  --spacing-space-4: var(--spacing-space-4);
+  --spacing-space-5: var(--spacing-space-5);
+  --spacing-space-6: var(--spacing-space-6);
+  --spacing-space-7: var(--spacing-space-7);
+  --spacing-space-8: var(--spacing-space-8);
+  --spacing-space-9: var(--spacing-space-9);
+  --spacing-space-10: var(--spacing-space-10);
+  --spacing-space-11: var(--spacing-space-11);
+  --spacing-space-12: var(--spacing-space-12);
+
+  /* Border Radius */
+  --radius-rounding-1: var(--cornerradius-rounding-1);
+  --radius-rounding-2: var(--cornerradius-rounding-2);
+  --radius-rounding-m: var(--corner-radius-rounding-m);
+  --radius-rounding-s: var(--corner-radius-rounding-s);
+
+  /* Stroke Thickness */
+  --border-width-1: var(--stroke-thickness-1);
+  --border-width-2: var(--stroke-thickness-2);
+  --border-width-3: var(--stroke-thickness-3);
+  --border-width-4: var(--stroke-thickness-4);
+  --border-width-default: var(--stroke-thickness-default);
+  --border-width-subtle: var(--stroke-thickness-subtle);
+  --border-width-focus-ring: var(--stroke-thickness-focus-ring);
+  --border-width-hover-ring: var(--stroke-thickness-hover-ring);
+
+  /* Shadows */
+  --shadow-middle: var(--idsk-shadow-middle);
+}

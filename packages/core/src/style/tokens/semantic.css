@@ -1,0 +1,105 @@
+:root {
+  /* Section layout */
+  --section-gaps-default: var(--spacing-space-0);
+  --section-padding-horizontal-minimal: var(--spacing-space-3);
+  --section-padding-vertical-large: var(--spacing-space-7);
+  --section-padding-vertical-default: var(--spacing-space-4);
+  --section-padding-vertical-subtle: var(--spacing-space-2);
+
+  /* Content layout */
+  --content-width-maximum: 730;
+  --content-width-minimum: 320;
+  --content-gaps-extralarge: var(--spacing-space-8);
+  --content-gaps-large: var(--spacing-space-6);
+  --content-gaps-default: var(--spacing-space-3);
+  --content-gaps-subtle: var(--spacing-space-2);
+  --content-gaps-nogap: var(--spacing-space-0);
+
+  /* Corner radius semantic aliases */
+  --corner-radius-rounding-m: var(--spacing-space-2);
+  --corner-radius-rounding-s: var(--spacing-space-1);
+
+  /* Stroke thickness semantic aliases */
+  --stroke-thickness-default: var(--stroke-thickness-2);
+  --stroke-thickness-subtle: var(--stroke-thickness-1);
+  --stroke-thickness-focus-ring: var(--stroke-thickness-3);
+  --stroke-thickness-hover-ring: var(--stroke-thickness-4);
+
+  /* Text max widths */
+  --text-maxwidth-headline-xl: var(--text-max-line-width-font-size-36);
+  --text-maxwidth-headline-l: var(--text-max-line-width-font-size-24);
+  --text-maxwidth-headline-m: var(--text-max-line-width-font-size-20);
+  --text-maxwidth-headline-s: var(--text-max-line-width-font-size-19);
+  --text-maxwidth-bodytext-perex: var(--text-max-line-width-font-size-19);
+  --text-maxwidth-bodytext-body: var(--text-max-line-width-font-size-16);
+  --text-maxwidth-bodytext-caption: var(--text-max-line-width-font-size-12);
+  --text-maxwidth-link-l: var(--text-max-line-width-font-size-19);
+  --text-maxwidth-link-m: var(--text-max-line-width-font-size-16);
+  --text-maxwidth-link-s: var(--text-max-line-width-font-size-14);
+  --text-maxwidth-link-caption: var(--text-max-line-width-font-size-12);
+  --text-maxwidth-items-menu: var(--text-max-line-width-font-size-16);
+  --text-maxwidth-items-button: var(--text-max-line-width-font-size-16);
+  --text-maxwidth-items-hint: var(--text-max-line-width-font-size-16);
+
+  /* Surface colors */
+  --surface-canvas: var(--system-canvas);
+  --surface-default: var(--base-white);
+  --surface-subtle: var(--neutral-100);
+  --surface-inverse: var(--neutral-900);
+  --surface-overlay: var(--alpha-black-40);
+  --surface-accent: var(--primary-500);
+  --surface-info: var(--status-info-background);
+  --surface-warning: var(--status-warning-background);
+  --surface-error: var(--status-error-background);
+  --surface-success: var(--status-success-background);
+
+  /* Border colors */
+  --border-default: var(--neutral-600);
+  --border-subtle: var(--neutral-400);
+  --border-disabled: var(--neutral-400);
+  --border-strong: var(--neutral-800);
+  --border-error: var(--status-error-base);
+  --border-warning: var(--status-warning-base);
+  --border-success: var(--status-success-base);
+  --border-info: var(--status-info-base);
+  --border-accent: var(--primary-500);
+
+  /* Text colors */
+  --text-primary: var(--neutral-900);
+  --text-secondary: var(--neutral-600);
+  --text-disabled: var(--neutral-400);
+  --text-inverse: var(--base-white);
+  --text-accent: var(--primary-500);
+  --text-success: var(--status-success-base);
+  --text-error: var(--status-error-base);
+  --text-link-default: var(--primary-500);
+  --text-link-hover: var(--primary-400);
+  --text-link-visited: var(--accent-violet-500);
+  --text-link-inverted: var(--base-white);
+  --text-link-inverted-hover: var(--neutral-300);
+  --text-link-inverted-visited: var(--accent-violet-200);
+  --text-link-black: var(--text-primary);
+
+  /* Icon colors */
+  --icon-default: var(--text-primary);
+  --icon-subtle: var(--text-secondary);
+  --icon-disabled: var(--text-disabled);
+  --icon-inverse: var(--text-inverse);
+  --icon-link: var(--text-link-default);
+  --icon-info: var(--status-info-base);
+  --icon-success: var(--status-success-base);
+  --icon-warning: var(--status-warning-base);
+  --icon-error: var(--status-error-base);
+
+  /* Focus & hover */
+  --focus-ring: var(--focus-default);
+  --focus-on-dark: var(--base-white);
+  --hover-ring: var(--hover-default);
+  --hover-on-dark: var(--base-white);
+
+  /* Focus ring tokens — used by idsk-focus-outline utilities */
+  --idsk-focus-ring-color: var(--focus-default);
+  --idsk-focus-ring-width: var(--stroke-thickness-3);
+  --idsk-focus-ring-gap: 2px;
+  --idsk-focus-ring-radius: 7px;
+}

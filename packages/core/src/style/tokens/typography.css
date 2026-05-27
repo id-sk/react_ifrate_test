@@ -1,0 +1,108 @@
+:root {
+  --typeface: var(--idsk-font-sans);
+  --caption-regular-font-weight: var(--fontweight-regular);
+  --caption-bold-font-weight: var(--fontweight-bold);
+
+  /* Headline XL */
+  --headline-xl-font-size: var(--fontsize-36);
+  --headline-xl-font-weight: var(--fontweight-black);
+  --headline-xl-line-height: var(--lineheight-45);
+  --headline-xl-letter-spacing: var(--letterspacing-00);
+
+  /* Headline L */
+  --headline-l-font-size: var(--fontsize-24);
+  --headline-l-font-weight: var(--fontweight-black);
+  --headline-l-line-height: var(--lineheight-35);
+  --headline-l-letter-spacing: var(--letterspacing-00);
+
+  /* Headline M */
+  --headline-m-font-size: var(--fontsize-20);
+  --headline-m-font-weight: var(--fontweight-bold);
+  --headline-m-line-height: var(--lineheight-26);
+  --headline-m-letter-spacing: var(--letterspacing-015);
+
+  /* Headline S */
+  --headline-s-font-size: var(--fontsize-19);
+  --headline-s-font-weight: var(--fontweight-bold);
+  --headline-s-line-height: var(--lineheight-24);
+  --headline-s-letter-spacing: var(--letterspacing-015);
+
+  /* Perex */
+  --perex-perex-font-size: var(--fontsize-19);
+  --perex-perex-regular-font-weight: var(--fontweight-regular);
+  --perex-perex-bold-font-weight: var(--fontweight-bold);
+  --perex-perex-line-height: var(--lineheight-28);
+  --perex-perex-letter-spacing: var(--letterspacing-050);
+  --perex-perex-paragraph-spacing: var(--paragraphspacing-19);
+
+  /* Main body */
+  --maintext-body-font-size: var(--fontsize-16);
+  --maintext-body-regular-font-weight: var(--fontweight-regular);
+  --maintext-body-bold-font-weight: var(--fontweight-bold);
+  --maintext-body-line-height: var(--lineheight-24);
+  --maintext-body-letter-spacing: var(--letterspacing-050);
+  --maintext-body-paragraph-spacing: var(--paragraphspacing-16);
+  --maintext-body-regular-font-weight2: var(--fontweight-regular);
+
+  /* Main body 1 */
+  --maintext-body1-body1-font-size: var(--fontsize-14);
+  --maintext-body1-body1-regular-font-weight: var(--fontweight-regular);
+  --maintext-body1-body1-bold-font-weight: var(--fontweight-bold);
+  --maintext-body1-body1-line-height: var(--lineheight-20);
+  --maintext-body1-body1-letter-spacing: var(--letterspacing-015);
+  --maintext-body1-body1-paragraph-spacing: var(--paragraphspacing-15);
+
+  /* Caption */
+  --caption-font-size: var(--fontsize-12);
+  --caption-line-height: var(--lineheight-16);
+  --caption-letter-spacing: var(--letterspacing-040);
+
+  /* Button */
+  --button-font-size: var(--fontsize-16);
+  --button-font-weight: var(--fontweight-bold);
+  --button-line-height: var(--lineheight-24);
+  --button-letter-spacing: var(--letterspacing-050);
+
+  /* Menu item */
+  --menuitem-font-size: var(--fontsize-16);
+  --menuitem-regular-font-weight: var(--fontweight-regular);
+  --menuitem-bold-font-weight: var(--fontweight-bold);
+  --menuitem-line-height: var(--lineheight-24);
+  --menuitem-letter-spacing: var(--letterspacing-050);
+
+  /* Link perex */
+  --link-perex-font-size: var(--fontsize-19);
+  --link-perex-regular-font-weight: var(--fontweight-regular);
+  --link-perex-bold-font-weight: var(--fontweight-bold);
+  --link-perex-line-height: var(--lineheight-28);
+  --link-perex-letter-spacing: var(--letterspacing-050);
+
+  /* Link body */
+  --link-body-font-size: var(--fontsize-16);
+  --link-body-regular-font-weight: var(--fontweight-regular);
+  --link-body-bold-font-weight: var(--fontweight-bold);
+  --link-body-line-height: var(--lineheight-24);
+  --link-body-letter-spacing: var(--letterspacing-050);
+
+  /* Link body 1 */
+  --link-body-1-font-size: var(--fontsize-14);
+  --link-body-1-regular-font-weight: var(--fontweight-regular);
+  --link-body-1-bold-font-weight: var(--fontweight-bold);
+  --link-body-1-line-height: var(--lineheight-20);
+  --link-body-1-letter-spacing: var(--letterspacing-015);
+
+  /* Link caption */
+  --link-caption-font-size: var(--fontsize-12);
+  --link-caption-regular-font-weight: var(--fontweight-regular);
+  --link-caption-bold-font-weight: var(--fontweight-bold);
+  --link-caption-line-height: var(--lineheight-16);
+  --link-caption-letter-spacing: var(--letterspacing-040);
+
+  /* Hint */
+  --hint-font-size: var(--fontsize-16);
+  --hint-regular-font-weight: var(--fontweight-regular);
+  --hint-bold-font-weight: var(--fontweight-bold);
+  --hint-line-height: var(--lineheight-24);
+  --hint-letter-spacing: var(--letterspacing-050);
+  --hint-paragraph-spacing: var(--paragraphspacing-16);
+}
