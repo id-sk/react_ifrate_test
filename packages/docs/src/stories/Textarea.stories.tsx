@@ -50,7 +50,7 @@ const meta = {
   args: {
     variant: 'default',
     label: 'Label',
-    placeholder: 'Vaša spätná väzba...',
+    placeholder: 'Napr. Placeholder',
     rows: 5,
     maxLength: 200,
   },
@@ -168,7 +168,7 @@ export const Disabled: Story = {
   name: 'Zakázané (disabled)',
   args: {
     label: 'Zakázané pole',
-    placeholder: 'Toto pole nie je dostupné',
+    placeholder: 'Napr. Placeholder',
     disabled: true,
   },
   decorators: desktopDecorator,
@@ -182,7 +182,7 @@ export const Desktop: Story = {
   args: {
     label: 'Názov textového poľa',
     labelDescription: 'Toto je podnadpis (vysvetľujúci text pod labelom)',
-    placeholder: 'Vaša spätná väzba...',
+    placeholder: 'Napr. Placeholder',
     inputDescription: 'Toto je popis (pomocný text pod poľom)',
     variant: 'error',
     errorDescription: 'Toto je popis chyby',
@@ -196,7 +196,7 @@ export const Mobile: Story = {
   args: {
     label: 'Názov textového poľa',
     labelDescription: 'Toto je podnadpis (vysvetľujúci text pod labelom)',
-    placeholder: 'Vaša spätná väzba...',
+    placeholder: 'Napr. Placeholder',
     inputDescription: 'Toto je popis (pomocný text pod poľom)',
     maxLength: 500,
   },
