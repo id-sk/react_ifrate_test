@@ -1,0 +1,87 @@
+import { Meta, Subtitle, Primary, Controls, Stories } from '@storybook/addon-docs/blocks';
+import * as AccordionListStories from './AccordionList.stories';
+
+<Meta of={AccordionListStories} />
+
+# AccordionList (Zoznam akordeónov)
+
+<Subtitle>
+  Komponent zobrazujúci skupinu akordeónov so záhlavím — nadpisom a tlačidlom na hromadné ovládanie.
+</Subtitle>
+
+## Overview (Prehľad)
+
+Komponent `AccordionList` obaľuje existujúci `Accordion` a pridáva štruktúrované záhlavie s nadpisom (`title`) a tlačidlom „Otvoriť všetky / Zavrieť všetky". Stav rozbalenia je riadený interne — nie je potrebný žiadny externý state management.
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Props komponentu
+
+| Prop         | Typ                    | Predvolená | Popis                                                                            |
+| ------------ | ---------------------- | ---------- | -------------------------------------------------------------------------------- |
+| `title`      | `string`               | —          | Nadpis zobrazený v záhlaví (Headline L)                                         |
+| `items`      | `AccordionItemProps[]` | —          | Zoznam sekcií akordeónu — rovnaké ako prop `items` komponentu `Accordion`       |
+| `className`  | `string`               | `''`       | Extra CSS triedy na koreňovom elemente                                           |
+| `singleOpen` | `boolean`              | `false`    | Ak `true`, v danom okamihu môže byť otvorená iba jedna sekcia; tlačidlo „Otvoriť všetky" sa skryje |
+
+## Štruktúra položky
+
+Každá položka (`AccordionItemProps`) prijíma:
+
+| Prop          | Typ                   | Popis                                                                    |
+| ------------- | --------------------- | ------------------------------------------------------------------------ |
+| `title`       | `string`              | Nadpis sekcie — zobrazený ako Headline M (24 px, tučné)                 |
+| `children`    | `ReactNode`           | Obsah sekcie (ľubovoľné JSX), zobrazený po rozbalení                    |
+| `id`          | `string` (voliteľné)  | ID pre `aria-controls` / `id` obsahu; ak chýba, generuje sa automaticky |
+| `hint`        | `string` (voliteľné)  | Krátky popis pod nadpisom                                                |
+| `disabled`    | `boolean` (voliteľné) | Sekcia je nedostupná — vylúčená z tab poradia                           |
+| `defaultOpen` | `boolean` (voliteľné) | Sekcia je predvolene rozbalená pri prvom render                         |
+
+## Prístupnosť (Accessibility)
+
+- Tlačidlo „Otvoriť/Zavrieť všetky" je plnohodnotný `<button>` — dostupné cez klávesnicu
+- Stav rozbalenia všetkých sekcií je indikovaný atribútom `data-all-expanded`
+- Ikona chevron má `aria-hidden="true"` — je čisto dekoratívna
+- Všetky prístupnostné vlastnosti akordeónových tlačidiel (`aria-expanded`, `aria-controls`) sú zdedené z komponentu `Accordion`
+
+### Klávesové skratky
+
+| Kláves | Akcia |
+| --- | --- |
+| `Tab` | Presun fokusu na ďalšie tlačidlo (toggle-all → sekcie) |
+| `Shift + Tab` | Presun fokusu späť |
+| `Enter` alebo `Space` | Aktivácia tlačidla s fokusom |
+
+## Single Open mód
+
+Pri nastavení `singleOpen={true}` sa tlačidlo „Otvoriť všetky" automaticky skryje — kombinácia s hromadným ovládaním by bola logicky rozporuplná:
+
+```tsx
+<AccordionList title="Nadpis" singleOpen items={[...]} />
+```
+
+## Použitie
+
+```tsx
+import { AccordionList } from '@idsk/core';
+
+<AccordionList
+  title="Časté otázky"
+  items={[
+    {
+      title: 'Ako sa zaregistrovať?',
+      children: <p>Registrácia prebieha cez formulár na hlavnej stránke.</p>,
+    },
+    {
+      title: 'Ako zmeniť heslo?',
+      children: <p>Heslo zmeníte v nastaveniach účtu.</p>,
+    },
+  ]}
+/>
+```
+
+<Stories />

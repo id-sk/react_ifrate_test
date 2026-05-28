@@ -13,6 +13,7 @@
 @import '../components/Input/style.css';
 @import '../components/Checkbox/style.css';
 @import '../components/Accordion/style.css';
+@import '../components/AccordionList/style.css';
 @import '../components/Tooltip/style.css';
 @import '../components/Textarea/style.css';
 @import '../components/Radio/style.css';

@@ -2,6 +2,7 @@ import './style/global.css';
 
 export * from './components/Button';
 export * from './components/Accordion';
+export * from './components/AccordionList';
 export * from './components/Input';
 export * from './components/Textarea';
 export * from './components/Checkbox';

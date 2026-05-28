@@ -1,0 +1,35 @@
+@reference "../../style/tailwind.css";
+
+@layer components {
+  .idsk-accordion-list {
+    @apply flex w-full flex-col gap-space-2;
+  }
+
+  .idsk-accordion-list__header {
+    @apply flex flex-wrap items-end justify-between gap-space-2;
+  }
+
+  .idsk-accordion-list__title {
+    @apply min-w-[240px] flex-1 text-headline-l text-text-primary;
+  }
+
+  .idsk-accordion-list__toggle {
+    @apply idsk-focus-outline idsk-hover-outline;
+    @apply flex shrink-0 cursor-pointer items-center gap-space-1;
+    @apply border-none bg-transparent;
+    @apply font-sans font-bold text-main-body text-primary-500;
+    @apply rounded-rounding-s px-space-1 py-[8px];
+  }
+
+  .idsk-accordion-list__toggle:active {
+    @apply bg-primary-100;
+  }
+
+  .idsk-accordion-list__toggle-icon {
+    @apply transition-transform duration-200 ease-in-out;
+  }
+
+  .idsk-accordion-list__toggle[data-all-expanded='true'] .idsk-accordion-list__toggle-icon {
+    @apply rotate-180;
+  }
+}
