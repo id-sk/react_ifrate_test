@@ -1,0 +1,177 @@
+@reference "../../style/tailwind.css";
+
+@layer components {
+  /* ========== ROOT ========== */
+  .idsk-stepper {
+    @apply relative w-full font-sans;
+  }
+
+  /* ========== HEADER / TOGGLE ========== */
+  .idsk-stepper__header {
+    @apply relative flex w-full items-stretch;
+    @apply rounded-rounding-2;
+    @apply min-h-[48px];
+  }
+
+  .idsk-stepper__header-content {
+    @apply flex flex-1 items-center;
+    @apply gap-[20px] px-[20px];
+    @apply bg-surface-default;
+    @apply rounded-r-rounding-2;
+    @apply border border-l-0 border-border-subtle;
+  }
+
+  .idsk-stepper__toggle-btn {
+    @apply self-stretch shrink-0 cursor-pointer appearance-none;
+    @apply flex items-center justify-center;
+    @apply min-w-[41px] px-[12px] py-[8px];
+    @apply border-2 border-border-accent bg-surface-default;
+    @apply text-text-primary;
+    border-top-left-radius: var(--cornerradius-rounding-1);
+    border-bottom-left-radius: var(--cornerradius-rounding-1);
+  }
+
+  .idsk-stepper__toggle-btn:focus-visible {
+    @apply idsk-focus-outline outline-offset-[-3px];
+  }
+
+  .idsk-stepper__toggle-icon {
+    @apply shrink-0;
+  }
+
+  /* ========== STEP COUNTER (standalone component) ========== */
+  .idsk-stepper-step-counter {
+    @apply inline-flex shrink-0 items-center whitespace-nowrap text-text-primary;
+    @apply gap-[10px];
+    @apply idsk-text-main-body;
+  }
+
+  /* ========== LOADER (standalone component) ========== */
+  .idsk-stepper-loader {
+    @apply overflow-hidden rounded-rounding-2 border border-border-accent p-[3px];
+  }
+
+  .idsk-stepper-loader__fill {
+    @apply h-[10px] rounded-rounding-2 bg-surface-accent;
+    transition: width 0.2s ease;
+  }
+
+  /* In stepper header context */
+  .idsk-stepper__header .idsk-stepper-loader {
+    @apply min-w-0 flex-1;
+  }
+
+  /* Remove bottom rounding and change bg when dropdown is open */
+  .idsk-stepper__header:has([aria-expanded="true"]) .idsk-stepper__toggle-btn {
+    border-bottom-left-radius: 0;
+    @apply bg-surface-info;
+  }
+
+  .idsk-stepper__header:has([aria-expanded="true"]) .idsk-stepper__header-content {
+    @apply rounded-br-none;
+  }
+
+  /* ========== DROPDOWN ========== */
+  .idsk-stepper__dropdown {
+    @apply border-2 border-border-accent bg-surface-info;
+    @apply rounded-b-rounding-2;
+    @apply px-[20px] pt-[10px] pb-[20px];
+    @apply relative;
+    margin-top: -2px;
+    z-index: 1;
+  }
+
+  .idsk-stepper__dropdown[hidden] {
+    @apply hidden;
+  }
+
+  .idsk-stepper__dropdown-title {
+    @apply m-0 mb-[5px] idsk-text-main-body font-bold text-text-link-default;
+  }
+
+  /* ========== LIST ========== */
+  .idsk-stepper__list {
+    @apply m-0 list-none p-0;
+  }
+
+  /* ========== ITEM ========== */
+  .idsk-stepper__item {
+    @apply relative min-h-[48px] pl-[10px];
+  }
+
+  .idsk-stepper__item--summary {
+    @apply min-h-[58px];
+  }
+
+  /* ========== STEP INNER WRAPPER ========== */
+  .idsk-stepper__step {
+    @apply flex w-full cursor-default items-center bg-transparent text-left;
+    @apply gap-[15px] border-0 py-[8px] pr-[10px];
+  }
+
+  button.idsk-stepper__step {
+    @apply cursor-pointer;
+  }
+
+  button.idsk-stepper__step:focus-visible {
+    @apply idsk-focus-outline rounded-rounding-1;
+  }
+
+  @media (hover: hover) {
+    button.idsk-stepper__step:hover .idsk-stepper__label {
+      @apply underline decoration-solid decoration-2 decoration-skip-ink-none;
+    }
+  }
+
+  /* ========== INDICATOR ========== */
+  .idsk-stepper__indicator {
+    @apply flex shrink-0 items-center justify-center rounded-full bg-surface-accent text-base-white;
+    @apply h-[32px] w-[32px];
+  }
+
+  .idsk-stepper__number {
+    @apply text-[15px] leading-none font-normal;
+  }
+
+  /* ========== LABEL ========== */
+  .idsk-stepper__label {
+    @apply text-base leading-snug text-text-primary;
+  }
+
+  /* ========== CONNECTOR ========== */
+  .idsk-stepper__connector {
+    @apply absolute top-[40px] bottom-[-8px] left-[25px] w-[2px] bg-surface-accent;
+  }
+
+  /* ========== STATE: ACTIVE ========== */
+  .idsk-stepper__item--active {
+    @apply rounded-rounding-2 bg-surface-accent;
+  }
+
+  .idsk-stepper__item--active .idsk-stepper__indicator {
+    @apply bg-surface-default text-surface-accent;
+  }
+
+  .idsk-stepper__item--active .idsk-stepper__label {
+    @apply font-semibold text-text-inverse;
+  }
+
+  /* ========== DESKTOP: RESPONSIVE OVERRIDES ========== */
+  @media (width >= 730px) {
+    .idsk-stepper__toggle-btn {
+      @apply min-w-[49px] py-[12px];
+    }
+
+    .idsk-stepper__list {
+      @apply columns-2 gap-x-[40px];
+    }
+
+    .idsk-stepper__item {
+      @apply break-inside-avoid;
+    }
+
+    .idsk-stepper__item--col-end .idsk-stepper__connector {
+      @apply hidden;
+    }
+  }
+}
