@@ -1,4 +1,4 @@
-import { Meta, Subtitle, Primary, Controls, Story, Stories } from '@storybook/addon-docs/blocks';
+import { Meta, Subtitle, Primary, Controls, Stories } from '@storybook/addon-docs/blocks';
 import * as TextareaStories from './Textarea.stories';
 
 <Meta of={TextareaStories} />
@@ -19,60 +19,6 @@ Komponent `Textarea` slúži na zadávanie dlhšieho textového vstupu používa
 ## Props
 
 <Controls />
-
-## Varianty
-
-### Povinné a nepovinné pole
-
-Povinné pole zobrazuje hviezdičku (`*`) vedľa labelu, nepovinné pole zobrazuje text `(nepovinné pole)`.
-
-<Story of={TextareaStories.Required} />
-<br />
-<Story of={TextareaStories.Optional} />
-
-### Počítadlo znakov
-
-V pravom dolnom rohu sa zobrazuje dynamické počítadlo znakov vo formáte `aktuálny_počet/maximálny_počet`. Prop `maxLength` je povinný.
-
-<Story of={TextareaStories.WithCharacterCount} />
-
-### S podnadpisom
-
-`labelDescription` pridáva vysvetľujúci text pod label, pred textové pole.
-
-<Story of={TextareaStories.WithSubheading} />
-
-### S popisom (hintom)
-
-`inputDescription` zobrazí pomocný text pod poľom, ktorý je prepojený cez `aria-describedby`.
-
-<Story of={TextareaStories.WithDescription} />
-
-### S tooltipom
-
-`tooltip` zobrazí ikonu „i" vedľa labelu s kontextovou nápovedom.
-
-<Story of={TextareaStories.WithTooltip} />
-
-### Chybový stav
-
-Variant `error` zvýrazní border červenou farbou, zobrazí ikonu varovania a chybovú správu `errorDescription`.
-
-<Story of={TextareaStories.Error} />
-
-### Zakázané pole
-
-<Story of={TextareaStories.Disabled} />
-
-## Kompletné príklady
-
-### Desktop
-
-<Story of={TextareaStories.Desktop} />
-
-### Mobile
-
-<Story of={TextareaStories.Mobile} />
 
 ## Prístupnosť (Accessibility)
 
@@ -95,3 +41,5 @@ import { Textarea } from '@idsk/core';
   inputDescription="Maximálne 500 znakov"
 />;
 ```
+
+<Stories />

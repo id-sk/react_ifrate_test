@@ -1,4 +1,4 @@
-import { Meta, Subtitle, Primary, Controls, Story, Stories } from '@storybook/addon-docs/blocks';
+import { Meta, Subtitle, Primary, Controls, Stories } from '@storybook/addon-docs/blocks';
 import * as TooltipStories from './Tooltip.stories';
 
 <Meta of={TooltipStories} />
@@ -27,39 +27,6 @@ Komponent `Tooltip` zobrazuje krátky pomocný text v plávajúcom kontajneri po
 | Enter / Medzerník         | Otvorí alebo zatvorí                        | —                        |
 | Escape                    | Zatvorí otvorený tooltip                    | —                        |
 | Ťuknutie mimo tooltipu    | —                                           | Zatvorí otvorený tooltip |
-
-## Varianty
-
-### Pozícia
-
-Tooltip podporuje 4 smery. Ak nie je dostatok miesta vo viewporte, automaticky sa prepne na opačnú stranu.
-
-<Story of={TooltipStories.PositionTop} />
-<Story of={TooltipStories.PositionBottom} />
-<Story of={TooltipStories.PositionLeft} />
-<Story of={TooltipStories.PositionRight} />
-
-### Dlhý obsah
-
-Obsah by nemal presiahnuť **290 znakov**. Pri prekročení limitu sa zobrazí upozornenie v konzole (len v dev prostredí).
-
-<Story of={TooltipStories.LongContent} />
-
-### Všetky smery naraz
-
-<Story of={TooltipStories.AllPositions} />
-
-## Mobile
-
-Na mobilných zariadeniach sa tooltip otvára na ťuknutie a zostáva otvorený, kým používateľ neťukne znova na ikonu alebo mimo plochu tooltipu. Tlačidlo obsahuje `aria-expanded` pre čítačky obrazovky.
-
-<Story of={TooltipStories.Mobile} />
-
-## Integrácia s formulárom
-
-Príklad prepojenia s textovým poľom, radio buttonmi a selectom.
-
-<Story of={TooltipStories.FormIntegration} />
 
 ## Prístupnosť (Accessibility)
 
@@ -93,7 +60,5 @@ import { Tooltip } from '@idsk/core';
   preferredPosition="top"
 />;
 ```
-
-## Všetky príbehy
 
 <Stories />

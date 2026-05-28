@@ -61,12 +61,26 @@ export const Velky: Story = {
     label: 'Veľký checkbox',
     size: 'default',
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Štandardná veľkosť pre formuláre na desktope.',
+      },
+    },
+  },
 };
 
 export const Maly: Story = {
   args: {
     label: 'Malý checkbox',
     size: 'sm',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Zmenšená veľkosť pre kompaktné rozhrania. Odsadenie labelu je 34 px namiesto 44 px.',
+      },
+    },
   },
 };
 
@@ -76,6 +90,13 @@ export const MalyDlhyText: Story = {
       'Malý checkbox s veľmi dlhým textom, ktorý by sa mal taktiež správne zalamovať. Odsadenie by malo byť menšie ako pri veľkom checkboxe (34px namiesto 44px).',
     size: 'sm',
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Malý checkbox s dlhým textom — overenie zalamovanie a odsadenia.',
+      },
+    },
+  },
 };
 
 export const S_PomocnymTextom: Story = {
@@ -83,12 +104,26 @@ export const S_PomocnymTextom: Story = {
     label: 'Checkbox s pomocným textom',
     hint: 'Toto je pomocný text pre checkbox.',
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Prop hint zobrazí vysvetľujúci text pod labelom checkboxu.',
+      },
+    },
+  },
 };
 
 export const DlhyPomocnyText: Story = {
   args: {
     label: 'Checkbox s dlhým pomocným textom',
     hint: 'Toto je veľmi dlhý pomocný text, ktorý by sa mal správne zalamovať pod labelom checkboxu. Mal by dodržiavať rovnaké odsadenie od ľavého okraja ako samotný label.',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Dlhý pomocný text sa správne zalamuje pod labelom.',
+      },
+    },
   },
 };
 
@@ -101,12 +136,26 @@ export const Tooltip: Story = {
       preferredPosition: 'top',
     },
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Tooltip zobrazí ikonu „i" vedľa labelu s kontextovou nápovedom.',
+      },
+    },
+  },
 };
 
 export const S_Chybou: Story = {
   args: {
     label: 'Checkbox s chybou',
     errorMessage: 'Toto je chybová správa.',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Prop errorMessage zobrazí chybovú správu pod checkboxom.',
+      },
+    },
   },
 };
 
@@ -115,6 +164,13 @@ export const Povinny: Story = {
     label: 'Povinný checkbox',
     required: true,
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Povinný checkbox — zobrazí hviezdičku pri labeli.',
+      },
+    },
+  },
 };
 
 export const Zakazany: Story = {
@@ -122,12 +178,26 @@ export const Zakazany: Story = {
     label: 'Zakázaný checkbox',
     disabled: true,
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Zakázaný (disabled) checkbox.',
+      },
+    },
+  },
 };
 
 export const DlhyText: Story = {
   args: {
     label:
       'Toto je veľmi dlhý text pre label checkboxu, ktorý by sa mal správne zalomiť na viacerých riadkoch, ak je kontajner príliš úzky. Overujeme, či odsadenie od samotného checkboxu zostáva zachované aj pri dlhšom texte.',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Label sa správne zalamuje a zachováva odsadenie od checkboxu.',
+      },
+    },
   },
 };
 
@@ -143,12 +213,26 @@ export const ViacriadkovyText: Story = {
       </span>
     ),
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Viacriadkový label s explicitnými zlommi riadkov.',
+      },
+    },
+  },
 };
 
 export const Indeterminate: Story = {
   args: {
     label: 'Indeterminate checkbox',
     indeterminate: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Indeterminate stav vizuálne signalizuje čiastočný výber (niektoré podpoložky sú vybrané, nie všetky).',
+      },
+    },
   },
 };
 
@@ -184,6 +268,13 @@ function IndeterminateImplementaciaDemo() {
 
 export const IndeterminateImplementacia: Story = {
   render: () => <IndeterminateImplementaciaDemo />,
+  parameters: {
+    docs: {
+      description: {
+        story: 'Praktická ukážka „Vybrať všetko" s podpoložkami, ktorá riadi indeterminate stav cez React stav.',
+      },
+    },
+  },
 };
 
 export const Skupina: Story = {
@@ -194,6 +285,13 @@ export const Skupina: Story = {
       <Checkbox label="Pomaranč" name="fruit" value="orange" />
     </CheckboxGroup>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'CheckboxGroup obaľuje viacero checkboxov do skupiny s legendou a voliteľným hintom.',
+      },
+    },
+  },
 };
 
 export const Mobile: Story = {
@@ -210,4 +308,11 @@ export const Mobile: Story = {
       </div>
     ),
   ],
+  parameters: {
+    docs: {
+      description: {
+        story: 'Mobilné zobrazenie checkboxu na úzkych obrazovkách.',
+      },
+    },
+  },
 };

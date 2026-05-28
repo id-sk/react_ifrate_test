@@ -81,6 +81,13 @@ export const Required: Story = {
     required: true,
   },
   decorators: desktopDecorator,
+  parameters: {
+    docs: {
+      description: {
+        story: 'Povinné pole zobrazuje hviezdičku (*) vedľa labelu s aria-hidden.',
+      },
+    },
+  },
 };
 
 export const Optional: Story = {
@@ -90,6 +97,13 @@ export const Optional: Story = {
     required: false,
   },
   decorators: desktopDecorator,
+  parameters: {
+    docs: {
+      description: {
+        story: 'Nepovinné pole zobrazuje text "(nepovinné pole)".',
+      },
+    },
+  },
 };
 
 /**
@@ -102,6 +116,13 @@ export const WithSubheading: Story = {
     labelDescription: 'Toto je podnadpis (vysvetľujúci text pod labelom)',
   },
   decorators: desktopDecorator,
+  parameters: {
+    docs: {
+      description: {
+        story: 'Prop labelDescription pridáva vysvetľujúci text pod label, pred vstupné pole.',
+      },
+    },
+  },
 };
 
 /**
@@ -115,6 +136,13 @@ export const WithDescription: Story = {
     inputDescription: 'Toto je popis (pomocný text pod vstupným poľom)',
   },
   decorators: desktopDecorator,
+  parameters: {
+    docs: {
+      description: {
+        story: 'Prop inputDescription zobrazí pomocný text pod vstupným poľom prepojený cez aria-describedby.',
+      },
+    },
+  },
 };
 
 /**
@@ -133,6 +161,13 @@ export const WithTooltip: Story = {
     },
   },
   decorators: desktopDecorator,
+  parameters: {
+    docs: {
+      description: {
+        story: 'Prop tooltip zobrazí ikonu „i" vedľa labelu s kontextovou nápovedom.',
+      },
+    },
+  },
 };
 
 /**
@@ -147,6 +182,13 @@ export const Error: Story = {
     errorDescription: 'Toto pole je povinné',
   },
   decorators: desktopDecorator,
+  parameters: {
+    docs: {
+      description: {
+        story: 'Variant error zobrazí ikonu varovania vo vstupnom poli a errorDescription pod ním. Nastaví sa aria-invalid="true".',
+      },
+    },
+  },
 };
 
 /**
@@ -160,6 +202,13 @@ export const Disabled: Story = {
     disabled: true,
   },
   decorators: desktopDecorator,
+  parameters: {
+    docs: {
+      description: {
+        story: 'Prop disabled zablokuje interakciu s poľom.',
+      },
+    },
+  },
 };
 
 /**
@@ -174,6 +223,13 @@ export const Sizes: Story = {
       <Input {...args} size="default" label="Štandardné pole (default)" />
     </div>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Komponent podporuje dve veľkosti: sm (malé) a default (štandardné).',
+      },
+    },
+  },
 };
 
 /**
@@ -191,6 +247,13 @@ export const Desktop: Story = {
     required: true,
   },
   decorators: desktopDecorator,
+  parameters: {
+    docs: {
+      description: {
+        story: 'Kompletný desktop variant so všetkými prvkami.',
+      },
+    },
+  },
 };
 
 export const Mobile: Story = {
@@ -213,4 +276,11 @@ export const Mobile: Story = {
       </div>
     ),
   ],
+  parameters: {
+    docs: {
+      description: {
+        story: 'Mobilné zobrazenie textového poľa na úzkych obrazovkách.',
+      },
+    },
+  },
 };

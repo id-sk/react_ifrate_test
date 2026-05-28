@@ -1,4 +1,4 @@
-import { Meta, Subtitle, Primary, Controls, Story, Stories } from '@storybook/addon-docs/blocks';
+import { Meta, Subtitle, Primary, Controls, Stories } from '@storybook/addon-docs/blocks';
 import * as CheckboxStories from './Checkbox.stories';
 
 <Meta of={CheckboxStories} />
@@ -19,78 +19,6 @@ Komponent `Checkbox` umožňuje používateľovi vybrať alebo zrušiť výber j
 ## Props
 
 <Controls />
-
-## Veľkosti
-
-### Veľký (default)
-
-Štandardná veľkosť pre formuláre na desktope.
-
-<Story of={CheckboxStories.Velky} />
-
-### Malý (sm)
-
-Zmenšená veľkosť pre kompaktné rozhrania. Odsadenie labelu je 34 px namiesto 44 px.
-
-<Story of={CheckboxStories.Maly} />
-<br />
-<Story of={CheckboxStories.MalyDlhyText} />
-
-## Pomocný text (hint)
-
-`hint` zobrazí vysvetľujúci text pod labelom checkboxu.
-
-<Story of={CheckboxStories.S_PomocnymTextom} />
-<br />
-<Story of={CheckboxStories.DlhyPomocnyText} />
-
-## Tooltip
-
-Tooltip zobrazí ikonu „i" vedľa labelu s kontextovou nápovedom.
-
-<Story of={CheckboxStories.Tooltip} />
-
-## Chybový stav
-
-`errorMessage` zobrazí chybovú správu pod checkboxom.
-
-<Story of={CheckboxStories.S_Chybou} />
-
-## Povinný a zakázaný stav
-
-<Story of={CheckboxStories.Povinny} />
-<br />
-<Story of={CheckboxStories.Zakazany} />
-
-## Dlhý a viacriadkový label
-
-Label sa správne zalamuje a zachováva odsadenie od checkboxu.
-
-<Story of={CheckboxStories.DlhyText} />
-<br />
-<Story of={CheckboxStories.ViacriadkovyText} />
-
-## Indeterminate stav
-
-Indeterminate stav vizuálne signalizuje čiastočný výber (niektoré podpoložky sú vybrané, nie všetky).
-
-<Story of={CheckboxStories.Indeterminate} />
-
-### Implementácia s hierarchickým výberom
-
-Praktická ukážka „Vybrať všetko" s podpoložkami, ktorá riadi indeterminate stav cez React stav.
-
-<Story of={CheckboxStories.IndeterminateImplementacia} />
-
-## Skupina checkboxov (CheckboxGroup)
-
-`CheckboxGroup` obaľuje viacero checkboxov do skupiny s legendou a voliteľným hintom.
-
-<Story of={CheckboxStories.Skupina} />
-
-## Mobile
-
-<Story of={CheckboxStories.Mobile} />
 
 ## Prístupnosť (Accessibility)
 
@@ -118,7 +46,5 @@ import { Checkbox, CheckboxGroup } from '@idsk/core';
   <Checkbox label="Pomaranč" name="fruit" value="orange" />
 </CheckboxGroup>
 ```
-
-## Všetky príbehy
 
 <Stories />

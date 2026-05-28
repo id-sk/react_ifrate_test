@@ -39,59 +39,80 @@ export default meta;
 
 type Story = StoryObj<typeof Tooltip>;
 
-/**
- * Základný stav — tooltip sa zobrazí po kliknutí alebo nabehnutí na ikonu „i".
- */
 export const Default: Story = {
   name: 'Základný',
+  parameters: {
+    docs: {
+      description: {
+        story: 'Základný stav — tooltip sa zobrazí po kliknutí alebo nabehnutí na ikonu „i".',
+      },
+    },
+  },
 };
 
-/**
- * Tooltip zobrazený hore (predvolené).
- */
 export const PositionTop: Story = {
   name: 'Pozícia — hore',
   args: { preferredPosition: 'top' },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Tooltip zobrazený hore (predvolené).',
+      },
+    },
+  },
 };
 
-/**
- * Tooltip zobrazený dole.
- */
 export const PositionBottom: Story = {
   name: 'Pozícia — dole',
   args: { preferredPosition: 'bottom' },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Tooltip zobrazený dole.',
+      },
+    },
+  },
 };
 
-/**
- * Tooltip zobrazený vľavo.
- */
 export const PositionLeft: Story = {
   name: 'Pozícia — vľavo',
   args: { preferredPosition: 'left' },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Tooltip zobrazený vľavo.',
+      },
+    },
+  },
 };
 
-/**
- * Tooltip zobrazený vpravo.
- */
 export const PositionRight: Story = {
   name: 'Pozícia — vpravo',
   args: { preferredPosition: 'right' },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Tooltip zobrazený vpravo.',
+      },
+    },
+  },
 };
 
-/**
- * Obsah blízko limitu 290 znakov.
- */
 export const LongContent: Story = {
   name: 'Dlhý obsah (blízko limitu)',
   args: {
     content:
       'Zadajte vaše rodné číslo presne tak, ako je uvedené na občianskom preukaze alebo cestovnom pase. Rodné číslo sa skladá z 10 číslic a môže obsahovať lomku. Príklad: 900101/1234.',
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Obsah blízko limitu 290 znakov.',
+      },
+    },
+  },
 };
 
-/**
- * Všetky štyri smery vedľa seba.
- */
 export const AllPositions: Story = {
   name: 'Všetky smery',
   render: (args) => (
@@ -104,11 +125,15 @@ export const AllPositions: Story = {
       <Tooltip {...args} preferredPosition="right" label="Vpravo" ariaLabel="Nápoveda vpravo" />
     </div>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Všetky štyri smery vedľa seba.',
+      },
+    },
+  },
 };
 
-/**
- * Mobilný viewport — tooltip sa otvára na ťuknutie (toggle) a zostáva otvorený.
- */
 export const Mobile: Story = {
   globals: {
     viewport: {
@@ -123,11 +148,15 @@ export const Mobile: Story = {
       </div>
     ),
   ],
+  parameters: {
+    docs: {
+      description: {
+        story: 'Mobilný viewport — tooltip sa otvára na ťuknutie (toggle) a zostáva otvorený.',
+      },
+    },
+  },
 };
 
-/**
- * Integrácia s komplexným formulárom — tooltip pri textovom poli, radio buttonoch a selecte.
- */
 export const FormIntegration: Story = {
   name: 'Formulár — integrácia',
   render: () => (
@@ -192,5 +221,10 @@ export const FormIntegration: Story = {
   ),
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        story: 'Integrácia s komplexným formulárom — tooltip pri textovom poli, radio buttonoch a selecte.',
+      },
+    },
   },
 };

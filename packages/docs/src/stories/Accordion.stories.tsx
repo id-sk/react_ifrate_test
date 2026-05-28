@@ -33,6 +33,13 @@ export const Default: Story = {
       },
     ],
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Základný akordeón s dvoma alebo viacerými sekciami.',
+      },
+    },
+  },
 };
 
 export const Mobile: Story = {
@@ -52,4 +59,11 @@ export const Mobile: Story = {
       </div>
     ),
   ],
+  parameters: {
+    docs: {
+      description: {
+        story: 'Mobilné zobrazenie akordeóna na úzkych obrazovkách.',
+      },
+    },
+  },
 };

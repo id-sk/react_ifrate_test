@@ -1,4 +1,4 @@
-import { Meta, Subtitle, Primary, Controls, Story, Stories } from '@storybook/addon-docs/blocks';
+import { Meta, Subtitle, Primary, Controls, Stories } from '@storybook/addon-docs/blocks';
 import * as RadioStories from './Radio.stories';
 
 <Meta of={RadioStories} />
@@ -19,48 +19,6 @@ Komponent `Radio` umožňuje používateľovi vybrať práve jednu možnosť zo 
 ## Props
 
 <Controls />
-
-## Veľkosti
-
-### Veľký (default)
-
-Štandardná veľkosť pre formuláre na desktope.
-
-<Story of={RadioStories.Velky} />
-
-### Malý (sm)
-
-Zmenšená veľkosť pre kompaktné rozhrania.
-
-<Story of={RadioStories.Maly} />
-
-## Pomocný text (hint)
-
-`hint` zobrazí vysvetľujúci text pod labelom radio buttonu.
-
-<Story of={RadioStories.S_PomocnymTextom} />
-
-## Chybový stav
-
-`errorMessage` zobrazí chybovú správu pod radio buttonom.
-
-<Story of={RadioStories.S_Chybou} />
-
-## Povinný a zakázaný stav
-
-<Story of={RadioStories.Povinny} />
-<br />
-<Story of={RadioStories.Zakazany} />
-
-## Skupina radio buttonov (RadioGroup)
-
-`RadioGroup` obaľuje viacero radio buttonov do skupiny s legendou a voliteľným hintom.
-
-<Story of={RadioStories.Skupina} />
-
-## Skupina s chybou
-
-<Story of={RadioStories.SkupinaS_Chybou} />
 
 ## Prístupnosť (Accessibility)
 
@@ -90,7 +48,5 @@ import { Radio, RadioGroup } from '@idsk/core';
   <Radio label="Pomaranč" name="fruit" value="orange" />
 </RadioGroup>
 ```
-
-## Všetky príbehy
 
 <Stories />

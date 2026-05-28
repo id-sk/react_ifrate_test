@@ -63,6 +63,13 @@ export const Velky: Story = {
     size: 'default',
     tooltip: { content: 'Vysvetlenie pre túto možnosť' },
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Štandardná veľkosť pre formuláre na desktope.',
+      },
+    },
+  },
 };
 
 export const Maly: Story = {
@@ -72,12 +79,26 @@ export const Maly: Story = {
     size: 'sm',
     tooltip: { content: 'Vysvetlenie pre túto možnosť' },
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Zmenšená veľkosť pre kompaktné rozhrania.',
+      },
+    },
+  },
 };
 
 export const S_PomocnymTextom: Story = {
   args: {
     label: 'Radio s pomocným textom',
     hint: 'Toto je pomocný text pre radio button.',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Prop hint zobrazí vysvetľujúci text pod labelom radio buttonu.',
+      },
+    },
   },
 };
 
@@ -86,6 +107,13 @@ export const S_Chybou: Story = {
     label: 'Radio s chybou',
     errorMessage: 'Toto je chybová správa.',
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Prop errorMessage zobrazí chybovú správu pod radio buttonom.',
+      },
+    },
+  },
 };
 
 export const Povinny: Story = {
@@ -93,12 +121,26 @@ export const Povinny: Story = {
     label: 'Povinný radio button',
     required: true,
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Povinný radio button — zobrazí hviezdičku pri labeli.',
+      },
+    },
+  },
 };
 
 export const Zakazany: Story = {
   args: {
     label: 'Zakázaný radio button',
     disabled: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Zakázaný (disabled) radio button.',
+      },
+    },
   },
 };
 
@@ -110,6 +152,13 @@ export const Skupina: Story = {
       <Radio label="Pomaranč" name="fruit" value="orange" />
     </RadioGroup>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'RadioGroup obaľuje viacero radio buttonov do skupiny s legendou a voliteľným hintom.',
+      },
+    },
+  },
 };
 
 export const SkupinaS_Chybou: Story = {
@@ -120,6 +169,13 @@ export const SkupinaS_Chybou: Story = {
       <Radio label="Pomaranč" name="fruit-error" value="orange" />
     </RadioGroup>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Skupina radio buttonov v chybovom stave.',
+      },
+    },
+  },
 };
 
 export const Mobile: Story = {
@@ -137,4 +193,11 @@ export const Mobile: Story = {
       </div>
     ),
   ],
+  parameters: {
+    docs: {
+      description: {
+        story: 'Mobilné zobrazenie radio buttonu na úzkych obrazovkách.',
+      },
+    },
+  },
 };

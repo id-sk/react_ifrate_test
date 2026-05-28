@@ -1,4 +1,4 @@
-import { Meta, Subtitle, Primary, Controls, Story, Stories } from '@storybook/addon-docs/blocks';
+import { Meta, Subtitle, Primary, Controls, Stories } from '@storybook/addon-docs/blocks';
 import * as AccordionStories from './Accordion.stories';
 
 <Meta of={AccordionStories} />
@@ -18,18 +18,6 @@ Komponent `Accordion` zobrazuje zoznam sekcií, kde každá sekcia má nadpis a 
 ## Props
 
 <Controls />
-
-## Varianty
-
-### Predvolený
-
-Základný akordeón s dvoma alebo viacerými sekciami.
-
-<Story of={AccordionStories.Default} />
-
-### Mobile
-
-<Story of={AccordionStories.Mobile} />
 
 ## Štruktúra položky
 
@@ -80,7 +68,5 @@ import { Accordion } from '@idsk/core';
   ]}
 />;
 ```
-
-## Všetky príbehy
 
 <Stories />

@@ -1,0 +1,58 @@
+import { Meta, Subtitle, Primary, Controls, Stories } from '@storybook/addon-docs/blocks';
+import * as StepperStories from './Stepper.stories';
+
+<Meta of={StepperStories} />
+
+# Stepper (Krokovník)
+
+<Subtitle>
+  Navigačný komponent pre viacstupienkové procesy s progres barom, rozbaľovacím zoznamom krokov a
+  voliteľnou navigáciou.
+</Subtitle>
+
+## Overview (Prehľad)
+
+Komponent `Stepper` zobrazuje postup používateľa cez viacstupienkový formulárový proces. Hlavička ukazuje číslo aktuálneho kroku a vizuálny progres bar. Kliknutím na tlačidlo rozbalenia sa zobrazí zoznam všetkých krokov — dokončené môžu byť klikateľné pre spätnú navigáciu.
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Prístupnosť (Accessibility)
+
+- `<nav>` s `aria-label="Kroky formuláru"` — viditeľný pre čítačky obrazovky
+- Tlačidlo rozbalenia má `aria-expanded` a `aria-controls` — stavová informácia pre asistívne technológie
+- Zoznam krokov je skrytý cez natívny atribút `hidden` pri zbalenom stave
+- Klikateľné kroky sú renderované ako `<button>` — dostupné cez klávesnicu (`Tab`, `Enter`, `Space`)
+- Statické kroky sú `<div>` — nevyvolávajú zbytočné interakcie
+
+## Použitie
+
+```tsx
+import { Stepper } from '@idsk/core';
+
+const steps = [
+  { label: 'Osobné údaje' },
+  { label: 'Adresa trvalého bydliska' },
+  { label: 'Kontaktné informácie' },
+  { label: 'Doklady a prílohy' },
+  { label: 'Zhrnutie', isSummary: true },
+];
+
+// Základné použitie
+<Stepper steps={steps} activeStep={2} />
+
+// Predvolene rozbalený
+<Stepper steps={steps} activeStep={2} defaultExpanded />
+
+// S navigáciou späť na dokončené kroky
+<Stepper
+  steps={steps}
+  activeStep={activeStep}
+  onStepClick={(index) => setActiveStep(index)}
+/>
+```
+
+<Stories />

@@ -81,6 +81,13 @@ export const Required: Story = {
     required: true,
   },
   decorators: desktopDecorator,
+  parameters: {
+    docs: {
+      description: {
+        story: 'Povinné pole zobrazuje hviezdičku (*) vedľa labelu.',
+      },
+    },
+  },
 };
 
 export const Optional: Story = {
@@ -90,6 +97,13 @@ export const Optional: Story = {
     required: false,
   },
   decorators: desktopDecorator,
+  parameters: {
+    docs: {
+      description: {
+        story: 'Nepovinné pole zobrazuje text "(nepovinné pole)".',
+      },
+    },
+  },
 };
 
 /**
@@ -103,6 +117,13 @@ export const WithCharacterCount: Story = {
     inputDescription: 'Maximálne 200 znakov',
   },
   decorators: desktopDecorator,
+  parameters: {
+    docs: {
+      description: {
+        story: 'V pravom dolnom rohu sa zobrazuje dynamické počítadlo znakov vo formáte aktuálny_počet/maximálny_počet. Prop maxLength je povinný.',
+      },
+    },
+  },
 };
 
 /**
@@ -115,6 +136,13 @@ export const WithSubheading: Story = {
     labelDescription: 'Toto je podnadpis (vysvetľujúci text pod labelom)',
   },
   decorators: desktopDecorator,
+  parameters: {
+    docs: {
+      description: {
+        story: 'Prop labelDescription pridáva vysvetľujúci text pod label, pred textové pole.',
+      },
+    },
+  },
 };
 
 /**
@@ -127,6 +155,13 @@ export const WithDescription: Story = {
     inputDescription: 'Toto je popis (pomocný text pod poľom)',
   },
   decorators: desktopDecorator,
+  parameters: {
+    docs: {
+      description: {
+        story: 'Prop inputDescription zobrazí pomocný text pod poľom prepojený cez aria-describedby.',
+      },
+    },
+  },
 };
 
 /**
@@ -145,6 +180,13 @@ export const WithTooltip: Story = {
     },
   },
   decorators: desktopDecorator,
+  parameters: {
+    docs: {
+      description: {
+        story: 'Prop tooltip zobrazí ikonu „i" vedľa labelu s kontextovou nápovedom.',
+      },
+    },
+  },
 };
 
 /**
@@ -159,6 +201,13 @@ export const Error: Story = {
     errorDescription: 'Toto pole je povinné a musí obsahovať platný text.',
   },
   decorators: desktopDecorator,
+  parameters: {
+    docs: {
+      description: {
+        story: 'Variant error zvýrazní border červenou farbou, zobrazí ikonu varovania a chybovú správu errorDescription.',
+      },
+    },
+  },
 };
 
 /**
@@ -172,6 +221,13 @@ export const Disabled: Story = {
     disabled: true,
   },
   decorators: desktopDecorator,
+  parameters: {
+    docs: {
+      description: {
+        story: 'Zakázané (disabled) pole — interakcia nie je možná.',
+      },
+    },
+  },
 };
 
 /**
@@ -190,6 +246,13 @@ export const Desktop: Story = {
     maxLength: 500,
   },
   decorators: desktopDecorator,
+  parameters: {
+    docs: {
+      description: {
+        story: 'Kompletný desktop variant so všetkými prvkami.',
+      },
+    },
+  },
 };
 
 export const Mobile: Story = {
@@ -213,4 +276,11 @@ export const Mobile: Story = {
       </div>
     ),
   ],
+  parameters: {
+    docs: {
+      description: {
+        story: 'Mobilné zobrazenie textarea na úzkych obrazovkách.',
+      },
+    },
+  },
 };
