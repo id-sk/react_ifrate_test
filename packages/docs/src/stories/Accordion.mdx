@@ -19,22 +19,97 @@ Komponent `Accordion` zobrazuje zoznam sekcií, kde každá sekcia má nadpis a 
 
 <Controls />
 
+## Props komponentu
+
+| Prop            | Typ       | Predvolená | Popis                                                                                  |
+| --------------- | --------- | ---------- | -------------------------------------------------------------------------------------- |
+| `items`         | `AccordionItemProps[]` | — | Zoznam sekcií akordeónu                                               |
+| `className`     | `string`  | `''`       | Extra CSS triedy na koreňovom elemente                                                 |
+| `singleOpen`    | `boolean` | `false`    | Ak `true`, v danom okamihu môže byť otvorená iba jedna sekcia                         |
+| `showToggleAll` | `boolean` | `false`    | Ak `true`, zobrazí tlačidlo „Otvoriť všetky / Zavrieť všetky" nad sekciami            |
+
 ## Štruktúra položky
 
 Každá položka (`AccordionItemProps`) prijíma:
 
-| Prop       | Typ                  | Popis                                                                   |
-| ---------- | -------------------- | ----------------------------------------------------------------------- |
-| `title`    | `string`             | Nadpis sekcie zobrazený v tlačidle                                      |
-| `children` | `ReactNode`          | Obsah sekcie (ľubovoľné JSX)                                            |
-| `id`       | `string` (voliteľné) | ID pre `aria-controls` / `id` obsahu; ak chýba, generuje sa automaticky |
+| Prop          | Typ                   | Popis                                                                    |
+| ------------- | --------------------- | ------------------------------------------------------------------------ |
+| `title`       | `string`              | Nadpis sekcie — zobrazený ako Headline M (24 px, tučné)                 |
+| `children`    | `ReactNode`           | Obsah sekcie (ľubovoľné JSX), zobrazený po rozbalení                    |
+| `id`          | `string` (voliteľné)  | ID pre `aria-controls` / `id` obsahu; ak chýba, generuje sa automaticky |
+| `hint`        | `string` (voliteľné)  | Krátky popis pod nadpisom — použite keď nadpis nie je dostatočne zrejmý |
+| `disabled`    | `boolean` (voliteľné) | Sekcia je nedostupná — tlačidlo je deaktivované a vylúčené z tab poradia |
+| `defaultOpen` | `boolean` (voliteľné) | Sekcia je predvolene rozbalená pri prvom render; sekciu možno zatvoriť  |
 
 ## Prístupnosť (Accessibility)
 
-- Tlačidlo sekcie má `aria-expanded` — automaticky prepínané vanilla JS skriptom
+- Tlačidlo sekcie má `aria-expanded` — dynamicky prepínané pri každej interakcii
 - `aria-controls` odkazuje na `id` obsahu sekcie
-- Ikona šípky má `aria-hidden="true"` — je dekoratívna
+- Obsah sekcie má `aria-labelledby` odkazujúci na tlačidlo
+- Ikona (+/−) má `aria-hidden="true"` — je čisto dekoratívna
 - Obsah je skrytý cez natívny atribút `hidden` — správne interpretovaný čítačkami obrazovky
+- Deaktivované položky používajú natívny atribút `disabled` — vylúčené z tab poradia
+
+### Klávesové skratky
+
+| Kláves | Akcia |
+| --- | --- |
+| `Tab` | Presun fokusu na ďalšie dostupné tlačidlo (deaktivované preskočí) |
+| `Shift + Tab` | Presun fokusu na predchádzajúce dostupné tlačidlo |
+| `Enter` alebo `Space` | Rozbalenie / zbalenie sekcie s fokusom |
+
+## Single Open mód
+
+Pri nastavení `singleOpen={true}` môže byť v danom okamihu otvorená iba jedna sekcia. Otvorenie inej sekcie automaticky zatvorí predchádzajúcu:
+
+```tsx
+<Accordion singleOpen items={[...]} />
+```
+
+## Tlačidlo „Otvoriť/Zavrieť všetky"
+
+Nastavením `showToggleAll={true}` sa nad sekciami zobrazí ovládací prvok, ktorý synchrónne otvorí alebo zatvorí všetky sekcie naraz. Tlačidlo mení popis podľa aktuálneho stavu skupiny:
+
+```tsx
+<Accordion showToggleAll items={[...]} />
+```
+
+> Tlačidlo sa nezobrazuje keď je aktívny `singleOpen` mód — kombinácia by bola logicky rozporuplná.
+
+## JS-disabled fallback
+
+Pre čisté HTML použitie (bez React) je implementovaný progressive enhancement cez `vanilla.ts`:
+
+- **Bez JavaScriptu**: panely sú viditeľné (nie je nastavený atribút `hidden`)
+- **S JavaScriptom**: `vanilla.ts` pri inicializácii zatvorí všetky panely, ktoré nemajú `aria-expanded="true"`, a následne ovláda stav cez kliknutie
+
+Pre single-open správanie v čistom HTML pridajte `data-single-open="true"` na koreňový element:
+
+```html
+<div class="idsk-accordion" data-idsk="accordion" data-single-open="true">
+  ...
+</div>
+```
+
+## Deaktivovaná sekcia
+
+Jednotlivé sekcie je možné deaktivovať pomocou vlastnosti `disabled`:
+
+```tsx
+<Accordion
+  items={[
+    {
+      title: 'Aktívna sekcia',
+      children: <p>Obsah je dostupný.</p>,
+    },
+    {
+      title: 'Deaktivovaná sekcia',
+      children: <p>Obsah nie je prístupný.</p>,
+      disabled: true,
+    },
+  ]}
+/>
+```
 
 ## Inicializácia
 
