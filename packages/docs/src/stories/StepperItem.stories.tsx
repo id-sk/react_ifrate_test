@@ -1,4 +1,3 @@
-import React from 'react';
 import { StepperItem, type StepperItemProps } from '@idsk/core';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
