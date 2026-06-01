@@ -1,0 +1,91 @@
+@reference "../../style/tailwind.css";
+
+@layer components {
+  .idsk-breadcrumbs {
+    @apply font-sans text-main-body text-text-primary;
+  }
+
+  .idsk-breadcrumbs__list {
+    @apply flex flex-wrap items-center;
+
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .idsk-breadcrumbs__item {
+    @apply flex items-center;
+  }
+
+  .idsk-breadcrumbs__link {
+    @apply underline decoration-solid;
+
+    text-decoration-thickness: 1px;
+    text-decoration-skip-ink: none;
+    text-underline-position: from-font;
+  }
+
+  @media (hover: hover) {
+    .idsk-breadcrumbs__link:hover {
+      text-decoration-thickness: 2px;
+    }
+  }
+
+  .idsk-breadcrumbs__link:visited {
+    color: var(--text-link-visited, inherit);
+  }
+
+  .idsk-breadcrumbs__item--current {
+    @apply text-text-primary;
+  }
+
+  .idsk-breadcrumbs__separator {
+    @apply mr-space-4 ml-space-1 flex shrink-0 items-center;
+
+    color: var(--text-secondary);
+  }
+
+  /* Expand button — hidden by default, revealed on mobile when collapsed */
+  .idsk-breadcrumbs__item--expand {
+    display: none;
+  }
+
+  .idsk-breadcrumbs__expand-btn {
+    @apply cursor-pointer border-none bg-transparent p-0;
+    @apply font-sans text-main-body text-text-primary;
+    @apply underline decoration-solid;
+
+    text-decoration-thickness: 1px;
+    text-decoration-skip-ink: none;
+  }
+
+  @media (hover: hover) {
+    .idsk-breadcrumbs__expand-btn:hover {
+      text-decoration-thickness: 2px;
+    }
+  }
+
+  /* Mobile: smaller text + collapse behaviour */
+  @media (width < 730px) {
+    .idsk-breadcrumbs {
+      @apply text-main-body-1;
+    }
+
+    .idsk-breadcrumbs__expand-btn {
+      @apply text-main-body-1;
+    }
+
+    .idsk-breadcrumbs[data-collapse]:not([data-expanded]) .idsk-breadcrumbs__item--expand {
+      @apply flex items-center;
+    }
+
+    .idsk-breadcrumbs[data-collapse]:not([data-expanded]) .idsk-breadcrumbs__item--middle {
+      display: none;
+    }
+
+    /* Hide expand button once the list is fully shown */
+    .idsk-breadcrumbs[data-collapse][data-expanded] .idsk-breadcrumbs__item--expand {
+      display: none;
+    }
+  }
+}

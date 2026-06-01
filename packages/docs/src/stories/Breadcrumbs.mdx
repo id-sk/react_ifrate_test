@@ -1,0 +1,131 @@
+import { Meta, Subtitle, Primary, Controls, Stories } from '@storybook/addon-docs/blocks';
+import * as BreadcrumbsStories from './Breadcrumbs.stories';
+
+<Meta of={BreadcrumbsStories} />
+
+# Breadcrumbs (Omrvinková navigácia)
+
+<Subtitle>
+  Navigačný komponent zobrazujúci hierarchickú cestu od koreňa webu po aktuálnu stránku s podporou
+  zbalenia na mobilných zariadeniach.
+</Subtitle>
+
+## Overview (Prehľad)
+
+Komponent `Breadcrumbs` pomáha používateľom pochopiť, kde sa nachádzajú v rámci štruktúry webu, a pohybovať sa medzi úrovňami hierarchie. Vykresľuje sémantický `<nav>` element s `<ol>` zoznamom odkazov oddelených šípkami. Aktuálna stránka je vždy posledná položka — zobrazuje sa ako text (nie odkaz) s `aria-current="page"`.
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Props komponentu
+
+| Prop             | Typ                | Predvolená | Popis                                                                        |
+| ---------------- | ------------------ | ---------- | ---------------------------------------------------------------------------- |
+| `items`          | `BreadcrumbItem[]` | —          | Zoznam položiek navigačnej cesty (povinné)                                   |
+| `collapseMobile` | `boolean`          | `false`    | Ak `true`, skryje stredné položky na mobilnom zobrazení a pridá tlačidlo „…" |
+| `className`      | `string`           | `''`       | Extra CSS triedy na koreňovom `<nav>` elemente                               |
+
+## Štruktúra položky
+
+Každá položka (`BreadcrumbItem`) prijíma:
+
+| Prop    | Typ                  | Popis                                                                     |
+| ------- | -------------------- | ------------------------------------------------------------------------- |
+| `label` | `string`             | Text zobrazený v navigačnej ceste                                         |
+| `href`  | `string` (voliteľné) | URL odkazu. Ak chýba, položka sa vykreslí ako `<span>` (aktuálna stránka) |
+
+## Prístupnosť (Accessibility)
+
+- Koreňový element je `<nav>` s `aria-label="Omrvinková navigácia"` — čítačky obrazovky ho správne identifikujú ako orientačný bod
+- Aktuálna stránka má `aria-current="page"` a nie je obalená odkazom
+- Separátory (šípky) majú `aria-hidden="true"` — sú čisto dekoratívne
+- Tlačidlo na rozbalenie cesty má `aria-expanded` reflektujúci stav a popisný `aria-label`
+- Celá navigácia je prístupná cez klávesnicu
+
+### Klávesové skratky
+
+| Kláves        | Akcia                                            |
+| ------------- | ------------------------------------------------ |
+| `Tab`         | Presun fokusu na ďalší odkaz / tlačidlo          |
+| `Shift + Tab` | Presun fokusu na predchádzajúci odkaz / tlačidlo |
+| `Enter`       | Aktivácia odkazu alebo rozbalenie skrytej cesty  |
+
+## Kolaps na mobile (`collapseMobile`)
+
+Pri nastavení `collapseMobile={true}` a viac ako dvoch stredných položkách sa na mobilnom zobrazení skryjú prostredné kroky a zobrazí sa tlačidlo `…`. Po kliknutí alebo stlačení `Enter` sa celá cesta rozbalí:
+
+```tsx
+<Breadcrumbs
+  collapseMobile
+  items={[
+    { label: 'Domov', href: '/' },
+    { label: 'Sekcia', href: '/sekcia' },
+    { label: 'Odbor', href: '/sekcia/odbor' },
+    { label: 'Oddelenie', href: '/sekcia/odbor/oddelenie' },
+    { label: 'Aktuálna stránka' },
+  ]}
+/>
+```
+
+> Kolaps sa aktivuje iba keď `collapseMobile={true}` **a** existujú viac ako 2 stredné (nie prvá, nie posledná) položky.
+
+## Vanilla JS (progressive enhancement)
+
+Komponent je inicializovaný cez `data-idsk="breadcrumbs"` atribút. Pri načítaní stránky `vanilla.ts` zaregistruje obsluhu kliknutia na tlačidlo `…` a nastaví `data-expanded` na koreňovom elemente, čím CSS odhalí skryté položky.
+
+```html
+<nav class="idsk-breadcrumbs" data-idsk="breadcrumbs" data-collapse>
+  <ol class="idsk-breadcrumbs__list">
+    <li class="idsk-breadcrumbs__item">
+      <a href="/" class="idsk-breadcrumbs__link">Domov</a>
+      <!-- separator -->
+    </li>
+    <li class="idsk-breadcrumbs__item idsk-breadcrumbs__item--expand">
+      <button
+        type="button"
+        class="idsk-breadcrumbs__expand-btn"
+        aria-expanded="false"
+        aria-label="Zobraziť celú navigačnú cestu"
+      >
+        …
+      </button>
+      <!-- separator -->
+    </li>
+    <!-- stredné položky (.idsk-breadcrumbs__item--middle) -->
+    <li class="idsk-breadcrumbs__item idsk-breadcrumbs__item--current" aria-current="page">
+      Aktuálna stránka
+    </li>
+  </ol>
+</nav>
+```
+
+## Použitie
+
+```tsx
+import { Breadcrumbs } from '@idsk/core';
+
+// Základná omrvinková navigácia
+<Breadcrumbs
+  items={[
+    { label: 'Domov', href: '/' },
+    { label: 'Sekcia', href: '/sekcia' },
+    { label: 'Aktuálna stránka' },
+  ]}
+/>
+
+// S kollapsom na mobile
+<Breadcrumbs
+  collapseMobile
+  items={[
+    { label: 'Domov', href: '/' },
+    { label: 'Sekcia', href: '/sekcia' },
+    { label: 'Odbor', href: '/sekcia/odbor' },
+    { label: 'Aktuálna stránka' },
+  ]}
+/>
+```
+
+<Stories />

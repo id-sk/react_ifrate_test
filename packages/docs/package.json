@@ -19,6 +19,7 @@
     "@storybook/react-vite": "^10.4.0",
     "@whitespace/storybook-addon-html": "^9.0.0",
     "eslint-plugin-storybook": "10.4.0",
+    "remark-gfm": "^4.0.1",
     "storybook": "^10.4.0"
   }
 }
