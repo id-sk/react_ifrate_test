@@ -1,0 +1,176 @@
+@reference "../../style/tailwind.css";
+
+@layer components {
+  .idsk-select-container {
+    @apply flex w-full max-w-[640px] flex-col gap-y-(--spacing-space-1);
+  }
+
+  .idsk-select__wrapper {
+    @apply relative flex w-full;
+
+    &:has(.idsk-select[data-state='open'])::after,
+    &:has(.idsk-select:focus-visible)::after {
+      @apply idsk-focus-ring-pseudo;
+    }
+  }
+
+  /* Trigger button — replaces native <select>; custom chevron positioned absolutely */
+  .idsk-select {
+    @apply flex w-full cursor-pointer items-center justify-between gap-x-space-1 rounded-rounding-1 border-2 border-neutral-800 bg-base-white py-2.5 pr-[45px] pl-space-3 idsk-text-main-body text-text-primary transition-colors;
+    @apply focus-visible:outline-none;
+    @apply idsk-hover-outline;
+    @apply data-[disabled]:cursor-not-allowed data-[disabled]:border-neutral-400 data-[disabled]:text-text-disabled;
+  }
+
+  /* Placeholder / empty selection */
+  .idsk-select--empty {
+    @apply text-text-secondary;
+  }
+
+  .idsk-select--error {
+    @apply border-border-error pr-[75px];
+  }
+
+  .idsk-select--lg {
+    @apply h-10 sm:h-12;
+  }
+
+  /* Small size — fixed 16 px font (not responsive like the L trigger) */
+  .idsk-select--sm {
+    @apply h-10 idsk-text-main-body-1;
+  }
+
+  /* Displayed value text fills available space */
+  .idsk-select__value {
+    @apply flex-1 truncate text-left;
+  }
+
+  /* Custom chevron */
+  .idsk-select__chevron {
+    @apply pointer-events-none absolute top-1/2 right-space-3 -translate-y-1/2 text-icon-default transition-transform;
+
+    .idsk-select[data-state='open'] & {
+      @apply rotate-180;
+    }
+  }
+
+  .idsk-select__wrapper:has(.idsk-select[data-disabled]) .idsk-select__chevron {
+    @apply text-text-disabled;
+  }
+
+  /* Warning icon — error state */
+  .idsk-select__error-icon {
+    @apply pointer-events-none absolute top-1/2 right-[45px] -translate-y-1/2 text-text-error;
+  }
+
+  /* ------------------------------------------------------------------ */
+
+  /* Dropdown panel — Figma "Dropdown list" node                         */
+
+  /* ------------------------------------------------------------------ */
+  .idsk-select__dropdown {
+    @apply z-50 overflow-hidden rounded-rounding-1 border-2 border-border-subtle bg-surface-default;
+
+    --idsk-select-dropdown-max-height: 300px;
+
+    width: var(--radix-select-trigger-width, 100%);
+    max-height: var(
+      --radix-select-content-available-height,
+      var(--idsk-select-dropdown-max-height)
+    );
+    box-shadow: var(--idsk-shadow-middle);
+  }
+
+  .idsk-select__dropdown-viewport {
+    @apply flex flex-col;
+  }
+
+  /* Individual option row */
+  .idsk-select__item {
+    @apply relative flex min-h-12 cursor-pointer items-center px-space-4 py-space-2 idsk-text-main-body-1 text-text-primary outline-none select-none;
+
+    /* Hover: subtle background + underline (2 px, no skip-ink) */
+    &[data-highlighted] {
+      @apply bg-surface-subtle underline decoration-solid decoration-2 decoration-skip-ink-none;
+    }
+
+    /* Selected: bold + primary-blue text + 3 px accent bar via pseudo-element */
+    &[data-state='checked'] {
+      @apply font-bold text-text-link-default;
+
+      &::before {
+        @apply absolute top-0 bottom-0 left-0 w-[3px] bg-text-link-default content-[''];
+      }
+    }
+
+    /* Selected + hover adds subtle bg + underline */
+    &[data-state='checked'][data-highlighted] {
+      @apply bg-surface-subtle underline decoration-solid decoration-2 decoration-skip-ink-none;
+    }
+
+    /* Disabled */
+    &[data-disabled] {
+      @apply cursor-not-allowed text-text-disabled no-underline;
+    }
+  }
+
+  /* Group label (optgroup equivalent) */
+  .idsk-select__group-label {
+    @apply px-space-4 py-space-1 idsk-text-hint text-text-secondary;
+  }
+
+  /* ------------------------------------------------------------------ */
+
+  /* Native <select> — progressive enhancement (no React/Radix)         */
+
+  /* ------------------------------------------------------------------ */
+
+  /* Hide the browser's native dropdown arrow and opt into CSS styling */
+  select.idsk-select {
+    @apply appearance-none;
+
+    &:disabled {
+      @apply cursor-not-allowed border-neutral-400 text-text-disabled;
+    }
+  }
+
+  /* Disabled chevron when native select is disabled */
+  .idsk-select__wrapper:has(select.idsk-select:disabled) .idsk-select__chevron {
+    @apply text-text-disabled;
+  }
+
+  /* Chevron rotation when vanilla open state is active (JS toggles --open class) */
+  .idsk-select__wrapper:has(select.idsk-select--open) .idsk-select__chevron {
+    @apply rotate-180;
+  }
+
+  /* ------------------------------------------------------------------ */
+
+  /* Field label                                                         */
+
+  /* ------------------------------------------------------------------ */
+  .idsk-select__label {
+    @apply flex w-full flex-col;
+  }
+
+  .idsk-select__label-text {
+    @apply flex items-center gap-x-space-1 idsk-text-main-body;
+  }
+
+  .idsk-select__label-required {
+    @apply flex h-6 items-start gap-x-1 text-text-error;
+  }
+
+  .idsk-select__label-not-required {
+    @apply idsk-text-main-body-1 text-text-secondary;
+  }
+
+  .idsk-select__label-description,
+  .idsk-select__description {
+    @apply idsk-text-hint;
+  }
+
+  .idsk-select__error-description {
+    @apply idsk-text-hint text-text-error;
+  }
+}

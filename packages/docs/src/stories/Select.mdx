@@ -1,0 +1,336 @@
+import { Meta, Subtitle, Primary, Controls, Stories } from '@storybook/addon-docs/blocks';
+import * as SelectStories from './Select.stories';
+
+<Meta of={SelectStories} />
+
+# Select (Rozbaľovacie pole)
+
+<Subtitle>
+  Rozbaľovací komponent pre výber jednej možnosti zo zoznamu s podporou skupín, tooltipov, validácie
+  a ARIA atribútov.
+</Subtitle>
+
+## Overview (Prehľad)
+
+Komponent `Select` nahrádza natívny `<select>` prvok vlastným dizajnom postaveným na Radix UI. Podporuje povinné aj nepovinné polia, pomocné popisy, chybové stavy, zoskupené možnosti a tooltip pri labeli. Automaticky generuje `id` pre správne prepojenie labelu s triggerom a nastavuje všetky potrebné ARIA atribúty.
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Štruktúra komponentu
+
+```
+Select
+├── Label (Radix Label.Root)
+│   ├── label text + required/optional badge
+│   ├── labelDescription (podnadpis)
+│   └── Tooltip (voliteľný)
+├── Wrapper
+│   └── RadixSelect.Root
+│       ├── Trigger (tlačidlo)
+│       │   ├── Value (zobrazená hodnota / placeholder)
+│       │   ├── WarningIcon (iba pri variant="error")
+│       │   └── ChevronIcon (rotuje pri otvorení)
+│       └── Portal → Content → Viewport
+│           ├── Item[] (jednotlivé možnosti)
+│           └── Group[] + Label[] (ak sa použije prop groups)
+├── inputDescription (hint, voliteľný)
+└── errorDescription (iba pri variant="error")
+```
+
+## Prístupnosť (Accessibility)
+
+- Trigger je `<button>` — plne ovládateľný klávesnicou (Space/Enter otvára, šípky navigujú, Escape zatvára).
+- Label je prepojený s triggerom cez `htmlFor` / `id` (automaticky generované cez `useId` ak nie je zadané).
+- `aria-describedby` odkazuje na `inputDescription` (hint) a/alebo `errorDescription` pokiaľ sú prítomné.
+- `aria-invalid="true"` je nastavené pri `variant="error"`.
+- `aria-required` je nastavené keď je `required={true}`.
+- Hviezdička pre povinné pole má `aria-hidden="true"` — povinnosť je komunikovaná cez `aria-required`.
+- Deaktivované položky majú `data-disabled` — Radix UI ich vylučuje z navigácie klávesnicou.
+
+### Klávesové skratky
+
+| Klávesa           | Akcia                           |
+| ----------------- | ------------------------------- |
+| `Space` / `Enter` | Otvorí/zavrie rozbaľovacie menu |
+| `↑` / `↓`         | Navigácia medzi možnosťami      |
+| `Home` / `End`    | Skok na prvú / poslednú možnosť |
+| `Escape`          | Zatvorí menu bez zmeny hodnoty  |
+| `Tab`             | Presunie fokus na ďalší prvok   |
+
+## Varianty
+
+| Variant   | Popis                                            |
+| --------- | ------------------------------------------------ |
+| `default` | Štandardný stav — tmavý border                   |
+| `error`   | Chybový stav — červený border, ikona upozornenia |
+
+## Veľkosti
+
+| Size          | Výška                        | Typografia              |
+| ------------- | ---------------------------- | ----------------------- |
+| `default` (L) | 40 px mobile / 48 px desktop | `idsk-text-main-body`   |
+| `sm` (M)      | 40 px fixne                  | `idsk-text-main-body-1` |
+
+## Použitie
+
+```tsx
+import { Select } from '@idsk/core';
+
+// Základný príklad
+<Select
+  label="Krajina"
+  placeholder="Vyberte krajinu"
+  required
+  options={[
+    { value: 'sk', label: 'Slovensko' },
+    { value: 'cz', label: 'Česká republika' },
+    { value: 'at', label: 'Rakúsko' },
+  ]}
+/>
+
+// Chybový stav
+<Select
+  label="Krajina"
+  variant="error"
+  required
+  errorDescription="Vyberte platnú krajinu"
+  options={[...]}
+/>
+
+// Zoskupené možnosti
+<Select
+  label="Mesto"
+  placeholder="Vyberte mesto"
+  required
+  groups={[
+    {
+      label: 'Slovensko',
+      options: [
+        { value: 'ba', label: 'Bratislava' },
+        { value: 'ke', label: 'Košice' },
+      ],
+    },
+    {
+      label: 'Česká republika',
+      options: [
+        { value: 'prg', label: 'Praha' },
+      ],
+    },
+  ]}
+/>
+
+// Riadený (controlled) režim
+const [value, setValue] = useState('');
+
+<Select
+  label="Krajina"
+  value={value}
+  onValueChange={setValue}
+  options={[...]}
+/>
+```
+
+## Vanilla HTML
+
+Pre použitie bez Reactu / Radix UI použite natívny `<select>` s rovnakými CSS triedami.
+JavaScript (`vanilla.ts`) sa stará iba o triedu `idsk-select--empty` (placeholder stav) — samotný `<select>` je plne funkčný aj bez JS.
+
+### Základný príklad
+
+```html
+<div class="idsk-select-container" data-idsk="select">
+  <label for="krajina" class="idsk-select__label">
+    <span class="idsk-select__label-text">
+      Krajina
+      <span class="idsk-select__label-not-required">(nepovinné pole)</span>
+    </span>
+  </label>
+  <div class="idsk-select__wrapper">
+    <select
+      id="krajina"
+      name="krajina"
+      class="idsk-select idsk-select--default idsk-select--lg idsk-select--empty"
+    >
+      <option value="" disabled selected>Vyberte krajinu</option>
+      <option value="sk">Slovensko</option>
+      <option value="cz">Česká republika</option>
+      <option value="at">Rakúsko</option>
+    </select>
+    <span class="idsk-select__chevron" aria-hidden="true">
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 25 25"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M17.2812 8.64062L12.5 13.4115L7.71875 8.64062L6.25 10.1094L12.5 16.3594L18.75 10.1094L17.2812 8.64062Z"
+          fill="currentColor"
+        />
+      </svg>
+    </span>
+  </div>
+</div>
+```
+
+### Povinné pole
+
+```html
+<div class="idsk-select-container" data-idsk="select">
+  <label for="krajina-required" class="idsk-select__label">
+    <span class="idsk-select__label-text">
+      Krajina
+      <span class="idsk-select__label-required" aria-hidden="true">
+        <svg width="7" height="7" viewBox="0 0 8 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M1.92 7.008L0.96 6.312L2.328 4.056L0 3.096L0.36 1.992L2.808 2.592L3.024 0H4.2L4.416 2.568L6.888 1.992L7.248 3.096L4.92 4.056L6.264 6.312L5.328 7.008L3.624 4.944L1.92 7.008Z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+    </span>
+    <span class="idsk-select__label-description">Popis rozbaľovacieho poľa</span>
+  </label>
+  <div class="idsk-select__wrapper">
+    <select
+      id="krajina-required"
+      name="krajina"
+      required
+      aria-required="true"
+      class="idsk-select idsk-select--default idsk-select--lg idsk-select--empty"
+    >
+      <option value="" disabled selected>Vyberte krajinu</option>
+      <option value="sk">Slovensko</option>
+      <option value="cz">Česká republika</option>
+    </select>
+    <span class="idsk-select__chevron" aria-hidden="true">
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 25 25"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M17.2812 8.64062L12.5 13.4115L7.71875 8.64062L6.25 10.1094L12.5 16.3594L18.75 10.1094L17.2812 8.64062Z"
+          fill="currentColor"
+        />
+      </svg>
+    </span>
+  </div>
+  <span id="krajina-required-hint" class="idsk-select__description"
+    >Pomocný text pre používateľa</span
+  >
+</div>
+```
+
+### Chybový stav
+
+```html
+<div class="idsk-select-container" data-idsk="select">
+  <label for="krajina-error" class="idsk-select__label">
+    <span class="idsk-select__label-text">Krajina</span>
+  </label>
+  <div class="idsk-select__wrapper">
+    <select
+      id="krajina-error"
+      name="krajina"
+      required
+      aria-invalid="true"
+      aria-describedby="krajina-error-msg"
+      class="idsk-select idsk-select--error idsk-select--lg idsk-select--empty"
+    >
+      <option value="" disabled selected>Vyberte krajinu</option>
+      <option value="sk">Slovensko</option>
+    </select>
+    <span class="idsk-select__error-icon" aria-hidden="true">
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 25 25"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M1.04175 22.3958H23.9584L12.5001 2.60413L1.04175 22.3958ZM13.5417 19.2708H11.4584V17.1875H13.5417V19.2708ZM13.5417 15.1041H11.4584V10.9375H13.5417V15.1041Z"
+          fill="currentColor"
+        />
+      </svg>
+    </span>
+    <span class="idsk-select__chevron" aria-hidden="true">
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 25 25"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M17.2812 8.64062L12.5 13.4115L7.71875 8.64062L6.25 10.1094L12.5 16.3594L18.75 10.1094L17.2812 8.64062Z"
+          fill="currentColor"
+        />
+      </svg>
+    </span>
+  </div>
+  <span id="krajina-error-msg" class="idsk-select__error-description">Vyberte platnú krajinu</span>
+</div>
+```
+
+### Skupiny možností (`<optgroup>`)
+
+```html
+<div class="idsk-select-container" data-idsk="select">
+  <label for="mesto" class="idsk-select__label">
+    <span class="idsk-select__label-text">Mesto</span>
+  </label>
+  <div class="idsk-select__wrapper">
+    <select
+      id="mesto"
+      name="mesto"
+      class="idsk-select idsk-select--default idsk-select--lg idsk-select--empty"
+    >
+      <option value="" disabled selected>Vyberte mesto</option>
+      <optgroup label="Slovensko">
+        <option value="ba">Bratislava</option>
+        <option value="ke">Košice</option>
+      </optgroup>
+      <optgroup label="Česká republika">
+        <option value="prg">Praha</option>
+        <option value="brno">Brno</option>
+      </optgroup>
+    </select>
+    <span class="idsk-select__chevron" aria-hidden="true">
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 25 25"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M17.2812 8.64062L12.5 13.4115L7.71875 8.64062L6.25 10.1094L12.5 16.3594L18.75 10.1094L17.2812 8.64062Z"
+          fill="currentColor"
+        />
+      </svg>
+    </span>
+  </div>
+</div>
+```
+
+### CSS triedy pre vanilla
+
+| Trieda               | Kedy použiť                                                                          |
+| -------------------- | ------------------------------------------------------------------------------------ |
+| `idsk-select--empty` | Placeholder je viditeľný (žiadna hodnota nevybraná) — JS pridáva/odoberá automaticky |
+| `idsk-select--error` | Chybový stav — červený border, ikona upozornenia                                     |
+| `idsk-select--lg`    | Veľkosť L (default)                                                                  |
+| `idsk-select--sm`    | Veľkosť M                                                                            |
+
+> **Poznámka:** Rotácia chevróna pri otvorení dropdown menu nie je dostupná pre natívny `<select>` (prehliadač neexponuje open/close event). Všetky ostatné vizuálne stavy (hover, focus, disabled, error, empty) fungujú rovnako ako React verzia.
+
+<Stories />

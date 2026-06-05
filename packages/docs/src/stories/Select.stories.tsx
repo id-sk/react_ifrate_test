@@ -1,0 +1,339 @@
+import { Select } from '@idsk/core';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { useState } from 'react';
+
+const meta = {
+  title: 'Core/Select',
+  component: Select,
+  argTypes: {
+    variant: {
+      control: { type: 'select' },
+      options: ['default', 'error'],
+      description: 'Vizuálny stav poľa',
+    },
+    size: {
+      control: { type: 'select' },
+      options: ['default', 'sm'],
+      description: 'Veľkosť poľa (default = L, sm = M)',
+    },
+    label: {
+      control: 'text',
+      description: 'Text labelu rozbaľovacieho poľa',
+    },
+    labelDescription: {
+      control: 'text',
+      description: 'Doplňujúci popis pod labelom (podnadpis)',
+    },
+    required: {
+      control: 'boolean',
+      description: 'Povinné pole — zobrazí hviezdičku a aktivuje HTML5 validáciu',
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'Deaktivuje celé pole',
+    },
+    placeholder: {
+      control: 'text',
+      description: 'Text predvolenej (prázdnej) možnosti',
+    },
+    inputDescription: {
+      control: 'text',
+      description: 'Pomocný text pod poľom (hint)',
+    },
+    errorDescription: {
+      control: 'text',
+      description: 'Chybový text — zobrazí sa iba pri variant="error"',
+    },
+    tooltip: {
+      control: false,
+      description: 'Voliteľný tooltip zobrazený pri labeli (TooltipProps)',
+    },
+  },
+  args: {
+    variant: 'default',
+    label: 'Názov rozbaľovacieho pola',
+    placeholder: 'Vyberte možnosť',
+    options: [
+      { value: 'sk', label: 'Slovensko' },
+      { value: 'cz', label: 'Česká republika' },
+      { value: 'at', label: 'Rakúsko' },
+      { value: 'hu', label: 'Maďarsko' },
+      { value: 'pl', label: 'Poľsko' },
+    ],
+  },
+  parameters: {
+    layout: 'centered',
+  },
+} satisfies Meta<typeof Select>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: 'Základný stav rozbaľovacieho poľa s placeholderom.',
+      },
+    },
+  },
+};
+
+export const Required: Story = {
+  args: {
+    required: true,
+    labelDescription: 'Popis rozbaľovacieho poľa',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Povinné pole — hviezdička s `aria-hidden`, natívny atribút `required`. Formulár sa nedá odoslať bez výberu platnej hodnoty.',
+      },
+    },
+  },
+};
+
+export const Optional: Story = {
+  args: {
+    required: false,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Nepovinné pole — zobrazuje text "(nepovinné pole)" vedľa labelu.',
+      },
+    },
+  },
+};
+
+export const WithLabelDescription: Story = {
+  args: {
+    required: true,
+    labelDescription: 'Popis rozbaľovacieho poľa',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Pole s podnadpisom labelu pre dodatočný kontext.',
+      },
+    },
+  },
+};
+
+export const WithHint: Story = {
+  args: {
+    required: true,
+    labelDescription: 'Popis rozbaľovacieho poľa',
+    inputDescription: 'Pomocný text pre používateľa',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Pole s pomocným textom (hint) pod poľom. Hint je prepojený cez `aria-describedby`.',
+      },
+    },
+  },
+};
+
+export const Error: Story = {
+  args: {
+    variant: 'error',
+    required: true,
+    labelDescription: 'Popis rozbaľovacieho poľa',
+    errorDescription: 'Chybový text — vyberte platnú možnosť',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Chybový stav — červený border, ikona upozornenia, chybový text. `aria-invalid="true"` a `aria-describedby` prepájajú chybu so selectom.',
+      },
+    },
+  },
+};
+
+export const ErrorWithHint: Story = {
+  args: {
+    variant: 'error',
+    required: true,
+    labelDescription: 'Popis rozbaľovacieho poľa',
+    inputDescription: 'Pomocný text pre používateľa',
+    errorDescription: 'Chybový text — vyberte platnú možnosť',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Chybový stav s hintom — `aria-describedby` obsahuje obe ID (hint aj chyba).',
+      },
+    },
+  },
+};
+
+export const Disabled: Story = {
+  args: {
+    required: true,
+    labelDescription: 'Popis rozbaľovacieho poľa',
+    disabled: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Deaktivované pole — vizuálne odlíšené, nie je v poradí Tab, nie je interaktívne.',
+      },
+    },
+  },
+};
+
+export const Selected: Story = {
+  args: {
+    required: true,
+    labelDescription: 'Popis rozbaľovacieho poľa',
+    defaultValue: 'sk',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Vybraná hodnota — pole zobrazuje zvolenú možnosť v primárnej farbe textu (nie placeholder).',
+      },
+    },
+  },
+};
+
+export const SizeSm: Story = {
+  args: {
+    size: 'sm',
+    required: true,
+    labelDescription: 'Popis rozbaľovacieho poľa',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Malá veľkosť (M) — výška 40 px na všetkých zariadeniach.',
+      },
+    },
+  },
+};
+
+export const SelectedSizeSm: Story = {
+  args: {
+    size: 'sm',
+    required: true,
+    labelDescription: 'Popis rozbaľovacieho poľa',
+    defaultValue: 'sk',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Vybraná hodnota — malá veľkosť (M).',
+      },
+    },
+  },
+};
+
+export const WithGroups: Story = {
+  args: {
+    label: 'Mesto',
+    placeholder: 'Vyberte mesto',
+    required: true,
+    options: undefined,
+    groups: [
+      {
+        label: 'Slovensko',
+        options: [
+          { value: 'ba', label: 'Bratislava' },
+          { value: 'ke', label: 'Košice' },
+          { value: 'bb', label: 'Banská Bystrica' },
+        ],
+      },
+      {
+        label: 'Česká republika',
+        options: [
+          { value: 'prg', label: 'Praha' },
+          { value: 'brno', label: 'Brno' },
+        ],
+      },
+    ],
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Zoskupené možnosti pomocou `groups` — každá skupina má `label` a pole `options`.',
+      },
+    },
+  },
+};
+
+export const WithDisabledOption: Story = {
+  args: {
+    label: 'Krajina',
+    placeholder: 'Vyberte krajinu',
+    required: true,
+    options: [
+      { value: 'sk', label: 'Slovensko' },
+      { value: 'cz', label: 'Česká republika' },
+      { value: 'at', label: 'Rakúsko (nedostupné)', disabled: true },
+      { value: 'hu', label: 'Maďarsko' },
+      { value: 'pl', label: 'Poľsko (nedostupné)', disabled: true },
+    ],
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Jednotlivé možnosti možno deaktivovať cez `disabled: true` na položke — `data-disabled` riadi Radix UI a správanie je plne prístupné.',
+      },
+    },
+  },
+};
+
+export const WithTooltip: Story = {
+  name: 'S tooltipom',
+  args: {
+    label: 'Krajina pôvodu',
+    required: true,
+    labelDescription: 'Popis rozbaľovacieho poľa',
+    tooltip: {
+      label: '',
+      content: 'Vyberte krajinu, v ktorej bol produkt vyrobený alebo odkiaľ pochádza.',
+      ariaLabel: 'Nápoveda k poľu',
+      preferredPosition: 'top',
+    },
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Prop `tooltip` zobrazí ikonu „i" vedľa labelu s kontextovou nápovedom (komponent Tooltip).',
+      },
+    },
+  },
+};
+
+export const Controlled: Story = {
+  render: (args) => {
+    const [value, setValue] = useState('');
+    return (
+      <div className="flex flex-col gap-4">
+        <Select {...args} value={value} onValueChange={setValue} />
+        <p className="text-sm text-gray-600">
+          Vybraná hodnota: <strong>{value || '(žiadna)'}</strong>
+        </p>
+      </div>
+    );
+  },
+  args: {
+    label: 'Riadený select',
+    placeholder: 'Vyberte možnosť',
+    required: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Riadený (controlled) režim — `value` a `onValueChange` riadia stav externe. Vybraná hodnota sa zobrazuje pod poľom.',
+      },
+    },
+  },
+};

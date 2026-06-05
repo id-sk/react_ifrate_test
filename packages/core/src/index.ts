@@ -9,5 +9,6 @@ export * from './components/Checkbox';
 export * from './components/Tooltip';
 export * from './components/Radio';
 export * from './components/Breadcrumbs';
+export * from './components/Select';
 export * from './components/Stepper';
 export * from './lib/utils';
