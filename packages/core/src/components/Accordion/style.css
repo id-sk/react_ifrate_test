@@ -17,9 +17,17 @@
     @apply font-sans text-text-primary;
     @apply rounded-rounding-m;
     @apply disabled:pointer-events-none;
+
+    --idsk-focus-ring-radius: 10px;
+    --idsk-focus-ring-gap: 4px;
   }
 
   .idsk-accordion__button[aria-expanded='true'] {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .idsk-accordion__button[aria-expanded='true']:focus-visible::after {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   }
@@ -67,6 +75,7 @@
   .idsk-accordion__content {
     @apply overflow-hidden bg-surface-default;
     @apply border-t-subtle border-border-subtle;
+
     border-bottom-left-radius: var(--corner-radius-rounding-m);
     border-bottom-right-radius: var(--corner-radius-rounding-m);
   }
