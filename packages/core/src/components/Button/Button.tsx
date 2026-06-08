@@ -99,7 +99,7 @@ function Button({
       ) : (
         <>
           {startIcon != null && <span aria-hidden="true">{startIcon}</span>}
-          {children}
+          <span>{children}</span>
           {endIcon != null && <span aria-hidden="true">{endIcon}</span>}
         </>
       )}
