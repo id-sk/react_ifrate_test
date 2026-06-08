@@ -1,6 +1,6 @@
 {
   "name": "idsk",
-  "version": "3.2.1",
+  "version": "3.2.2",
   "packageManager": "pnpm@11.1.1",
   "description": "",
   "license": "MIT",
@@ -21,7 +21,9 @@
     "format:check": "prettier --ignore-path .prettierignore --ignore-path .git/info/exclude --check .",
     "typecheck": "tsc --noEmit",
     "changelog": "auto-changelog -p",
-    "version": "auto-changelog -p && git add CHANGELOG.md"
+    "preversion": "git stash",
+    "version": "auto-changelog -p && git add CHANGELOG.md",
+    "postversion": "git add package.json && git commit -m \"v$(node -p \"require('./package.json').version\")\" && git tag \"v$(node -p \"require('./package.json').version\")\" && git stash pop"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.11.3",
