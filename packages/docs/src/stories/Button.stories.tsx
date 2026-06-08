@@ -115,7 +115,8 @@ export const Primary = {
   parameters: {
     docs: {
       description: {
-        story: 'Hlavné tlačidlo pre primárne akcie na stránke. Používajte ho iba raz na každej obrazovke.',
+        story:
+          'Hlavné tlačidlo pre primárne akcie na stránke. Používajte ho iba raz na každej obrazovke.',
       },
     },
   },
@@ -189,7 +190,8 @@ export const Tertiary = {
   parameters: {
     docs: {
       description: {
-        story: 'Terciárne tlačidlo pre menej dôležité akcie. Zobrazuje sa ako textový odkaz s podčiarknutím pri hover.',
+        story:
+          'Terciárne tlačidlo pre menej dôležité akcie. Zobrazuje sa ako textový odkaz s podčiarknutím pri hover.',
       },
     },
   },
@@ -255,7 +257,8 @@ export const TertiaryNoPadding = {
   parameters: {
     docs: {
       description: {
-        story: 'Variant bez paddingu pre vkladanie tlačidla priamo do textu alebo do iných komponentov.',
+        story:
+          'Variant bez paddingu pre vkladanie tlačidla priamo do textu alebo do iných komponentov.',
       },
     },
   },
@@ -302,7 +305,8 @@ export const WithStartIcon = {
   parameters: {
     docs: {
       description: {
-        story: 'Ikona pred textom tlačidla pomocou prop startIcon. Ikony sú automaticky zabalené do aria-hidden spanu.',
+        story:
+          'Ikona pred textom tlačidla pomocou prop startIcon. Ikony sú automaticky zabalené do aria-hidden spanu.',
       },
     },
   },
@@ -371,6 +375,23 @@ export const IconOnlySecondary = {
   },
 } satisfies Story;
 
+export const IconOnlyTertiary = {
+  args: {
+    iconOnly: true,
+    variant: 'tertiary',
+    startIconName: 'CloseIcon',
+    'aria-label': 'Zatvoriť',
+    children: undefined,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Tertiary variant tlačidla len s ikonkou.',
+      },
+    },
+  },
+} satisfies Story;
+
 export const IconOnlySM = {
   args: {
     iconOnly: true,
@@ -397,7 +418,8 @@ export const AsChild = {
   parameters: {
     docs: {
       description: {
-        story: 'Prop asChild umožňuje vykresliť tlačidlo ako iný element (napr. <a>) pri zachovaní všetkých štýlov. Využíva Radix UI Slot.',
+        story:
+          'Prop asChild umožňuje vykresliť tlačidlo ako iný element (napr. <a>) pri zachovaní všetkých štýlov. Využíva Radix UI Slot.',
       },
     },
   },
