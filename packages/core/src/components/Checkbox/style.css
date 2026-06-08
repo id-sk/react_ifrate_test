@@ -40,7 +40,7 @@
 }
 
 .idsk-checkbox__label {
-  @apply flex cursor-pointer touch-manipulation gap-space-1 px-2.5 pt-0.5 idsk-text-main-body md:pt-2;
+  @apply flex cursor-pointer touch-manipulation gap-space-1 px-2.5 pt-0 idsk-text-main-body md:pt-2;
 }
 
 .idsk-checkbox__input:checked + .idsk-checkbox__label::before,
