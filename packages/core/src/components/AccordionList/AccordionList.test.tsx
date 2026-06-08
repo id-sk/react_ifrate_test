@@ -47,12 +47,12 @@ describe('AccordionList', () => {
 
     it('renders the toggle button by default', () => {
       render(<AccordionList title="Nadpis" items={defaultItems} />);
-      expect(screen.getByRole('button', { name: /otvoriť všetky/i })).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: /otvoriť všetko/i })).toBeInTheDocument();
     });
 
     it('does not render toggle button when singleOpen is true', () => {
       render(<AccordionList title="Nadpis" items={defaultItems} singleOpen />);
-      expect(screen.queryByRole('button', { name: /otvoriť všetky/i })).not.toBeInTheDocument();
+      expect(screen.queryByRole('button', { name: /otvoriť všetko/i })).not.toBeInTheDocument();
     });
   });
 
@@ -64,7 +64,7 @@ describe('AccordionList', () => {
       const user = userEvent.setup();
       render(<AccordionList title="Nadpis" items={defaultItems} />);
 
-      await user.click(screen.getByRole('button', { name: /otvoriť všetky/i }));
+      await user.click(screen.getByRole('button', { name: /otvoriť všetko/i }));
 
       defaultItems.forEach((item) => {
         const content = screen.getByText(item.children.props.children as string);
@@ -76,29 +76,29 @@ describe('AccordionList', () => {
       const user = userEvent.setup();
       render(<AccordionList title="Nadpis" items={defaultItems} />);
 
-      await user.click(screen.getByRole('button', { name: /otvoriť všetky/i }));
-      await user.click(screen.getByRole('button', { name: /zavrieť všetky/i }));
+      await user.click(screen.getByRole('button', { name: /otvoriť všetko/i }));
+      await user.click(screen.getByRole('button', { name: /zavrieť všetko/i }));
 
-      expect(screen.queryByRole('button', { name: /otvoriť všetky/i })).toBeInTheDocument();
+      expect(screen.queryByRole('button', { name: /otvoriť všetko/i })).toBeInTheDocument();
     });
 
-    it('shows "Zavrieť všetky" label when all are expanded', async () => {
+    it('shows "Zavrieť všetko" label when all are expanded', async () => {
       const user = userEvent.setup();
       render(<AccordionList title="Nadpis" items={defaultItems} />);
 
-      await user.click(screen.getByRole('button', { name: /otvoriť všetky/i }));
-      expect(screen.getByRole('button', { name: /zavrieť všetky/i })).toBeInTheDocument();
+      await user.click(screen.getByRole('button', { name: /otvoriť všetko/i }));
+      expect(screen.getByRole('button', { name: /zavrieť všetko/i })).toBeInTheDocument();
     });
 
     it('sets data-all-expanded="true" when all are expanded', async () => {
       const user = userEvent.setup();
       render(<AccordionList title="Nadpis" items={defaultItems} />);
 
-      const btn = screen.getByRole('button', { name: /otvoriť všetky/i });
+      const btn = screen.getByRole('button', { name: /otvoriť všetko/i });
       expect(btn).toHaveAttribute('data-all-expanded', 'false');
 
       await user.click(btn);
-      expect(screen.getByRole('button', { name: /zavrieť všetky/i })).toHaveAttribute(
+      expect(screen.getByRole('button', { name: /zavrieť všetko/i })).toHaveAttribute(
         'data-all-expanded',
         'true',
       );
@@ -112,8 +112,8 @@ describe('AccordionList', () => {
       ];
       render(<AccordionList title="Nadpis" items={items} />);
 
-      await user.click(screen.getByRole('button', { name: /otvoriť všetky/i }));
-      expect(screen.getByRole('button', { name: /zavrieť všetky/i })).toBeInTheDocument();
+      await user.click(screen.getByRole('button', { name: /otvoriť všetko/i }));
+      expect(screen.getByRole('button', { name: /zavrieť všetko/i })).toBeInTheDocument();
     });
   });
 
@@ -130,10 +130,10 @@ describe('AccordionList', () => {
       expect(screen.getByText('Obsah A')).toBeVisible();
     });
 
-    it('shows "Zavrieť všetky" when all items have defaultOpen', () => {
+    it('shows "Zavrieť všetko" when all items have defaultOpen', () => {
       const items = defaultItems.map((item) => ({ ...item, defaultOpen: true }));
       render(<AccordionList title="Nadpis" items={items} />);
-      expect(screen.getByRole('button', { name: /zavrieť všetky/i })).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: /zavrieť všetko/i })).toBeInTheDocument();
     });
   });
 
@@ -150,7 +150,7 @@ describe('AccordionList', () => {
     it('has no axe violations when all items are expanded', async () => {
       const user = userEvent.setup();
       const { container } = render(<AccordionList title="Nadpis" items={defaultItems} />);
-      await user.click(screen.getByRole('button', { name: /otvoriť všetky/i }));
+      await user.click(screen.getByRole('button', { name: /otvoriť všetko/i }));
       const results = await axe(container);
       expect(results).toHaveNoViolations();
     });

@@ -195,7 +195,7 @@ export const WithToggleAll: Story = {
     docs: {
       description: {
         story:
-          'Akordeón s tlačidlom „Otvoriť všetky / Zavrieť všetky". Tlačidlo synchrónne ovláda všetky sekcie v skupine.',
+          'Akordeón s tlačidlom „Otvoriť všetko / Zavrieť všetko". Tlačidlo synchrónne ovláda všetky sekcie v skupine.',
       },
     },
   },

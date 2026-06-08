@@ -43,7 +43,7 @@ export const AccordionList: React.FC<AccordionListProps> = ({
             data-all-expanded={allExpanded ? 'true' : 'false'}
             onClick={toggleAll}
           >
-            <span>{allExpanded ? 'Zavrieť všetky' : 'Otvoriť všetky'}</span>
+            <span>{allExpanded ? 'Zavrieť všetko' : 'Otvoriť všetko'}</span>
             <KeyboardArrowDownIcon
               size={25}
               className="idsk-accordion-list__toggle-icon"

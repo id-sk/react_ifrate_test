@@ -417,32 +417,32 @@ test.describe('singleOpen in browser', () => {
 });
 
 // ---------------------------------------------------------------------------
-// showToggleAll in browser  (AC: tlačidlo Otvoriť/Zavrieť všetky)
+// showToggleAll in browser  (AC: tlačidlo Otvoriť/Zavrieť všetko)
 // ---------------------------------------------------------------------------
 test.describe('showToggleAll in browser', () => {
   test.use({ viewport: { width: 800, height: 600 } });
 
   test('toggle-all button opens all sections', async ({ mount, page }) => {
     await mount(<Accordion items={defaultItems} showToggleAll />);
-    await page.getByRole('button', { name: 'Otvoriť všetky' }).click();
+    await page.getByRole('button', { name: 'Otvoriť všetko' }).click();
     await expect(page.locator('#item-1')).toBeVisible();
     await expect(page.locator('#item-2')).toBeVisible();
     await expect(page.locator('#item-3')).toBeVisible();
   });
 
-  test('toggle-all label changes to "Zavrieť všetky" after opening all', async ({
+  test('toggle-all label changes to "Zavrieť všetko" after opening all', async ({
     mount,
     page,
   }) => {
     await mount(<Accordion items={defaultItems} showToggleAll />);
-    await page.getByRole('button', { name: 'Otvoriť všetky' }).click();
-    await expect(page.getByRole('button', { name: 'Zavrieť všetky' })).toBeVisible();
+    await page.getByRole('button', { name: 'Otvoriť všetko' }).click();
+    await expect(page.getByRole('button', { name: 'Zavrieť všetko' })).toBeVisible();
   });
 
   test('toggle-all closes all sections when all are open', async ({ mount, page }) => {
     await mount(<Accordion items={defaultItems} showToggleAll />);
-    await page.getByRole('button', { name: 'Otvoriť všetky' }).click();
-    await page.getByRole('button', { name: 'Zavrieť všetky' }).click();
+    await page.getByRole('button', { name: 'Otvoriť všetko' }).click();
+    await page.getByRole('button', { name: 'Zavrieť všetko' }).click();
     await expect(page.locator('#item-1')).toBeHidden();
     await expect(page.locator('#item-2')).toBeHidden();
     await expect(page.locator('#item-3')).toBeHidden();
@@ -455,7 +455,7 @@ test.describe('showToggleAll in browser', () => {
     for (let i = 0; i < count; i++) {
       await buttons.nth(i).click();
     }
-    await expect(page.getByRole('button', { name: 'Zavrieť všetky' })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Zavrieť všetko' })).toBeVisible();
   });
 
   test('has no a11y violations with showToggleAll', async ({ mount, page }) => {

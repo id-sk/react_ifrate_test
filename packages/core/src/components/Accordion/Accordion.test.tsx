@@ -562,17 +562,17 @@ describe('Accordion', () => {
   });
 
   // ---------------------------------------------------------------------------
-  // showToggleAll prop  (AC: tlačidlo Otvoriť/Zavrieť všetky)
+  // showToggleAll prop  (AC: tlačidlo Otvoriť/Zavrieť všetko)
   // ---------------------------------------------------------------------------
   describe('showToggleAll prop', () => {
     it('does not render toggle-all button by default', () => {
       render(<Accordion items={defaultItems} />);
-      expect(screen.queryByRole('button', { name: /otvoriť všetky|zavrieť všetky/i })).toBeNull();
+      expect(screen.queryByRole('button', { name: /otvoriť všetko|zavrieť všetko/i })).toBeNull();
     });
 
     it('renders toggle-all button when showToggleAll=true', () => {
       render(<Accordion items={defaultItems} showToggleAll />);
-      expect(screen.getByRole('button', { name: /otvoriť všetky/i })).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: /otvoriť všetko/i })).toBeInTheDocument();
     });
 
     it('toggle-all button has class idsk-accordion__toggle-all', () => {
@@ -580,32 +580,32 @@ describe('Accordion', () => {
       expect(container.querySelector('.idsk-accordion__toggle-all')).toBeInTheDocument();
     });
 
-    it('toggle-all button shows "Otvoriť všetky" when no sections are expanded', () => {
+    it('toggle-all button shows "Otvoriť všetko" when no sections are expanded', () => {
       render(<Accordion items={defaultItems} showToggleAll />);
-      expect(screen.getByRole('button', { name: 'Otvoriť všetky' })).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: 'Otvoriť všetko' })).toBeInTheDocument();
     });
 
     it('clicking toggle-all opens all sections', async () => {
       const user = userEvent.setup();
       const { container } = render(<Accordion items={defaultItems} showToggleAll />);
-      await user.click(screen.getByRole('button', { name: 'Otvoriť všetky' }));
+      await user.click(screen.getByRole('button', { name: 'Otvoriť všetko' }));
       container.querySelectorAll('.idsk-accordion__content').forEach((panel) => {
         expect(panel).not.toHaveAttribute('hidden');
       });
     });
 
-    it('toggle-all label changes to "Zavrieť všetky" when all sections are open', async () => {
+    it('toggle-all label changes to "Zavrieť všetko" when all sections are open', async () => {
       const user = userEvent.setup();
       render(<Accordion items={defaultItems} showToggleAll />);
-      await user.click(screen.getByRole('button', { name: 'Otvoriť všetky' }));
-      expect(screen.getByRole('button', { name: 'Zavrieť všetky' })).toBeInTheDocument();
+      await user.click(screen.getByRole('button', { name: 'Otvoriť všetko' }));
+      expect(screen.getByRole('button', { name: 'Zavrieť všetko' })).toBeInTheDocument();
     });
 
     it('clicking toggle-all again closes all sections', async () => {
       const user = userEvent.setup();
       const { container } = render(<Accordion items={defaultItems} showToggleAll />);
-      await user.click(screen.getByRole('button', { name: 'Otvoriť všetky' }));
-      await user.click(screen.getByRole('button', { name: 'Zavrieť všetky' }));
+      await user.click(screen.getByRole('button', { name: 'Otvoriť všetko' }));
+      await user.click(screen.getByRole('button', { name: 'Zavrieť všetko' }));
       container.querySelectorAll('.idsk-accordion__content').forEach((panel) => {
         expect(panel).toHaveAttribute('hidden');
       });
@@ -619,7 +619,7 @@ describe('Accordion', () => {
         { id: 'c', title: 'C', children: 'Obsah C' },
       ];
       const { container } = render(<Accordion items={mixedItems} showToggleAll />);
-      await user.click(screen.getByRole('button', { name: 'Otvoriť všetky' }));
+      await user.click(screen.getByRole('button', { name: 'Otvoriť všetko' }));
       expect(container.querySelector('#a')).not.toHaveAttribute('hidden');
       expect(container.querySelector('#b')).toHaveAttribute('hidden');
       expect(container.querySelector('#c')).not.toHaveAttribute('hidden');
@@ -632,13 +632,13 @@ describe('Accordion', () => {
         { id: 'b', title: 'B', children: 'Obsah B', disabled: true },
       ];
       render(<Accordion items={mixedItems} showToggleAll />);
-      await user.click(screen.getByRole('button', { name: 'Otvoriť všetky' }));
-      expect(screen.getByRole('button', { name: 'Zavrieť všetky' })).toBeInTheDocument();
+      await user.click(screen.getByRole('button', { name: 'Otvoriť všetko' }));
+      expect(screen.getByRole('button', { name: 'Zavrieť všetko' })).toBeInTheDocument();
     });
 
     it('does not render toggle-all button when singleOpen=true', () => {
       render(<Accordion items={defaultItems} showToggleAll singleOpen />);
-      expect(screen.queryByRole('button', { name: /otvoriť všetky|zavrieť všetky/i })).toBeNull();
+      expect(screen.queryByRole('button', { name: /otvoriť všetko|zavrieť všetko/i })).toBeNull();
     });
 
     it('has no a11y violations with showToggleAll', async () => {

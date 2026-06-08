@@ -31,7 +31,7 @@ export const Default: Story = {
     docs: {
       description: {
         story:
-          'Accordion list so záhlavím obsahujúcim nadpis a tlačidlo „Otvoriť všetky / Zavrieť všetky".',
+          'Accordion list so záhlavím obsahujúcim nadpis a tlačidlo „Otvoriť všetko / Zavrieť všetko".',
       },
     },
   },
@@ -84,7 +84,7 @@ export const SingleOpen: Story = {
     docs: {
       description: {
         story:
-          'Accordion list v režime `singleOpen` — tlačidlo „Otvoriť všetky" je skryté, keďže v danom okamihu môže byť otvorená iba jedna sekcia.',
+          'Accordion list v režime `singleOpen` — tlačidlo „Otvoriť všetko" je skryté, keďže v danom okamihu môže byť otvorená iba jedna sekcia.',
       },
     },
   },
@@ -113,7 +113,7 @@ export const WithDisabled: Story = {
     docs: {
       description: {
         story:
-          'Accordion list s deaktivovanou sekciou. Tlačidlo „Otvoriť všetky" ignoruje deaktivované položky.',
+          'Accordion list s deaktivovanou sekciou. Tlačidlo „Otvoriť všetko" ignoruje deaktivované položky.',
       },
     },
   },

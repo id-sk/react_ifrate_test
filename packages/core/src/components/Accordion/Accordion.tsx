@@ -75,7 +75,7 @@ export const Accordion: React.FC<AccordionProps> = ({
       {showToggleAll && !singleOpen && (
         <div className="idsk-accordion__toggle-row">
           <button type="button" className="idsk-accordion__toggle-all" onClick={toggleAll}>
-            {allExpanded ? 'Zavrieť všetky' : 'Otvoriť všetky'}
+            {allExpanded ? 'Zavrieť všetko' : 'Otvoriť všetko'}
           </button>
         </div>
       )}

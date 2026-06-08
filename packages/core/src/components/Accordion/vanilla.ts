@@ -23,7 +23,7 @@ export function init(element: HTMLElement): void {
     );
     const allExpanded =
       btns.length > 0 && btns.every((btn) => btn.getAttribute('aria-expanded') === 'true');
-    toggleAllBtn.textContent = allExpanded ? 'Zavrieť všetky' : 'Otvoriť všetky';
+    toggleAllBtn.textContent = allExpanded ? 'Zavrieť všetko' : 'Otvoriť všetko';
   }
 
   // Progressive enhancement: on JS load, explicitly close panels not marked open.
