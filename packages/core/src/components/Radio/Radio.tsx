@@ -42,51 +42,51 @@ function Radio({
   ref,
   ...props
 }: RadioProps) {
-    const generatedId = useId();
-    const radioId = id || generatedId;
-    const hintId = `${radioId}-hint`;
-    const errorId = `${radioId}-error`;
+  const generatedId = useId();
+  const radioId = id || generatedId;
+  const hintId = `${radioId}-hint`;
+  const errorId = `${radioId}-error`;
 
-    const ariaDescribedBy = [
-      props['aria-describedby'],
-      hint ? hintId : null,
-      errorMessage ? errorId : null,
-    ]
-      .filter(Boolean)
-      .join(' ');
+  const ariaDescribedBy = [
+    props['aria-describedby'],
+    hint ? hintId : null,
+    errorMessage ? errorId : null,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
-    return (
-      <div className={cn(radioVariants({ size }), containerClassName)}>
-        <input
-          {...props}
-          ref={ref}
-          type="radio"
-          id={radioId}
-          required={required}
-          aria-describedby={ariaDescribedBy || undefined}
-          className={cn('idsk-radio__input', className)}
-        />
-        <label htmlFor={radioId} className={cn('idsk-radio__label', labelClassName)}>
-          {label}
-          {required && (
-            <span aria-hidden="true" className="idsk-radio__required">
-              *
-            </span>
-          )}
-          {tooltip && <Tooltip {...tooltip} />}
-        </label>
-        {hint && (
-          <div id={hintId} className="idsk-radio__hint">
-            {hint}
-          </div>
+  return (
+    <div className={cn(radioVariants({ size }), containerClassName)}>
+      <input
+        {...props}
+        ref={ref}
+        type="radio"
+        id={radioId}
+        required={required}
+        aria-describedby={ariaDescribedBy || undefined}
+        className={cn('idsk-radio__input', className)}
+      />
+      <label htmlFor={radioId} className={cn('idsk-radio__label', labelClassName)}>
+        {label}
+        {required && (
+          <span aria-hidden="true" className="idsk-radio__required">
+            *
+          </span>
         )}
-        {errorMessage && (
-          <div id={errorId} className="idsk-radio__error-message">
-            {errorMessage}
-          </div>
-        )}
-      </div>
-    );
+        {tooltip && <Tooltip {...tooltip} />}
+      </label>
+      {hint && (
+        <div id={hintId} className="idsk-radio__hint">
+          {hint}
+        </div>
+      )}
+      {errorMessage && (
+        <div id={errorId} className="idsk-radio__error-message">
+          {errorMessage}
+        </div>
+      )}
+    </div>
+  );
 }
 
 export interface RadioGroupProps {
@@ -95,6 +95,8 @@ export interface RadioGroupProps {
   errorMessage?: React.ReactNode;
   children: React.ReactNode;
   className?: string;
+  required?: boolean;
+  tooltip?: TooltipProps;
 }
 
 const RadioGroup: React.FC<RadioGroupProps> = ({
@@ -103,6 +105,8 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
   errorMessage,
   children,
   className,
+  required,
+  tooltip,
 }) => {
   const generatedId = useId();
   const hintId = `${generatedId}-hint`;
@@ -118,7 +122,17 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
       className={cn('idsk-radio-group', className)}
       aria-describedby={ariaDescribedBy || undefined}
     >
-      <legend className="idsk-radio-group__legend">{legend}</legend>
+      <legend className="idsk-radio-group__legend">
+        <span className="idsk-radio-group__legend-content">
+          {legend}
+          {required && (
+            <span aria-hidden="true" className="idsk-radio__required">
+              *
+            </span>
+          )}
+          {tooltip && <Tooltip {...tooltip} />}
+        </span>
+      </legend>
       {hint && (
         <div id={hintId} className="idsk-radio-group__hint">
           {hint}

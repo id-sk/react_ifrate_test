@@ -146,7 +146,12 @@ export const Zakazany: Story = {
 
 export const Skupina: Story = {
   render: () => (
-    <RadioGroup legend="Obľúbené ovocie" hint="Vyberte jednu možnosť">
+    <RadioGroup
+      legend="Obľúbené ovocie"
+      hint="Vyberte jednu možnosť"
+      required
+      tooltip={{ content: 'Môžete vybrať práve jednu možnosť.', preferredPosition: 'top' }}
+    >
       <Radio label="Jablko" name="fruit" value="apple" />
       <Radio label="Banán" name="fruit" value="banana" />
       <Radio label="Pomaranč" name="fruit" value="orange" />
@@ -155,7 +160,41 @@ export const Skupina: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'RadioGroup obaľuje viacero radio buttonov do skupiny s legendou a voliteľným hintom.',
+        story:
+          'RadioGroup s nadpisom (headline-m), povinnosťou a tooltipom — zodpovedá dizajnu zo zadania.',
+      },
+    },
+  },
+};
+
+export const SkupinaSOtazkou: Story = {
+  render: () => (
+    <RadioGroup
+      legend="Ako cestujete do práce?"
+      hint="Vyberte možnosť, ktorá najlepšie opisuje váš typický spôsob dopravy."
+      required
+      tooltip={{
+        content: 'Vaša odpoveď nám pomôže zlepšiť dopravnú infraštruktúru.',
+        preferredPosition: 'top',
+      }}
+    >
+      <Radio
+        label="Autobus"
+        name="commute"
+        value="bus"
+        hint="MHD alebo prímestská doprava"
+        tooltip={{ content: 'Zahŕňa MHD aj diaľkové autobusy.', preferredPosition: 'top' }}
+      />
+      <Radio label="Vlak" name="commute" value="train" hint="Osobný alebo rýchlik" />
+      <Radio label="Bicykel" name="commute" value="bike" />
+      <Radio label="Osobné auto" name="commute" value="car" />
+    </RadioGroup>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Ukážka skupiny radio buttonov ako formulárová otázka — s hintom na úrovni skupiny aj na úrovni jednotlivých možností.',
       },
     },
   },

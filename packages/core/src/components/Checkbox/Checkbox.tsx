@@ -47,84 +47,81 @@ function Checkbox({
   ref,
   ...props
 }: CheckboxProps) {
-    const generatedId = useId();
-    const checkboxId = id || generatedId;
-    const hintId = `${checkboxId}-hint`;
-    const errorId = `${checkboxId}-error`;
-    const internalRef = useRef<HTMLInputElement>(null);
+  const generatedId = useId();
+  const checkboxId = id || generatedId;
+  const hintId = `${checkboxId}-hint`;
+  const errorId = `${checkboxId}-error`;
+  const internalRef = useRef<HTMLInputElement>(null);
 
-    // Synchronize indeterminate state
-    useEffect(() => {
-      const element = internalRef.current;
-      if (element) {
-        element.indeterminate = !!indeterminate;
-      }
-    }, [indeterminate]);
+  // Synchronize indeterminate state
+  useEffect(() => {
+    const element = internalRef.current;
+    if (element) {
+      element.indeterminate = !!indeterminate;
+    }
+  }, [indeterminate]);
 
-    // Merge refs
-    const setRefs = (node: HTMLInputElement) => {
-      (internalRef as React.MutableRefObject<HTMLInputElement | null>).current = node;
-      if (typeof ref === 'function') {
-        ref(node);
-      } else if (ref) {
-        (ref as React.MutableRefObject<HTMLInputElement | null>).current = node;
-      }
-    };
+  // Merge refs
+  const setRefs = (node: HTMLInputElement) => {
+    (internalRef as React.MutableRefObject<HTMLInputElement | null>).current = node;
+    if (typeof ref === 'function') {
+      ref(node);
+    } else if (ref) {
+      (ref as React.MutableRefObject<HTMLInputElement | null>).current = node;
+    }
+  };
 
-    const ariaDescribedBy = [
-      props['aria-describedby'],
-      hint ? hintId : null,
-      errorMessage ? errorId : null,
-    ]
-      .filter(Boolean)
-      .join(' ');
+  const ariaDescribedBy = [
+    props['aria-describedby'],
+    hint ? hintId : null,
+    errorMessage ? errorId : null,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
-    return (
-      <div className={cn(checkboxVariants({ size }), containerClassName)}>
-        <input
-          {...props}
-          ref={setRefs}
-          type="checkbox"
-          id={checkboxId}
-          required={required}
-          checked={checked}
-          aria-invalid={errorMessage ? 'true' : undefined}
-          aria-describedby={ariaDescribedBy || undefined}
-          className={cn('idsk-checkbox__input', className)}
-        />
-        <label htmlFor={checkboxId} className={cn('idsk-checkbox__label', labelClassName)}>
-          {label}
-          {required && (
-            <span aria-hidden="true" className="idsk-checkbox__required">
-              *
-            </span>
-          )}
-          {tooltip && <Tooltip {...tooltip} />}
-        </label>
-        <span
-          aria-hidden="true"
-          className="idsk-checkbox__indicator idsk-checkbox__indicator--check"
-        >
-          <CheckIcon size={size === 'sm' ? 16 : 25} />
-        </span>
-        <span
-          aria-hidden="true"
-          className="idsk-checkbox__indicator idsk-checkbox__indicator--indeterminate"
-        >
-          <RemoveIcon size={size === 'sm' ? 16 : 25} />
-        </span>
-        {hint && (
-          <div id={hintId} className="idsk-checkbox__hint">
-            {hint}
-          </div>
+  return (
+    <div className={cn(checkboxVariants({ size }), containerClassName)}>
+      <input
+        {...props}
+        ref={setRefs}
+        type="checkbox"
+        id={checkboxId}
+        required={required}
+        checked={checked}
+        aria-invalid={errorMessage ? 'true' : undefined}
+        aria-describedby={ariaDescribedBy || undefined}
+        className={cn('idsk-checkbox__input', className)}
+      />
+      <label htmlFor={checkboxId} className={cn('idsk-checkbox__label', labelClassName)}>
+        {label}
+        {required && (
+          <span aria-hidden="true" className="idsk-checkbox__required">
+            *
+          </span>
         )}
-        {errorMessage && (
-          <div id={errorId} className="idsk-checkbox__error-message">
-            {errorMessage}
-          </div>
-        )}
-      </div>
-    );
+        {tooltip && <Tooltip {...tooltip} />}
+      </label>
+      <span aria-hidden="true" className="idsk-checkbox__indicator idsk-checkbox__indicator--check">
+        <CheckIcon size={size === 'sm' ? 16 : 25} />
+      </span>
+      <span
+        aria-hidden="true"
+        className="idsk-checkbox__indicator idsk-checkbox__indicator--indeterminate"
+      >
+        <RemoveIcon size={size === 'sm' ? 16 : 25} />
+      </span>
+      {hint && (
+        <div id={hintId} className="idsk-checkbox__hint">
+          {hint}
+        </div>
+      )}
+      {errorMessage && (
+        <div id={errorId} className="idsk-checkbox__error-message">
+          {errorMessage}
+        </div>
+      )}
+    </div>
+  );
 }
 
 export interface CheckboxGroupProps {
@@ -133,6 +130,8 @@ export interface CheckboxGroupProps {
   errorMessage?: React.ReactNode;
   children: React.ReactNode;
   className?: string;
+  required?: boolean;
+  tooltip?: TooltipProps;
 }
 
 const CheckboxGroup: React.FC<CheckboxGroupProps> = ({
@@ -141,6 +140,8 @@ const CheckboxGroup: React.FC<CheckboxGroupProps> = ({
   errorMessage,
   children,
   className,
+  required,
+  tooltip,
 }) => {
   const generatedId = useId();
   const hintId = `${generatedId}-hint`;
@@ -156,7 +157,17 @@ const CheckboxGroup: React.FC<CheckboxGroupProps> = ({
       className={cn('idsk-checkbox-group', className)}
       aria-describedby={ariaDescribedBy || undefined}
     >
-      <legend className="idsk-checkbox-group__legend">{legend}</legend>
+      <legend className="idsk-checkbox-group__legend">
+        <span className="idsk-checkbox-group__legend-content">
+          {legend}
+          {required && (
+            <span aria-hidden="true" className="idsk-checkbox__required">
+              *
+            </span>
+          )}
+          {tooltip && <Tooltip {...tooltip} />}
+        </span>
+      </legend>
       {hint && (
         <div id={hintId} className="idsk-checkbox-group__hint">
           {hint}

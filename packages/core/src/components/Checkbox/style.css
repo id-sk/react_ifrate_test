@@ -76,11 +76,15 @@
 }
 
 .idsk-checkbox-group__legend {
-  @apply idsk-text-main-body;
+  @apply font-sans text-headline-m;
+}
+
+.idsk-checkbox-group__legend-content {
+  @apply flex items-center gap-space-1;
 }
 
 .idsk-checkbox-group__hint {
-  @apply idsk-text-hint;
+  @apply mt-space-1 idsk-text-main-body md:mt-space-2;
 }
 
 .idsk-checkbox__required {
@@ -88,12 +92,12 @@
 }
 
 .idsk-checkbox-group__items {
-  @apply mt-5;
+  @apply mt-space-3 md:mt-space-4;
 }
 
 .idsk-checkbox-group__items,
 .idsk-checkbox-group__subgroup {
-  @apply flex flex-col gap-y-5;
+  @apply flex flex-col gap-y-space-3 md:gap-y-space-4;
 }
 
 .idsk-checkbox-group__subgroup {
@@ -124,5 +128,5 @@
 
 .idsk-checkbox--sm .idsk-checkbox__hint,
 .idsk-checkbox--sm .idsk-checkbox__error-message {
-  @apply pl-[10px];
+  @apply pl-space-2;
 }

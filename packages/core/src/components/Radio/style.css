@@ -57,11 +57,15 @@
 }
 
 .idsk-radio-group__legend {
-  @apply idsk-text-main-body;
+  @apply font-sans text-headline-m;
+}
+
+.idsk-radio-group__legend-content {
+  @apply flex items-center gap-space-1;
 }
 
 .idsk-radio-group__hint {
-  @apply idsk-text-hint;
+  @apply mt-space-1 idsk-text-main-body md:mt-space-2;
 }
 
 .idsk-radio-group__error-message {
@@ -69,7 +73,7 @@
 }
 
 .idsk-radio-group__items {
-  @apply mt-space-4 flex flex-col gap-y-space-4;
+  @apply mt-space-3 flex flex-col gap-y-space-3 md:mt-space-4 md:gap-y-space-4;
 }
 
 .idsk-radio--sm {

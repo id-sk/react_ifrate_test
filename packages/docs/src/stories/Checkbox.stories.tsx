@@ -78,7 +78,8 @@ export const Maly: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Zmenšená veľkosť pre kompaktné rozhrania. Odsadenie labelu je 34 px namiesto 44 px.',
+        story:
+          'Zmenšená veľkosť pre kompaktné rozhrania. Odsadenie labelu je 34 px namiesto 44 px.',
       },
     },
   },
@@ -230,7 +231,8 @@ export const Indeterminate: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Indeterminate stav vizuálne signalizuje čiastočný výber (niektoré podpoložky sú vybrané, nie všetky).',
+        story:
+          'Indeterminate stav vizuálne signalizuje čiastočný výber (niektoré podpoložky sú vybrané, nie všetky).',
       },
     },
   },
@@ -271,7 +273,8 @@ export const IndeterminateImplementacia: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Praktická ukážka „Vybrať všetko" s podpoložkami, ktorá riadi indeterminate stav cez React stav.',
+        story:
+          'Praktická ukážka „Vybrať všetko" s podpoložkami, ktorá riadi indeterminate stav cez React stav.',
       },
     },
   },
@@ -279,7 +282,12 @@ export const IndeterminateImplementacia: Story = {
 
 export const Skupina: Story = {
   render: () => (
-    <CheckboxGroup legend="Obľúbené ovocie" hint="Vyberte aspoň jednu možnosť">
+    <CheckboxGroup
+      legend="Obľúbené ovocie"
+      hint="Vyberte aspoň jednu možnosť"
+      required
+      tooltip={{ content: 'Môžete vybrať viacero možností.', preferredPosition: 'top' }}
+    >
       <Checkbox label="Jablko" name="fruit" value="apple" />
       <Checkbox label="Banán" name="fruit" value="banana" />
       <Checkbox label="Pomaranč" name="fruit" value="orange" />
@@ -288,7 +296,41 @@ export const Skupina: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'CheckboxGroup obaľuje viacero checkboxov do skupiny s legendou a voliteľným hintom.',
+        story:
+          'CheckboxGroup s nadpisom (headline-m), povinnosťou a tooltipom — zodpovedá dizajnu zo zadania.',
+      },
+    },
+  },
+};
+
+export const SkupinaSOtazkou: Story = {
+  render: () => (
+    <CheckboxGroup
+      legend="Aké druhy dopravy používate?"
+      hint="Vyberte všetky možnosti, ktoré sa vás týkajú."
+      required
+      tooltip={{
+        content: 'Vaša odpoveď bude použitá na zlepšenie verejnej dopravy.',
+        preferredPosition: 'top',
+      }}
+    >
+      <Checkbox
+        label="Autobus"
+        name="transport"
+        value="bus"
+        hint="MHD alebo prímestská doprava"
+        tooltip={{ content: 'Zahŕňa MHD aj diaľkové autobusy.', preferredPosition: 'top' }}
+      />
+      <Checkbox label="Vlak" name="transport" value="train" hint="Osobný alebo rýchlik" />
+      <Checkbox label="Bicykel" name="transport" value="bike" />
+      <Checkbox label="Osobné auto" name="transport" value="car" />
+    </CheckboxGroup>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Ukážka skupiny checkboxov ako formulárová otázka — s hintom na úrovni skupiny aj na úrovni jednotlivých možností.',
       },
     },
   },
