@@ -75,6 +75,7 @@ function Stepper({
             const isActive = index === clampedActive;
             const isLast = index === total - 1;
             const isColEnd = index === colMidpoint - 1 && !isLast;
+            const isColStart = index === colMidpoint;
             const canClick = onStepClick !== undefined && isCompleted;
 
             return (
@@ -85,8 +86,8 @@ function Stepper({
                 isCompleted={isCompleted}
                 isActive={isActive}
                 isSummary={step.isSummary}
-                isLast={isLast}
                 isColEnd={isColEnd}
+                isColStart={isColStart}
                 onClick={
                   canClick
                     ? () => {

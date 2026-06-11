@@ -32,10 +32,6 @@ const meta = {
       control: 'boolean',
       description: 'Krok je zhrnutie — zobrazí ikonu zoznamu',
     },
-    isLast: {
-      control: 'boolean',
-      description: 'Posledný krok — nezobrazí connector',
-    },
   },
   args: {
     label: 'Lorem ipsum dolor sit amet consectetur. Sed at sagittis tortor.',
@@ -43,7 +39,6 @@ const meta = {
     isCompleted: false,
     isActive: false,
     isSummary: false,
-    isLast: true,
   },
   parameters: {
     layout: 'padded',
@@ -100,9 +95,8 @@ export const Clickable: Story = {
   },
 };
 
-export const WithConnector: Story = {
-  args: { isLast: false },
+export const WithLines: Story = {
   parameters: {
-    docs: { description: { story: 'Krok s konektorom — zvislá čiara nadväzujúca na ďalší krok.' } },
+    docs: { description: { story: 'Krok s čiarami — zvislé čiary nad a pod indikátorom.' } },
   },
 };

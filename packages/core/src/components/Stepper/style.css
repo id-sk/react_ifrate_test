@@ -22,17 +22,26 @@
   }
 
   .idsk-stepper__toggle-btn {
-    @apply self-stretch shrink-0 cursor-pointer appearance-none;
+    @apply shrink-0 cursor-pointer appearance-none self-stretch;
     @apply flex items-center justify-center;
     @apply min-w-[41px] px-[12px] py-[8px];
     @apply border-2 border-border-accent bg-surface-default;
     @apply text-text-primary;
+
     border-top-left-radius: var(--cornerradius-rounding-1);
     border-bottom-left-radius: var(--cornerradius-rounding-1);
   }
 
   .idsk-stepper__toggle-btn:focus-visible {
-    @apply idsk-focus-outline outline-offset-[-3px];
+    @apply relative z-[2] outline-offset-2;
+
+    outline: var(--idsk-focus-ring-width) solid var(--idsk-focus-ring-color);
+  }
+
+  @media (hover: hover) {
+    .idsk-stepper__toggle-btn:hover {
+      @apply bg-surface-info;
+    }
   }
 
   .idsk-stepper__toggle-icon {
@@ -53,6 +62,7 @@
 
   .idsk-stepper-loader__fill {
     @apply h-[10px] rounded-rounding-2 bg-surface-accent;
+
     transition: width 0.2s ease;
   }
 
@@ -62,12 +72,13 @@
   }
 
   /* Remove bottom rounding and change bg when dropdown is open */
-  .idsk-stepper__header:has([aria-expanded="true"]) .idsk-stepper__toggle-btn {
+  .idsk-stepper__header:has([aria-expanded='true']) .idsk-stepper__toggle-btn {
     border-bottom-left-radius: 0;
+
     @apply bg-surface-info;
   }
 
-  .idsk-stepper__header:has([aria-expanded="true"]) .idsk-stepper__header-content {
+  .idsk-stepper__header:has([aria-expanded='true']) .idsk-stepper__header-content {
     @apply rounded-br-none;
   }
 
@@ -77,6 +88,7 @@
     @apply rounded-b-rounding-2;
     @apply px-[20px] pt-[10px] pb-[20px];
     @apply relative;
+
     margin-top: -2px;
     z-index: 1;
   }
@@ -96,7 +108,7 @@
 
   /* ========== ITEM ========== */
   .idsk-stepper__item {
-    @apply relative min-h-[48px] pl-[10px];
+    @apply relative flex min-h-[48px] items-stretch pl-[10px];
   }
 
   .idsk-stepper__item--summary {
@@ -105,8 +117,8 @@
 
   /* ========== STEP INNER WRAPPER ========== */
   .idsk-stepper__step {
-    @apply flex w-full cursor-default items-center bg-transparent text-left;
-    @apply gap-[15px] border-0 py-[8px] pr-[10px];
+    @apply flex w-full flex-1 cursor-default items-center bg-transparent text-left;
+    @apply gap-[15px] border-0 pr-[10px];
   }
 
   button.idsk-stepper__step {
@@ -114,13 +126,63 @@
   }
 
   button.idsk-stepper__step:focus-visible {
-    @apply idsk-focus-outline rounded-rounding-1;
+    @apply idsk-focus-outline;
+  }
+
+  button.idsk-stepper__step:focus-visible::after {
+    @apply !rounded-tr-none !rounded-br-none;
+  }
+
+  button.idsk-stepper__step:active:focus-visible::after {
+    @apply !rounded-bl-none;
   }
 
   @media (hover: hover) {
+    button.idsk-stepper__step:hover {
+      @apply rounded-tl-rounding-1 rounded-bl-rounding-1 bg-surface-default/70;
+    }
+
     button.idsk-stepper__step:hover .idsk-stepper__label {
       @apply underline decoration-solid decoration-2 decoration-skip-ink-none;
     }
+  }
+
+  /* ========== INDICATOR COLUMN ========== */
+  .idsk-stepper__indicator-col {
+    @apply flex shrink-0 flex-col items-center self-stretch;
+  }
+
+  /* ========== CONNECTOR LINES ========== */
+  .idsk-stepper__line {
+    @apply min-h-0 w-[2px] flex-1 bg-surface-accent;
+
+    min-height: 8px;
+  }
+
+  /* First item: no top line */
+  .idsk-stepper__item:first-child .idsk-stepper__line--top {
+    @apply bg-transparent;
+
+    min-height: 0;
+  }
+
+  /* Last item: no bottom line */
+  .idsk-stepper__item:last-child .idsk-stepper__line--bottom {
+    @apply bg-transparent;
+
+    min-height: 0;
+  }
+
+  /* Summary: horizontal border replaces vertical lines */
+  .idsk-stepper__item--summary .idsk-stepper__indicator-col {
+    @apply border-t-2 border-surface-accent;
+  }
+
+  .idsk-stepper__item--summary .idsk-stepper__line--top,
+  .idsk-stepper__item--summary .idsk-stepper__line--bottom {
+    @apply bg-transparent;
+
+    min-height: 0;
   }
 
   /* ========== INDICATOR ========== */
@@ -136,11 +198,6 @@
   /* ========== LABEL ========== */
   .idsk-stepper__label {
     @apply text-base leading-snug text-text-primary;
-  }
-
-  /* ========== CONNECTOR ========== */
-  .idsk-stepper__connector {
-    @apply absolute top-[40px] bottom-[-8px] left-[25px] w-[2px] bg-surface-accent;
   }
 
   /* ========== STATE: ACTIVE ========== */
@@ -169,9 +226,12 @@
     .idsk-stepper__item {
       @apply break-inside-avoid;
     }
+  }
 
-    .idsk-stepper__item--col-end .idsk-stepper__connector {
-      @apply hidden;
-    }
+  /* Item before summary: hide bottom vertical line (all viewports) */
+  .idsk-stepper__item:has(+ .idsk-stepper__item--summary) .idsk-stepper__line--bottom {
+    @apply bg-transparent;
+
+    min-height: 0;
   }
 }

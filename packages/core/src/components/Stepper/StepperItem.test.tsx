@@ -93,14 +93,10 @@ describe('StepperItem', () => {
     expect(container.querySelector('.idsk-stepper__number')).toBeNull();
   });
 
-  it('renders connector when not last', () => {
+  it('renders top and bottom connector lines', () => {
     const { container } = wrap(<StepperItem {...base} />);
-    expect(container.querySelector('.idsk-stepper__connector')).toBeInTheDocument();
-  });
-
-  it('does not render connector when last', () => {
-    const { container } = wrap(<StepperItem {...base} isLast />);
-    expect(container.querySelector('.idsk-stepper__connector')).toBeNull();
+    expect(container.querySelector('.idsk-stepper__line--top')).toBeInTheDocument();
+    expect(container.querySelector('.idsk-stepper__line--bottom')).toBeInTheDocument();
   });
 
   it('merges extra className onto li', () => {

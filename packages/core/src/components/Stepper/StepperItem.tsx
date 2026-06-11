@@ -10,8 +10,8 @@ export interface StepperItemProps extends React.HTMLAttributes<HTMLLIElement> {
   isCompleted?: boolean;
   isActive?: boolean;
   isSummary?: boolean;
-  isLast?: boolean;
   isColEnd?: boolean;
+  isColStart?: boolean;
   onClick?: () => void;
 }
 
@@ -21,8 +21,8 @@ function StepperItem({
   isCompleted = false,
   isActive = false,
   isSummary = false,
-  isLast = false,
   isColEnd = false,
+  isColStart = false,
   onClick,
   className,
   ...props
@@ -39,8 +39,10 @@ function StepperItem({
 
   const stepContent = (
     <>
-      <span className="idsk-stepper__indicator" aria-hidden="true">
-        {indicatorContent}
+      <span className="idsk-stepper__indicator-col" aria-hidden="true">
+        <span className="idsk-stepper__line idsk-stepper__line--top" />
+        <span className="idsk-stepper__indicator">{indicatorContent}</span>
+        <span className="idsk-stepper__line idsk-stepper__line--bottom" />
       </span>
       <span className="idsk-stepper__label">{label}</span>
     </>
@@ -56,6 +58,7 @@ function StepperItem({
         !isCompleted && !isActive && 'idsk-stepper__item--upcoming',
         isSummary && 'idsk-stepper__item--summary',
         isColEnd && 'idsk-stepper__item--col-end',
+        isColStart && 'idsk-stepper__item--col-start',
         className,
       )}
       {...props}
@@ -67,7 +70,6 @@ function StepperItem({
       ) : (
         <div className="idsk-stepper__step">{stepContent}</div>
       )}
-      {!isLast && <div className="idsk-stepper__connector" aria-hidden="true" />}
     </li>
   );
 }
