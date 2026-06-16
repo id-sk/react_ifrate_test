@@ -37,7 +37,7 @@ const meta = {
     },
   },
   args: {
-    label: 'Radio label',
+    label: 'Menovka',
     name: 'radio-story',
     size: 'default',
   },
@@ -90,8 +90,8 @@ export const Maly: Story = {
 
 export const S_PomocnymTextom: Story = {
   args: {
-    label: 'Radio s pomocným textom',
-    hint: 'Toto je pomocný text pre radio button.',
+    label: 'Menovka',
+    hint: 'Pomôcka',
   },
   parameters: {
     docs: {
@@ -104,8 +104,8 @@ export const S_PomocnymTextom: Story = {
 
 export const S_Chybou: Story = {
   args: {
-    label: 'Radio s chybou',
-    errorMessage: 'Toto je chybová správa.',
+    label: 'Menovka',
+    errorMessage: 'Chybový text',
   },
   parameters: {
     docs: {
@@ -118,7 +118,7 @@ export const S_Chybou: Story = {
 
 export const Povinny: Story = {
   args: {
-    label: 'Povinný radio button',
+    label: 'Menovka',
     required: true,
   },
   parameters: {
@@ -132,7 +132,7 @@ export const Povinny: Story = {
 
 export const Zakazany: Story = {
   args: {
-    label: 'Zakázaný radio button',
+    label: 'Menovka',
     disabled: true,
   },
   parameters: {
@@ -218,7 +218,7 @@ export const SkupinaS_Chybou: Story = {
 };
 
 export const Mobile: Story = {
-  args: { label: 'Radio label', hint: 'Pomôcka' },
+  args: { label: 'Menovka', hint: 'Pomôcka' },
   globals: {
     viewport: {
       value: 'mobile1',
