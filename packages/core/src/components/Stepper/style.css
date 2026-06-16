@@ -3,10 +3,7 @@
 @layer components {
   /* ========== ROOT ========== */
   .idsk-stepper {
-    @apply relative w-full font-sans;
-
-    display: flex;
-    flex-direction: column;
+    @apply flex flex-col relative w-full font-sans;
   }
 
   /* ========== HEADER / TOGGLE ========== */
