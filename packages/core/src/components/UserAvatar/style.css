@@ -1,0 +1,52 @@
+@reference "../../style/tailwind.css";
+
+@layer components {
+  .idsk-user-avatar {
+    @apply relative inline-flex items-center gap-space-2;
+
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: default;
+    text-align: left;
+  }
+
+  .idsk-user-avatar--interactive {
+    @apply cursor-pointer rounded-rounding-s;
+  }
+
+  /* ─── Avatar circle ─────────────────────────────────────────────────── */
+
+  .idsk-user-avatar__circle {
+    @apply relative flex size-[40px] shrink-0 items-center justify-center;
+  }
+
+  /* Foto variant — photo fills the circle */
+  .idsk-user-avatar__photo {
+    @apply size-full rounded-full object-cover;
+  }
+
+  /* Avatar variant — person icon on black circle */
+  .idsk-user-avatar__icon {
+    @apply flex size-full items-center justify-center overflow-hidden rounded-full bg-neutral-900 text-base-white;
+  }
+
+  /* Initials variant — short text on black circle */
+  .idsk-user-avatar__initials {
+    @apply flex size-full items-center justify-center overflow-hidden rounded-full bg-neutral-900 text-main-body text-base-white select-none;
+  }
+
+  /* ─── Details (name + caption) ──────────────────────────────────────── */
+
+  .idsk-user-avatar__details {
+    @apply flex max-w-[200px] min-w-0 flex-col;
+  }
+
+  .idsk-user-avatar__name {
+    @apply truncate text-main-body-1 text-text-primary;
+  }
+
+  .idsk-user-avatar__caption {
+    @apply truncate text-caption text-text-secondary;
+  }
+}

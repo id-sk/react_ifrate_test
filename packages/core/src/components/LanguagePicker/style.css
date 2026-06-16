@@ -1,0 +1,34 @@
+@reference "../../style/tailwind.css";
+
+@layer components {
+  .idsk-language-picker__trigger--open {
+    @apply bg-primary-100 text-primary-500;
+  }
+
+  .idsk-language-picker__dropdown {
+    @apply z-50 overflow-hidden rounded-rounding-1 border-2 border-border-subtle bg-surface-default;
+
+    min-width: var(--radix-popper-anchor-width, 10rem);
+    box-shadow: var(--idsk-shadow-middle);
+  }
+
+  .idsk-language-picker__item {
+    @apply relative flex min-h-12 cursor-pointer items-center px-space-4 py-space-2 idsk-text-main-body-1 text-text-primary outline-none select-none;
+
+    &[data-highlighted] {
+      @apply bg-surface-subtle underline decoration-solid decoration-2 decoration-skip-ink-none;
+    }
+
+    &[data-selected] {
+      @apply font-bold text-text-link-default;
+
+      &::before {
+        @apply absolute top-0 bottom-0 left-0 w-[3px] bg-text-link-default content-[''];
+      }
+    }
+
+    &[data-selected][data-highlighted] {
+      @apply bg-surface-subtle underline decoration-solid decoration-2 decoration-skip-ink-none;
+    }
+  }
+}

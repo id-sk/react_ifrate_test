@@ -20,3 +20,8 @@
 @import '../components/Breadcrumbs/style.css';
 @import '../components/Select/style.css';
 @import '../components/Stepper/style.css';
+@import '../components/Header/style.css';
+@import '../components/TopBar/style.css';
+@import '../components/LanguagePicker/style.css';
+@import '../components/NotificationButton/style.css';
+@import '../components/UserAvatar/style.css';

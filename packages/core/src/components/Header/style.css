@@ -1,0 +1,87 @@
+@reference "../../style/tailwind.css";
+
+@layer components {
+  .idsk-header {
+    @apply w-full border-b border-border-default bg-surface-default font-sans;
+  }
+
+  .idsk-header--transparent {
+    @apply border-b-transparent bg-transparent;
+  }
+
+  .idsk-header--sticky {
+    @apply sticky top-0 z-[100];
+  }
+
+  /* ─── HeaderMainSection ─────────────────────────────────────────────── */
+
+  .idsk-header-main {
+    @apply flex w-full flex-col items-center border-b border-border-subtle bg-surface-default px-space-3 py-space-4;
+  }
+
+  .idsk-header-main__container {
+    @apply flex w-full max-w-[1120px] items-center justify-between gap-space-4;
+  }
+
+  .idsk-header-main__owner {
+    @apply flex min-w-0 flex-[1_0_0] items-center gap-space-3;
+  }
+
+  .idsk-header-main__logo {
+    @apply flex shrink-0 items-center justify-center;
+  }
+
+  .idsk-header-main__brand {
+    @apply flex min-w-0 flex-col justify-center;
+  }
+
+  .idsk-header-main__org-name {
+    @apply truncate text-headline-m text-text-accent;
+  }
+
+  .idsk-header-main__org-subtitle {
+    @apply truncate text-main-body-1 text-text-secondary;
+  }
+
+  .idsk-header-main__actions {
+    @apply flex shrink-0 items-center gap-space-4;
+  }
+
+  /* ─── Avatar ────────────────────────────────────────────────────────── */
+
+  .idsk-header-main__avatar {
+    @apply flex cursor-default items-center;
+
+    background: none;
+    border: none;
+    padding: 0;
+  }
+
+  button.idsk-header-main__avatar {
+    @apply cursor-pointer rounded-(--corner-radius-rounding-s);
+  }
+
+  .idsk-header-main__avatar-inner {
+    @apply flex items-center gap-space-2;
+  }
+
+  .idsk-header-main__avatar-photo {
+    @apply size-[40px] shrink-0 rounded-full object-cover;
+  }
+
+  .idsk-header-main__avatar-icon {
+    @apply flex size-[40px] shrink-0 items-center justify-center overflow-hidden rounded-full bg-neutral-900 text-base-white;
+  }
+
+  .idsk-header-main__avatar-text {
+    @apply flex min-w-0 flex-col;
+  }
+
+  .idsk-header-main__avatar-name {
+    @apply truncate text-main-body-1 text-text-primary;
+  }
+
+  .idsk-header-main__avatar-caption {
+    @apply truncate text-caption text-text-secondary;
+  }
+}

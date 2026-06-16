@@ -1,0 +1,41 @@
+@reference "../../style/tailwind.css";
+
+@layer components {
+  .idsk-notification-btn {
+    @apply relative inline-flex cursor-pointer items-center justify-center rounded-rounding-s;
+
+    min-width: 41px;
+    padding: var(--component-button-padding-vertical-m) var(--component-button-padding-side);
+    background: none;
+    border: none;
+    color: var(--text-accent);
+  }
+
+  .idsk-notification-btn:active {
+    background-color: var(--component-button-tertiary-background-active);
+  }
+
+  /* 25×25 positioning context — badge is anchored inside this box */
+  .idsk-notification-btn__icon-wrap {
+    @apply relative;
+
+    width: 25px;
+    height: 25px;
+  }
+
+  .idsk-notification-btn__icon {
+    @apply flex size-full items-center justify-center;
+  }
+
+  /* Positioned exactly as in Figma: left 14px, top ~2px within the 25×25 icon */
+  .idsk-notification-btn__badge {
+    @apply pointer-events-none absolute rounded-full;
+
+    left: 14px;
+    top: 2px;
+    width: 9px;
+    height: 9px;
+    background-color: var(--text-error);
+    box-shadow: 0 0 0 1.5px var(--surface-default);
+  }
+}
