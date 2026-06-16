@@ -85,34 +85,33 @@ export const Accordion: React.FC<AccordionProps> = ({
         const isExpanded = expandedItems.has(index);
         return (
           <div key={item.id || item.title} className="idsk-accordion__item">
-            <button
-              id={buttonId}
-              className="idsk-accordion__button"
-              type="button"
-              aria-expanded={isExpanded}
-              aria-controls={itemId}
-              disabled={item.disabled}
-              onClick={() => toggle(index, item.disabled)}
-            >
-              <div className="idsk-accordion__title-row">
-                <span className="idsk-accordion__title">{item.title}</span>
-                <KeyboardArrowDownIcon
-                  size={32}
-                  className="idsk-accordion__chevron"
-                  aria-hidden="true"
-                />
-              </div>
-              {(item.tags || item.hint) && (
-                <div className="idsk-accordion__meta">
-                  {item.tags && <div className="idsk-accordion__tags">{item.tags}</div>}
-                  {item.hint && <span className="idsk-accordion__hint">{item.hint}</span>}
+              <button
+                id={buttonId}
+                className="idsk-accordion__button"
+                type="button"
+                aria-expanded={isExpanded}
+                aria-controls={itemId}
+                disabled={item.disabled}
+                onClick={() => toggle(index, item.disabled)}
+              >
+                <div className="idsk-accordion__title-row">
+                  <h3 className="idsk-accordion__title">{item.title}</h3>
+                  <KeyboardArrowDownIcon
+                    size={32}
+                    className="idsk-accordion__chevron"
+                    aria-hidden="true"
+                  />
                 </div>
-              )}
-            </button>
+                {(item.tags || item.hint) && (
+                  <div className="idsk-accordion__meta">
+                    {item.tags && <div className="idsk-accordion__tags">{item.tags}</div>}
+                    {item.hint && <span className="idsk-accordion__hint">{item.hint}</span>}
+                  </div>
+                )}
+              </button>
             <div
               id={itemId}
               className="idsk-accordion__content"
-              aria-labelledby={buttonId}
               hidden={!isExpanded}
             >
               <div className="idsk-accordion__inner">{item.children}</div>

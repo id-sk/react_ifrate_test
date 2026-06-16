@@ -53,7 +53,7 @@
   }
 
   .idsk-accordion__title {
-    @apply text-headline-m text-text-primary;
+    @apply m-0 text-headline-m text-text-primary;
   }
 
   .idsk-accordion__hint {

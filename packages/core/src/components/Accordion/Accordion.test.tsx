@@ -125,13 +125,19 @@ describe('Accordion', () => {
       );
     });
 
-    it('content panel has aria-labelledby pointing to its button id', () => {
+    it('content panel does not have aria-labelledby attribute', () => {
       const { container } = render(
         <Accordion items={[{ id: 'panel-1', title: 'Test', children: 'Content' }]} />,
       );
-      const button = screen.getByRole('button', { name: /Test/i });
       const panel = container.querySelector('#panel-1');
-      expect(panel).toHaveAttribute('aria-labelledby', button.id);
+      expect(panel).not.toHaveAttribute('aria-labelledby');
+    });
+
+    it('renders the title inside an h3 element with class idsk-accordion__title', () => {
+      const { container } = render(<Accordion items={[{ title: 'My Heading', children: 'Content' }]} />);
+      const heading = container.querySelector('h3.idsk-accordion__title');
+      expect(heading).toBeInTheDocument();
+      expect(heading).toHaveTextContent('My Heading');
     });
 
     it('button id is derived from the item id (itemId + "-button")', () => {
