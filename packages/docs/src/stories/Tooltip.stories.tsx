@@ -1,4 +1,4 @@
-import { Input, Tooltip } from '@idsk/core';
+import { Input, Radio, RadioGroup, Tooltip } from '@idsk/core';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta = {
@@ -173,25 +173,17 @@ export const FormIntegration: Story = {
       </div>
 
       {/* Radio group s tooltipom */}
-      <fieldset style={{ border: 'none', padding: 0, margin: 0 }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-          <legend style={{ float: 'left', fontWeight: 600 }}>Pohlavie</legend>
-          <Tooltip
-            label=""
-            content="Pohlavie je potrebné pre správne spracovanie rodného čísla."
-            ariaLabel="Nápoveda k pohláviu"
-            preferredPosition="right"
-          />
-        </div>
-        <div style={{ display: 'flex', gap: '24px' }}>
-          <label style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <input type="radio" name="gender" value="male" /> Muž
-          </label>
-          <label style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <input type="radio" name="gender" value="female" /> Žena
-          </label>
-        </div>
-      </fieldset>
+      <RadioGroup
+        legend="Pohlavie"
+        tooltip={{
+          content: 'Pohlavie je potrebné pre správne spracovanie rodného čísla.',
+          ariaLabel: 'Nápoveda k pohláviu',
+          preferredPosition: 'right',
+        }}
+      >
+        <Radio name="gender" value="male" label="Muž" />
+        <Radio name="gender" value="female" label="Žena" />
+      </RadioGroup>
 
       {/* Select s tooltipom */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
@@ -223,7 +215,8 @@ export const FormIntegration: Story = {
     layout: 'centered',
     docs: {
       description: {
-        story: 'Integrácia s komplexným formulárom — tooltip pri textovom poli, radio buttonoch a selecte.',
+        story:
+          'Integrácia s komplexným formulárom — tooltip pri textovom poli, radio buttonoch a selecte.',
       },
     },
   },
