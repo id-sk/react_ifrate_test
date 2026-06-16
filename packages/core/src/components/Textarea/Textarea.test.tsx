@@ -89,12 +89,12 @@ describe('Textarea', () => {
   });
 
   describe('Character Count', () => {
-    it('renders character count in format "0/maxLength" when maxLength is provided', () => {
+    it('renders visual character count in format "0/maxLength" when maxLength is provided', () => {
       render(<Textarea maxLength={100} />);
       expect(screen.getByText('0/100')).toBeInTheDocument();
     });
 
-    it('updates character count when typing', async () => {
+    it('updates visual character count when typing', async () => {
       const user = userEvent.setup();
       render(<Textarea maxLength={100} />);
       const textarea = screen.getByRole('textbox');
@@ -102,16 +102,51 @@ describe('Textarea', () => {
       expect(screen.getByText('4/100')).toBeInTheDocument();
     });
 
-    it('character count has aria-live="polite"', () => {
+    it('visual character count has aria-hidden="true"', () => {
       render(<Textarea maxLength={100} />);
       const count = screen.getByText('0/100');
-      expect(count).toHaveAttribute('aria-live', 'polite');
+      expect(count).toHaveAttribute('aria-hidden', 'true');
     });
 
-    it('character count has class idsk-character-count', () => {
+    it('visual character count has class idsk-character-count', () => {
       render(<Textarea maxLength={100} />);
       const count = screen.getByText('0/100');
       expect(count).toHaveClass('idsk-character-count');
+    });
+
+    it('SR-only counter has descriptive initial text', () => {
+      render(<Textarea maxLength={100} />);
+      const srSpan = document.querySelector('.idsk-character-count-sr') as HTMLElement;
+      expect(srSpan).toBeInTheDocument();
+      expect(srSpan).toHaveTextContent('Napísaných 0 znakov z maximálne 100.');
+    });
+
+    it('SR-only counter updates descriptive text when typing', async () => {
+      const user = userEvent.setup();
+      render(<Textarea maxLength={100} />);
+      const textarea = screen.getByRole('textbox');
+      await user.type(textarea, 'Ahoj');
+      const srSpan = document.querySelector('.idsk-character-count-sr') as HTMLElement;
+      expect(srSpan).toHaveTextContent('Napísaných 4 znakov z maximálne 100.');
+    });
+
+    it('SR-only counter has aria-live="polite"', () => {
+      render(<Textarea maxLength={100} />);
+      const srSpan = document.querySelector('.idsk-character-count-sr') as HTMLElement;
+      expect(srSpan).toHaveAttribute('aria-live', 'polite');
+    });
+
+    it('SR-only counter has class sr-only', () => {
+      render(<Textarea maxLength={100} />);
+      const srSpan = document.querySelector('.idsk-character-count-sr') as HTMLElement;
+      expect(srSpan).toHaveClass('sr-only');
+    });
+
+    it('textarea aria-describedby includes SR counter id', () => {
+      render(<Textarea maxLength={100} id="test-ta" />);
+      const textarea = screen.getByRole('textbox');
+      const srSpan = document.querySelector('.idsk-character-count-sr') as HTMLElement;
+      expect(textarea.getAttribute('aria-describedby')).toContain(srSpan.id);
     });
   });
 

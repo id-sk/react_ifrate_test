@@ -1,6 +1,7 @@
 export function init(element: HTMLElement): void {
   const textarea = element.querySelector<HTMLTextAreaElement>('.idsk-textarea');
   const countDisplay = element.querySelector<HTMLElement>('.idsk-character-count');
+  const countSr = element.querySelector<HTMLElement>('.idsk-character-count-sr');
 
   if (!textarea || !countDisplay) return;
 
@@ -10,6 +11,9 @@ export function init(element: HTMLElement): void {
   const updateCount = (): void => {
     const currentLength = textarea.value.length;
     countDisplay.textContent = `${currentLength}/${maxLength}`;
+    if (countSr) {
+      countSr.textContent = `Napísaných ${currentLength} znakov z maximálne ${maxLength}.`;
+    }
   };
 
   textarea.addEventListener('input', updateCount);

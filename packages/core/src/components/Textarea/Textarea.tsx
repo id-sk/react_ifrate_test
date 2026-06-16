@@ -58,6 +58,7 @@ function Textarea({
   const textareaId = id || generatedId;
   const hintId = `${textareaId}-hint`;
   const errorId = `${textareaId}-error`;
+  const counterSrId = `${textareaId}-counter-sr`;
 
   const isError = variant === 'error';
 
@@ -75,7 +76,13 @@ function Textarea({
     onChange?.(event);
   };
 
-  const ariaDescribedBy = inputDescription ? hintId : undefined;
+  const ariaDescribedByParts = [
+    inputDescription ? hintId : null,
+    maxLength !== undefined ? counterSrId : null,
+  ].filter(Boolean) as string[];
+
+  const ariaDescribedBy =
+    ariaDescribedByParts.length > 0 ? ariaDescribedByParts.join(' ') : undefined;
 
   return (
     <div className="idsk-textarea-container">
@@ -122,9 +129,14 @@ function Textarea({
         )}
 
         {maxLength !== undefined && (
-          <span className="idsk-character-count" aria-live="polite">
-            {charCount}/{maxLength}
-          </span>
+          <>
+            <span className="idsk-character-count" aria-hidden="true">
+              {charCount}/{maxLength}
+            </span>
+            <span id={counterSrId} className="idsk-character-count-sr sr-only" aria-live="polite">
+              Napísaných {charCount} znakov z maximálne {maxLength}.
+            </span>
+          </>
         )}
       </div>
 
