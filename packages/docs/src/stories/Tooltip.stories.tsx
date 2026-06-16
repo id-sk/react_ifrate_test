@@ -27,7 +27,8 @@ const meta = {
   args: {
     preferredPosition: 'top',
     label: 'Dátum narodenia',
-    content: 'Zadajte dátum v tvare DD.MM.RRRR. Napríklad: 01.01.1990.',
+    content:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commo.',
     ariaLabel: 'Nápoveda k dátumu narodenia',
   },
   parameters: {
