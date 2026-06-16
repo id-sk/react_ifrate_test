@@ -7,17 +7,16 @@ export interface PentagonIconProps extends React.SVGProps<SVGSVGElement> {
 const PentagonIcon = ({ size, ...props }: PentagonIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M2.08325 9.89591L6.24992 22.3959H18.7499L22.9166 9.89591L12.4999 2.60425L2.08325 9.89591Z"
-        fill="currentColor"
-      />
+      
+<path d="M2.08325 9.89591L6.24992 22.3959H18.7499L22.9166 9.89591L12.4999 2.60425L2.08325 9.89591Z" fill="currentColor"/>
     </svg>
   );
 };

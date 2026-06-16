@@ -7,17 +7,16 @@ export interface CloseFullscreenIconProps extends React.SVGProps<SVGSVGElement> 
 const CloseFullscreenIcon = ({ size, ...props }: CloseFullscreenIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M22.9166 3.55206L17.4062 9.06248L20.8333 12.5H12.4999V4.16665L15.927 7.59373L21.4478 2.08331L22.9166 3.55206ZM3.552 22.9166L9.06242 17.4062L12.4999 20.8333V12.5H4.16659L7.59367 15.9271L2.08325 21.4479L3.552 22.9166Z"
-        fill="currentColor"
-      />
+      
+<path d="M22.9166 3.55206L17.4062 9.06248L20.8333 12.5H12.4999V4.16665L15.927 7.59373L21.4478 2.08331L22.9166 3.55206ZM3.552 22.9166L9.06242 17.4062L12.4999 20.8333V12.5H4.16659L7.59367 15.9271L2.08325 21.4479L3.552 22.9166Z" fill="currentColor"/>
     </svg>
   );
 };

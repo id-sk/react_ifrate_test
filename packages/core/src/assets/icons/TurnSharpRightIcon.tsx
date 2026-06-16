@@ -7,17 +7,16 @@ export interface TurnSharpRightIconProps extends React.SVGProps<SVGSVGElement> {
 const TurnSharpRightIcon = ({ size, ...props }: TurnSharpRightIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M17.1875 7.11458L18.8438 8.77083L20.3125 7.29167L16.1458 3.125L11.9792 7.29167L13.4479 8.76042L15.1042 7.11458V13.5417H6.77083C5.625 13.5417 4.6875 14.4792 4.6875 15.625V21.875H6.77083V15.625H15.1042C16.25 15.625 17.1875 14.6875 17.1875 13.5417V7.11458Z"
-        fill="currentColor"
-      />
+      
+<path d="M17.1875 7.11458L18.8438 8.77083L20.3125 7.29167L16.1458 3.125L11.9792 7.29167L13.4479 8.76042L15.1042 7.11458V13.5417H6.77083C5.625 13.5417 4.6875 14.4792 4.6875 15.625V21.875H6.77083V15.625H15.1042C16.25 15.625 17.1875 14.6875 17.1875 13.5417V7.11458Z" fill="currentColor"/>
     </svg>
   );
 };

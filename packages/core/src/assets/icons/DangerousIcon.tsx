@@ -7,17 +7,16 @@ export interface DangerousIconProps extends React.SVGProps<SVGSVGElement> {
 const DangerousIcon = ({ size, ...props }: DangerousIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M16.3854 3.125H8.61458L3.125 8.61458V16.3854L8.61458 21.875H16.3854L21.875 16.3854V8.61458L16.3854 3.125ZM17.7083 16.3958L16.3958 17.7083L12.5 13.8125L8.60417 17.7083L7.29167 16.3958L11.1875 12.5L7.29167 8.60417L8.60417 7.29167L12.5 11.1875L16.3958 7.29167L17.7083 8.60417L13.8125 12.5L17.7083 16.3958Z"
-        fill="currentColor"
-      />
+      
+<path d="M16.3854 3.125H8.61458L3.125 8.61458V16.3854L8.61458 21.875H16.3854L21.875 16.3854V8.61458L16.3854 3.125ZM17.7083 16.3958L16.3958 17.7083L12.5 13.8125L8.60417 17.7083L7.29167 16.3958L11.1875 12.5L7.29167 8.60417L8.60417 7.29167L12.5 11.1875L16.3958 7.29167L17.7083 8.60417L13.8125 12.5L17.7083 16.3958Z" fill="currentColor"/>
     </svg>
   );
 };

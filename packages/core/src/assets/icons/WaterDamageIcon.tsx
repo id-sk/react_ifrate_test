@@ -7,17 +7,16 @@ export interface WaterDamageIconProps extends React.SVGProps<SVGSVGElement> {
 const WaterDamageIcon = ({ size, ...props }: WaterDamageIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M12.4999 3.646L2.08325 13.021H5.20825V21.3543H19.7916V13.021H22.9166L12.4999 3.646ZM12.4999 17.1877C11.3541 17.1877 10.4166 16.2502 10.4166 15.1043C10.4166 13.9585 12.4999 10.9377 12.4999 10.9377C12.4999 10.9377 14.5833 13.9585 14.5833 15.1043C14.5833 16.2502 13.6458 17.1877 12.4999 17.1877Z"
-        fill="currentColor"
-      />
+      
+<path d="M12.4999 3.646L2.08325 13.021H5.20825V21.3543H19.7916V13.021H22.9166L12.4999 3.646ZM12.4999 17.1877C11.3541 17.1877 10.4166 16.2502 10.4166 15.1043C10.4166 13.9585 12.4999 10.9377 12.4999 10.9377C12.4999 10.9377 14.5833 13.9585 14.5833 15.1043C14.5833 16.2502 13.6458 17.1877 12.4999 17.1877Z" fill="currentColor"/>
     </svg>
   );
 };

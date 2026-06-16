@@ -23,11 +23,11 @@ for svg_file in "$SVG_DIR"/*.svg; do
   # Názov súboru bez cesty a prípony
   filename=$(basename "$svg_file" .svg)
   # Názov komponentu (CamelCase - predpokladáme, že SVG sú už v správnom formáte)
+  # Odstránime pomlčky pred číslami (napr. Active-1 -> Active1)
+  component_name=$(echo "$filename" | sed 's/-\([0-9]\)/\1/g')
   # Ak začína číslom, pridáme predponu 'Icon'
-  if [[ $filename =~ ^[0-9] ]]; then
-    component_name="Icon$filename"
-  else
-    component_name="$filename"
+  if [[ $component_name =~ ^[0-9] ]]; then
+    component_name="Icon$component_name"
   fi
   output_file="$OUTPUT_DIR/$component_name.tsx"
 
@@ -82,6 +82,7 @@ const ${component_name} = ({ size, ...props }: ${component_name}Props) => {
       height={size || "1em"}
       $viewbox
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >

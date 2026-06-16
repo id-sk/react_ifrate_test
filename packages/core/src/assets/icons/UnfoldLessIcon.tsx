@@ -7,17 +7,16 @@ export interface UnfoldLessIconProps extends React.SVGProps<SVGSVGElement> {
 const UnfoldLessIcon = ({ size, ...props }: UnfoldLessIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M7.71875 19.3644L9.19792 20.8332L12.5 17.5311L15.8021 20.8332L17.2708 19.3644L12.5 14.5832L7.71875 19.3644ZM17.2812 5.63525L15.8021 4.1665L12.5 7.46859L9.19792 4.1665L7.71875 5.63525L12.5 10.4165L17.2812 5.63525Z"
-        fill="currentColor"
-      />
+      
+<path d="M7.71875 19.3644L9.19792 20.8332L12.5 17.5311L15.8021 20.8332L17.2708 19.3644L12.5 14.5832L7.71875 19.3644ZM17.2812 5.63525L15.8021 4.1665L12.5 7.46859L9.19792 4.1665L7.71875 5.63525L12.5 10.4165L17.2812 5.63525Z" fill="currentColor"/>
     </svg>
   );
 };

@@ -7,17 +7,16 @@ export interface StarBorderPurple500IconProps extends React.SVGProps<SVGSVGEleme
 const StarBorderPurple500Icon = ({ size, ...props }: StarBorderPurple500IconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M12.4999 9.26058L13.4791 12.5002H16.4166L14.052 14.1877L15.0208 17.3231L12.4999 15.4064L9.97909 17.3231L10.9478 14.1877L8.58325 12.5002H11.5208L12.4999 9.26058ZM12.4999 2.0835L9.97909 10.4168H2.08325L8.51034 15.0106L6.07284 22.9168L12.4999 18.0314L18.9374 22.9168L16.4895 15.0106L22.9166 10.4168H15.0208L12.4999 2.0835Z"
-        fill="currentColor"
-      />
+      
+<path d="M12.4999 9.26058L13.4791 12.5002H16.4166L14.052 14.1877L15.0208 17.3231L12.4999 15.4064L9.97909 17.3231L10.9478 14.1877L8.58325 12.5002H11.5208L12.4999 9.26058ZM12.4999 2.0835L9.97909 10.4168H2.08325L8.51034 15.0106L6.07284 22.9168L12.4999 18.0314L18.9374 22.9168L16.4895 15.0106L22.9166 10.4168H15.0208L12.4999 2.0835Z" fill="currentColor"/>
     </svg>
   );
 };

@@ -7,17 +7,16 @@ export interface FileOpenIconProps extends React.SVGProps<SVGSVGElement> {
 const FileOpenIcon = ({ size, ...props }: FileOpenIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M12.828 1.89575H4.49471C3.34888 1.89575 2.41138 2.83325 2.41138 3.97909V20.6458C2.41138 21.7916 3.33846 22.7291 4.48429 22.7291H13.8697V14.3958H19.078V8.14575L12.828 1.89575ZM11.7864 9.18742V3.45825L17.5155 9.18742H11.7864ZM15.953 22.3749V16.4791H21.8489V18.5624H19.5155L22.5885 21.6353L21.1197 23.1041L18.0364 20.0312V22.3645H15.953V22.3749Z"
-        fill="currentColor"
-      />
+      
+<path d="M12.828 1.89575H4.49471C3.34888 1.89575 2.41138 2.83325 2.41138 3.97909V20.6458C2.41138 21.7916 3.33846 22.7291 4.48429 22.7291H13.8697V14.3958H19.078V8.14575L12.828 1.89575ZM11.7864 9.18742V3.45825L17.5155 9.18742H11.7864ZM15.953 22.3749V16.4791H21.8489V18.5624H19.5155L22.5885 21.6353L21.1197 23.1041L18.0364 20.0312V22.3645H15.953V22.3749Z" fill="currentColor"/>
     </svg>
   );
 };

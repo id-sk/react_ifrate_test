@@ -7,17 +7,16 @@ export interface BungalowIconProps extends React.SVGProps<SVGSVGElement> {
 const BungalowIcon = ({ size, ...props }: BungalowIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M12.5 3.125L4.375 16.1458L6.14583 17.25L7.29167 15.4167V21.875H11.4583V16.6667H13.5417V21.875H17.7083V15.4062L18.8542 17.25L20.625 16.1458L12.5 3.125ZM13.5417 14.5833H11.4583V12.5H13.5417V14.5833Z"
-        fill="currentColor"
-      />
+      
+<path d="M12.5 3.125L4.375 16.1458L6.14583 17.25L7.29167 15.4167V21.875H11.4583V16.6667H13.5417V21.875H17.7083V15.4062L18.8542 17.25L20.625 16.1458L12.5 3.125ZM13.5417 14.5833H11.4583V12.5H13.5417V14.5833Z" fill="currentColor"/>
     </svg>
   );
 };

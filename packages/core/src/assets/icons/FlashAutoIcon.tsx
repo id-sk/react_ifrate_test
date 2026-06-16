@@ -7,17 +7,16 @@ export interface FlashAutoIconProps extends React.SVGProps<SVGSVGElement> {
 const FlashAutoIcon = ({ size, ...props }: FlashAutoIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M2.5 1.5625V14.0625H5.625V23.4375L12.9167 10.9375H8.75L12.9167 1.5625H2.5ZM19.1667 1.5625H17.0833L13.75 10.9375H15.7292L16.4583 8.85417H19.7917L20.5208 10.9375H22.5L19.1667 1.5625ZM16.9271 7.44792L18.125 3.64583L19.3229 7.44792H16.9271Z"
-        fill="currentColor"
-      />
+      
+<path d="M2.5 1.5625V14.0625H5.625V23.4375L12.9167 10.9375H8.75L12.9167 1.5625H2.5ZM19.1667 1.5625H17.0833L13.75 10.9375H15.7292L16.4583 8.85417H19.7917L20.5208 10.9375H22.5L19.1667 1.5625ZM16.9271 7.44792L18.125 3.64583L19.3229 7.44792H16.9271Z" fill="currentColor"/>
     </svg>
   );
 };

@@ -7,33 +7,20 @@ export interface LandslideIconProps extends React.SVGProps<SVGSVGElement> {
 const LandslideIcon = ({ size, ...props }: LandslideIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M15.5938 15.4061L12.9062 14.3332L5.72917 16.7186L1.5625 15.1144V17.3019L5.72917 18.6978L15.5938 15.4061Z"
-        fill="currentColor"
-      />
-      <path
-        d="M10.4896 12.9373L7.8125 9.37484H1.5625V13.1353L5.72917 14.5311L10.4896 12.9373Z"
-        fill="currentColor"
-      />
-      <path
-        d="M5.72917 20.8853L1.5625 19.4998V23.9582H22.3958L17.2188 17.0623L5.72917 20.8853Z"
-        fill="currentColor"
-      />
-      <path
-        d="M17.1875 7.2915V2.08317L11.9792 1.0415L8.85417 3.12484V7.2915L11.9792 9.37484L17.1875 7.2915Z"
-        fill="currentColor"
-      />
-      <path
-        d="M18.75 8.33317L16.1458 10.4165V13.5415L18.75 15.6248L23.4375 13.5415V9.37484L18.75 8.33317Z"
-        fill="currentColor"
-      />
+      
+<path d="M15.5938 15.4061L12.9062 14.3332L5.72917 16.7186L1.5625 15.1144V17.3019L5.72917 18.6978L15.5938 15.4061Z" fill="currentColor"/>
+<path d="M10.4896 12.9373L7.8125 9.37484H1.5625V13.1353L5.72917 14.5311L10.4896 12.9373Z" fill="currentColor"/>
+<path d="M5.72917 20.8853L1.5625 19.4998V23.9582H22.3958L17.2188 17.0623L5.72917 20.8853Z" fill="currentColor"/>
+<path d="M17.1875 7.2915V2.08317L11.9792 1.0415L8.85417 3.12484V7.2915L11.9792 9.37484L17.1875 7.2915Z" fill="currentColor"/>
+<path d="M18.75 8.33317L16.1458 10.4165V13.5415L18.75 15.6248L23.4375 13.5415V9.37484L18.75 8.33317Z" fill="currentColor"/>
     </svg>
   );
 };

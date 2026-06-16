@@ -7,17 +7,16 @@ export interface EditAttributesIconProps extends React.SVGProps<SVGSVGElement> {
 const EditAttributesIcon = ({ size, ...props }: EditAttributesIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M18.3645 7.2915H6.63534C4.12492 7.2915 2.08325 9.62484 2.08325 12.4998C2.08325 15.3748 4.12492 17.7082 6.63534 17.7082H18.3645C20.8749 17.7082 22.9166 15.3748 22.9166 12.4998C22.9166 9.62484 20.8749 7.2915 18.3645 7.2915ZM7.54159 15.0623L4.8645 12.3853L5.59367 11.6561L7.54159 13.604L11.2083 9.93734L11.9374 10.6665L7.54159 15.0623Z"
-        fill="currentColor"
-      />
+      
+<path d="M18.3645 7.2915H6.63534C4.12492 7.2915 2.08325 9.62484 2.08325 12.4998C2.08325 15.3748 4.12492 17.7082 6.63534 17.7082H18.3645C20.8749 17.7082 22.9166 15.3748 22.9166 12.4998C22.9166 9.62484 20.8749 7.2915 18.3645 7.2915ZM7.54159 15.0623L4.8645 12.3853L5.59367 11.6561L7.54159 13.604L11.2083 9.93734L11.9374 10.6665L7.54159 15.0623Z" fill="currentColor"/>
     </svg>
   );
 };

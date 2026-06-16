@@ -7,32 +7,22 @@ export interface FluorescentIconProps extends React.SVGProps<SVGSVGElement> {
 const FluorescentIcon = ({ size, ...props }: FluorescentIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path d="M19.7958 9.37492H5.21251V15.6249H19.7958V9.37492Z" fill="currentColor" />
-      <path d="M13.5458 2.08325H11.4625V5.20825H13.5458V2.08325Z" fill="currentColor" />
-      <path
-        d="M19.8751 4.78792L18.0108 6.66541L19.4891 8.13332L21.3534 6.25584L19.8751 4.78792Z"
-        fill="currentColor"
-      />
-      <path d="M13.5458 19.7916H11.4625V22.9166H13.5458V19.7916Z" fill="currentColor" />
-      <path
-        d="M18.0146 18.4478L19.8792 20.3228L21.3583 18.8437L19.4833 16.9791L18.0146 18.4478Z"
-        fill="currentColor"
-      />
-      <path
-        d="M5.11026 4.79363L3.6445 6.25939L5.50801 8.12289L6.97377 6.65713L5.11026 4.79363Z"
-        fill="currentColor"
-      />
-      <path
-        d="M5.51933 16.9651L3.64185 18.8293L5.10976 20.3077L6.98725 18.4434L5.51933 16.9651Z"
-        fill="currentColor"
-      />
+      
+<path d="M19.7958 9.37492H5.21251V15.6249H19.7958V9.37492Z" fill="currentColor"/>
+<path d="M13.5458 2.08325H11.4625V5.20825H13.5458V2.08325Z" fill="currentColor"/>
+<path d="M19.8751 4.78792L18.0108 6.66541L19.4891 8.13332L21.3534 6.25584L19.8751 4.78792Z" fill="currentColor"/>
+<path d="M13.5458 19.7916H11.4625V22.9166H13.5458V19.7916Z" fill="currentColor"/>
+<path d="M18.0146 18.4478L19.8792 20.3228L21.3583 18.8437L19.4833 16.9791L18.0146 18.4478Z" fill="currentColor"/>
+<path d="M5.11026 4.79363L3.6445 6.25939L5.50801 8.12289L6.97377 6.65713L5.11026 4.79363Z" fill="currentColor"/>
+<path d="M5.51933 16.9651L3.64185 18.8293L5.10976 20.3077L6.98725 18.4434L5.51933 16.9651Z" fill="currentColor"/>
     </svg>
   );
 };

@@ -7,17 +7,16 @@ export interface CreditCardIconProps extends React.SVGProps<SVGSVGElement> {
 const CreditCardIcon = ({ size, ...props }: CreditCardIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M20.8333 4.16669H4.16659C3.01034 4.16669 2.09367 5.09377 2.09367 6.25002L2.08325 18.75C2.08325 19.9063 3.01034 20.8334 4.16659 20.8334H20.8333C21.9895 20.8334 22.9166 19.9063 22.9166 18.75V6.25002C22.9166 5.09377 21.9895 4.16669 20.8333 4.16669ZM20.8333 18.75H4.16659V12.5H20.8333V18.75ZM20.8333 8.33335H4.16659V6.25002H20.8333V8.33335Z"
-        fill="currentColor"
-      />
+      
+<path d="M20.8333 4.16669H4.16659C3.01034 4.16669 2.09367 5.09377 2.09367 6.25002L2.08325 18.75C2.08325 19.9063 3.01034 20.8334 4.16659 20.8334H20.8333C21.9895 20.8334 22.9166 19.9063 22.9166 18.75V6.25002C22.9166 5.09377 21.9895 4.16669 20.8333 4.16669ZM20.8333 18.75H4.16659V12.5H20.8333V18.75ZM20.8333 8.33335H4.16659V6.25002H20.8333V8.33335Z" fill="currentColor"/>
     </svg>
   );
 };

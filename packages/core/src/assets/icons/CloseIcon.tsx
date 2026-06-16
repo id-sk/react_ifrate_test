@@ -7,17 +7,16 @@ export interface CloseIconProps extends React.SVGProps<SVGSVGElement> {
 const CloseIcon = ({ size, ...props }: CloseIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M19.7916 6.67725L18.3228 5.2085L12.4999 11.0314L6.677 5.2085L5.20825 6.67725L11.0312 12.5002L5.20825 18.3231L6.677 19.7918L12.4999 13.9689L18.3228 19.7918L19.7916 18.3231L13.9687 12.5002L19.7916 6.67725Z"
-        fill="currentColor"
-      />
+      
+<path d="M19.7916 6.67725L18.3228 5.2085L12.4999 11.0314L6.677 5.2085L5.20825 6.67725L11.0312 12.5002L5.20825 18.3231L6.677 19.7918L12.4999 13.9689L18.3228 19.7918L19.7916 18.3231L13.9687 12.5002L19.7916 6.67725Z" fill="currentColor"/>
     </svg>
   );
 };

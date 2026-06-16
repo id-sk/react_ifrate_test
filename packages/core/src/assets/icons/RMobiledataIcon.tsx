@@ -7,17 +7,16 @@ export interface RMobiledataIconProps extends React.SVGProps<SVGSVGElement> {
 const RMobiledataIcon = ({ size, ...props }: RMobiledataIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M14.8959 13.7499L16.1459 16.6666H14.0626L12.8855 13.8853H10.9376V16.6666H8.85425V8.33325H14.0626C15.2397 8.33325 16.1459 9.2395 16.1459 10.4166V11.802C16.1459 12.6353 15.5938 13.4062 14.8959 13.7499ZM14.0626 10.4166H10.9376V11.802H14.0626V10.4166Z"
-        fill="currentColor"
-      />
+      
+<path d="M14.8959 13.7499L16.1459 16.6666H14.0626L12.8855 13.8853H10.9376V16.6666H8.85425V8.33325H14.0626C15.2397 8.33325 16.1459 9.2395 16.1459 10.4166V11.802C16.1459 12.6353 15.5938 13.4062 14.8959 13.7499ZM14.0626 10.4166H10.9376V11.802H14.0626V10.4166Z" fill="currentColor"/>
     </svg>
   );
 };

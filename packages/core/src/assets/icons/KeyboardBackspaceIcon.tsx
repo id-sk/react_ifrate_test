@@ -7,17 +7,16 @@ export interface KeyboardBackspaceIconProps extends React.SVGProps<SVGSVGElement
 const KeyboardBackspaceIcon = ({ size, ...props }: KeyboardBackspaceIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M21.875 11.4583H7.11458L10.8437 7.71875L9.375 6.25L3.125 12.5L9.375 18.75L10.8437 17.2812L7.11458 13.5417H21.875V11.4583Z"
-        fill="currentColor"
-      />
+      
+<path d="M21.875 11.4583H7.11458L10.8437 7.71875L9.375 6.25L3.125 12.5L9.375 18.75L10.8437 17.2812L7.11458 13.5417H21.875V11.4583Z" fill="currentColor"/>
     </svg>
   );
 };

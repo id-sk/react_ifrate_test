@@ -7,19 +7,16 @@ export interface BreakfastDiningIconProps extends React.SVGProps<SVGSVGElement> 
 const BreakfastDiningIcon = ({ size, ...props }: BreakfastDiningIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M18.7499 3.125H6.24992C3.94784 3.125 2.08325 4.98958 2.08325 7.29167C2.08325 8.83333 2.927 10.1562 4.16659 10.8854V19.7917C4.16659 20.9375 5.10409 21.875 6.24992 21.875H18.7499C19.8958 21.875 20.8333 20.9375 20.8333 19.7917V10.8854C22.0728 10.1667 22.9166 8.83333 22.9166 7.29167C22.9166 4.98958 21.052 3.125 18.7499 3.125ZM14.5833 15.625H10.4166V11.4583H14.5833V15.625Z"
-        fill="currentColor"
-      />
+      
+<path fillRule="evenodd" clipRule="evenodd" d="M18.7499 3.125H6.24992C3.94784 3.125 2.08325 4.98958 2.08325 7.29167C2.08325 8.83333 2.927 10.1562 4.16659 10.8854V19.7917C4.16659 20.9375 5.10409 21.875 6.24992 21.875H18.7499C19.8958 21.875 20.8333 20.9375 20.8333 19.7917V10.8854C22.0728 10.1667 22.9166 8.83333 22.9166 7.29167C22.9166 4.98958 21.052 3.125 18.7499 3.125ZM14.5833 15.625H10.4166V11.4583H14.5833V15.625Z" fill="currentColor"/>
     </svg>
   );
 };

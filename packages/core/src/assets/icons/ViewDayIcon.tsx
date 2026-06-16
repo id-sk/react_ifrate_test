@@ -7,17 +7,16 @@ export interface ViewDayIconProps extends React.SVGProps<SVGSVGElement> {
 const ViewDayIcon = ({ size, ...props }: ViewDayIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M2.60425 21.875H22.3959V18.75H2.60425V21.875ZM21.3542 8.33333H3.64591C3.073 8.33333 2.60425 8.80208 2.60425 9.375V15.625C2.60425 16.1979 3.073 16.6667 3.64591 16.6667H21.3542C21.9272 16.6667 22.3959 16.1979 22.3959 15.625V9.375C22.3959 8.80208 21.9272 8.33333 21.3542 8.33333ZM2.60425 3.125V6.25H22.3959V3.125H2.60425Z"
-        fill="currentColor"
-      />
+      
+<path d="M2.60425 21.875H22.3959V18.75H2.60425V21.875ZM21.3542 8.33333H3.64591C3.073 8.33333 2.60425 8.80208 2.60425 9.375V15.625C2.60425 16.1979 3.073 16.6667 3.64591 16.6667H21.3542C21.9272 16.6667 22.3959 16.1979 22.3959 15.625V9.375C22.3959 8.80208 21.9272 8.33333 21.3542 8.33333ZM2.60425 3.125V6.25H22.3959V3.125H2.60425Z" fill="currentColor"/>
     </svg>
   );
 };

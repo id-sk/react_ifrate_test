@@ -7,17 +7,16 @@ export interface ArrowForwardIosIconProps extends React.SVGProps<SVGSVGElement> 
 const ArrowForwardIosIcon = ({ size, ...props }: ArrowForwardIosIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M6.36987 21.0731L8.21362 22.9168L18.6303 12.5002L8.21362 2.0835L6.36987 3.92725L14.9428 12.5002L6.36987 21.0731Z"
-        fill="currentColor"
-      />
+      
+<path d="M6.36987 21.0731L8.21362 22.9168L18.6303 12.5002L8.21362 2.0835L6.36987 3.92725L14.9428 12.5002L6.36987 21.0731Z" fill="currentColor"/>
     </svg>
   );
 };

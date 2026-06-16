@@ -7,17 +7,16 @@ export interface SignalWifiOffIconProps extends React.SVGProps<SVGSVGElement> {
 const SignalWifiOffIcon = ({ size, ...props }: SignalWifiOffIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M24.625 7.84367C24.1562 7.4895 19.4896 3.677 12.5 3.677C10.9375 3.677 9.48958 3.87492 8.17708 4.177L18.9375 14.927L24.625 7.84367ZM3.40625 2.052L2.08333 3.38534L4.21875 5.53117C1.98958 6.552 0.614583 7.65617 0.375 7.84367L12.4896 22.9374L12.5 22.9478L12.5104 22.9374L16.5729 17.8749L20.0312 21.3333L21.3542 20.0103L3.40625 2.052Z"
-        fill="currentColor"
-      />
+      
+<path d="M24.625 7.84367C24.1562 7.4895 19.4896 3.677 12.5 3.677C10.9375 3.677 9.48958 3.87492 8.17708 4.177L18.9375 14.927L24.625 7.84367ZM3.40625 2.052L2.08333 3.38534L4.21875 5.53117C1.98958 6.552 0.614583 7.65617 0.375 7.84367L12.4896 22.9374L12.5 22.9478L12.5104 22.9374L16.5729 17.8749L20.0312 21.3333L21.3542 20.0103L3.40625 2.052Z" fill="currentColor"/>
     </svg>
   );
 };

@@ -7,17 +7,16 @@ export interface CheckCircleIconProps extends React.SVGProps<SVGSVGElement> {
 const CheckCircleIcon = ({ size, ...props }: CheckCircleIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M12.4999 2.08331C6.74992 2.08331 2.08325 6.74998 2.08325 12.5C2.08325 18.25 6.74992 22.9166 12.4999 22.9166C18.2499 22.9166 22.9166 18.25 22.9166 12.5C22.9166 6.74998 18.2499 2.08331 12.4999 2.08331ZM10.4166 17.7083L5.20825 12.5L6.677 11.0312L10.4166 14.7604L18.3228 6.85415L19.7916 8.33331L10.4166 17.7083Z"
-        fill="currentColor"
-      />
+      
+<path d="M12.4999 2.08331C6.74992 2.08331 2.08325 6.74998 2.08325 12.5C2.08325 18.25 6.74992 22.9166 12.4999 22.9166C18.2499 22.9166 22.9166 18.25 22.9166 12.5C22.9166 6.74998 18.2499 2.08331 12.4999 2.08331ZM10.4166 17.7083L5.20825 12.5L6.677 11.0312L10.4166 14.7604L18.3228 6.85415L19.7916 8.33331L10.4166 17.7083Z" fill="currentColor"/>
     </svg>
   );
 };

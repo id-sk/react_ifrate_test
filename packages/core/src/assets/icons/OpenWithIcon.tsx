@@ -7,17 +7,16 @@ export interface OpenWithIconProps extends React.SVGProps<SVGSVGElement> {
 const OpenWithIcon = ({ size, ...props }: OpenWithIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M10.4167 9.37496H14.5834V6.24996H17.7084L12.5001 1.04163L7.29175 6.24996H10.4167V9.37496ZM9.37508 10.4166H6.25008V7.29163L1.04175 12.5L6.25008 17.7083V14.5833H9.37508V10.4166ZM23.9584 12.5L18.7501 7.29163V10.4166H15.6251V14.5833H18.7501V17.7083L23.9584 12.5ZM14.5834 15.625H10.4167V18.75H7.29175L12.5001 23.9583L17.7084 18.75H14.5834V15.625Z"
-        fill="currentColor"
-      />
+      
+<path d="M10.4167 9.37496H14.5834V6.24996H17.7084L12.5001 1.04163L7.29175 6.24996H10.4167V9.37496ZM9.37508 10.4166H6.25008V7.29163L1.04175 12.5L6.25008 17.7083V14.5833H9.37508V10.4166ZM23.9584 12.5L18.7501 7.29163V10.4166H15.6251V14.5833H18.7501V17.7083L23.9584 12.5ZM14.5834 15.625H10.4167V18.75H7.29175L12.5001 23.9583L17.7084 18.75H14.5834V15.625Z" fill="currentColor"/>
     </svg>
   );
 };

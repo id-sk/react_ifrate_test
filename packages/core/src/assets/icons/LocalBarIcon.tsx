@@ -7,17 +7,16 @@ export interface LocalBarIconProps extends React.SVGProps<SVGSVGElement> {
 const LocalBarIcon = ({ size, ...props }: LocalBarIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M21.875 5.20833V3.125H3.125V5.20833L11.4583 14.5833V19.7917H6.25V21.875H18.75V19.7917H13.5417V14.5833L21.875 5.20833ZM7.73958 7.29167L5.89583 5.20833H19.1146L17.2604 7.29167H7.73958Z"
-        fill="currentColor"
-      />
+      
+<path d="M21.875 5.20833V3.125H3.125V5.20833L11.4583 14.5833V19.7917H6.25V21.875H18.75V19.7917H13.5417V14.5833L21.875 5.20833ZM7.73958 7.29167L5.89583 5.20833H19.1146L17.2604 7.29167H7.73958Z" fill="currentColor"/>
     </svg>
   );
 };

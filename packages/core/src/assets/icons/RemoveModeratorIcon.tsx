@@ -7,17 +7,16 @@ export interface RemoveModeratorIconProps extends React.SVGProps<SVGSVGElement> 
 const RemoveModeratorIcon = ({ size, ...props }: RemoveModeratorIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M23.5781 22.6353L19.8906 18.9373L2.74479 1.7915L1.42188 3.11442L3.51562 5.20817H3.50521V11.4582C3.50521 17.2394 7.50521 22.6457 12.8802 23.9582C15.1302 23.4061 17.1302 22.1248 18.7135 20.4061L22.2552 23.9582L23.5781 22.6353ZM20.8698 17.2811C21.7448 15.4894 22.2552 13.4998 22.2552 11.4582V5.20817L12.8802 1.0415L7.17187 3.58317L20.8698 17.2811Z"
-        fill="currentColor"
-      />
+      
+<path d="M23.5781 22.6353L19.8906 18.9373L2.74479 1.7915L1.42188 3.11442L3.51562 5.20817H3.50521V11.4582C3.50521 17.2394 7.50521 22.6457 12.8802 23.9582C15.1302 23.4061 17.1302 22.1248 18.7135 20.4061L22.2552 23.9582L23.5781 22.6353ZM20.8698 17.2811C21.7448 15.4894 22.2552 13.4998 22.2552 11.4582V5.20817L12.8802 1.0415L7.17187 3.58317L20.8698 17.2811Z" fill="currentColor"/>
     </svg>
   );
 };

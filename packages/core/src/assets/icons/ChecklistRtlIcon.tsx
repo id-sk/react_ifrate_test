@@ -7,17 +7,16 @@ export interface ChecklistRtlIconProps extends React.SVGProps<SVGSVGElement> {
 const ChecklistRtlIcon = ({ size, ...props }: ChecklistRtlIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M11.4584 7.84904H2.08337V9.93237H11.4584V7.84904ZM11.4584 16.1824H2.08337V18.2657H11.4584V16.1824ZM17.0209 12.0157L13.3334 8.32821L14.8021 6.85946L17.0105 9.06779L21.4271 4.65112L22.9167 6.11987L17.0209 12.0157ZM17.0209 20.349L13.3334 16.6615L14.8021 15.1928L17.0105 17.4011L21.4271 12.9845L22.9167 14.4532L17.0209 20.349Z"
-        fill="currentColor"
-      />
+      
+<path d="M11.4584 7.84904H2.08337V9.93237H11.4584V7.84904ZM11.4584 16.1824H2.08337V18.2657H11.4584V16.1824ZM17.0209 12.0157L13.3334 8.32821L14.8021 6.85946L17.0105 9.06779L21.4271 4.65112L22.9167 6.11987L17.0209 12.0157ZM17.0209 20.349L13.3334 16.6615L14.8021 15.1928L17.0105 17.4011L21.4271 12.9845L22.9167 14.4532L17.0209 20.349Z" fill="currentColor"/>
     </svg>
   );
 };

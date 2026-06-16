@@ -7,17 +7,16 @@ export interface HourglassTopIconProps extends React.SVGProps<SVGSVGElement> {
 const HourglassTopIcon = ({ size, ...props }: HourglassTopIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M6.25 2.08325L6.26042 8.33325L10.4167 12.4999L6.26042 16.677L6.25 22.9166H18.75V16.6666L14.5833 12.4999L18.75 8.34367V2.08325H6.25ZM16.6667 17.1874V20.8333H8.33333V17.1874L12.5 13.0208L16.6667 17.1874Z"
-        fill="currentColor"
-      />
+      
+<path d="M6.25 2.08325L6.26042 8.33325L10.4167 12.4999L6.26042 16.677L6.25 22.9166H18.75V16.6666L14.5833 12.4999L18.75 8.34367V2.08325H6.25ZM16.6667 17.1874V20.8333H8.33333V17.1874L12.5 13.0208L16.6667 17.1874Z" fill="currentColor"/>
     </svg>
   );
 };

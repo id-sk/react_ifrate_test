@@ -7,17 +7,16 @@ export interface TransformIconProps extends React.SVGProps<SVGSVGElement> {
 const TransformIcon = ({ size, ...props }: TransformIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M22.9167 18.7498V16.6665H8.33337V4.1665H10.4167L7.29171 1.0415L4.16671 4.1665H6.25004V6.24984H2.08337V8.33317H6.25004V16.6665C6.25004 17.8123 7.18754 18.7498 8.33337 18.7498H16.6667V20.8332H14.5834L17.7084 23.9582L20.8334 20.8332H18.75V18.7498H22.9167ZM10.4167 8.33317H16.6667V14.5832H18.75V8.33317C18.75 7.18734 17.8125 6.24984 16.6667 6.24984H10.4167V8.33317Z"
-        fill="currentColor"
-      />
+      
+<path d="M22.9167 18.7498V16.6665H8.33337V4.1665H10.4167L7.29171 1.0415L4.16671 4.1665H6.25004V6.24984H2.08337V8.33317H6.25004V16.6665C6.25004 17.8123 7.18754 18.7498 8.33337 18.7498H16.6667V20.8332H14.5834L17.7084 23.9582L20.8334 20.8332H18.75V18.7498H22.9167ZM10.4167 8.33317H16.6667V14.5832H18.75V8.33317C18.75 7.18734 17.8125 6.24984 16.6667 6.24984H10.4167V8.33317Z" fill="currentColor"/>
     </svg>
   );
 };

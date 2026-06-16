@@ -7,17 +7,16 @@ export interface ViewListIconProps extends React.SVGProps<SVGSVGElement> {
 const ViewListIcon = ({ size, ...props }: ViewListIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M3.125 14.5834H7.29167V10.4167H3.125V14.5834ZM3.125 19.7917H7.29167V15.625H3.125V19.7917ZM3.125 9.37504H7.29167V5.20837H3.125V9.37504ZM8.33333 14.5834H21.875V10.4167H8.33333V14.5834ZM8.33333 19.7917H21.875V15.625H8.33333V19.7917ZM8.33333 5.20837V9.37504H21.875V5.20837H8.33333Z"
-        fill="currentColor"
-      />
+      
+<path d="M3.125 14.5834H7.29167V10.4167H3.125V14.5834ZM3.125 19.7917H7.29167V15.625H3.125V19.7917ZM3.125 9.37504H7.29167V5.20837H3.125V9.37504ZM8.33333 14.5834H21.875V10.4167H8.33333V14.5834ZM8.33333 19.7917H21.875V15.625H8.33333V19.7917ZM8.33333 5.20837V9.37504H21.875V5.20837H8.33333Z" fill="currentColor"/>
     </svg>
   );
 };

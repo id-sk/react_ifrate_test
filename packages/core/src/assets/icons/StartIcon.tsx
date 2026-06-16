@@ -7,17 +7,16 @@ export interface StartIconProps extends React.SVGProps<SVGSVGElement> {
 const StartIcon = ({ size, ...props }: StartIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M15.1978 7.71875L18.927 11.4583H6.24992V13.5417H18.927L15.1874 17.2812L16.6666 18.75L22.9166 12.5L16.6666 6.25L15.1978 7.71875ZM2.08325 6.25V18.75H4.16659V6.25H2.08325Z"
-        fill="currentColor"
-      />
+      
+<path d="M15.1978 7.71875L18.927 11.4583H6.24992V13.5417H18.927L15.1874 17.2812L16.6666 18.75L22.9166 12.5L16.6666 6.25L15.1978 7.71875ZM2.08325 6.25V18.75H4.16659V6.25H2.08325Z" fill="currentColor"/>
     </svg>
   );
 };

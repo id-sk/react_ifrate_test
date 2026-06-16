@@ -7,17 +7,16 @@ export interface TextIncreaseIconProps extends React.SVGProps<SVGSVGElement> {
 const TextIncreaseIcon = ({ size, ...props }: TextIncreaseIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M1.0365 19.7916H3.55733L4.88025 16.0624H10.7657L12.0782 19.7916H14.599L9.11983 5.20825H6.51567L1.0365 19.7916ZM5.64067 13.9478L7.75525 7.91658H7.88025L9.99483 13.9478H5.64067ZM20.8386 11.4583H23.9636V13.5416H20.8386V16.6666H18.7552V13.5416H15.6302V11.4583H18.7552V8.33325H20.8386V11.4583Z"
-        fill="currentColor"
-      />
+      
+<path d="M1.0365 19.7916H3.55733L4.88025 16.0624H10.7657L12.0782 19.7916H14.599L9.11983 5.20825H6.51567L1.0365 19.7916ZM5.64067 13.9478L7.75525 7.91658H7.88025L9.99483 13.9478H5.64067ZM20.8386 11.4583H23.9636V13.5416H20.8386V16.6666H18.7552V13.5416H15.6302V11.4583H18.7552V8.33325H20.8386V11.4583Z" fill="currentColor"/>
     </svg>
   );
 };

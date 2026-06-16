@@ -7,22 +7,21 @@ export interface EditRoadIconProps extends React.SVGProps<SVGSVGElement> {
 const EditRoadIcon = ({ size, ...props }: EditRoadIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path d="M17.1862 4.1665H15.1029V12.3957L17.1862 10.3123V4.1665Z" fill="currentColor" />
-      <path d="M4.68624 4.1665H2.60291V20.8332H4.68624V4.1665Z" fill="currentColor" />
-      <path d="M10.9362 4.1665H8.85291V8.33317H10.9362V4.1665Z" fill="currentColor" />
-      <path d="M10.9362 10.4165H8.85291V14.5832H10.9362V10.4165Z" fill="currentColor" />
-      <path d="M10.9362 16.6665H8.85291V20.8332H10.9362V16.6665Z" fill="currentColor" />
-      <path
-        d="M21.9362 13.1144L20.7383 11.9165C20.1237 11.3019 19.1342 11.3019 18.53 11.9165L13.0196 17.4269V20.8332H16.4258L21.9362 15.3228C22.5508 14.7082 22.5508 13.7186 21.9362 13.1144ZM15.7071 19.2186H14.6342V18.1457L18.2279 14.5519L19.3008 15.6248L15.7071 19.2186Z"
-        fill="currentColor"
-      />
+      
+<path d="M17.1862 4.1665H15.1029V12.3957L17.1862 10.3123V4.1665Z" fill="currentColor"/>
+<path d="M4.68624 4.1665H2.60291V20.8332H4.68624V4.1665Z" fill="currentColor"/>
+<path d="M10.9362 4.1665H8.85291V8.33317H10.9362V4.1665Z" fill="currentColor"/>
+<path d="M10.9362 10.4165H8.85291V14.5832H10.9362V10.4165Z" fill="currentColor"/>
+<path d="M10.9362 16.6665H8.85291V20.8332H10.9362V16.6665Z" fill="currentColor"/>
+<path d="M21.9362 13.1144L20.7383 11.9165C20.1237 11.3019 19.1342 11.3019 18.53 11.9165L13.0196 17.4269V20.8332H16.4258L21.9362 15.3228C22.5508 14.7082 22.5508 13.7186 21.9362 13.1144ZM15.7071 19.2186H14.6342V18.1457L18.2279 14.5519L19.3008 15.6248L15.7071 19.2186Z" fill="currentColor"/>
     </svg>
   );
 };

@@ -7,17 +7,16 @@ export interface ShuffleIconProps extends React.SVGProps<SVGSVGElement> {
 const ShuffleIcon = ({ size, ...props }: ShuffleIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M11.0313 9.55204L5.6355 4.16663L4.16675 5.63538L9.55216 11.0208L11.0313 9.55204ZM15.1042 4.16663L17.2292 6.29163L4.16675 19.3645L5.6355 20.8333L18.7084 7.77079L20.8334 9.89579V4.16663H15.1042ZM15.448 13.9687L13.9792 15.4375L17.2397 18.6979L15.1042 20.8333H20.8334V15.1041L18.7084 17.2291L15.448 13.9687Z"
-        fill="currentColor"
-      />
+      
+<path d="M11.0313 9.55204L5.6355 4.16663L4.16675 5.63538L9.55216 11.0208L11.0313 9.55204ZM15.1042 4.16663L17.2292 6.29163L4.16675 19.3645L5.6355 20.8333L18.7084 7.77079L20.8334 9.89579V4.16663H15.1042ZM15.448 13.9687L13.9792 15.4375L17.2397 18.6979L15.1042 20.8333H20.8334V15.1041L18.7084 17.2291L15.448 13.9687Z" fill="currentColor"/>
     </svg>
   );
 };

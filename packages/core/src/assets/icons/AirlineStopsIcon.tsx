@@ -7,17 +7,16 @@ export interface AirlineStopsIconProps extends React.SVGProps<SVGSVGElement> {
 const AirlineStopsIcon = ({ size, ...props }: AirlineStopsIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M19.4897 9.59391C17.1147 11.2293 14.5313 13.8543 14.0626 17.7085H16.1459V19.7918H9.89591V17.7085H11.9792C11.4584 13.021 7.42716 9.37516 2.60425 9.37516V7.29183C7.17716 7.29183 11.1667 9.94808 13.0209 13.8543C14.198 11.3231 16.1355 9.42725 18.0001 8.10433L15.1042 5.2085H22.3959V12.5002L19.4897 9.59391Z"
-        fill="currentColor"
-      />
+      
+<path d="M19.4897 9.59391C17.1147 11.2293 14.5313 13.8543 14.0626 17.7085H16.1459V19.7918H9.89591V17.7085H11.9792C11.4584 13.021 7.42716 9.37516 2.60425 9.37516V7.29183C7.17716 7.29183 11.1667 9.94808 13.0209 13.8543C14.198 11.3231 16.1355 9.42725 18.0001 8.10433L15.1042 5.2085H22.3959V12.5002L19.4897 9.59391Z" fill="currentColor"/>
     </svg>
   );
 };

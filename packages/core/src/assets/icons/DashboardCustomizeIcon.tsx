@@ -7,17 +7,16 @@ export interface DashboardCustomizeIconProps extends React.SVGProps<SVGSVGElemen
 const DashboardCustomizeIcon = ({ size, ...props }: DashboardCustomizeIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M3.125 3.125H11.4583V11.4583H3.125V3.125ZM13.5417 3.125H21.875V11.4583H13.5417V3.125ZM3.125 13.5417H11.4583V21.875H3.125V13.5417ZM18.75 13.5417H16.6667V16.6667H13.5417V18.75H16.6667V21.875H18.75V18.75H21.875V16.6667H18.75V13.5417Z"
-        fill="currentColor"
-      />
+      
+<path d="M3.125 3.125H11.4583V11.4583H3.125V3.125ZM13.5417 3.125H21.875V11.4583H13.5417V3.125ZM3.125 13.5417H11.4583V21.875H3.125V13.5417ZM18.75 13.5417H16.6667V16.6667H13.5417V18.75H16.6667V21.875H18.75V18.75H21.875V16.6667H18.75V13.5417Z" fill="currentColor"/>
     </svg>
   );
 };

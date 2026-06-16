@@ -7,17 +7,16 @@ export interface RollerShadesClosedIconProps extends React.SVGProps<SVGSVGElemen
 const RollerShadesClosedIcon = ({ size, ...props }: RollerShadesClosedIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M20.8333 18.88V2.21338H4.16659V18.88H2.08325V20.9634H10.677C10.677 21.9738 11.4895 22.7863 12.4999 22.7863C13.5103 22.7863 14.3228 21.9738 14.3228 20.9634H22.9166V18.88H20.8333ZM6.24992 18.88V16.7967H11.4583V18.88H6.24992ZM13.5416 18.88V16.7967H18.7499V18.88H13.5416Z"
-        fill="currentColor"
-      />
+      
+<path d="M20.8333 18.88V2.21338H4.16659V18.88H2.08325V20.9634H10.677C10.677 21.9738 11.4895 22.7863 12.4999 22.7863C13.5103 22.7863 14.3228 21.9738 14.3228 20.9634H22.9166V18.88H20.8333ZM6.24992 18.88V16.7967H11.4583V18.88H6.24992ZM13.5416 18.88V16.7967H18.7499V18.88H13.5416Z" fill="currentColor"/>
     </svg>
   );
 };

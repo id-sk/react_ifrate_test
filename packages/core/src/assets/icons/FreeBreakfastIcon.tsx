@@ -7,17 +7,16 @@ export interface FreeBreakfastIconProps extends React.SVGProps<SVGSVGElement> {
 const FreeBreakfastIcon = ({ size, ...props }: FreeBreakfastIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M19.7917 3.125H3.125V13.5417C3.125 15.8438 4.98958 17.7083 7.29167 17.7083H13.5417C15.8438 17.7083 17.7083 15.8438 17.7083 13.5417V10.4167H19.7917C20.9479 10.4167 21.875 9.47917 21.875 8.33333V5.20833C21.875 4.05208 20.9479 3.125 19.7917 3.125ZM19.7917 8.33333H17.7083V5.20833H19.7917V8.33333ZM3.125 19.7917H19.7917V21.875H3.125V19.7917Z"
-        fill="currentColor"
-      />
+      
+<path d="M19.7917 3.125H3.125V13.5417C3.125 15.8438 4.98958 17.7083 7.29167 17.7083H13.5417C15.8438 17.7083 17.7083 15.8438 17.7083 13.5417V10.4167H19.7917C20.9479 10.4167 21.875 9.47917 21.875 8.33333V5.20833C21.875 4.05208 20.9479 3.125 19.7917 3.125ZM19.7917 8.33333H17.7083V5.20833H19.7917V8.33333ZM3.125 19.7917H19.7917V21.875H3.125V19.7917Z" fill="currentColor"/>
     </svg>
   );
 };

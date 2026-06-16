@@ -7,17 +7,16 @@ export interface PermScanWifiIconProps extends React.SVGProps<SVGSVGElement> {
 const PermScanWifiIcon = ({ size, ...props }: PermScanWifiIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M12.5 2.60413C7.23958 2.60413 3.28125 4.53121 0 7.01038L12.5 22.3958L25 7.03121C21.7188 4.55204 17.7604 2.60413 12.5 2.60413ZM13.5417 16.1458H11.4583V9.89579H13.5417V16.1458ZM11.4583 7.81246V5.72913H13.5417V7.81246H11.4583Z"
-        fill="currentColor"
-      />
+      
+<path d="M12.5 2.60413C7.23958 2.60413 3.28125 4.53121 0 7.01038L12.5 22.3958L25 7.03121C21.7188 4.55204 17.7604 2.60413 12.5 2.60413ZM13.5417 16.1458H11.4583V9.89579H13.5417V16.1458ZM11.4583 7.81246V5.72913H13.5417V7.81246H11.4583Z" fill="currentColor"/>
     </svg>
   );
 };

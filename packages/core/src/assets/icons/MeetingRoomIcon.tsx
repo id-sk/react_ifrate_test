@@ -7,17 +7,16 @@ export interface MeetingRoomIconProps extends React.SVGProps<SVGSVGElement> {
 const MeetingRoomIcon = ({ size, ...props }: MeetingRoomIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M14.5833 6.25V21.875H3.125V19.7917H5.20833V3.125H14.5833V4.16667H19.7917V19.7917H21.875V21.875H17.7083V6.25H14.5833ZM10.4167 11.4583V13.5417H12.5V11.4583H10.4167Z"
-        fill="currentColor"
-      />
+      
+<path d="M14.5833 6.25V21.875H3.125V19.7917H5.20833V3.125H14.5833V4.16667H19.7917V19.7917H21.875V21.875H17.7083V6.25H14.5833ZM10.4167 11.4583V13.5417H12.5V11.4583H10.4167Z" fill="currentColor"/>
     </svg>
   );
 };

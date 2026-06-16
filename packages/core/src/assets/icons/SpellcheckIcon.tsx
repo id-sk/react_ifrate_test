@@ -7,17 +7,16 @@ export interface SpellcheckIconProps extends React.SVGProps<SVGSVGElement> {
 const SpellcheckIcon = ({ size, ...props }: SpellcheckIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M12.2084 15.8854H14.3855L9.06254 2.34375H7.12504L1.80212 15.8854H3.97921L5.14587 12.7604H11.0209L12.2084 15.8854ZM5.93754 10.6771L8.09379 4.92708L10.25 10.6771H5.93754ZM21.7292 11.2917L13.3021 19.7188L9.47921 15.8854L8.01046 17.3542L13.3125 22.6562L23.198 12.7604L21.7292 11.2917Z"
-        fill="currentColor"
-      />
+      
+<path d="M12.2084 15.8854H14.3855L9.06254 2.34375H7.12504L1.80212 15.8854H3.97921L5.14587 12.7604H11.0209L12.2084 15.8854ZM5.93754 10.6771L8.09379 4.92708L10.25 10.6771H5.93754ZM21.7292 11.2917L13.3021 19.7188L9.47921 15.8854L8.01046 17.3542L13.3125 22.6562L23.198 12.7604L21.7292 11.2917Z" fill="currentColor"/>
     </svg>
   );
 };

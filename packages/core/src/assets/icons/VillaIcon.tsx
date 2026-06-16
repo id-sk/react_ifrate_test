@@ -7,17 +7,16 @@ export interface VillaIconProps extends React.SVGProps<SVGSVGElement> {
 const VillaIcon = ({ size, ...props }: VillaIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M7.29167 21.875H3.125V8.33333L16.6667 3.125V10.4167H7.29167V21.875ZM19.7917 10.4167C18.6458 10.4167 17.7083 11.3542 17.7083 12.5H9.375V21.875H14.5833V16.6667H16.6667V21.875H21.875V12.5C21.875 11.3542 20.9375 10.4167 19.7917 10.4167Z"
-        fill="currentColor"
-      />
+      
+<path d="M7.29167 21.875H3.125V8.33333L16.6667 3.125V10.4167H7.29167V21.875ZM19.7917 10.4167C18.6458 10.4167 17.7083 11.3542 17.7083 12.5H9.375V21.875H14.5833V16.6667H16.6667V21.875H21.875V12.5C21.875 11.3542 20.9375 10.4167 19.7917 10.4167Z" fill="currentColor"/>
     </svg>
   );
 };

@@ -7,17 +7,16 @@ export interface PermDeviceInformationIconProps extends React.SVGProps<SVGSVGEle
 const PermDeviceInformationIcon = ({ size, ...props }: PermDeviceInformationIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M13.5417 7.29163H11.4584V9.37496H13.5417V7.29163ZM13.5417 11.4583H11.4584V17.7083H13.5417V11.4583ZM17.7084 1.05204L7.29171 1.04163C6.14587 1.04163 5.20837 1.97913 5.20837 3.12496V21.875C5.20837 23.0208 6.14587 23.9583 7.29171 23.9583H17.7084C18.8542 23.9583 19.7917 23.0208 19.7917 21.875V3.12496C19.7917 1.97913 18.8542 1.05204 17.7084 1.05204ZM17.7084 19.7916H7.29171V5.20829H17.7084V19.7916Z"
-        fill="currentColor"
-      />
+      
+<path d="M13.5417 7.29163H11.4584V9.37496H13.5417V7.29163ZM13.5417 11.4583H11.4584V17.7083H13.5417V11.4583ZM17.7084 1.05204L7.29171 1.04163C6.14587 1.04163 5.20837 1.97913 5.20837 3.12496V21.875C5.20837 23.0208 6.14587 23.9583 7.29171 23.9583H17.7084C18.8542 23.9583 19.7917 23.0208 19.7917 21.875V3.12496C19.7917 1.97913 18.8542 1.05204 17.7084 1.05204ZM17.7084 19.7916H7.29171V5.20829H17.7084V19.7916Z" fill="currentColor"/>
     </svg>
   );
 };

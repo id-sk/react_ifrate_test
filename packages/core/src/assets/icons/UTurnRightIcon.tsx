@@ -7,17 +7,16 @@ export interface UTurnRightIconProps extends React.SVGProps<SVGSVGElement> {
 const UTurnRightIcon = ({ size, ...props }: UTurnRightIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M4.6875 9.375V21.875H6.77083V9.375C6.77083 7.07292 8.63542 5.20833 10.9375 5.20833C13.2396 5.20833 15.1042 7.07292 15.1042 9.375V13.7188L13.4479 12.0625L11.9792 13.5417L16.1458 17.7083L20.3125 13.5417L18.8438 12.0729L17.1875 13.7188V9.375C17.1875 5.92708 14.3854 3.125 10.9375 3.125C7.48958 3.125 4.6875 5.92708 4.6875 9.375Z"
-        fill="currentColor"
-      />
+      
+<path d="M4.6875 9.375V21.875H6.77083V9.375C6.77083 7.07292 8.63542 5.20833 10.9375 5.20833C13.2396 5.20833 15.1042 7.07292 15.1042 9.375V13.7188L13.4479 12.0625L11.9792 13.5417L16.1458 17.7083L20.3125 13.5417L18.8438 12.0729L17.1875 13.7188V9.375C17.1875 5.92708 14.3854 3.125 10.9375 3.125C7.48958 3.125 4.6875 5.92708 4.6875 9.375Z" fill="currentColor"/>
     </svg>
   );
 };

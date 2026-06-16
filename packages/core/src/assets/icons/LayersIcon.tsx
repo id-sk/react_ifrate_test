@@ -7,17 +7,16 @@ export interface LayersIconProps extends React.SVGProps<SVGSVGElement> {
 const LayersIcon = ({ size, ...props }: LayersIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M12.4896 19.797L4.8125 13.8283L3.125 15.1408L12.5 22.4325L21.875 15.1408L20.1771 13.8179L12.4896 19.797ZM12.5 17.1512L20.1667 11.1825L21.875 9.85954L12.5 2.56787L3.125 9.85954L4.82292 11.1825L12.5 17.1512Z"
-        fill="currentColor"
-      />
+      
+<path d="M12.4896 19.797L4.8125 13.8283L3.125 15.1408L12.5 22.4325L21.875 15.1408L20.1771 13.8179L12.4896 19.797ZM12.5 17.1512L20.1667 11.1825L21.875 9.85954L12.5 2.56787L3.125 9.85954L4.82292 11.1825L12.5 17.1512Z" fill="currentColor"/>
     </svg>
   );
 };

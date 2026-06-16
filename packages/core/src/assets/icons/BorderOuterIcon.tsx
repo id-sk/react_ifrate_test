@@ -7,17 +7,16 @@ export interface BorderOuterIconProps extends React.SVGProps<SVGSVGElement> {
 const BorderOuterIcon = ({ size, ...props }: BorderOuterIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M13.5417 7.29167H11.4583V9.375H13.5417V7.29167ZM13.5417 11.4583H11.4583V13.5417H13.5417V11.4583ZM17.7083 11.4583H15.625V13.5417H17.7083V11.4583ZM3.125 3.125V21.875H21.875V3.125H3.125ZM19.7917 19.7917H5.20833V5.20833H19.7917V19.7917ZM13.5417 15.625H11.4583V17.7083H13.5417V15.625ZM9.375 11.4583H7.29167V13.5417H9.375V11.4583Z"
-        fill="currentColor"
-      />
+      
+<path d="M13.5417 7.29167H11.4583V9.375H13.5417V7.29167ZM13.5417 11.4583H11.4583V13.5417H13.5417V11.4583ZM17.7083 11.4583H15.625V13.5417H17.7083V11.4583ZM3.125 3.125V21.875H21.875V3.125H3.125ZM19.7917 19.7917H5.20833V5.20833H19.7917V19.7917ZM13.5417 15.625H11.4583V17.7083H13.5417V15.625ZM9.375 11.4583H7.29167V13.5417H9.375V11.4583Z" fill="currentColor"/>
     </svg>
   );
 };

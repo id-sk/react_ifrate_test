@@ -7,17 +7,16 @@ export interface ReportProblemIconProps extends React.SVGProps<SVGSVGElement> {
 const ReportProblemIcon = ({ size, ...props }: ReportProblemIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M1.04175 22.3958H23.9584L12.5001 2.60413L1.04175 22.3958ZM13.5417 19.2708H11.4584V17.1875H13.5417V19.2708ZM13.5417 15.1041H11.4584V10.9375H13.5417V15.1041Z"
-        fill="currentColor"
-      />
+      
+<path d="M1.04175 22.3958H23.9584L12.5001 2.60413L1.04175 22.3958ZM13.5417 19.2708H11.4584V17.1875H13.5417V19.2708ZM13.5417 15.1041H11.4584V10.9375H13.5417V15.1041Z" fill="currentColor"/>
     </svg>
   );
 };

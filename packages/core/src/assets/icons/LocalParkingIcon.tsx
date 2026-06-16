@@ -7,17 +7,16 @@ export interface LocalParkingIconProps extends React.SVGProps<SVGSVGElement> {
 const LocalParkingIcon = ({ size, ...props }: LocalParkingIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M13.0209 3.125H5.72925V21.875H9.89592V15.625H13.0209C16.4688 15.625 19.2709 12.8229 19.2709 9.375C19.2709 5.92708 16.4688 3.125 13.0209 3.125ZM13.2292 11.4583H9.89592V7.29167H13.2292C14.3751 7.29167 15.3126 8.22917 15.3126 9.375C15.3126 10.5208 14.3751 11.4583 13.2292 11.4583Z"
-        fill="currentColor"
-      />
+      
+<path d="M13.0209 3.125H5.72925V21.875H9.89592V15.625H13.0209C16.4688 15.625 19.2709 12.8229 19.2709 9.375C19.2709 5.92708 16.4688 3.125 13.0209 3.125ZM13.2292 11.4583H9.89592V7.29167H13.2292C14.3751 7.29167 15.3126 8.22917 15.3126 9.375C15.3126 10.5208 14.3751 11.4583 13.2292 11.4583Z" fill="currentColor"/>
     </svg>
   );
 };

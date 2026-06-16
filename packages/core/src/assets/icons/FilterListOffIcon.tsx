@@ -7,17 +7,16 @@ export interface FilterListOffIconProps extends React.SVGProps<SVGSVGElement> {
 const FilterListOffIcon = ({ size, ...props }: FilterListOffIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M12.026 7.59888H22.6197V5.51554H9.94263L12.026 7.59888ZM17.2343 12.8072H19.4947V10.7239H15.151L17.2343 12.8072ZM15.328 16.7968V18.0155H11.1614V15.9322H14.4635L11.3385 12.8072H6.99471V10.7239H9.25513L6.13013 7.59888H3.86971V5.51554H4.04679L2.19263 3.66138L3.66138 2.19263L22.8072 21.3385L21.3385 22.8072L15.328 16.7968Z"
-        fill="currentColor"
-      />
+      
+<path d="M12.026 7.59888H22.6197V5.51554H9.94263L12.026 7.59888ZM17.2343 12.8072H19.4947V10.7239H15.151L17.2343 12.8072ZM15.328 16.7968V18.0155H11.1614V15.9322H14.4635L11.3385 12.8072H6.99471V10.7239H9.25513L6.13013 7.59888H3.86971V5.51554H4.04679L2.19263 3.66138L3.66138 2.19263L22.8072 21.3385L21.3385 22.8072L15.328 16.7968Z" fill="currentColor"/>
     </svg>
   );
 };

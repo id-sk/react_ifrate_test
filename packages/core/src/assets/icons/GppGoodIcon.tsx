@@ -7,17 +7,16 @@ export interface GppGoodIconProps extends React.SVGProps<SVGSVGElement> {
 const GppGoodIcon = ({ size, ...props }: GppGoodIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M12.5001 2.08325L4.16675 5.20825V11.552C4.16675 16.8124 7.71883 21.7187 12.5001 22.9166C17.2813 21.7187 20.8334 16.8124 20.8334 11.552V5.20825L12.5001 2.08325ZM11.3959 16.1874L7.70841 12.4999L9.17717 11.0312L11.3855 13.2395L15.8022 8.82284L17.2709 10.2916L11.3959 16.1874Z"
-        fill="currentColor"
-      />
+      
+<path d="M12.5001 2.08325L4.16675 5.20825V11.552C4.16675 16.8124 7.71883 21.7187 12.5001 22.9166C17.2813 21.7187 20.8334 16.8124 20.8334 11.552V5.20825L12.5001 2.08325ZM11.3959 16.1874L7.70841 12.4999L9.17717 11.0312L11.3855 13.2395L15.8022 8.82284L17.2709 10.2916L11.3959 16.1874Z" fill="currentColor"/>
     </svg>
   );
 };

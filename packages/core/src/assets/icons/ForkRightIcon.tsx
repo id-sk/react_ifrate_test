@@ -7,17 +7,16 @@ export interface ForkRightIconProps extends React.SVGProps<SVGSVGElement> {
 const ForkRightIcon = ({ size, ...props }: ForkRightIconProps) => {
   return (
     <svg
-      width={size || '1em'}
-      height={size || '1em'}
+      width={size || "1em"}
+      height={size || "1em"}
       viewBox="0 0 25 25"
       fill="none"
+      focusable="false"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
-      <path
-        d="M14.1562 16.2396L15.6249 17.7083L19.7916 13.5417L15.6249 9.375L14.1562 10.8437L15.802 12.5C14.2291 12.1562 11.9166 12.5833 10.4166 13.9167V7.11458L12.0728 8.77083L13.5416 7.29167L9.37492 3.125L5.20825 7.29167L6.677 8.76042L8.33325 7.11458V21.875H10.4166V17.7083C11.177 15.0208 13.6145 14.0938 15.802 14.5833L14.1562 16.2396Z"
-        fill="currentColor"
-      />
+      
+<path d="M14.1562 16.2396L15.6249 17.7083L19.7916 13.5417L15.6249 9.375L14.1562 10.8437L15.802 12.5C14.2291 12.1562 11.9166 12.5833 10.4166 13.9167V7.11458L12.0728 8.77083L13.5416 7.29167L9.37492 3.125L5.20825 7.29167L6.677 8.76042L8.33325 7.11458V21.875H10.4166V17.7083C11.177 15.0208 13.6145 14.0938 15.802 14.5833L14.1562 16.2396Z" fill="currentColor"/>
     </svg>
   );
 };
