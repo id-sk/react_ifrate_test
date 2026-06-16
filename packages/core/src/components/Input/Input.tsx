@@ -74,11 +74,7 @@ function Input({
           <span className="idsk-input__label-text">
             {label}{' '}
             {required ? (
-              <span
-                className="idsk-input__label-required"
-                aria-hidden={true}
-                aria-label="Povinné pole"
-              >
+              <span className="idsk-input__label-required" aria-hidden={true}>
                 <AsteriskIcon size={7} />
               </span>
             ) : (
