@@ -92,6 +92,7 @@ function Button({
       className={cn(buttonVariants({ variant, colorScheme, size, iconOnly, className }))}
       ref={ref as React.Ref<HTMLButtonElement>}
       onClick={handleClick}
+      draggable={asChild ? 'false' : undefined}
       {...props}
     >
       {asChild ? (

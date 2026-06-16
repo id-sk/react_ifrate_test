@@ -242,6 +242,35 @@ describe('Button', () => {
   });
 
   // ---------------------------------------------------------------------------
+  // asChild behaviour
+  // ---------------------------------------------------------------------------
+  describe('asChild behaviour', () => {
+    it('applies draggable="false" to the child element by default when asChild is true', () => {
+      render(
+        <Button asChild>
+          <a href="https://example.com" data-testid="child-link">
+            Link
+          </a>
+        </Button>,
+      );
+      const link = screen.getByTestId('child-link');
+      expect(link).toHaveAttribute('draggable', 'false');
+    });
+
+    it('allows overriding draggable attribute when specified', () => {
+      render(
+        <Button asChild draggable="true">
+          <a href="https://example.com" data-testid="child-link">
+            Link
+          </a>
+        </Button>,
+      );
+      const link = screen.getByTestId('child-link');
+      expect(link).toHaveAttribute('draggable', 'true');
+    });
+  });
+
+  // ---------------------------------------------------------------------------
   // Accessibility — jest-axe (AC: a11y testy prechádzajú)
   // ---------------------------------------------------------------------------
   describe('Accessibility', () => {
