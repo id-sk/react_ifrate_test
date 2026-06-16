@@ -39,29 +39,6 @@ function Stepper({
 
   return (
     <nav aria-label="Kroky formuláru" className={cn('idsk-stepper', className)} {...props}>
-      <div className="idsk-stepper__header">
-        <button
-          type="button"
-          className="idsk-stepper__toggle-btn"
-          aria-expanded={isExpanded}
-          aria-controls={listId}
-          aria-label={isExpanded ? 'Skryť zoznam krokov' : 'Zobraziť zoznam krokov'}
-          onClick={() => setIsExpanded((prev) => !prev)}
-        >
-          <span className="idsk-stepper__toggle-icon" aria-hidden="true">
-            {isExpanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-          </span>
-        </button>
-        <div className="idsk-stepper__header-content">
-          <StepperStepCounter step={clampedActive + 1} total={total} />
-          <StepperLoader
-            value={clampedActive + 1}
-            max={total}
-            label={`Krok ${clampedActive + 1} z ${total}`}
-          />
-        </div>
-      </div>
-
       <div
         id={listId}
         className="idsk-stepper__dropdown"
@@ -100,6 +77,29 @@ function Stepper({
             );
           })}
         </ol>
+      </div>
+
+      <div className="idsk-stepper__header">
+        <button
+          type="button"
+          className="idsk-stepper__toggle-btn"
+          aria-expanded={isExpanded}
+          aria-controls={listId}
+          aria-label={isExpanded ? 'Skryť zoznam krokov' : 'Zobraziť zoznam krokov'}
+          onClick={() => setIsExpanded((prev) => !prev)}
+        >
+          <span className="idsk-stepper__toggle-icon" aria-hidden="true">
+            {isExpanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+          </span>
+        </button>
+        <div className="idsk-stepper__header-content">
+          <StepperStepCounter step={clampedActive + 1} total={total} />
+          <StepperLoader
+            value={clampedActive + 1}
+            max={total}
+            label={`Krok ${clampedActive + 1} z ${total}`}
+          />
+        </div>
       </div>
     </nav>
   );

@@ -4,27 +4,11 @@
  * Expects this HTML structure:
  *
  *   <nav class="idsk-stepper" data-idsk="stepper" aria-label="Kroky formuláru">
- *     <div class="idsk-stepper__header">
- *       <button
- *         type="button"
- *         class="idsk-stepper__toggle-btn"
- *         aria-expanded="false"
- *         aria-controls="<dropdown-id>"
- *         aria-label="Zobraziť zoznam krokov"
- *       >
- *         <span class="idsk-stepper__toggle-icon" aria-hidden="true"></span>
- *       </button>
- *       <div class="idsk-stepper__header-content">
- *         <span class="idsk-stepper-step-counter">
- *           <span class="idsk-stepper-step-counter__label">Krok</span>
- *           <span class="idsk-stepper-step-counter__value">1/5</span>
- *         </span>
- *         <div class="idsk-stepper-loader" role="progressbar"
- *              aria-valuenow="1" aria-valuemin="1" aria-valuemax="5" aria-label="Krok 1 z 5">
- *           <div class="idsk-stepper-loader__fill" style="width: 20%"></div>
- *         </div>
- *       </div>
- *     </div>
+ *     <!--
+ *       Dropdown is first in DOM: AT reads expanded step list before the header
+ *       (step counter + progress bar). CSS order:-1 on .idsk-stepper__header
+ *       keeps it visually on top.
+ *     -->
  *     <div id="<dropdown-id>" class="idsk-stepper__dropdown" hidden aria-hidden="true">
  *       <p class="idsk-stepper__dropdown-title">Prejsť na krok:</p>
  *       <ol class="idsk-stepper__list">
@@ -51,6 +35,27 @@
  *           ...
  *         </li>
  *       </ol>
+ *     </div>
+ *     <div class="idsk-stepper__header">
+ *       <button
+ *         type="button"
+ *         class="idsk-stepper__toggle-btn"
+ *         aria-expanded="false"
+ *         aria-controls="<dropdown-id>"
+ *         aria-label="Zobraziť zoznam krokov"
+ *       >
+ *         <span class="idsk-stepper__toggle-icon" aria-hidden="true"></span>
+ *       </button>
+ *       <div class="idsk-stepper__header-content">
+ *         <span class="idsk-stepper-step-counter">
+ *           <span class="idsk-stepper-step-counter__label">Krok</span>
+ *           <span class="idsk-stepper-step-counter__value">1/5</span>
+ *         </span>
+ *         <div class="idsk-stepper-loader" role="progressbar"
+ *              aria-valuenow="1" aria-valuemin="1" aria-valuemax="5" aria-label="Krok 1 z 5">
+ *           <div class="idsk-stepper-loader__fill" style="width: 20%"></div>
+ *         </div>
+ *       </div>
  *     </div>
  *   </nav>
  *

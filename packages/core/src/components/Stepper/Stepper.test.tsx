@@ -9,12 +9,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import { axe } from '../../test/axe';
 import { Stepper } from './Stepper';
 
-
-const defaultSteps = [
-  { label: 'Osobné údaje' },
-  { label: 'Adresa' },
-  { label: 'Potvrdenie' },
-];
+const defaultSteps = [{ label: 'Osobné údaje' }, { label: 'Adresa' }, { label: 'Potvrdenie' }];
 
 describe('Stepper', () => {
   afterEach(() => {
@@ -68,14 +63,20 @@ describe('Stepper', () => {
 
     it('dropdown has aria-hidden=true when collapsed', () => {
       render(<Stepper steps={defaultSteps} activeStep={0} />);
-      expect(document.querySelector('.idsk-stepper__dropdown')).toHaveAttribute('aria-hidden', 'true');
+      expect(document.querySelector('.idsk-stepper__dropdown')).toHaveAttribute(
+        'aria-hidden',
+        'true',
+      );
     });
 
     it('dropdown has aria-hidden=false when expanded', async () => {
       const user = userEvent.setup();
       render(<Stepper steps={defaultSteps} activeStep={0} />);
       await user.click(screen.getByRole('button'));
-      expect(document.querySelector('.idsk-stepper__dropdown')).toHaveAttribute('aria-hidden', 'false');
+      expect(document.querySelector('.idsk-stepper__dropdown')).toHaveAttribute(
+        'aria-hidden',
+        'false',
+      );
     });
 
     it('toggle icon span has aria-hidden="true"', () => {
@@ -284,10 +285,7 @@ describe('Stepper', () => {
 
     it('shows SVG icon for summary step instead of number', async () => {
       const user = userEvent.setup();
-      const steps = [
-        { label: 'Krok 1' },
-        { label: 'Zhrnutie', isSummary: true as const },
-      ];
+      const steps = [{ label: 'Krok 1' }, { label: 'Zhrnutie', isSummary: true as const }];
       render(<Stepper steps={steps} activeStep={0} />);
       await user.click(screen.getByRole('button'));
       const summaryItem = document.querySelector('.idsk-stepper__item--summary');
@@ -320,8 +318,10 @@ describe('Stepper', () => {
     it('calls onStepClick with the step index on click', async () => {
       const user = userEvent.setup();
       const onStepClick = vi.fn();
-      render(<Stepper steps={defaultSteps} activeStep={2} onStepClick={onStepClick} defaultExpanded />);
-      const stepButtons = screen.getAllByRole('button').slice(1); // skip toggle
+      render(
+        <Stepper steps={defaultSteps} activeStep={2} onStepClick={onStepClick} defaultExpanded />,
+      );
+      const stepButtons = screen.getAllByRole('button').slice(0, -1); // exclude toggle (last in DOM)
       await user.click(stepButtons[0]);
       expect(onStepClick).toHaveBeenCalledWith(0);
     });
@@ -329,8 +329,10 @@ describe('Stepper', () => {
     it('calls onStepClick with correct index for second completed step', async () => {
       const user = userEvent.setup();
       const onStepClick = vi.fn();
-      render(<Stepper steps={defaultSteps} activeStep={2} onStepClick={onStepClick} defaultExpanded />);
-      const stepButtons = screen.getAllByRole('button').slice(1);
+      render(
+        <Stepper steps={defaultSteps} activeStep={2} onStepClick={onStepClick} defaultExpanded />,
+      );
+      const stepButtons = screen.getAllByRole('button').slice(0, -1); // exclude toggle (last in DOM)
       await user.click(stepButtons[1]);
       expect(onStepClick).toHaveBeenCalledWith(1);
     });
@@ -338,7 +340,7 @@ describe('Stepper', () => {
     it('clicking a step button collapses the dropdown', async () => {
       const user = userEvent.setup();
       render(<Stepper steps={defaultSteps} activeStep={2} onStepClick={vi.fn()} defaultExpanded />);
-      const stepButtons = screen.getAllByRole('button').slice(1);
+      const stepButtons = screen.getAllByRole('button').slice(0, -1); // exclude toggle (last in DOM)
       await user.click(stepButtons[0]);
       expect(document.querySelector('.idsk-stepper__dropdown')).toHaveAttribute('hidden');
     });
@@ -354,8 +356,10 @@ describe('Stepper', () => {
     it('invokes onStepClick on keyboard Enter', async () => {
       const user = userEvent.setup();
       const onStepClick = vi.fn();
-      render(<Stepper steps={defaultSteps} activeStep={2} onStepClick={onStepClick} defaultExpanded />);
-      const stepButton = screen.getAllByRole('button')[1];
+      render(
+        <Stepper steps={defaultSteps} activeStep={2} onStepClick={onStepClick} defaultExpanded />,
+      );
+      const stepButton = screen.getAllByRole('button')[0];
       stepButton.focus();
       await user.keyboard('{Enter}');
       expect(onStepClick).toHaveBeenCalledWith(0);
@@ -364,8 +368,10 @@ describe('Stepper', () => {
     it('invokes onStepClick on keyboard Space', async () => {
       const user = userEvent.setup();
       const onStepClick = vi.fn();
-      render(<Stepper steps={defaultSteps} activeStep={2} onStepClick={onStepClick} defaultExpanded />);
-      const stepButton = screen.getAllByRole('button')[1];
+      render(
+        <Stepper steps={defaultSteps} activeStep={2} onStepClick={onStepClick} defaultExpanded />,
+      );
+      const stepButton = screen.getAllByRole('button')[0];
       stepButton.focus();
       await user.keyboard(' ');
       expect(onStepClick).toHaveBeenCalledWith(0);
