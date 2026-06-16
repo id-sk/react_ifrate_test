@@ -133,6 +133,10 @@
     @apply text-base-white;
   }
 
+  .idsk-button--tertiary.idsk-button--color-white:active {
+    @apply text-primary-500;
+  }
+
   /* ========== TERTIARY NO PADDING ========== */
   .idsk-button--tertiary-nopadding {
     @apply bg-transparent px-0 text-primary-500 underline decoration-solid decoration-2 decoration-skip-ink-none;
@@ -164,5 +168,9 @@
 
   .idsk-button--tertiary-nopadding.idsk-button--color-white {
     @apply text-base-white;
+  }
+
+  .idsk-button--tertiary-nopadding.idsk-button--color-white:active {
+    @apply text-primary-500;
   }
 }
