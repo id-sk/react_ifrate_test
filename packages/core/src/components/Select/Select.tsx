@@ -114,10 +114,7 @@ function Select({
   const radixDefaultValue =
     defaultValue === undefined || defaultValue === '' ? undefined : defaultValue;
 
-  const ariaDescribedBy =
-    [inputDescription ? hintId : null, isError && errorDescription ? errorId : null]
-      .filter(Boolean)
-      .join(' ') || undefined;
+  const ariaDescribedBy = inputDescription ? hintId : undefined;
 
   return (
     <div className="idsk-select-container">
@@ -159,6 +156,7 @@ function Select({
             )}
             aria-invalid={isError ? true : undefined}
             aria-describedby={ariaDescribedBy}
+            aria-errormessage={isError && errorDescription ? errorId : undefined}
             aria-required={required || undefined}
             {...(autoComplete ? { autoComplete } : {})}
           >

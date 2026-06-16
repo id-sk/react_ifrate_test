@@ -22,12 +22,12 @@ describe('Checkbox', () => {
     expect(input).toHaveAttribute('aria-describedby', 'test-id-hint');
   });
 
-  it('renders error message and links with aria-describedby and aria-invalid', () => {
+  it('renders error message and links with aria-errormessage and aria-invalid', () => {
     render(<Checkbox label="Option 1" errorMessage="Error occurred" id="test-id" />);
     const input = screen.getByLabelText('Option 1');
     const error = screen.getByText('Error occurred');
     expect(error).toHaveAttribute('id', 'test-id-error');
-    expect(input).toHaveAttribute('aria-describedby', 'test-id-error');
+    expect(input).toHaveAttribute('aria-errormessage', 'test-id-error');
     expect(input).toHaveAttribute('aria-invalid', 'true');
   });
 
@@ -77,7 +77,7 @@ describe('CheckboxGroup', () => {
     expect(group).toHaveAttribute('aria-describedby', expect.stringContaining(hint.id));
   });
 
-  it('links fieldset error message via aria-describedby', () => {
+  it('links fieldset error message via aria-errormessage', () => {
     render(
       <CheckboxGroup legend="Choose options" errorMessage="Group error">
         <Checkbox label="Option 1" />
@@ -85,6 +85,7 @@ describe('CheckboxGroup', () => {
     );
     const group = screen.getByRole('group', { name: 'Choose options' });
     const error = screen.getByText('Group error');
-    expect(group).toHaveAttribute('aria-describedby', expect.stringContaining(error.id));
+    expect(group).toHaveAttribute('aria-errormessage', error.id);
+    expect(group).toHaveAttribute('aria-invalid', 'true');
   });
 });

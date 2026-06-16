@@ -54,99 +54,97 @@ function Textarea({
   ref,
   ...props
 }: TextareaProps) {
-    const generatedId = useId();
-    const textareaId = id || generatedId;
-    const hintId = `${textareaId}-hint`;
-    const errorId = `${textareaId}-error`;
+  const generatedId = useId();
+  const textareaId = id || generatedId;
+  const hintId = `${textareaId}-hint`;
+  const errorId = `${textareaId}-error`;
 
-    const isError = variant === 'error';
+  const isError = variant === 'error';
 
-    // For uncontrolled usage, track char count via state; for controlled, derive from value directly.
-    const [uncontrolledCount, setUncontrolledCount] = useState(() =>
-      String(defaultValue ?? '').length,
-    );
+  // For uncontrolled usage, track char count via state; for controlled, derive from value directly.
+  const [uncontrolledCount, setUncontrolledCount] = useState(
+    () => String(defaultValue ?? '').length,
+  );
 
-    const charCount = value !== undefined ? String(value).length : uncontrolledCount;
+  const charCount = value !== undefined ? String(value).length : uncontrolledCount;
 
-    const handleOnChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-      if (value === undefined) {
-        setUncontrolledCount(event.target.value.length);
-      }
-      onChange?.(event);
-    };
+  const handleOnChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    if (value === undefined) {
+      setUncontrolledCount(event.target.value.length);
+    }
+    onChange?.(event);
+  };
 
-    const ariaDescribedBy =
-      [inputDescription ? hintId : null, isError && errorDescription ? errorId : null]
-        .filter(Boolean)
-        .join(' ') || undefined;
+  const ariaDescribedBy = inputDescription ? hintId : undefined;
 
-    return (
-      <div className="idsk-textarea-container">
-        {label && (
-          <Label.Root htmlFor={textareaId} className="idsk-textarea__label">
-            <span className="idsk-textarea__label-text">
-              {label}{' '}
-              {required ? (
-                <span className="idsk-textarea__label-required" aria-hidden={true}>
-                  <AsteriskIcon size={7} />
-                </span>
-              ) : (
-                <span className="idsk-textarea__label-not-required">(nepovinné pole)</span>
-              )}
-              {tooltip && <Tooltip {...tooltip} />}
-            </span>
-
-            {labelDescription && (
-              <span className="idsk-textarea__label-description">{labelDescription}</span>
+  return (
+    <div className="idsk-textarea-container">
+      {label && (
+        <Label.Root htmlFor={textareaId} className="idsk-textarea__label">
+          <span className="idsk-textarea__label-text">
+            {label}{' '}
+            {required ? (
+              <span className="idsk-textarea__label-required" aria-hidden={true}>
+                <AsteriskIcon size={7} />
+              </span>
+            ) : (
+              <span className="idsk-textarea__label-not-required">(nepovinné pole)</span>
             )}
-          </Label.Root>
+            {tooltip && <Tooltip {...tooltip} />}
+          </span>
+
+          {labelDescription && (
+            <span className="idsk-textarea__label-description">{labelDescription}</span>
+          )}
+        </Label.Root>
+      )}
+      <div className={cn('idsk-textarea__wrapper')}>
+        <textarea
+          id={textareaId}
+          className={cn(textareaVariants({ variant, className }))}
+          ref={ref}
+          required={required}
+          disabled={disabled}
+          maxLength={maxLength}
+          onChange={handleOnChange}
+          value={value}
+          defaultValue={defaultValue}
+          {...props}
+          aria-invalid={isError ? true : undefined}
+          aria-describedby={ariaDescribedBy}
+          aria-errormessage={isError && errorDescription ? errorId : undefined}
+        />
+
+        {isError && (
+          <span className="idsk-textarea__wrapper__error-icon">
+            <WarningIcon size={20} />
+          </span>
         )}
-        <div className={cn('idsk-textarea__wrapper')}>
-          <textarea
-            id={textareaId}
-            className={cn(textareaVariants({ variant, className }))}
-            ref={ref}
-            required={required}
-            disabled={disabled}
-            maxLength={maxLength}
-            onChange={handleOnChange}
-            value={value}
-            defaultValue={defaultValue}
-            {...props}
-            aria-invalid={isError ? true : undefined}
-            aria-describedby={ariaDescribedBy}
-          />
 
-          {isError && (
-            <span className="idsk-textarea__wrapper__error-icon">
-              <WarningIcon size={20} />
+        {maxLength !== undefined && (
+          <span className="idsk-character-count" aria-live="polite">
+            {charCount}/{maxLength}
+          </span>
+        )}
+      </div>
+
+      <div className="idsk-textarea__footer">
+        <div className="idsk-textarea__footer-left">
+          {inputDescription && (
+            <span id={hintId} className="idsk-textarea__description">
+              {inputDescription}
             </span>
           )}
 
-          {maxLength !== undefined && (
-            <span className="idsk-character-count" aria-live="polite">
-              {charCount}/{maxLength}
+          {isError && errorDescription && (
+            <span id={errorId} className="idsk-textarea__error-description">
+              {errorDescription}
             </span>
           )}
-        </div>
-
-        <div className="idsk-textarea__footer">
-          <div className="idsk-textarea__footer-left">
-            {inputDescription && (
-              <span id={hintId} className="idsk-textarea__description">
-                {inputDescription}
-              </span>
-            )}
-
-            {isError && errorDescription && (
-              <span id={errorId} className="idsk-textarea__error-description">
-                {errorDescription}
-              </span>
-            )}
-          </div>
         </div>
       </div>
-    );
+    </div>
+  );
 }
 
 export { Textarea, textareaVariants };

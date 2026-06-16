@@ -47,11 +47,7 @@ function Radio({
   const hintId = `${radioId}-hint`;
   const errorId = `${radioId}-error`;
 
-  const ariaDescribedBy = [
-    props['aria-describedby'],
-    hint ? hintId : null,
-    errorMessage ? errorId : null,
-  ]
+  const ariaDescribedBy = [props['aria-describedby'], hint ? hintId : null]
     .filter(Boolean)
     .join(' ');
 
@@ -63,7 +59,9 @@ function Radio({
         type="radio"
         id={radioId}
         required={required}
+        aria-invalid={errorMessage ? 'true' : undefined}
         aria-describedby={ariaDescribedBy || undefined}
+        aria-errormessage={errorMessage ? errorId : undefined}
         className={cn('idsk-radio__input', className)}
       />
       <label htmlFor={radioId} className={cn('idsk-radio__label', labelClassName)}>
@@ -112,15 +110,15 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
   const hintId = `${generatedId}-hint`;
   const errorId = `${generatedId}-error`;
 
-  const ariaDescribedBy = [hint ? hintId : null, errorMessage ? errorId : null]
-    .filter(Boolean)
-    .join(' ');
+  const ariaDescribedBy = hint ? hintId : undefined;
 
   return (
     <fieldset
       role="radiogroup"
       className={cn('idsk-radio-group', className)}
-      aria-describedby={ariaDescribedBy || undefined}
+      aria-invalid={errorMessage ? 'true' : undefined}
+      aria-describedby={ariaDescribedBy}
+      aria-errormessage={errorMessage ? errorId : undefined}
     >
       <legend className="idsk-radio-group__legend">
         <span className="idsk-radio-group__legend-content">

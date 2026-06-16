@@ -65,21 +65,22 @@ describe('Radio', () => {
   });
 
   describe('error state', () => {
-    it('links error message via aria-describedby', () => {
+    it('links error message via aria-errormessage and sets aria-invalid', () => {
       render(<Radio label="Jablko" name="fruit" errorMessage="Prosím vyberte" id="r1" />);
       const input = screen.getByLabelText('Jablko');
       const error = screen.getByText('Prosím vyberte');
       expect(error).toHaveAttribute('id', 'r1-error');
-      expect(input).toHaveAttribute('aria-describedby', 'r1-error');
+      expect(input).toHaveAttribute('aria-errormessage', 'r1-error');
+      expect(input).toHaveAttribute('aria-invalid', 'true');
     });
 
-    it('includes both hint and error in aria-describedby', () => {
+    it('links hint via aria-describedby and error via aria-errormessage', () => {
       render(
         <Radio label="Jablko" name="fruit" hint="Nápoveda" errorMessage="Chyba výberu" id="r1" />,
       );
-      const describedBy = screen.getByLabelText('Jablko').getAttribute('aria-describedby') ?? '';
-      expect(describedBy).toContain('r1-hint');
-      expect(describedBy).toContain('r1-error');
+      const input = screen.getByLabelText('Jablko');
+      expect(input).toHaveAttribute('aria-describedby', 'r1-hint');
+      expect(input).toHaveAttribute('aria-errormessage', 'r1-error');
     });
   });
 
@@ -133,13 +134,13 @@ describe('RadioGroup', () => {
       expect(container.querySelector('fieldset')).toBeInTheDocument();
     });
 
-    it('renders group title in a <legend> element', () => {
+    it('renders group title inside a <legend> element', () => {
       render(
         <RadioGroup legend="Obľúbené ovocie">
           <Radio label="Jablko" name="fruit" value="apple" />
         </RadioGroup>,
       );
-      expect(screen.getByText('Obľúbené ovocie').tagName).toBe('LEGEND');
+      expect(screen.getByText('Obľúbené ovocie').closest('legend')).not.toBeNull();
     });
 
     it('is accessible as radiogroup role named by legend', () => {
@@ -191,7 +192,7 @@ describe('RadioGroup', () => {
   });
 
   describe('error state', () => {
-    it('renders error message linked to fieldset via aria-describedby', () => {
+    it('renders error message linked to fieldset via aria-errormessage', () => {
       render(
         <RadioGroup legend="Obľúbené ovocie" errorMessage="Prosím vyberte možnosť">
           <Radio label="Jablko" name="fruit" value="apple" />
@@ -199,19 +200,22 @@ describe('RadioGroup', () => {
       );
       const group = screen.getByRole('radiogroup', { name: 'Obľúbené ovocie' });
       const error = screen.getByText('Prosím vyberte možnosť');
-      expect(group).toHaveAttribute('aria-describedby', expect.stringContaining(error.id));
+      expect(group).toHaveAttribute('aria-errormessage', error.id);
+      expect(group).toHaveAttribute('aria-invalid', 'true');
     });
 
-    it('includes both hint and error in fieldset aria-describedby', () => {
+    it('links fieldset hint via aria-describedby and error via aria-errormessage', () => {
       render(
         <RadioGroup legend="Obľúbené ovocie" hint="Nápoveda skupiny" errorMessage="Chyba skupiny">
           <Radio label="Jablko" name="fruit" value="apple" />
         </RadioGroup>,
       );
       const group = screen.getByRole('radiogroup', { name: 'Obľúbené ovocie' });
-      const describedBy = group.getAttribute('aria-describedby') ?? '';
-      expect(describedBy).toContain(screen.getByText('Nápoveda skupiny').id);
-      expect(describedBy).toContain(screen.getByText('Chyba skupiny').id);
+      expect(group).toHaveAttribute(
+        'aria-describedby',
+        expect.stringContaining(screen.getByText('Nápoveda skupiny').id),
+      );
+      expect(group).toHaveAttribute('aria-errormessage', screen.getByText('Chyba skupiny').id);
     });
   });
 });

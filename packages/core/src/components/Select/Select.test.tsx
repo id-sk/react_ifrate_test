@@ -241,7 +241,7 @@ describe('Select', () => {
       expect(screen.queryByText('hidden')).toBeNull();
     });
 
-    it('trigger has aria-describedby referencing error span id', () => {
+    it('trigger has aria-errormessage referencing error span id', () => {
       render(
         <Select
           variant="error"
@@ -253,12 +253,12 @@ describe('Select', () => {
       const trigger = screen.getByRole('combobox');
       const errorSpan = document.querySelector('.idsk-select__error-description') as HTMLElement;
       expect(errorSpan).toBeInTheDocument();
-      expect(trigger.getAttribute('aria-describedby')).toContain(errorSpan.id);
+      expect(trigger).toHaveAttribute('aria-errormessage', errorSpan.id);
     });
   });
 
-  describe('Combined aria-describedby (hint + error)', () => {
-    it('references both hint and error IDs when both are present', () => {
+  describe('aria-describedby (hint) and aria-errormessage (error)', () => {
+    it('hint in aria-describedby and error in aria-errormessage when both are present', () => {
       render(
         <Select
           variant="error"
@@ -271,9 +271,8 @@ describe('Select', () => {
       const trigger = screen.getByRole('combobox');
       const hint = document.querySelector('.idsk-select__description') as HTMLElement;
       const error = document.querySelector('.idsk-select__error-description') as HTMLElement;
-      const describedBy = trigger.getAttribute('aria-describedby') ?? '';
-      expect(describedBy).toContain(hint.id);
-      expect(describedBy).toContain(error.id);
+      expect(trigger).toHaveAttribute('aria-describedby', hint.id);
+      expect(trigger).toHaveAttribute('aria-errormessage', error.id);
     });
   });
 

@@ -71,11 +71,7 @@ function Checkbox({
     }
   };
 
-  const ariaDescribedBy = [
-    props['aria-describedby'],
-    hint ? hintId : null,
-    errorMessage ? errorId : null,
-  ]
+  const ariaDescribedBy = [props['aria-describedby'], hint ? hintId : null]
     .filter(Boolean)
     .join(' ');
 
@@ -90,6 +86,7 @@ function Checkbox({
         checked={checked}
         aria-invalid={errorMessage ? 'true' : undefined}
         aria-describedby={ariaDescribedBy || undefined}
+        aria-errormessage={errorMessage ? errorId : undefined}
         className={cn('idsk-checkbox__input', className)}
       />
       <label htmlFor={checkboxId} className={cn('idsk-checkbox__label', labelClassName)}>
@@ -147,15 +144,15 @@ const CheckboxGroup: React.FC<CheckboxGroupProps> = ({
   const hintId = `${generatedId}-hint`;
   const errorId = `${generatedId}-error`;
 
-  const ariaDescribedBy = [hint ? hintId : null, errorMessage ? errorId : null]
-    .filter(Boolean)
-    .join(' ');
+  const ariaDescribedBy = hint ? hintId : undefined;
 
   return (
     <fieldset
       role="group"
       className={cn('idsk-checkbox-group', className)}
-      aria-describedby={ariaDescribedBy || undefined}
+      aria-invalid={errorMessage ? 'true' : undefined}
+      aria-describedby={ariaDescribedBy}
+      aria-errormessage={errorMessage ? errorId : undefined}
     >
       <legend className="idsk-checkbox-group__legend">
         <span className="idsk-checkbox-group__legend-content">

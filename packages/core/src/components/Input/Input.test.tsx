@@ -144,17 +144,17 @@ describe('Input', () => {
       expect(screen.queryByText('hidden')).toBeNull();
     });
 
-    it('input has aria-describedby referencing error span id', () => {
+    it('input has aria-errormessage referencing error span id', () => {
       render(<Input variant="error" errorDescription="Pole je povinné" id="meno" />);
       const input = screen.getByRole('textbox');
       const errorSpan = document.querySelector('.idsk-input__error-description') as HTMLElement;
       expect(errorSpan).toBeInTheDocument();
-      expect(input.getAttribute('aria-describedby')).toContain(errorSpan.id);
+      expect(input).toHaveAttribute('aria-errormessage', errorSpan.id);
     });
   });
 
-  describe('Combined aria-describedby (hint + error)', () => {
-    it('references both hint and error IDs when both are present', () => {
+  describe('aria-describedby (hint) and aria-errormessage (error)', () => {
+    it('hint in aria-describedby and error in aria-errormessage when both are present', () => {
       render(
         <Input
           variant="error"
@@ -166,9 +166,8 @@ describe('Input', () => {
       const input = screen.getByRole('textbox');
       const hintSpan = document.querySelector('.idsk-input__description') as HTMLElement;
       const errorSpan = document.querySelector('.idsk-input__error-description') as HTMLElement;
-      const describedBy = input.getAttribute('aria-describedby') ?? '';
-      expect(describedBy).toContain(hintSpan.id);
-      expect(describedBy).toContain(errorSpan.id);
+      expect(input).toHaveAttribute('aria-describedby', hintSpan.id);
+      expect(input).toHaveAttribute('aria-errormessage', errorSpan.id);
     });
   });
 

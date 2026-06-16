@@ -77,7 +77,7 @@ export function init(container: HTMLElement): void {
   if (native.required) trigger.setAttribute('aria-required', 'true');
 
   // Forward ARIA attributes from the original native select
-  ['aria-describedby', 'aria-invalid', 'aria-label'].forEach((attr) => {
+  ['aria-describedby', 'aria-errormessage', 'aria-invalid', 'aria-label'].forEach((attr) => {
     const val = native.getAttribute(attr);
     if (val) trigger.setAttribute(attr, val);
   });
