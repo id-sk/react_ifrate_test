@@ -148,7 +148,6 @@ const CheckboxGroup: React.FC<CheckboxGroupProps> = ({
 
   return (
     <fieldset
-      role="group"
       className={cn('idsk-checkbox-group', className)}
       aria-invalid={errorMessage ? 'true' : undefined}
       aria-describedby={ariaDescribedBy}
