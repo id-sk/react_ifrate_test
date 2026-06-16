@@ -135,6 +135,7 @@ export const Tooltip: Story = {
     tooltip: {
       content: 'Toto je nápoveda k checkboxu. Vysvetľuje, čo sa stane, ak je vybraný.',
       preferredPosition: 'top',
+      ariaLabel: 'Nápoveda k checkboxu',
     },
   },
   parameters: {
@@ -286,7 +287,11 @@ export const Skupina: Story = {
       legend="Obľúbené ovocie"
       hint="Vyberte aspoň jednu možnosť"
       required
-      tooltip={{ content: 'Môžete vybrať viacero možností.', preferredPosition: 'top' }}
+      tooltip={{
+        content: 'Môžete vybrať viacero možností.',
+        preferredPosition: 'top',
+        ariaLabel: 'Nápoveda k výberu ovocia',
+      }}
     >
       <Checkbox label="Jablko" name="fruit" value="apple" />
       <Checkbox label="Banán" name="fruit" value="banana" />
@@ -312,6 +317,7 @@ export const SkupinaSOtazkou: Story = {
       tooltip={{
         content: 'Vaša odpoveď bude použitá na zlepšenie verejnej dopravy.',
         preferredPosition: 'top',
+        ariaLabel: 'Nápoveda k otázke o doprave',
       }}
     >
       <Checkbox
@@ -319,7 +325,11 @@ export const SkupinaSOtazkou: Story = {
         name="transport"
         value="bus"
         hint="MHD alebo prímestská doprava"
-        tooltip={{ content: 'Zahŕňa MHD aj diaľkové autobusy.', preferredPosition: 'top' }}
+        tooltip={{
+          content: 'Zahŕňa MHD aj diaľkové autobusy.',
+          preferredPosition: 'top',
+          ariaLabel: 'Nápoveda k autobusu',
+        }}
       />
       <Checkbox label="Vlak" name="transport" value="train" hint="Osobný alebo rýchlik" />
       <Checkbox label="Bicykel" name="transport" value="bike" />

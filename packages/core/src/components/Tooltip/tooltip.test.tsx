@@ -78,6 +78,19 @@ describe('Tooltip', () => {
       expect(children[0]).toHaveClass('idsk-tooltip__label');
       expect(children[1].tagName).toBe('BUTTON');
     });
+
+    it('tooltip content appears immediately after trigger button in DOM when open', async () => {
+      const user = userEvent.setup();
+      render(<Tooltip {...defaultProps} />);
+      await user.click(screen.getByRole('button'));
+      await waitFor(() => {
+        const wrapper = document.querySelector('.idsk-tooltip__wrapper');
+        const children = Array.from(wrapper?.children ?? []);
+        // label (0), button (1), Radix popper wrapper (2) containing the content
+        expect(children[1].tagName).toBe('BUTTON');
+        expect(children[2].querySelector('.idsk-tooltip__content')).toBeInTheDocument();
+      });
+    });
   });
 
   // ---------------------------------------------------------------------------
@@ -124,27 +137,42 @@ describe('Tooltip', () => {
       });
     });
 
-    it('does not set aria-expanded on desktop', () => {
+    it('sets aria-expanded="false" when closed', () => {
       render(<Tooltip {...defaultProps} />);
-      expect(screen.getByRole('button')).not.toHaveAttribute('aria-expanded');
+      expect(screen.getByRole('button')).toHaveAttribute('aria-expanded', 'false');
     });
 
-    it('sets aria-expanded="false" on touch device when closed', async () => {
-      mockMatchMedia(true);
-      render(<Tooltip {...defaultProps} />);
-      await waitFor(() => {
-        expect(screen.getByRole('button')).toHaveAttribute('aria-expanded', 'false');
-      });
-    });
-
-    it('sets aria-expanded="true" on touch device when open', async () => {
-      mockMatchMedia(true);
+    it('sets aria-expanded="true" when open', async () => {
       const user = userEvent.setup();
       render(<Tooltip {...defaultProps} />);
       await user.click(screen.getByRole('button'));
       await waitFor(() => {
         expect(screen.getByRole('button')).toHaveAttribute('aria-expanded', 'true');
       });
+    });
+
+    it('trigger has aria-controls attribute', () => {
+      render(<Tooltip {...defaultProps} />);
+      expect(screen.getByRole('button')).toHaveAttribute('aria-controls');
+    });
+
+    it('aria-controls references the visible tooltip content div when open', async () => {
+      const user = userEvent.setup();
+      render(<Tooltip {...defaultProps} />);
+      await user.click(screen.getByRole('button'));
+      await waitFor(() => {
+        const btn = screen.getByRole('button');
+        const controlsId = btn.getAttribute('aria-controls');
+        expect(controlsId).toBeTruthy();
+        const controlledEl = document.getElementById(controlsId!);
+        expect(controlledEl).toBeInTheDocument();
+        expect(controlledEl).toHaveClass('idsk-tooltip__content');
+      });
+    });
+
+    it('uses default aria-label when ariaLabel is not provided', () => {
+      render(<Tooltip content="Obsah tooltipu" />);
+      expect(screen.getByRole('button')).toHaveAttribute('aria-label', 'Zobraziť informácie');
     });
 
     it('"i" span inside trigger has aria-hidden="true"', () => {

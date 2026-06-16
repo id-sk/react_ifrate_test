@@ -7,7 +7,7 @@
  */
 
 import { Tooltip as RadixTooltip } from 'radix-ui';
-import React, { useState } from 'react';
+import React, { useId, useState } from 'react';
 import { cn } from '../../lib/utils';
 import InfoOutlineIcon from '../../assets/icons/InfoOutlineIcon.tsx';
 
@@ -40,11 +40,7 @@ const Tooltip: React.FC<TooltipProps> = ({
   defaultOpen = false,
 }) => {
   const [open, setOpen] = useState(defaultOpen);
-  const [isTouchDevice] = useState(() =>
-    typeof window !== 'undefined'
-      ? window.matchMedia('(hover: none) and (pointer: coarse)').matches
-      : false,
-  );
+  const tooltipId = useId();
 
   if (process.env.NODE_ENV !== 'production' && content.length > MAX_CONTENT_LENGTH) {
     console.warn(
@@ -75,8 +71,9 @@ const Tooltip: React.FC<TooltipProps> = ({
           <RadixTooltip.Trigger asChild>
             <button
               type="button"
-              aria-label={ariaLabel}
-              aria-expanded={isTouchDevice ? open : undefined}
+              aria-label={ariaLabel ?? 'Zobraziť informácie'}
+              aria-expanded={open}
+              aria-controls={tooltipId}
               onClick={handleClick}
               onKeyDown={handleKeyDown}
               className="idsk-tooltip__trigger"
@@ -87,34 +84,35 @@ const Tooltip: React.FC<TooltipProps> = ({
               </span>
             </button>
           </RadixTooltip.Trigger>
-        </div>
 
-        <RadixTooltip.Portal>
-          <RadixTooltip.Content
-            side={preferredPosition}
-            avoidCollisions
-            collisionPadding={10}
-            sideOffset={8}
-            className="idsk-tooltip__content"
-            onPointerDownOutside={() => setOpen(false)}
-          >
-            {content}
-            <RadixTooltip.Arrow asChild className="idsk-tooltip__arrow" width={25} height={18}>
-              <svg
-                width="25"
-                height="18"
-                viewBox="0 0 25 18"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M14.7223 16.5C13.5676 18.5 10.6808 18.5 9.5261 16.5L-0.000174975 -5.78326e-07L24.2485 0L14.7223 16.5Z"
-                  fill="currentColor"
-                />
-              </svg>
-            </RadixTooltip.Arrow>
-          </RadixTooltip.Content>
-        </RadixTooltip.Portal>
+          {open && (
+            <RadixTooltip.Content
+              id={tooltipId}
+              side={preferredPosition}
+              avoidCollisions
+              collisionPadding={10}
+              sideOffset={8}
+              className="idsk-tooltip__content"
+              onPointerDownOutside={() => setOpen(false)}
+            >
+              {content}
+              <RadixTooltip.Arrow asChild className="idsk-tooltip__arrow" width={25} height={18}>
+                <svg
+                  width="25"
+                  height="18"
+                  viewBox="0 0 25 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M14.7223 16.5C13.5676 18.5 10.6808 18.5 9.5261 16.5L-0.000174975 -5.78326e-07L24.2485 0L14.7223 16.5Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </RadixTooltip.Arrow>
+            </RadixTooltip.Content>
+          )}
+        </div>
       </RadixTooltip.Root>
     </RadixTooltip.Provider>
   );

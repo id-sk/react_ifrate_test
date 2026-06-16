@@ -141,9 +141,13 @@ export function initTooltip(trigger: HTMLButtonElement): () => void {
   arrowEl.style.cssText = 'position:absolute;';
   arrowEl.innerHTML = ARROW_SVG;
   bubble.appendChild(arrowEl);
-  document.body.appendChild(bubble);
+  trigger.insertAdjacentElement('afterend', bubble);
 
+  if (!trigger.getAttribute('aria-label')) {
+    trigger.setAttribute('aria-label', 'Zobraziť informácie');
+  }
   trigger.setAttribute('aria-expanded', 'false');
+  trigger.setAttribute('aria-controls', id);
   trigger.setAttribute('aria-describedby', id);
 
   let open = false;
