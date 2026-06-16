@@ -37,14 +37,19 @@ function StepperItem({
     <span className="idsk-stepper__number">{stepNumber}</span>
   );
 
+  const shouldAddSrInfo = !isActive && !isSummary;
+  const stepStateLabel = isCompleted ? 'dokončený' : 'nedokončený';
+
   const stepContent = (
     <>
+      {shouldAddSrInfo && <span className="sr-only">{stepNumber}. krok, </span>}
       <span className="idsk-stepper__indicator-col" aria-hidden="true">
         <span className="idsk-stepper__line idsk-stepper__line--top" />
         <span className="idsk-stepper__indicator">{indicatorContent}</span>
         <span className="idsk-stepper__line idsk-stepper__line--bottom" />
       </span>
       <span className="idsk-stepper__label">{label}</span>
+      {shouldAddSrInfo && <span className="sr-only">, {stepStateLabel}</span>}
     </>
   );
 

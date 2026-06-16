@@ -109,15 +109,59 @@ describe('StepperItem', () => {
     expect(screen.getByTestId('step-item')).toBeInTheDocument();
   });
 
-  it('indicator span has aria-hidden="true"', () => {
+  it('indicator-col span has aria-hidden="true"', () => {
     const { container } = wrap(<StepperItem {...base} />);
-    const indicator = container.querySelector('.idsk-stepper__indicator');
-    expect(indicator).toHaveAttribute('aria-hidden', 'true');
+    const indicatorCol = container.querySelector('.idsk-stepper__indicator-col');
+    expect(indicatorCol).toHaveAttribute('aria-hidden', 'true');
   });
 
   it('label text is rendered inside idsk-stepper__label span', () => {
     const { container } = wrap(<StepperItem {...base} />);
     expect(container.querySelector('.idsk-stepper__label')).toHaveTextContent('Test krok');
+  });
+
+  // ---------------------------------------------------------------------------
+  // Screen-reader step order / state announcements
+  // ---------------------------------------------------------------------------
+  describe('sr-only step info', () => {
+    it('renders two sr-only spans for upcoming step', () => {
+      const { container } = wrap(<StepperItem {...base} />);
+      expect(container.querySelectorAll('.sr-only')).toHaveLength(2);
+    });
+
+    it('renders step order sr-only text for upcoming step', () => {
+      const { container } = wrap(<StepperItem {...base} />);
+      const srSpans = container.querySelectorAll('.sr-only');
+      expect(srSpans[0]).toHaveTextContent('2. krok');
+    });
+
+    it('renders nedokončený sr-only text for upcoming step', () => {
+      const { container } = wrap(<StepperItem {...base} />);
+      const srSpans = container.querySelectorAll('.sr-only');
+      expect(srSpans[1]).toHaveTextContent('nedokončený');
+    });
+
+    it('renders step order sr-only text for completed step', () => {
+      const { container } = wrap(<StepperItem {...base} isCompleted />);
+      const srSpans = container.querySelectorAll('.sr-only');
+      expect(srSpans[0]).toHaveTextContent('2. krok');
+    });
+
+    it('renders dokončený sr-only text for completed step', () => {
+      const { container } = wrap(<StepperItem {...base} isCompleted />);
+      const srSpans = container.querySelectorAll('.sr-only');
+      expect(srSpans[1]).toHaveTextContent('dokončený');
+    });
+
+    it('does not render any sr-only spans for active step', () => {
+      const { container } = wrap(<StepperItem {...base} isActive />);
+      expect(container.querySelectorAll('.sr-only')).toHaveLength(0);
+    });
+
+    it('does not render any sr-only spans for summary step', () => {
+      const { container } = wrap(<StepperItem {...base} isSummary />);
+      expect(container.querySelectorAll('.sr-only')).toHaveLength(0);
+    });
   });
 
   // ---------------------------------------------------------------------------
