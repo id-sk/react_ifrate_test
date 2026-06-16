@@ -96,6 +96,10 @@ function swapStepElement(item: HTMLElement, needsButton: boolean): void {
 }
 
 function updateState(stepper: HTMLElement, newActiveIndex: number): void {
+  const prevMax = parseInt(stepper.dataset.stepperMaxReached ?? String(newActiveIndex), 10);
+  const maxReachedIndex = Math.max(prevMax, newActiveIndex);
+  stepper.dataset.stepperMaxReached = String(maxReachedIndex);
+
   const items = Array.from(stepper.querySelectorAll<HTMLElement>('.idsk-stepper__item'));
   const total = items.length;
 
@@ -119,7 +123,7 @@ function updateState(stepper: HTMLElement, newActiveIndex: number): void {
       indicator.innerHTML = indicatorHtml(index + 1, isCompleted, isSummary);
     }
 
-    swapStepElement(item, isCompleted);
+    swapStepElement(item, index <= maxReachedIndex && !isActive);
   });
 
   const counterValue = stepper.querySelector<HTMLElement>('.idsk-stepper-step-counter__value');
@@ -154,6 +158,14 @@ export function init(element: HTMLElement): void {
   const toggleIcon = toggleBtn.querySelector<HTMLElement>('.idsk-stepper__toggle-icon');
   if (toggleIcon && !toggleIcon.children.length) {
     toggleIcon.innerHTML = EXPAND_MORE_SVG;
+  }
+
+  if (!element.dataset.stepperMaxReached) {
+    const allItems = Array.from(element.querySelectorAll('.idsk-stepper__item'));
+    const initialActive = allItems.findIndex((item) =>
+      item.classList.contains('idsk-stepper__item--active'),
+    );
+    element.dataset.stepperMaxReached = String(Math.max(0, initialActive));
   }
 
   const setExpanded = (expanded: boolean): void => {
