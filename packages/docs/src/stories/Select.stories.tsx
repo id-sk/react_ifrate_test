@@ -1,6 +1,6 @@
 import { Select } from '@idsk/core';
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { useState } from 'react';
+import { useState, type ComponentProps } from 'react';
 
 const meta = {
   title: 'Core/Select',
@@ -311,18 +311,20 @@ export const WithTooltip: Story = {
   },
 };
 
+const ControlledSelect = (args: ComponentProps<typeof Select>) => {
+  const [value, setValue] = useState('');
+  return (
+    <div className="flex flex-col gap-4">
+      <Select {...args} value={value} onValueChange={setValue} />
+      <p className="text-sm text-gray-600">
+        Vybraná hodnota: <strong>{value || '(žiadna)'}</strong>
+      </p>
+    </div>
+  );
+};
+
 export const Controlled: Story = {
-  render: (args) => {
-    const [value, setValue] = useState('');
-    return (
-      <div className="flex flex-col gap-4">
-        <Select {...args} value={value} onValueChange={setValue} />
-        <p className="text-sm text-gray-600">
-          Vybraná hodnota: <strong>{value || '(žiadna)'}</strong>
-        </p>
-      </div>
-    );
-  },
+  render: (args) => <ControlledSelect {...args} />,
   args: {
     label: 'Riadený select',
     placeholder: 'Vyberte možnosť',

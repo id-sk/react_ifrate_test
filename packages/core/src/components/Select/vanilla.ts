@@ -196,7 +196,11 @@ export function init(container: HTMLElement): void {
     viewport.querySelectorAll<HTMLElement>('[role="option"]').forEach((el) => {
       const sel = el.dataset.value === val;
       el.setAttribute('aria-selected', String(sel));
-      sel ? el.setAttribute('data-state', 'checked') : el.removeAttribute('data-state');
+      if (sel) {
+        el.setAttribute('data-state', 'checked');
+      } else {
+        el.removeAttribute('data-state');
+      }
     });
 
     native.value = val;
@@ -228,11 +232,19 @@ export function init(container: HTMLElement): void {
         break;
       case 'ArrowDown':
         e.preventDefault();
-        dropdown.hidden ? openDropdown() : setHighlight(Math.min(hlIdx + 1, its.length - 1));
+        if (dropdown.hidden) {
+          openDropdown();
+        } else {
+          setHighlight(Math.min(hlIdx + 1, its.length - 1));
+        }
         break;
       case 'ArrowUp':
         e.preventDefault();
-        dropdown.hidden ? openDropdown() : setHighlight(Math.max(hlIdx - 1, 0));
+        if (dropdown.hidden) {
+          openDropdown();
+        } else {
+          setHighlight(Math.max(hlIdx - 1, 0));
+        }
         break;
       case 'Home':
         e.preventDefault();
