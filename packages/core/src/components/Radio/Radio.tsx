@@ -53,6 +53,7 @@ function Radio({
 
   return (
     <div className={cn(radioVariants({ size }), containerClassName)}>
+      {/* eslint-disable-next-line jsx-a11y/role-supports-aria-props */}
       <input
         {...props}
         ref={ref}
