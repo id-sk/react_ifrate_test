@@ -49,7 +49,7 @@
     @apply idsk-text-main-body-1 text-text-secondary;
   }
 
-  .idsk-textarea__label-description,
+  .idsk-textarea__subheading,
   .idsk-textarea__description {
     @apply idsk-text-hint;
   }

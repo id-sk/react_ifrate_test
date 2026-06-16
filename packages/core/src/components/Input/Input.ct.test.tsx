@@ -212,10 +212,10 @@ test.describe('Automated a11y — axe in browser', () => {
     expect(results.violations).toHaveLength(0);
   });
 
-  test('with hint (inputDescription) has no a11y violations', async ({ mount, page }) => {
+  test('with description (popis) has no a11y violations', async ({ mount, page }) => {
     await mount(
       <main>
-        <Input label="Meno" id="axe-hint" inputDescription="Napr. Jana Novotná" />
+        <Input label="Meno" id="axe-hint" description="Napr. Jana Novotná" />
       </main>,
     );
     const results = await new AxeBuilder({ page }).disableRules(envRules).analyze();
@@ -239,7 +239,7 @@ test.describe('Automated a11y — axe in browser', () => {
           label="Meno"
           id="axe-error-hint"
           variant="error"
-          inputDescription="Napr. Jana"
+          description="Napr. Jana"
           errorDescription="Pole je povinné"
         />
       </main>,
@@ -258,10 +258,10 @@ test.describe('Automated a11y — axe in browser', () => {
     expect(results.violations).toHaveLength(0);
   });
 
-  test('with labelDescription (subtitle) has no a11y violations', async ({ mount, page }) => {
+  test('with subheading (podnadpis) has no a11y violations', async ({ mount, page }) => {
     await mount(
       <main>
-        <Input label="Meno" id="axe-subtitle" labelDescription="Zadajte vaše krstné meno" />
+        <Input label="Meno" id="axe-subtitle" subheading="Zadajte vaše krstné meno" />
       </main>,
     );
     const results = await new AxeBuilder({ page }).disableRules(envRules).analyze();

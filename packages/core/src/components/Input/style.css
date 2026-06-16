@@ -41,7 +41,7 @@
     @apply idsk-text-hint text-text-error;
   }
 
-  .idsk-input__label-description,
+  .idsk-input__subheading,
   .idsk-input__description {
     @apply idsk-text-hint;
   }

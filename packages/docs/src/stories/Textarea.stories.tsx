@@ -14,7 +14,7 @@ const meta = {
       control: 'text',
       description: 'Text pre label (štítok) textarea',
     },
-    labelDescription: {
+    subheading: {
       control: 'text',
       description: 'Doplňujúci text pre label (podnadpis)',
     },
@@ -26,7 +26,7 @@ const meta = {
       control: 'boolean',
       description: 'Či je pole zakázané (disabled)',
     },
-    inputDescription: {
+    description: {
       control: 'text',
       description: 'Doplňujúci text pod textarea poľom (popis)',
     },
@@ -49,7 +49,7 @@ const meta = {
   },
   args: {
     variant: 'default',
-    label: 'Label',
+    label: 'Názov textového poľa',
     placeholder: 'Napr. Placeholder',
     rows: 5,
     maxLength: 200,
@@ -77,7 +77,7 @@ const desktopDecorator: Story['decorators'] = [
 export const Required: Story = {
   name: 'Povinné',
   args: {
-    label: 'Povinné pole',
+    label: 'Názov textového poľa',
     required: true,
   },
   decorators: desktopDecorator,
@@ -93,7 +93,7 @@ export const Required: Story = {
 export const Optional: Story = {
   name: 'Nepovinné',
   args: {
-    label: 'Nepovinné pole',
+    label: 'Názov textového poľa',
     required: false,
   },
   decorators: desktopDecorator,
@@ -112,53 +112,54 @@ export const Optional: Story = {
 export const WithCharacterCount: Story = {
   name: 'S počítadlom znakov',
   args: {
-    label: 'Vaša správa',
+    label: 'Názov textového poľa',
     maxLength: 200,
-    inputDescription: 'Maximálne 200 znakov',
+    description: 'Popisný text',
   },
   decorators: desktopDecorator,
   parameters: {
     docs: {
       description: {
-        story: 'V pravom dolnom rohu sa zobrazuje dynamické počítadlo znakov vo formáte aktuálny_počet/maximálny_počet. Prop maxLength je povinný.',
+        story:
+          'V pravom dolnom rohu sa zobrazuje dynamické počítadlo znakov vo formáte aktuálny_počet/maximálny_počet. Prop maxLength je povinný.',
       },
     },
   },
 };
 
 /**
- * Pole s podnadpisom (labelDescription)
+ * Pole s podnadpisom (subheading)
  */
 export const WithSubheading: Story = {
   name: 'S podnadpisom',
   args: {
-    label: 'Pole s podnadpisom',
-    labelDescription: 'Toto je podnadpis (vysvetľujúci text pod labelom)',
+    label: 'Názov textového poľa',
+    subheading: 'Popisný text',
   },
   decorators: desktopDecorator,
   parameters: {
     docs: {
       description: {
-        story: 'Prop labelDescription pridáva vysvetľujúci text pod label, pred textové pole.',
+        story: 'Prop subheading pridáva vysvetľujúci text pod label, pred textové pole.',
       },
     },
   },
 };
 
 /**
- * Pole s pomocným popisom pod vstupom (inputDescription)
+ * Pole s pomocným popisom pod vstupom (description)
  */
 export const WithDescription: Story = {
   name: 'S popisom',
   args: {
-    label: 'Pole s popisom',
-    inputDescription: 'Toto je popis (pomocný text pod poľom)',
+    label: 'Názov textového poľa',
+    description: 'Popisný text',
   },
   decorators: desktopDecorator,
   parameters: {
     docs: {
       description: {
-        story: 'Prop inputDescription zobrazí pomocný text pod poľom prepojený cez aria-describedby.',
+        story: 'Prop description zobrazí pomocný text pod poľom prepojený cez aria-describedby.',
       },
     },
   },
@@ -170,7 +171,7 @@ export const WithDescription: Story = {
 export const WithTooltip: Story = {
   name: 'S tooltipom',
   args: {
-    label: 'Pole s tooltipom',
+    label: 'Názov textového poľa',
     required: true,
     tooltip: {
       label: '',
@@ -195,16 +196,17 @@ export const WithTooltip: Story = {
 export const Error: Story = {
   name: 'Chybový stav',
   args: {
-    label: 'Pole s chybou',
+    label: 'Názov textového poľa',
     required: true,
     variant: 'error',
-    errorDescription: 'Toto pole je povinné a musí obsahovať platný text.',
+    errorDescription: 'Chybový text',
   },
   decorators: desktopDecorator,
   parameters: {
     docs: {
       description: {
-        story: 'Variant error zvýrazní border červenou farbou, zobrazí ikonu varovania a chybovú správu errorDescription.',
+        story:
+          'Variant error zvýrazní border červenou farbou, zobrazí ikonu varovania a chybovú správu errorDescription.',
       },
     },
   },
@@ -216,7 +218,7 @@ export const Error: Story = {
 export const Disabled: Story = {
   name: 'Zakázané (disabled)',
   args: {
-    label: 'Zakázané pole',
+    label: 'Názov textového poľa',
     placeholder: 'Napr. Placeholder',
     disabled: true,
   },
@@ -237,11 +239,11 @@ export const Desktop: Story = {
   name: 'Desktop — kompletný',
   args: {
     label: 'Názov textového poľa',
-    labelDescription: 'Toto je podnadpis (vysvetľujúci text pod labelom)',
+    subheading: 'Popisný text',
     placeholder: 'Napr. Placeholder',
-    inputDescription: 'Toto je popis (pomocný text pod poľom)',
+    description: 'Popisný text',
     variant: 'error',
-    errorDescription: 'Toto je popis chyby',
+    errorDescription: 'Chybový text',
     required: true,
     maxLength: 500,
   },
@@ -258,9 +260,9 @@ export const Desktop: Story = {
 export const Mobile: Story = {
   args: {
     label: 'Názov textového poľa',
-    labelDescription: 'Toto je podnadpis (vysvetľujúci text pod labelom)',
+    subheading: 'Popisný text',
     placeholder: 'Napr. Placeholder',
-    inputDescription: 'Toto je popis (pomocný text pod poľom)',
+    description: 'Popisný text',
     maxLength: 500,
   },
   globals: {

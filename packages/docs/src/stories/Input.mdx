@@ -22,7 +22,7 @@ Komponent `Input` slúži na zadávanie textového vstupu používateľom. Podpo
 ## Prístupnosť (Accessibility)
 
 - Label je vždy prepojený s vstupom cez `htmlFor` / `id` (automaticky generované cez `useId` ak nie je zadané)
-- `aria-describedby` odkazuje na `inputDescription` (hint) a/alebo `errorDescription` pokiaľ sú prítomné
+- `aria-describedby` odkazuje na `description` (hint) a/alebo `errorDescription` pokiaľ sú prítomné
 - `aria-invalid="true"` je nastavené pri variante `error`
 - Hviezdička pre povinné pole má `aria-hidden="true"` — povinnosť je komunikovaná cez `required` atribút na `<input>`
 
@@ -33,10 +33,10 @@ import { Input } from '@idsk/core';
 
 <Input
   label="Meno"
-  labelDescription="Zadajte vaše celé meno"
+  subheading="Zadajte vaše celé meno"
   placeholder="Napr. Ján Novák"
   required
-  inputDescription="Použite diakritiku"
+  description="Použite diakritiku"
 />
 
 <Input

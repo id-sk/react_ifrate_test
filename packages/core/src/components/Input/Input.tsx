@@ -31,9 +31,9 @@ export interface InputProps
     VariantProps<typeof inputVariants> {
   ref?: React.Ref<HTMLInputElement>;
   label?: string;
-  labelDescription?: string;
+  subheading?: string;
   required?: boolean;
-  inputDescription?: string;
+  description?: string;
   disabled?: boolean;
   errorDescription?: string;
   tooltip?: TooltipProps;
@@ -48,10 +48,10 @@ function Input({
   size,
   type = 'text',
   label,
-  labelDescription,
+  subheading,
   id,
   required,
-  inputDescription,
+  description,
   disabled,
   errorDescription,
   tooltip,
@@ -65,7 +65,7 @@ function Input({
 
   const isError = variant === 'error';
 
-  const ariaDescribedBy = inputDescription ? hintId : undefined;
+  const ariaDescribedBy = description ? hintId : undefined;
 
   return (
     <div className="idsk-input-container">
@@ -83,9 +83,7 @@ function Input({
             {tooltip && <Tooltip {...tooltip} />}
           </span>
 
-          {labelDescription && (
-            <span className="idsk-input__label-description">{labelDescription}</span>
-          )}
+          {subheading && <span className="idsk-input__subheading">{subheading}</span>}
         </Label.Root>
       )}
       <div className={cn('idsk-input__input-wrapper')}>
@@ -109,9 +107,9 @@ function Input({
         )}
       </div>
 
-      {inputDescription && (
+      {description && (
         <span id={hintId} className="idsk-input__description">
-          {inputDescription}
+          {description}
         </span>
       )}
 

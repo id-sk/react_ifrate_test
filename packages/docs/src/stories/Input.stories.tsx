@@ -19,7 +19,7 @@ const meta = {
       control: 'text',
       description: 'Text pre label (štítok) vstupu',
     },
-    labelDescription: {
+    subheading: {
       control: 'text',
       description: 'Doplňujúci text pre label (podnadpis)',
     },
@@ -31,7 +31,7 @@ const meta = {
       control: 'boolean',
       description: 'Či je pole zakázané (disabled)',
     },
-    inputDescription: {
+    description: {
       control: 'text',
       description: 'Doplňujúci text pod vstupným poľom (popis)',
     },
@@ -51,7 +51,7 @@ const meta = {
   },
   args: {
     variant: 'default',
-    label: 'Label',
+    label: 'Názov textového poľa',
     placeholder: 'Napr. Placeholder',
   },
   parameters: {
@@ -77,7 +77,7 @@ const desktopDecorator: Story['decorators'] = [
 export const Required: Story = {
   name: 'Povinné',
   args: {
-    label: 'Povinné pole',
+    label: 'Názov textového poľa',
     required: true,
   },
   decorators: desktopDecorator,
@@ -93,7 +93,7 @@ export const Required: Story = {
 export const Optional: Story = {
   name: 'Nepovinné',
   args: {
-    label: 'Nepovinné pole',
+    label: 'Názov textového poľa',
     required: false,
   },
   decorators: desktopDecorator,
@@ -107,39 +107,40 @@ export const Optional: Story = {
 };
 
 /**
- * Pole s podnadpisom (labelDescription)
+ * Pole s podnadpisom (subheading)
  */
 export const WithSubheading: Story = {
   name: 'S podnadpisom',
   args: {
-    label: 'Pole s podnadpisom',
-    labelDescription: 'Toto je podnadpis (vysvetľujúci text pod labelom)',
+    label: 'Názov textového poľa',
+    subheading: 'Podnadpis textového poľa',
   },
   decorators: desktopDecorator,
   parameters: {
     docs: {
       description: {
-        story: 'Prop labelDescription pridáva vysvetľujúci text pod label, pred vstupné pole.',
+        story: 'Prop subheading pridáva vysvetľujúci text pod label, pred vstupné pole.',
       },
     },
   },
 };
 
 /**
- * Pole s pomocným popisom pod vstupom (inputDescription)
+ * Pole s pomocným popisom pod vstupom (description)
  */
 export const WithDescription: Story = {
   name: 'S popisom',
   args: {
-    label: 'Pole s popisom',
+    label: 'Názov textového poľa',
     placeholder: 'Napr. Placeholder',
-    inputDescription: 'Toto je popis (pomocný text pod vstupným poľom)',
+    description: 'Popisný text',
   },
   decorators: desktopDecorator,
   parameters: {
     docs: {
       description: {
-        story: 'Prop inputDescription zobrazí pomocný text pod vstupným poľom prepojený cez aria-describedby.',
+        story:
+          'Prop description zobrazí pomocný text pod vstupným poľom prepojený cez aria-describedby.',
       },
     },
   },
@@ -151,7 +152,7 @@ export const WithDescription: Story = {
 export const WithTooltip: Story = {
   name: 'S tooltipom',
   args: {
-    label: 'Pole s tooltipom',
+    label: 'Názov textového poľa',
     required: true,
     tooltip: {
       label: '',
@@ -176,16 +177,17 @@ export const WithTooltip: Story = {
 export const Error: Story = {
   name: 'Chybový stav',
   args: {
-    label: 'Pole s chybou',
+    label: 'Názov textového poľa',
     required: true,
     variant: 'error',
-    errorDescription: 'Toto pole je povinné',
+    errorDescription: 'Chybový text',
   },
   decorators: desktopDecorator,
   parameters: {
     docs: {
       description: {
-        story: 'Variant error zobrazí ikonu varovania vo vstupnom poli a errorDescription pod ním. Nastaví sa aria-invalid="true".',
+        story:
+          'Variant error zobrazí ikonu varovania vo vstupnom poli a errorDescription pod ním. Nastaví sa aria-invalid="true".',
       },
     },
   },
@@ -197,7 +199,7 @@ export const Error: Story = {
 export const Disabled: Story = {
   name: 'Zakázané (disabled)',
   args: {
-    label: 'Zakázané pole',
+    label: 'Názov textového poľa',
     placeholder: 'Napr. Placeholder',
     disabled: true,
   },
@@ -239,11 +241,11 @@ export const Desktop: Story = {
   name: 'Desktop — kompletný',
   args: {
     label: 'Názov textového poľa',
-    labelDescription: 'Toto je podnadpis (vysvetľujúci text pod labelom)',
+    subheading: 'Podnadpis textového poľa',
     placeholder: 'Napr. Placeholder',
-    inputDescription: 'Toto je popis (pomocný text pod vstupným poľom)',
+    description: 'Popisný text',
     variant: 'error',
-    errorDescription: 'Toto je popis chyby',
+    errorDescription: 'Chybový text',
     required: true,
   },
   decorators: desktopDecorator,
@@ -259,9 +261,9 @@ export const Desktop: Story = {
 export const Mobile: Story = {
   args: {
     label: 'Názov textového poľa',
-    labelDescription: 'Toto je podnadpis (vysvetľujúci text pod labelom)',
+    subheading: 'Podnadpis textového poľa',
     placeholder: 'Napr. Placeholder',
-    inputDescription: 'Toto je popis (pomocný text pod vstupným poľom)',
+    description: 'Popisný text',
   },
   globals: {
     viewport: {

@@ -77,32 +77,32 @@ describe('Input', () => {
   });
 
   describe('Label Description (Subtitle)', () => {
-    it('renders labelDescription text', () => {
-      render(<Input label="Meno" labelDescription="Zadajte vaše krstné meno" />);
+    it('renders subheading text', () => {
+      render(<Input label="Meno" subheading="Zadajte vaše krstné meno" />);
       expect(screen.getByText('Zadajte vaše krstné meno')).toBeInTheDocument();
     });
 
-    it('absent when labelDescription is not provided', () => {
+    it('absent when subheading is not provided', () => {
       render(<Input label="Meno" />);
-      expect(document.querySelector('.idsk-input__label-description')).toBeNull();
+      expect(document.querySelector('.idsk-input__subheading')).toBeNull();
     });
   });
 
-  describe('Hint (inputDescription + aria-describedby)', () => {
+  describe('Hint (description + aria-describedby)', () => {
     it('renders hint text', () => {
-      render(<Input label="Meno" inputDescription="Napr. Jana" />);
+      render(<Input label="Meno" description="Napr. Jana" />);
       expect(screen.getByText('Napr. Jana')).toBeInTheDocument();
     });
 
     it('input has aria-describedby referencing hint span id', () => {
-      render(<Input label="Meno" id="meno" inputDescription="Napr. Jana" />);
+      render(<Input label="Meno" id="meno" description="Napr. Jana" />);
       const input = screen.getByRole('textbox');
       const hintSpan = document.querySelector('.idsk-input__description') as HTMLElement;
       expect(hintSpan).toBeInTheDocument();
       expect(input.getAttribute('aria-describedby')).toContain(hintSpan.id);
     });
 
-    it('absent when inputDescription is not provided', () => {
+    it('absent when description is not provided', () => {
       render(<Input label="Meno" />);
       expect(document.querySelector('.idsk-input__description')).toBeNull();
     });
@@ -158,7 +158,7 @@ describe('Input', () => {
       render(
         <Input
           variant="error"
-          inputDescription="Napr. Jana"
+          description="Napr. Jana"
           errorDescription="Pole je povinné"
           id="meno"
         />,

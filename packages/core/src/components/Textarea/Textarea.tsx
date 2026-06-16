@@ -24,9 +24,9 @@ export interface TextareaProps
   extends React.TextareaHTMLAttributes<HTMLTextAreaElement>, VariantProps<typeof textareaVariants> {
   ref?: React.Ref<HTMLTextAreaElement>;
   label?: string;
-  labelDescription?: string;
+  subheading?: string;
   required?: boolean;
-  inputDescription?: string;
+  description?: string;
   disabled?: boolean;
   errorDescription?: string;
   tooltip?: TooltipProps;
@@ -40,10 +40,10 @@ function Textarea({
   className,
   variant,
   label,
-  labelDescription,
+  subheading,
   id,
   required,
-  inputDescription,
+  description,
   disabled,
   errorDescription,
   tooltip,
@@ -77,7 +77,7 @@ function Textarea({
   };
 
   const ariaDescribedByParts = [
-    inputDescription ? hintId : null,
+    description ? hintId : null,
     maxLength !== undefined ? counterSrId : null,
   ].filter(Boolean) as string[];
 
@@ -100,9 +100,7 @@ function Textarea({
             {tooltip && <Tooltip {...tooltip} />}
           </span>
 
-          {labelDescription && (
-            <span className="idsk-textarea__label-description">{labelDescription}</span>
-          )}
+          {subheading && <span className="idsk-textarea__subheading">{subheading}</span>}
         </Label.Root>
       )}
       <div className={cn('idsk-textarea__wrapper')}>
@@ -142,9 +140,9 @@ function Textarea({
 
       <div className="idsk-textarea__footer">
         <div className="idsk-textarea__footer-left">
-          {inputDescription && (
+          {description && (
             <span id={hintId} className="idsk-textarea__description">
-              {inputDescription}
+              {description}
             </span>
           )}
 

@@ -201,17 +201,14 @@ test.describe('Automated a11y — axe in browser', () => {
     expect(results.violations).toHaveLength(0);
   });
 
-  test('with labelDescription and inputDescription (hint) has no a11y violations', async ({
-    mount,
-    page,
-  }) => {
+  test('with subheading and description (hint) has no a11y violations', async ({ mount, page }) => {
     await mount(
       <main>
         <Textarea
           label="Správa"
           id="axe-hints"
-          labelDescription="Doplňujúci popis labelu"
-          inputDescription="Pomôcka pre vyplnenie poľa"
+          subheading="Doplňujúci popis labelu"
+          description="Pomôcka pre vyplnenie poľa"
           maxLength={200}
         />
       </main>,

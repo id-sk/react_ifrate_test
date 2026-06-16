@@ -24,12 +24,22 @@ export const Default: Story = {
   args: {
     items: [
       {
-        title: 'Prvá sekcia',
-        children: <p>Obsah prvej sekcie akordeónu.</p>,
+        title: 'Nadpis akordeónu',
+        children: (
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua.
+          </p>
+        ),
       },
       {
-        title: 'Druhá sekcia',
-        children: <p>Obsah druhej sekcie akordeónu.</p>,
+        title: 'Nadpis akordeónu',
+        children: (
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua.
+          </p>
+        ),
       },
     ],
   },
@@ -72,14 +82,24 @@ export const WithDescription: Story = {
   args: {
     items: [
       {
-        title: 'Sekcia s popisom',
+        title: 'Nadpis akordeónu',
         description:
-          'Popis. Pokiaľ nadpis nie je dostatočne zrejmý, toto miesto slúži na vysvetlenie.',
-        children: <p>Obsah sekcie s popisom.</p>,
+          'Popis. Pokiaľ nie je nadpis dostatočne zrejmý a potrebuje vysvetlenie, alebo ak je nadpis príliš dlhý (viac, ako 5 slov), toto je miesto na viacslovný popis.',
+        children: (
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua.
+          </p>
+        ),
       },
       {
-        title: 'Sekcia bez popisu',
-        children: <p>Obsah sekcie bez popisu.</p>,
+        title: 'Nadpis akordeónu',
+        children: (
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua.
+          </p>
+        ),
       },
     ],
   },
@@ -97,18 +117,28 @@ export const MultiExpand: Story = {
   args: {
     items: [
       {
-        title: 'Prvá sekcia',
+        title: 'Nadpis akordeónu',
         children: (
           <p>Akordeón podporuje otvorenie viacerých sekcií súčasne — každá je nezávislá.</p>
         ),
       },
       {
-        title: 'Druhá sekcia',
-        children: <p>Obsah druhej sekcie.</p>,
+        title: 'Nadpis akordeónu',
+        children: (
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua.
+          </p>
+        ),
       },
       {
-        title: 'Tretia sekcia',
-        children: <p>Obsah tretej sekcie.</p>,
+        title: 'Nadpis akordeónu',
+        children: (
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua.
+          </p>
+        ),
       },
     ],
   },
@@ -126,13 +156,23 @@ export const WithDefaultOpen: Story = {
   args: {
     items: [
       {
-        title: 'Predvolene rozbalená sekcia',
-        children: <p>Táto sekcia je rozbalená hneď po načítaní stránky.</p>,
+        title: 'Nadpis akordeónu',
+        children: (
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua.
+          </p>
+        ),
         defaultOpen: true,
       },
       {
-        title: 'Predvolene zbalená sekcia',
-        children: <p>Táto sekcia je zbalená a musí sa kliknúť na jej otvorenie.</p>,
+        title: 'Nadpis akordeónu',
+        children: (
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua.
+          </p>
+        ),
       },
     ],
   },
@@ -151,16 +191,26 @@ export const SingleOpen: Story = {
     singleOpen: true,
     items: [
       {
-        title: 'Prvá sekcia',
+        title: 'Nadpis akordeónu',
         children: <p>Otvorenie tejto sekcie automaticky zatvorí ostatné.</p>,
       },
       {
-        title: 'Druhá sekcia',
-        children: <p>Obsah druhej sekcie.</p>,
+        title: 'Nadpis akordeónu',
+        children: (
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua.
+          </p>
+        ),
       },
       {
-        title: 'Tretia sekcia',
-        children: <p>Obsah tretej sekcie.</p>,
+        title: 'Nadpis akordeónu',
+        children: (
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua.
+          </p>
+        ),
       },
     ],
   },
@@ -179,16 +229,31 @@ export const WithToggleAll: Story = {
     showToggleAll: true,
     items: [
       {
-        title: 'Prvá sekcia',
-        children: <p>Obsah prvej sekcie.</p>,
+        title: 'Nadpis akordeónu',
+        children: (
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua.
+          </p>
+        ),
       },
       {
-        title: 'Druhá sekcia',
-        children: <p>Obsah druhej sekcie.</p>,
+        title: 'Nadpis akordeónu',
+        children: (
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua.
+          </p>
+        ),
       },
       {
-        title: 'Tretia sekcia',
-        children: <p>Obsah tretej sekcie.</p>,
+        title: 'Nadpis akordeónu',
+        children: (
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua.
+          </p>
+        ),
       },
     ],
   },
@@ -206,17 +271,32 @@ export const WithDisabled: Story = {
   args: {
     items: [
       {
-        title: 'Prvá sekcia (aktívna)',
-        children: <p>Táto sekcia je dostupná a môže byť rozbalená.</p>,
+        title: 'Nadpis akordeónu',
+        children: (
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua.
+          </p>
+        ),
       },
       {
-        title: 'Druhá sekcia (neaktívna)',
-        children: <p>Tento obsah nie je prístupný.</p>,
+        title: 'Nadpis akordeónu',
+        children: (
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua.
+          </p>
+        ),
         disabled: true,
       },
       {
-        title: 'Tretia sekcia (aktívna)',
-        children: <p>Táto sekcia je tiež dostupná.</p>,
+        title: 'Nadpis akordeónu',
+        children: (
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua.
+          </p>
+        ),
       },
     ],
   },

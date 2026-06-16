@@ -168,16 +168,14 @@ describe('Textarea', () => {
     });
   });
 
-  describe('Hint (inputDescription + aria-describedby)', () => {
+  describe('Hint (description + aria-describedby)', () => {
     it('renders hint text', () => {
-      render(<Textarea label="Správa" inputDescription="Napíšte nám niečo" maxLength={200} />);
+      render(<Textarea label="Správa" description="Napíšte nám niečo" maxLength={200} />);
       expect(screen.getByText('Napíšte nám niečo')).toBeInTheDocument();
     });
 
     it('textarea has aria-describedby referencing hint span id', () => {
-      render(
-        <Textarea label="Správa" id="msg" inputDescription="Napíšte nám niečo" maxLength={200} />,
-      );
+      render(<Textarea label="Správa" id="msg" description="Napíšte nám niečo" maxLength={200} />);
       const textarea = screen.getByRole('textbox');
       const hintSpan = document.querySelector('.idsk-textarea__description') as HTMLElement;
       expect(textarea.getAttribute('aria-describedby')).toContain(hintSpan.id);
