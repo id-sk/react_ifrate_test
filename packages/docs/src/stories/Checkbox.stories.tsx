@@ -38,7 +38,7 @@ const meta = {
     },
   },
   args: {
-    label: 'Checkbox label',
+    label: 'Menovka',
     size: 'default',
   },
   parameters: {
@@ -58,7 +58,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Velky: Story = {
   args: {
-    label: 'Veľký checkbox',
+    label: 'Menovka',
     size: 'default',
   },
   parameters: {
@@ -72,7 +72,7 @@ export const Velky: Story = {
 
 export const Maly: Story = {
   args: {
-    label: 'Malý checkbox',
+    label: 'Menovka',
     size: 'sm',
   },
   parameters: {
@@ -102,8 +102,8 @@ export const MalyDlhyText: Story = {
 
 export const S_PomocnymTextom: Story = {
   args: {
-    label: 'Checkbox s pomocným textom',
-    hint: 'Toto je pomocný text pre checkbox.',
+    label: 'Menovka',
+    hint: 'Pomôcka',
   },
   parameters: {
     docs: {
@@ -116,7 +116,7 @@ export const S_PomocnymTextom: Story = {
 
 export const DlhyPomocnyText: Story = {
   args: {
-    label: 'Checkbox s dlhým pomocným textom',
+    label: 'Menovka',
     hint: 'Toto je veľmi dlhý pomocný text, ktorý by sa mal správne zalamovať pod labelom checkboxu. Mal by dodržiavať rovnaké odsadenie od ľavého okraja ako samotný label.',
   },
   parameters: {
@@ -130,8 +130,8 @@ export const DlhyPomocnyText: Story = {
 
 export const Tooltip: Story = {
   args: {
-    label: 'Checkbox s tooltipom',
-    hint: 'Toto je pomocný text pre checkbox.',
+    label: 'Menovka',
+    hint: 'Pomôcka',
     tooltip: {
       content: 'Toto je nápoveda k checkboxu. Vysvetľuje, čo sa stane, ak je vybraný.',
       preferredPosition: 'top',
@@ -149,8 +149,8 @@ export const Tooltip: Story = {
 
 export const S_Chybou: Story = {
   args: {
-    label: 'Checkbox s chybou',
-    errorMessage: 'Toto je chybová správa.',
+    label: 'Menovka',
+    errorMessage: 'Chybový text',
   },
   parameters: {
     docs: {
@@ -163,7 +163,7 @@ export const S_Chybou: Story = {
 
 export const Povinny: Story = {
   args: {
-    label: 'Povinný checkbox',
+    label: 'Menovka',
     required: true,
   },
   parameters: {
@@ -177,7 +177,7 @@ export const Povinny: Story = {
 
 export const Zakazany: Story = {
   args: {
-    label: 'Zakázaný checkbox',
+    label: 'Menovka',
     disabled: true,
   },
   parameters: {
@@ -226,7 +226,7 @@ export const ViacriadkovyText: Story = {
 
 export const Indeterminate: Story = {
   args: {
-    label: 'Indeterminate checkbox',
+    label: 'Menovka',
     indeterminate: true,
   },
   parameters: {
