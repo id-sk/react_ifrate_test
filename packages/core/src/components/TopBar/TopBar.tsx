@@ -78,7 +78,9 @@ const TopBar = React.forwardRef<HTMLDivElement, TopBarProps>(
               aria-expanded={isExpanded}
               aria-controls="idsk-top-bar-panel"
               onClick={handleToggle}
-              endIcon={isExpanded ? <ArrowDropUpIcon size={25} /> : <ArrowDropDownIcon size={25} />}
+              rightIcon={
+                isExpanded ? <ArrowDropUpIcon size={25} /> : <ArrowDropDownIcon size={25} />
+              }
             >
               <span className="idsk-top-bar__toggle-label--regular">Oficiálna stránka</span>
               <span className="idsk-top-bar__toggle-label--bold"> verejnej správy SR</span>

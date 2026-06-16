@@ -22,8 +22,8 @@ const iconRegistry = Object.fromEntries(
 const iconNames = Object.keys(iconRegistry).sort();
 
 type ButtonStoryArgs = ButtonProps & {
-  startIconName?: string;
-  endIconName?: string;
+  leftIconName?: string;
+  rightIconName?: string;
 };
 
 function resolveIcon(name: string | undefined): React.ReactElement | undefined {
@@ -35,8 +35,8 @@ function resolveIcon(name: string | undefined): React.ReactElement | undefined {
 const meta = {
   title: 'Core/Button',
   component: Button,
-  render: ({ startIconName, endIconName, ...args }: ButtonStoryArgs) => (
-    <Button {...args} startIcon={resolveIcon(startIconName)} endIcon={resolveIcon(endIconName)} />
+  render: ({ leftIconName, rightIconName, ...args }: ButtonStoryArgs) => (
+    <Button {...args} leftIcon={resolveIcon(leftIconName)} rightIcon={resolveIcon(rightIconName)} />
   ),
   argTypes: {
     variant: {
@@ -70,20 +70,20 @@ const meta = {
       control: 'text',
       description: 'Obsah tlačidla',
     },
-    startIconName: {
+    leftIconName: {
       control: { type: 'select' },
       options: [undefined, ...iconNames],
       description: 'Ikona pred textom',
       table: { category: 'Icons' },
     },
-    endIconName: {
+    rightIconName: {
       control: { type: 'select' },
       options: [undefined, ...iconNames],
       description: 'Ikona za textom',
       table: { category: 'Icons' },
     },
-    startIcon: { table: { disable: true } },
-    endIcon: { table: { disable: true } },
+    leftIcon: { table: { disable: true } },
+    rightIcon: { table: { disable: true } },
     iconOnly: {
       control: 'boolean',
       description: 'Tlačidlo len s ikonkou – bez viditeľného textu. Vyžaduje aria-label.',
@@ -297,30 +297,30 @@ export const SizeLG = {
 } satisfies Story;
 
 /* ─── With icons ─── */
-export const WithStartIcon = {
+export const WithLeftIcon = {
   args: {
     children: 'Odoslať',
-    startIconName: 'SendIcon',
+    leftIconName: 'SendIcon',
   },
   parameters: {
     docs: {
       description: {
         story:
-          'Ikona pred textom tlačidla pomocou prop startIcon. Ikony sú automaticky zabalené do aria-hidden spanu.',
+          'Ľavá ikona pred textom tlačidla pomocou prop leftIcon. Ikony sú automaticky zabalené do aria-hidden spanu.',
       },
     },
   },
 } satisfies Story;
 
-export const WithEndIcon = {
+export const WithRightIcon = {
   args: {
     children: 'Stiahnuť',
-    endIconName: 'DownloadIcon',
+    rightIconName: 'DownloadIcon',
   },
   parameters: {
     docs: {
       description: {
-        story: 'Ikona za textom tlačidla pomocou prop endIcon.',
+        story: 'Pravá ikona za textom tlačidla pomocou prop rightIcon.',
       },
     },
   },
@@ -329,8 +329,8 @@ export const WithEndIcon = {
 export const WithBothIcons = {
   args: {
     children: 'Pridať',
-    startIconName: 'AddIcon',
-    endIconName: 'ArrowForwardIcon',
+    leftIconName: 'AddIcon',
+    rightIconName: 'ArrowForwardIcon',
   },
   parameters: {
     docs: {
@@ -345,7 +345,7 @@ export const WithBothIcons = {
 export const IconOnly = {
   args: {
     iconOnly: true,
-    startIconName: 'SendIcon',
+    leftIconName: 'SendIcon',
     'aria-label': 'Odoslať',
     children: undefined,
   },
@@ -362,7 +362,7 @@ export const IconOnlySecondary = {
   args: {
     iconOnly: true,
     variant: 'secondary',
-    startIconName: 'AddIcon',
+    leftIconName: 'AddIcon',
     'aria-label': 'Pridať',
     children: undefined,
   },
@@ -379,7 +379,7 @@ export const IconOnlyTertiary = {
   args: {
     iconOnly: true,
     variant: 'tertiary',
-    startIconName: 'CloseIcon',
+    leftIconName: 'CloseIcon',
     'aria-label': 'Zatvoriť',
     children: undefined,
   },
@@ -396,7 +396,7 @@ export const IconOnlySM = {
   args: {
     iconOnly: true,
     size: 'sm',
-    startIconName: 'SearchIcon',
+    leftIconName: 'SearchIcon',
     'aria-label': 'Hľadať',
     children: undefined,
   },

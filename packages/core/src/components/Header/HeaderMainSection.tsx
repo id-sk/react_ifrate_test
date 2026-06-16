@@ -162,7 +162,7 @@ const HeaderMainSection = React.forwardRef<HTMLDivElement, HeaderMainSectionProp
                 variant="secondary"
                 size="md"
                 onClick={onLogin}
-                startIcon={<PersonIcon size={25} />}
+                leftIcon={<PersonIcon size={25} />}
               >
                 {loginLabel}
               </Button>

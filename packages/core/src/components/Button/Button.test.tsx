@@ -107,49 +107,49 @@ describe('Button', () => {
   });
 
   // ---------------------------------------------------------------------------
-  // startIcon / endIcon props
+  // leftIcon / rightIcon props
   // ---------------------------------------------------------------------------
-  describe('startIcon and endIcon props', () => {
-    it('renders startIcon before children', () => {
-      render(<Button startIcon={<MockIcon data-testid="start-icon" />}>Odoslať</Button>);
-      expect(screen.getByTestId('start-icon')).toBeInTheDocument();
+  describe('leftIcon and rightIcon props', () => {
+    it('renders leftIcon before children', () => {
+      render(<Button leftIcon={<MockIcon data-testid="left-icon" />}>Odoslať</Button>);
+      expect(screen.getByTestId('left-icon')).toBeInTheDocument();
       expect(screen.getByRole('button')).toHaveTextContent('Odoslať');
     });
 
-    it('renders endIcon after children', () => {
-      render(<Button endIcon={<MockIcon data-testid="end-icon" />}>Odoslať</Button>);
-      expect(screen.getByTestId('end-icon')).toBeInTheDocument();
+    it('renders rightIcon after children', () => {
+      render(<Button rightIcon={<MockIcon data-testid="right-icon" />}>Odoslať</Button>);
+      expect(screen.getByTestId('right-icon')).toBeInTheDocument();
       expect(screen.getByRole('button')).toHaveTextContent('Odoslať');
     });
 
-    it('wraps startIcon in aria-hidden span', () => {
-      render(<Button startIcon={<MockIcon data-testid="start-icon" />}>Odoslať</Button>);
-      expect(screen.getByTestId('start-icon').closest('[aria-hidden="true"]')).not.toBeNull();
+    it('wraps leftIcon in aria-hidden span', () => {
+      render(<Button leftIcon={<MockIcon data-testid="left-icon" />}>Odoslať</Button>);
+      expect(screen.getByTestId('left-icon').closest('[aria-hidden="true"]')).not.toBeNull();
     });
 
-    it('wraps endIcon in aria-hidden span', () => {
-      render(<Button endIcon={<MockIcon data-testid="end-icon" />}>Odoslať</Button>);
-      expect(screen.getByTestId('end-icon').closest('[aria-hidden="true"]')).not.toBeNull();
+    it('wraps rightIcon in aria-hidden span', () => {
+      render(<Button rightIcon={<MockIcon data-testid="right-icon" />}>Odoslať</Button>);
+      expect(screen.getByTestId('right-icon').closest('[aria-hidden="true"]')).not.toBeNull();
     });
 
-    it('renders both startIcon and endIcon simultaneously', () => {
+    it('renders both leftIcon and rightIcon simultaneously', () => {
       render(
         <Button
-          startIcon={<MockIcon data-testid="start-icon" />}
-          endIcon={<MockIcon data-testid="end-icon" />}
+          leftIcon={<MockIcon data-testid="left-icon" />}
+          rightIcon={<MockIcon data-testid="right-icon" />}
         >
           Odoslať
         </Button>,
       );
-      expect(screen.getByTestId('start-icon')).toBeInTheDocument();
-      expect(screen.getByTestId('end-icon')).toBeInTheDocument();
+      expect(screen.getByTestId('left-icon')).toBeInTheDocument();
+      expect(screen.getByTestId('right-icon')).toBeInTheDocument();
       expect(screen.getByRole('button')).toHaveTextContent('Odoslať');
     });
 
-    it('has no a11y violations with startIcon', async () => {
+    it('has no a11y violations with leftIcon', async () => {
       const { container } = render(
         <main>
-          <Button startIcon={<MockIcon />}>Odoslať</Button>
+          <Button leftIcon={<MockIcon />}>Odoslať</Button>
         </main>,
       );
       expect(await axe(container)).toHaveNoViolations();
@@ -222,19 +222,19 @@ describe('Button', () => {
   // ---------------------------------------------------------------------------
   describe('Icon only', () => {
     it('applies idsk-button--icon-only class when iconOnly is true', () => {
-      render(<Button iconOnly aria-label="Odoslať" startIcon={<MockIcon data-testid="icon" />} />);
+      render(<Button iconOnly aria-label="Odoslať" leftIcon={<MockIcon data-testid="icon" />} />);
       expect(screen.getByRole('button')).toHaveClass('idsk-button--icon-only');
     });
 
     it('renders without children and displays the icon', () => {
-      render(<Button iconOnly aria-label="Odoslať" startIcon={<MockIcon data-testid="icon" />} />);
+      render(<Button iconOnly aria-label="Odoslať" leftIcon={<MockIcon data-testid="icon" />} />);
       expect(screen.getByTestId('icon')).toBeInTheDocument();
     });
 
     it('has no a11y violations with aria-label', async () => {
       const { container } = render(
         <main>
-          <Button iconOnly aria-label="Odoslať" startIcon={<MockIcon />} />
+          <Button iconOnly aria-label="Odoslať" leftIcon={<MockIcon />} />
         </main>,
       );
       expect(await axe(container)).toHaveNoViolations();

@@ -41,10 +41,10 @@ export interface ButtonProps
    * Useful for rendering the button as a link or other element while maintaining styles.
    */
   asChild?: boolean;
-  /** Icon rendered before the button label. Wrapped in aria-hidden automatically. */
-  startIcon?: React.ReactNode;
-  /** Icon rendered after the button label. Wrapped in aria-hidden automatically. */
-  endIcon?: React.ReactNode;
+  /** Icon rendered before the button label (ľavá ikona). Wrapped in aria-hidden automatically. */
+  leftIcon?: React.ReactNode;
+  /** Icon rendered after the button label (pravá ikona). Wrapped in aria-hidden automatically. */
+  rightIcon?: React.ReactNode;
   /**
    * Renders a square icon-only button (no visible text). Equal padding on all sides.
    * Requires `aria-label` for accessibility when no visible text is present.
@@ -66,8 +66,8 @@ function Button({
   asChild = false,
   children,
   onClick,
-  startIcon,
-  endIcon,
+  leftIcon,
+  rightIcon,
   ref,
   ...props
 }: ButtonProps) {
@@ -99,9 +99,9 @@ function Button({
         children
       ) : (
         <>
-          {startIcon != null && <span aria-hidden="true">{startIcon}</span>}
+          {leftIcon != null && <span aria-hidden="true">{leftIcon}</span>}
           {children != null && <span>{children}</span>}
-          {endIcon != null && <span aria-hidden="true">{endIcon}</span>}
+          {rightIcon != null && <span aria-hidden="true">{rightIcon}</span>}
         </>
       )}
     </Comp>
