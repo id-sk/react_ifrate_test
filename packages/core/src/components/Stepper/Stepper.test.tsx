@@ -345,6 +345,14 @@ describe('Stepper', () => {
       expect(document.querySelector('.idsk-stepper__dropdown')).toHaveAttribute('hidden');
     });
 
+    it('moves focus to toggle button after clicking a step', async () => {
+      const user = userEvent.setup();
+      render(<Stepper steps={defaultSteps} activeStep={2} onStepClick={vi.fn()} defaultExpanded />);
+      const stepButtons = screen.getAllByRole('button').slice(0, -1); // exclude toggle (last in DOM)
+      await user.click(stepButtons[0]);
+      expect(screen.getByRole('button', { name: 'Zobraziť zoznam krokov' })).toHaveFocus();
+    });
+
     it('no step buttons when onStepClick is not provided', async () => {
       const user = userEvent.setup();
       render(<Stepper steps={defaultSteps} activeStep={2} />);

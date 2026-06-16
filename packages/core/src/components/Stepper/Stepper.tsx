@@ -1,4 +1,4 @@
-import React, { useId, useState } from 'react';
+import React, { useId, useRef, useState } from 'react';
 
 import { cn } from '../../lib/utils';
 import { StepperItem } from './StepperItem';
@@ -32,6 +32,7 @@ function Stepper({
 }: StepperProps) {
   const [isExpanded, setIsExpanded] = useState(defaultExpanded);
   const listId = useId();
+  const toggleBtnRef = useRef<HTMLButtonElement>(null);
 
   const total = steps.length;
   const clampedActive = Math.max(0, Math.min(activeStep, total - 1));
@@ -70,6 +71,7 @@ function Stepper({
                     ? () => {
                         onStepClick(index);
                         setIsExpanded(false);
+                        toggleBtnRef.current?.focus();
                       }
                     : undefined
                 }
@@ -81,6 +83,7 @@ function Stepper({
 
       <div className="idsk-stepper__header">
         <button
+          ref={toggleBtnRef}
           type="button"
           className="idsk-stepper__toggle-btn"
           aria-expanded={isExpanded}
