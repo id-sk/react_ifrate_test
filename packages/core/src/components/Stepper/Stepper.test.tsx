@@ -173,6 +173,28 @@ describe('Stepper', () => {
       expect(screen.getByText('Prejsť na krok:')).toBeInTheDocument();
     });
 
+    it('renders "Prejsť na krok:" as an <h3> element', async () => {
+      const user = userEvent.setup();
+      render(<Stepper steps={defaultSteps} activeStep={0} />);
+      await user.click(screen.getByRole('button'));
+      expect(
+        screen.getByRole('heading', { level: 3, name: 'Prejsť na krok:' }),
+      ).toBeInTheDocument();
+    });
+
+    it('dropdown has role="region"', () => {
+      render(<Stepper steps={defaultSteps} activeStep={0} defaultExpanded />);
+      expect(document.querySelector('.idsk-stepper__dropdown')).toHaveAttribute('role', 'region');
+    });
+
+    it('dropdown aria-labelledby references the h3 id', () => {
+      render(<Stepper steps={defaultSteps} activeStep={0} defaultExpanded />);
+      const dropdown = document.querySelector('.idsk-stepper__dropdown')!;
+      const labelledById = dropdown.getAttribute('aria-labelledby');
+      expect(labelledById).toBeTruthy();
+      expect(document.getElementById(labelledById!)).toHaveTextContent('Prejsť na krok:');
+    });
+
     it('renders an ordered list when expanded', async () => {
       const user = userEvent.setup();
       render(<Stepper steps={defaultSteps} activeStep={0} />);

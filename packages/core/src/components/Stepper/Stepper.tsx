@@ -50,8 +50,12 @@ function Stepper({
         className="idsk-stepper__dropdown"
         hidden={!isExpanded}
         aria-hidden={!isExpanded}
+        role="region"
+        aria-labelledby={`${listId}-title`}
       >
-        <p className="idsk-stepper__dropdown-title">Prejsť na krok:</p>
+        <h3 id={`${listId}-title`} className="idsk-stepper__dropdown-title">
+          Prejsť na krok:
+        </h3>
         <ol className="idsk-stepper__list">
           {steps.map((step, index) => {
             const isCompleted = index < clampedActive;

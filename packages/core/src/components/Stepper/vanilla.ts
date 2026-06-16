@@ -9,8 +9,9 @@
  *       (step counter + progress bar). CSS order:-1 on .idsk-stepper__header
  *       keeps it visually on top.
  *     -->
- *     <div id="<dropdown-id>" class="idsk-stepper__dropdown" hidden aria-hidden="true">
- *       <p class="idsk-stepper__dropdown-title">Prejsť na krok:</p>
+ *     <div id="<dropdown-id>" class="idsk-stepper__dropdown" hidden aria-hidden="true"
+ *        role="region" aria-labelledby="<dropdown-id>-title">
+ *       <h3 id="<dropdown-id>-title" class="idsk-stepper__dropdown-title">Prejsť na krok:</h3>
  *       <ol class="idsk-stepper__list">
  *         <!-- Completed steps use <button class="idsk-stepper__step"> -->
  *         <li class="idsk-stepper__item idsk-stepper__item--completed">
@@ -153,6 +154,20 @@ export function init(element: HTMLElement): void {
   if (!dropdown.id) {
     dropdown.id = `idsk-stepper-dropdown-${++idCounter}`;
     toggleBtn.setAttribute('aria-controls', dropdown.id);
+  }
+
+  if (!dropdown.getAttribute('role')) {
+    dropdown.setAttribute('role', 'region');
+  }
+
+  const titleEl = dropdown.querySelector<HTMLElement>('.idsk-stepper__dropdown-title');
+  if (titleEl) {
+    if (!titleEl.id) {
+      titleEl.id = `${dropdown.id}-title`;
+    }
+    if (!dropdown.getAttribute('aria-labelledby')) {
+      dropdown.setAttribute('aria-labelledby', titleEl.id);
+    }
   }
 
   const toggleIcon = toggleBtn.querySelector<HTMLElement>('.idsk-stepper__toggle-icon');
