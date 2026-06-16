@@ -373,6 +373,34 @@ describe('Stepper', () => {
       expect(onStepClick).toHaveBeenCalledWith(0);
     });
 
+    it('previously visited steps remain clickable after navigating backwards', async () => {
+      const onStepClick = vi.fn();
+      const { rerender } = render(
+        <Stepper steps={defaultSteps} activeStep={2} onStepClick={onStepClick} defaultExpanded />,
+      );
+      // Simulate parent navigating back to step 1
+      rerender(
+        <Stepper steps={defaultSteps} activeStep={0} onStepClick={onStepClick} defaultExpanded />,
+      );
+      // Steps at index 1 and 2 were visited — toggle + 2 step buttons = 3
+      expect(screen.getAllByRole('button')).toHaveLength(3);
+    });
+
+    it('clicking a previously visited step after going backwards calls onStepClick', async () => {
+      const user = userEvent.setup();
+      const onStepClick = vi.fn();
+      const { rerender } = render(
+        <Stepper steps={defaultSteps} activeStep={2} onStepClick={onStepClick} defaultExpanded />,
+      );
+      rerender(
+        <Stepper steps={defaultSteps} activeStep={0} onStepClick={onStepClick} defaultExpanded />,
+      );
+      // First step button in dropdown is index 1 (index 0 is active, not a button)
+      const stepButtons = screen.getAllByRole('button').slice(0, -1);
+      await user.click(stepButtons[0]);
+      expect(onStepClick).toHaveBeenCalledWith(1);
+    });
+
     it('invokes onStepClick on keyboard Space', async () => {
       const user = userEvent.setup();
       const onStepClick = vi.fn();
