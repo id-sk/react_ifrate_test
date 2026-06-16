@@ -141,7 +141,7 @@ export const Error: Story = {
     variant: 'error',
     required: true,
     labelDescription: 'Popis rozbaľovacieho poľa',
-    errorDescription: 'Chybový text — vyberte platnú možnosť',
+    errorDescription: 'Chybový text',
   },
   parameters: {
     docs: {
@@ -159,7 +159,7 @@ export const ErrorWithHint: Story = {
     required: true,
     labelDescription: 'Popis rozbaľovacieho poľa',
     inputDescription: 'Pomocný text pre používateľa',
-    errorDescription: 'Chybový text — vyberte platnú možnosť',
+    errorDescription: 'Chybový text',
   },
   parameters: {
     docs: {
