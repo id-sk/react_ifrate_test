@@ -115,7 +115,6 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
 
   return (
     <fieldset
-      role="radiogroup"
       className={cn('idsk-radio-group', className)}
       aria-invalid={errorMessage ? 'true' : undefined}
       aria-describedby={ariaDescribedBy}

@@ -143,13 +143,13 @@ describe('RadioGroup', () => {
       expect(screen.getByText('Obľúbené ovocie').closest('legend')).not.toBeNull();
     });
 
-    it('is accessible as radiogroup role named by legend', () => {
+    it('is accessible as group (fieldset) named by legend', () => {
       render(
         <RadioGroup legend="Obľúbené ovocie">
           <Radio label="Jablko" name="fruit" value="apple" />
         </RadioGroup>,
       );
-      expect(screen.getByRole('radiogroup', { name: 'Obľúbené ovocie' })).toBeInTheDocument();
+      expect(screen.getByRole('group', { name: 'Obľúbené ovocie' })).toBeInTheDocument();
     });
 
     it('renders all child radio options', () => {
@@ -185,7 +185,7 @@ describe('RadioGroup', () => {
           <Radio label="Jablko" name="fruit" value="apple" />
         </RadioGroup>,
       );
-      const group = screen.getByRole('radiogroup', { name: 'Obľúbené ovocie' });
+      const group = screen.getByRole('group', { name: 'Obľúbené ovocie' });
       const hint = screen.getByText('Vyberte jednu možnosť');
       expect(group).toHaveAttribute('aria-describedby', expect.stringContaining(hint.id));
     });
@@ -198,7 +198,7 @@ describe('RadioGroup', () => {
           <Radio label="Jablko" name="fruit" value="apple" />
         </RadioGroup>,
       );
-      const group = screen.getByRole('radiogroup', { name: 'Obľúbené ovocie' });
+      const group = screen.getByRole('group', { name: 'Obľúbené ovocie' });
       const error = screen.getByText('Prosím vyberte možnosť');
       expect(group).toHaveAttribute('aria-errormessage', error.id);
       expect(group).toHaveAttribute('aria-invalid', 'true');
@@ -210,7 +210,7 @@ describe('RadioGroup', () => {
           <Radio label="Jablko" name="fruit" value="apple" />
         </RadioGroup>,
       );
-      const group = screen.getByRole('radiogroup', { name: 'Obľúbené ovocie' });
+      const group = screen.getByRole('group', { name: 'Obľúbené ovocie' });
       expect(group).toHaveAttribute(
         'aria-describedby',
         expect.stringContaining(screen.getByText('Nápoveda skupiny').id),
