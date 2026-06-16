@@ -68,12 +68,13 @@ export const Mobile: Story = {
   },
 };
 
-export const WithHint: Story = {
+export const WithDescription: Story = {
   args: {
     items: [
       {
         title: 'Sekcia s popisom',
-        hint: 'Popis. Pokiaľ nadpis nie je dostatočne zrejmý, toto miesto slúži na vysvetlenie.',
+        description:
+          'Popis. Pokiaľ nadpis nie je dostatočne zrejmý, toto miesto slúži na vysvetlenie.',
         children: <p>Obsah sekcie s popisom.</p>,
       },
       {
@@ -86,7 +87,7 @@ export const WithHint: Story = {
     docs: {
       description: {
         story:
-          'Akordeón s voliteľným popisom (`hint`) pod nadpisom — použite keď nadpis nie je sám osebe dostatočne zrejmý.',
+          'Akordeón s voliteľným popisom (`description`) pod nadpisom — použite keď nadpis nie je sám osebe dostatočne zrejmý.',
       },
     },
   },

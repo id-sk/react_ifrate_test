@@ -21,12 +21,12 @@ Komponent `Accordion` zobrazuje zoznam sekcií, kde každá sekcia má nadpis a 
 
 ## Props komponentu
 
-| Prop            | Typ       | Predvolená | Popis                                                                                  |
-| --------------- | --------- | ---------- | -------------------------------------------------------------------------------------- |
-| `items`         | `AccordionItemProps[]` | — | Zoznam sekcií akordeónu                                               |
-| `className`     | `string`  | `''`       | Extra CSS triedy na koreňovom elemente                                                 |
-| `singleOpen`    | `boolean` | `false`    | Ak `true`, v danom okamihu môže byť otvorená iba jedna sekcia                         |
-| `showToggleAll` | `boolean` | `false`    | Ak `true`, zobrazí tlačidlo „Otvoriť všetky / Zavrieť všetky" nad sekciami            |
+| Prop            | Typ                    | Predvolená | Popis                                                                      |
+| --------------- | ---------------------- | ---------- | -------------------------------------------------------------------------- |
+| `items`         | `AccordionItemProps[]` | —          | Zoznam sekcií akordeónu                                                    |
+| `className`     | `string`               | `''`       | Extra CSS triedy na koreňovom elemente                                     |
+| `singleOpen`    | `boolean`              | `false`    | Ak `true`, v danom okamihu môže byť otvorená iba jedna sekcia              |
+| `showToggleAll` | `boolean`              | `false`    | Ak `true`, zobrazí tlačidlo „Otvoriť všetky / Zavrieť všetky" nad sekciami |
 
 ## Štruktúra položky
 
@@ -34,12 +34,12 @@ Každá položka (`AccordionItemProps`) prijíma:
 
 | Prop          | Typ                   | Popis                                                                    |
 | ------------- | --------------------- | ------------------------------------------------------------------------ |
-| `title`       | `string`              | Nadpis sekcie — zobrazený ako Headline M (24 px, tučné)                 |
-| `children`    | `ReactNode`           | Obsah sekcie (ľubovoľné JSX), zobrazený po rozbalení                    |
-| `id`          | `string` (voliteľné)  | ID pre `aria-controls` / `id` obsahu; ak chýba, generuje sa automaticky |
-| `hint`        | `string` (voliteľné)  | Krátky popis pod nadpisom — použite keď nadpis nie je dostatočne zrejmý |
+| `title`       | `string`              | Nadpis sekcie — zobrazený ako Headline M (24 px, tučné)                  |
+| `children`    | `ReactNode`           | Obsah sekcie (ľubovoľné JSX), zobrazený po rozbalení                     |
+| `id`          | `string` (voliteľné)  | ID pre `aria-controls` / `id` obsahu; ak chýba, generuje sa automaticky  |
+| `description` | `string` (voliteľné)  | Krátky popis pod nadpisom — použite keď nadpis nie je dostatočne zrejmý  |
 | `disabled`    | `boolean` (voliteľné) | Sekcia je nedostupná — tlačidlo je deaktivované a vylúčené z tab poradia |
-| `defaultOpen` | `boolean` (voliteľné) | Sekcia je predvolene rozbalená pri prvom render; sekciu možno zatvoriť  |
+| `defaultOpen` | `boolean` (voliteľné) | Sekcia je predvolene rozbalená pri prvom render; sekciu možno zatvoriť   |
 
 ## Prístupnosť (Accessibility)
 
@@ -52,11 +52,11 @@ Každá položka (`AccordionItemProps`) prijíma:
 
 ### Klávesové skratky
 
-| Kláves | Akcia |
-| --- | --- |
-| `Tab` | Presun fokusu na ďalšie dostupné tlačidlo (deaktivované preskočí) |
-| `Shift + Tab` | Presun fokusu na predchádzajúce dostupné tlačidlo |
-| `Enter` alebo `Space` | Rozbalenie / zbalenie sekcie s fokusom |
+| Kláves                | Akcia                                                             |
+| --------------------- | ----------------------------------------------------------------- |
+| `Tab`                 | Presun fokusu na ďalšie dostupné tlačidlo (deaktivované preskočí) |
+| `Shift + Tab`         | Presun fokusu na predchádzajúce dostupné tlačidlo                 |
+| `Enter` alebo `Space` | Rozbalenie / zbalenie sekcie s fokusom                            |
 
 ## Single Open mód
 
@@ -86,9 +86,7 @@ Pre čisté HTML použitie (bez React) je implementovaný progressive enhancemen
 Pre single-open správanie v čistom HTML pridajte `data-single-open="true"` na koreňový element:
 
 ```html
-<div class="idsk-accordion" data-idsk="accordion" data-single-open="true">
-  ...
-</div>
+<div class="idsk-accordion" data-idsk="accordion" data-single-open="true">...</div>
 ```
 
 ## Deaktivovaná sekcia

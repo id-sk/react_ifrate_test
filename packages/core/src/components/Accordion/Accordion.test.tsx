@@ -111,9 +111,7 @@ describe('Accordion', () => {
     });
 
     it('auto-generates a non-empty id when none is provided', () => {
-      const { container } = render(
-        <Accordion items={[{ title: 'Test', children: 'Content' }]} />,
-      );
+      const { container } = render(<Accordion items={[{ title: 'Test', children: 'Content' }]} />);
       expect(container.querySelector('.idsk-accordion__content')?.id).toBeTruthy();
     });
 
@@ -134,7 +132,9 @@ describe('Accordion', () => {
     });
 
     it('renders the title inside an h3 element with class idsk-accordion__title', () => {
-      const { container } = render(<Accordion items={[{ title: 'My Heading', children: 'Content' }]} />);
+      const { container } = render(
+        <Accordion items={[{ title: 'My Heading', children: 'Content' }]} />,
+      );
       const heading = container.querySelector('h3.idsk-accordion__title');
       expect(heading).toBeInTheDocument();
       expect(heading).toHaveTextContent('My Heading');
@@ -261,9 +261,7 @@ describe('Accordion', () => {
   describe('Content rendering', () => {
     it('renders children inside the content panel', () => {
       render(
-        <Accordion
-          items={[{ id: 'p1', title: 'Test', children: <span>Obsah testu</span> }]}
-        />,
+        <Accordion items={[{ id: 'p1', title: 'Test', children: <span>Obsah testu</span> }]} />,
       );
       expect(screen.getByText('Obsah testu')).toBeInTheDocument();
     });
@@ -391,40 +389,38 @@ describe('Accordion', () => {
   });
 
   // ---------------------------------------------------------------------------
-  // hint prop  (AC: variant s popisom/bez popisu)
+  // description prop  (AC: variant s popisom/bez popisu)
   // ---------------------------------------------------------------------------
-  describe('hint prop', () => {
-    it('renders hint text inside idsk-accordion__hint when provided', () => {
+  describe('description prop', () => {
+    it('renders description text inside idsk-accordion__description when provided', () => {
       render(
-        <Accordion items={[{ title: 'Sekcia', hint: 'Popis sekcie', children: 'Obsah' }]} />,
+        <Accordion items={[{ title: 'Sekcia', description: 'Popis sekcie', children: 'Obsah' }]} />,
       );
       expect(screen.getByText('Popis sekcie')).toBeInTheDocument();
     });
 
-    it('wraps hint in idsk-accordion__hint span', () => {
+    it('wraps description in idsk-accordion__description span', () => {
       const { container } = render(
-        <Accordion items={[{ title: 'Sekcia', hint: 'Popis', children: 'Obsah' }]} />,
+        <Accordion items={[{ title: 'Sekcia', description: 'Popis', children: 'Obsah' }]} />,
       );
-      expect(container.querySelector('.idsk-accordion__hint')).toHaveTextContent('Popis');
+      expect(container.querySelector('.idsk-accordion__description')).toHaveTextContent('Popis');
     });
 
-    it('renders idsk-accordion__meta wrapper when hint is present', () => {
+    it('renders idsk-accordion__meta wrapper when description is present', () => {
       const { container } = render(
-        <Accordion items={[{ title: 'Sekcia', hint: 'Popis', children: 'Obsah' }]} />,
+        <Accordion items={[{ title: 'Sekcia', description: 'Popis', children: 'Obsah' }]} />,
       );
       expect(container.querySelector('.idsk-accordion__meta')).toBeInTheDocument();
     });
 
-    it('does not render idsk-accordion__meta when hint is absent', () => {
-      const { container } = render(
-        <Accordion items={[{ title: 'Sekcia', children: 'Obsah' }]} />,
-      );
+    it('does not render idsk-accordion__meta when description is absent', () => {
+      const { container } = render(<Accordion items={[{ title: 'Sekcia', children: 'Obsah' }]} />);
       expect(container.querySelector('.idsk-accordion__meta')).not.toBeInTheDocument();
     });
 
-    it('hint remains visible regardless of expanded state', async () => {
+    it('description remains visible regardless of expanded state', async () => {
       const user = userEvent.setup();
-      render(<Accordion items={[{ title: 'Sekcia', hint: 'Popis', children: 'Obsah' }]} />);
+      render(<Accordion items={[{ title: 'Sekcia', description: 'Popis', children: 'Obsah' }]} />);
       expect(screen.getByText('Popis')).toBeInTheDocument();
       await user.click(screen.getByRole('button'));
       expect(screen.getByText('Popis')).toBeInTheDocument();
@@ -472,9 +468,7 @@ describe('Accordion', () => {
 
     it('defaultOpen=false behaves identically to omitting the prop', () => {
       const { container } = render(
-        <Accordion
-          items={[{ id: 'a', title: 'A', children: 'Obsah A', defaultOpen: false }]}
-        />,
+        <Accordion items={[{ id: 'a', title: 'A', children: 'Obsah A', defaultOpen: false }]} />,
       );
       expect(container.querySelector('#a')).toHaveAttribute('hidden');
     });
