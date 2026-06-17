@@ -28,9 +28,138 @@ const NAV_ITEMS = [
   { label: 'Sekcia', variant: 'dropdown' as const, dropdownItems: DROPDOWN_ITEMS },
 ];
 
+type HeaderStoryArgs = {
+  // Header
+  variant?: 'default' | 'transparent';
+  sticky?: boolean;
+  // HeaderMainSection
+  orgName?: string;
+  orgSubtitle?: string;
+  showSearch?: boolean;
+  showMail?: boolean;
+  mailHasNew?: boolean;
+  showNotifications?: boolean;
+  notificationsHasNew?: boolean;
+  showLogin?: boolean;
+  loginLabel?: string;
+  menuLabel?: string;
+};
+
+function MainSection({
+  orgName,
+  orgSubtitle,
+  showSearch,
+  showMail,
+  mailHasNew,
+  showNotifications,
+  notificationsHasNew,
+  showLogin,
+  loginLabel,
+  menuLabel,
+}: Partial<HeaderStoryArgs>) {
+  return (
+    <HeaderMainSection
+      orgName={orgName}
+      orgSubtitle={orgSubtitle}
+      showSearch={showSearch}
+      showMail={showMail}
+      mailHasNew={mailHasNew}
+      showNotifications={showNotifications}
+      notificationsHasNew={notificationsHasNew}
+      showLogin={showLogin}
+      loginLabel={loginLabel}
+      menuLabel={menuLabel}
+    />
+  );
+}
+
 const meta = {
   title: 'Organisms/Header',
   component: Header,
+  render: ({ variant, sticky, ...rest }: HeaderStoryArgs) => (
+    <Header variant={variant} sticky={sticky}>
+      <TopBar />
+      <MainSection {...rest} />
+      <WebsiteNavigation items={NAV_ITEMS} />
+    </Header>
+  ),
+  args: {
+    variant: 'default',
+    sticky: false,
+    orgName: 'Názov organizácie',
+    orgSubtitle: 'Podnadpis',
+    showSearch: true,
+    showMail: false,
+    mailHasNew: false,
+    showNotifications: false,
+    notificationsHasNew: false,
+    showLogin: true,
+    loginLabel: 'Prihlásiť sa',
+    menuLabel: 'Menu',
+  },
+  argTypes: {
+    variant: {
+      control: { type: 'select' },
+      options: ['default', 'transparent'],
+      description: 'Vizuálny štýl hlavičky',
+      table: { defaultValue: { summary: 'default' } },
+    },
+    sticky: {
+      control: 'boolean',
+      description: 'Hlavička zostáva viditeľná pri scrollovaní',
+      table: { defaultValue: { summary: 'false' } },
+    },
+    orgName: {
+      control: 'text',
+      description: 'Názov organizácie alebo služby',
+      table: { category: 'HeaderMainSection' },
+    },
+    orgSubtitle: {
+      control: 'text',
+      description: 'Podnadpis pod názvom',
+      table: { category: 'HeaderMainSection' },
+    },
+    showSearch: {
+      control: 'boolean',
+      description: 'Zobraziť tlačidlo vyhľadávania',
+      table: { category: 'HeaderMainSection', defaultValue: { summary: 'true' } },
+    },
+    showMail: {
+      control: 'boolean',
+      description: 'Zobraziť ikonu správ',
+      table: { category: 'HeaderMainSection', defaultValue: { summary: 'false' } },
+    },
+    mailHasNew: {
+      control: 'boolean',
+      description: 'Badge — nová správa',
+      table: { category: 'HeaderMainSection', defaultValue: { summary: 'false' } },
+    },
+    showNotifications: {
+      control: 'boolean',
+      description: 'Zobraziť ikonu notifikácií',
+      table: { category: 'HeaderMainSection', defaultValue: { summary: 'false' } },
+    },
+    notificationsHasNew: {
+      control: 'boolean',
+      description: 'Badge — nová notifikácia',
+      table: { category: 'HeaderMainSection', defaultValue: { summary: 'false' } },
+    },
+    showLogin: {
+      control: 'boolean',
+      description: 'Zobraziť tlačidlo prihlásenia',
+      table: { category: 'HeaderMainSection', defaultValue: { summary: 'true' } },
+    },
+    loginLabel: {
+      control: 'text',
+      description: 'Text tlačidla prihlásenia',
+      table: { category: 'HeaderMainSection', defaultValue: { summary: 'Prihlásiť sa' } },
+    },
+    menuLabel: {
+      control: 'text',
+      description: 'Text mobilného tlačidla Menu',
+      table: { category: 'HeaderMainSection', defaultValue: { summary: 'Menu' } },
+    },
+  },
   parameters: {
     docs: {
       description: {
@@ -39,21 +168,13 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof Header>;
+} satisfies Meta<HeaderStoryArgs>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<HeaderStoryArgs>;
 
 /** Štandardná hlavička s TopBar-om, sekciou s logom a navigačnou lištou. */
 export const Default: Story = {
-  args: {},
-  render: (args) => (
-    <Header {...args}>
-      <TopBar />
-      <HeaderMainSection orgName="Názov organizácie" orgSubtitle="Podnadpis" />
-      <WebsiteNavigation items={NAV_ITEMS} />
-    </Header>
-  ),
   parameters: {
     docs: {
       description: {
@@ -67,11 +188,10 @@ export const Default: Story = {
 /** Rozbalený TopBar spolu s hlavnou sekciou a navigáciou. */
 export const WithExpandedTopBar: Story = {
   name: 'S rozbaleným TopBar-om',
-  args: {},
-  render: (args) => (
-    <Header {...args}>
+  render: ({ variant, sticky, ...rest }) => (
+    <Header variant={variant} sticky={sticky}>
       <TopBar defaultExpanded />
-      <HeaderMainSection orgName="Názov organizácie" orgSubtitle="Podnadpis" />
+      <MainSection {...rest} />
       <WebsiteNavigation items={NAV_ITEMS} />
     </Header>
   ),
@@ -87,13 +207,11 @@ export const WithExpandedTopBar: Story = {
 /** Vlastné akcie vložené medzi vyhľadávanie a tlačidlo prihlásenia. */
 export const WithCustomActions: Story = {
   name: 'S vlastnými akciami',
-  args: {},
-  render: (args) => (
-    <Header {...args}>
+  render: ({ variant, sticky, ...rest }) => (
+    <Header variant={variant} sticky={sticky}>
       <TopBar />
       <HeaderMainSection
-        orgName="Názov organizácie"
-        orgSubtitle="Podnadpis"
+        {...rest}
         actions={
           <Button variant="tertiary" size="md">
             Tlačidlo
@@ -116,19 +234,10 @@ export const WithCustomActions: Story = {
 /** Hlavička bez vyhľadávania a bez tlačidla prihlásenia. */
 export const MinimalActions: Story = {
   name: 'Minimálne akcie',
-  args: {},
-  render: (args) => (
-    <Header {...args}>
-      <TopBar />
-      <HeaderMainSection
-        orgName="Názov organizácie"
-        orgSubtitle="Podnadpis"
-        showSearch={false}
-        showLogin={false}
-      />
-      <WebsiteNavigation items={NAV_ITEMS} />
-    </Header>
-  ),
+  args: {
+    showSearch: false,
+    showLogin: false,
+  },
   parameters: {
     docs: {
       description: {
@@ -142,11 +251,11 @@ export const MinimalActions: Story = {
 /** Transparentná hlavička na farebnom pozadí. */
 export const Transparent: Story = {
   args: { variant: 'transparent' },
-  render: (args) => (
+  render: ({ variant, sticky, ...rest }) => (
     <div style={{ background: 'linear-gradient(135deg, #1e3a5f 0%, #4a7fb5 100%)', padding: 0 }}>
-      <Header {...args}>
+      <Header variant={variant} sticky={sticky}>
         <TopBar />
-        <HeaderMainSection orgName="Názov organizácie" orgSubtitle="Podnadpis" />
+        <MainSection {...rest} />
         <WebsiteNavigation items={NAV_ITEMS} />
       </Header>
     </div>
@@ -163,9 +272,8 @@ export const Transparent: Story = {
 /** Varianta pre prihláseného užívateľa — avatar, mail, notifikácie namiesto login tlačidla. */
 export const LoggedIn: Story = {
   name: 'Prihlásený užívateľ',
-  args: {},
-  render: (args) => (
-    <Header {...args}>
+  render: () => (
+    <Header>
       <TopBar />
       <HeaderMainSection
         orgName="Názov služby"
@@ -196,9 +304,8 @@ export const LoggedIn: Story = {
 /** Varianta pre prihláseného užívateľa s profilovou fotkou. */
 export const LoggedInWithPhoto: Story = {
   name: 'Prihlásený — s fotkou',
-  args: {},
-  render: (args) => (
-    <Header {...args}>
+  render: () => (
+    <Header>
       <TopBar />
       <HeaderMainSection
         orgName="Názov služby"
@@ -327,11 +434,11 @@ export const MobileMenuDrawer: Story = {
 /** Prilepená hlavička pri scrollovaní. */
 export const Sticky: Story = {
   args: { sticky: true },
-  render: (args) => (
+  render: ({ variant, sticky, ...rest }) => (
     <div style={{ height: '300px', overflowY: 'auto', border: '1px solid #e5e7eb' }}>
-      <Header {...args}>
+      <Header variant={variant} sticky={sticky}>
         <TopBar />
-        <HeaderMainSection orgName="Názov organizácie" orgSubtitle="Podnadpis" />
+        <MainSection {...rest} />
         <WebsiteNavigation items={NAV_ITEMS} />
       </Header>
       <div style={{ padding: '1rem', height: '600px', color: '#6b7280' }}>
