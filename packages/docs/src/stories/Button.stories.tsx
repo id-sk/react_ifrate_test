@@ -33,7 +33,7 @@ function resolveIcon(name: string | undefined): React.ReactElement | undefined {
 }
 
 const meta = {
-  title: 'Core/Button',
+  title: 'Atoms/Button',
   component: Button,
   render: ({ leftIconName, rightIconName, ...args }: ButtonStoryArgs) => (
     <Button {...args} leftIcon={resolveIcon(leftIconName)} rightIcon={resolveIcon(rightIconName)} />

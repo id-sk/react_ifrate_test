@@ -5,7 +5,7 @@ import MailIcon from '../../../core/src/assets/icons/MailIcon';
 import NotificationsIcon from '../../../core/src/assets/icons/NotificationsIcon';
 
 const meta = {
-  title: 'Core/NotificationButton',
+  title: 'Molecules/NotificationButton',
   component: NotificationButton,
   parameters: {
     docs: {

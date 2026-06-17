@@ -11,7 +11,7 @@ const LANGUAGES = [
 ];
 
 const meta = {
-  title: 'Core/TopBar',
+  title: 'Organisms/TopBar',
   component: TopBar,
   parameters: {
     layout: 'fullscreen',

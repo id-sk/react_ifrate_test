@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState, type ComponentProps } from 'react';
 
 const meta = {
-  title: 'Core/Select',
+  title: 'Atoms/Select',
   component: Select,
   argTypes: {
     variant: {

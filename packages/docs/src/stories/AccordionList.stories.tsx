@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { AccordionList } from '@idsk/core';
 
 const meta = {
-  title: 'Components/AccordionList',
+  title: 'Organisms/AccordionList',
   component: AccordionList,
 } satisfies Meta<typeof AccordionList>;
 

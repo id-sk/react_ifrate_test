@@ -2,7 +2,7 @@ import { StepperStepCounter, type StepperStepCounterProps } from '@idsk/core';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta = {
-  title: 'Core/StepperStepCounter',
+  title: 'Molecules/StepperStepCounter',
   component: StepperStepCounter,
   argTypes: {
     step: {

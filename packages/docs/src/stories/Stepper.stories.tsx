@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 
 const meta = {
-  title: 'Components/Stepper',
+  title: 'Organisms/Stepper',
   component: Stepper,
   argTypes: {
     activeStep: {

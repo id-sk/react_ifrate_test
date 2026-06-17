@@ -11,7 +11,7 @@ const LANGUAGES = [
 ];
 
 const meta = {
-  title: 'Core/LanguagePicker',
+  title: 'Molecules/LanguagePicker',
   component: LanguagePicker,
   parameters: {
     docs: {

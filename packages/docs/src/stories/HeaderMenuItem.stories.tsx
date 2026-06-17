@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Header, HeaderMainSection, HeaderMenuItem, TopBar, WebsiteNavigation } from '@idsk/core';
 
 const meta = {
-  title: 'Components/HeaderMenuItem',
+  title: 'Molecules/HeaderMenuItem',
   component: HeaderMenuItem,
   parameters: {
     docs: {

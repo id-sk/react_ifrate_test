@@ -2,7 +2,7 @@ import { Textarea } from '@idsk/core';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta = {
-  title: 'Core/Textarea',
+  title: 'Atoms/Textarea',
   component: Textarea,
   argTypes: {
     variant: {

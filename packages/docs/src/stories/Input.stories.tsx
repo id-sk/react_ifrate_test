@@ -2,7 +2,7 @@ import { Input } from '@idsk/core';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta = {
-  title: 'Core/Input',
+  title: 'Atoms/Input',
   component: Input,
   argTypes: {
     variant: {

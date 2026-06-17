@@ -4,7 +4,7 @@ import { Accordion } from '@idsk/core';
 import { initIDSK } from '@idsk/core/vanilla';
 
 const meta: Meta<typeof Accordion> = {
-  title: 'Core/Accordion',
+  title: 'Molecules/Accordion',
   component: Accordion,
   decorators: [
     (Story) => {

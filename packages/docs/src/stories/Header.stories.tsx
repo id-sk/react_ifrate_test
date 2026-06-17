@@ -19,7 +19,7 @@ const NAV_ITEMS = [
 ];
 
 const meta = {
-  title: 'Components/Header',
+  title: 'Organisms/Header',
   component: Header,
   parameters: {
     docs: {

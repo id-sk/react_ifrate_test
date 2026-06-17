@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Header, HeaderMainSection, TopBar, WebsiteNavigation } from '@idsk/core';
 
 const meta = {
-  title: 'Components/WebsiteNavigation',
+  title: 'Organisms/WebsiteNavigation',
   component: WebsiteNavigation,
   parameters: {
     docs: {

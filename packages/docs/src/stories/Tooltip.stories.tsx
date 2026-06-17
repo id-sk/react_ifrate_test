@@ -2,7 +2,7 @@ import { Input, Radio, RadioGroup, Tooltip } from '@idsk/core';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta = {
-  title: 'Core/Tooltip',
+  title: 'Atoms/Tooltip',
   component: Tooltip,
   argTypes: {
     preferredPosition: {

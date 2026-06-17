@@ -2,7 +2,7 @@ import { Radio, RadioGroup } from '@idsk/core';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta = {
-  title: 'Core/Radio',
+  title: 'Atoms/Radio',
   component: Radio,
   argTypes: {
     size: {

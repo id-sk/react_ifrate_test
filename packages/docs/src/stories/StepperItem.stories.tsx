@@ -2,7 +2,7 @@ import { StepperItem, type StepperItemProps } from '@idsk/core';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta = {
-  title: 'Core/StepperItem',
+  title: 'Molecules/StepperItem',
   component: StepperItem,
   decorators: [
     (Story) => (

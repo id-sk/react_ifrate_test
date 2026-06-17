@@ -2,7 +2,7 @@ import { StepperLoader, type StepperLoaderProps } from '@idsk/core';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta = {
-  title: 'Core/StepperLoader',
+  title: 'Molecules/StepperLoader',
   component: StepperLoader,
   argTypes: {
     value: {
