@@ -5,6 +5,12 @@
     @apply flex w-full flex-col items-center bg-surface-default px-space-6 pt-space-1;
   }
 
+  @media (width <= 520px) {
+    .idsk-website-nav {
+      @apply hidden;
+    }
+  }
+
   .idsk-website-nav__container {
     @apply flex w-full max-w-[1120px] items-start gap-space-4;
   }

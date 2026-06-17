@@ -1,6 +1,7 @@
 import React from 'react';
 
 import MailIcon from '../../assets/icons/MailIcon';
+import MenuIcon from '../../assets/icons/MenuIcon';
 import NotificationsIcon from '../../assets/icons/NotificationsIcon';
 import PersonIcon from '../../assets/icons/PersonIcon';
 import SearchIcon from '../../assets/icons/SearchIcon';
@@ -61,6 +62,11 @@ export interface HeaderMainSectionProps extends React.HTMLAttributes<HTMLDivElem
   /** Extra elements inserted between the icon buttons and the right-most button. */
   actions?: React.ReactNode;
 
+  /** Label for the mobile menu button (≤520px). Defaults to `'Menu'`. */
+  menuLabel?: string;
+  /** Called when the mobile menu button is clicked. */
+  onMenuClick?: () => void;
+
   /**
    * When provided the login button is hidden and an avatar is shown instead.
    * Explicitly pass `showLogin={true}` to force the login button alongside the avatar.
@@ -94,6 +100,8 @@ const HeaderMainSection = React.forwardRef<HTMLDivElement, HeaderMainSectionProp
       onNotifications,
       notificationsAriaLabel = 'Notifikácie',
       actions,
+      menuLabel = 'Menu',
+      onMenuClick,
       user,
       showLogin,
       loginLabel = 'Prihlásiť sa',
@@ -127,6 +135,16 @@ const HeaderMainSection = React.forwardRef<HTMLDivElement, HeaderMainSectionProp
           )}
 
           <div className="idsk-header-main__actions">
+            <Button
+              variant="secondary"
+              size="md"
+              className="idsk-header-main__menu-btn"
+              onClick={onMenuClick}
+              leftIcon={<MenuIcon size={25} />}
+            >
+              {menuLabel}
+            </Button>
+
             {showSearch && (
               <NotificationButton
                 icon={<SearchIcon size={25} />}

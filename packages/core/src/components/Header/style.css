@@ -84,4 +84,20 @@
   .idsk-header-main__avatar-caption {
     @apply truncate text-caption text-text-secondary;
   }
+
+  /* ─── Mobile menu button (visible ≤ 520 px only) ────────────────────── */
+
+  .idsk-header-main__menu-btn {
+    @apply hidden;
+  }
+
+  @media (width <= 520px) {
+    .idsk-header-main__menu-btn {
+      @apply flex;
+    }
+
+    .idsk-header-main__actions > *:not(.idsk-header-main__menu-btn) {
+      @apply hidden;
+    }
+  }
 }
