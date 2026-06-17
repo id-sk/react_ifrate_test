@@ -1,6 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { useState } from 'react';
 
-import { Button, Header, HeaderMainSection, TopBar, WebsiteNavigation } from '@idsk/core';
+import {
+  Button,
+  Header,
+  HeaderDrawer,
+  HeaderMainSection,
+  MailIcon,
+  NotificationsIcon,
+  TopBar,
+  WebsiteNavigation,
+} from '@idsk/core';
 
 const DROPDOWN_ITEMS = [
   { label: 'Položka 1', href: '#' },
@@ -209,6 +219,106 @@ export const LoggedInWithPhoto: Story = {
     docs: {
       description: {
         story: 'Prihlásený stav s profilovou fotkou a mail badge indikátorom.',
+      },
+    },
+  },
+};
+
+const DRAWER_ACTION_ITEMS = [
+  { label: 'eSchránka', href: '#', icon: <MailIcon size={25} /> },
+  { label: 'Notifikácie', href: '#', icon: <NotificationsIcon size={25} /> },
+  { label: 'Placeholder', href: '#' },
+  { label: 'Tlačidlo' },
+];
+
+const DRAWER_NAV_ITEMS = [
+  { label: 'Sekcia', href: '#' },
+  { label: 'Sekcia', href: '#' },
+  { label: 'Sekcia', href: '#' },
+  { label: 'Sekcia', href: '#', hasDropdown: true },
+  { label: 'Sekcia', href: '#', hasDropdown: true },
+];
+
+function MobileMenuDrawerDemo() {
+  const [menuOpen, setMenuOpen] = useState(true);
+  return (
+    <>
+      <Header>
+        <TopBar />
+        <HeaderMainSection
+          orgName="Názov organizácie"
+          orgSubtitle="Podnadpis"
+          onMenuClick={() => setMenuOpen(true)}
+        />
+        <WebsiteNavigation items={NAV_ITEMS} />
+      </Header>
+      <HeaderDrawer
+        open={menuOpen}
+        onOpenChange={setMenuOpen}
+        onLogin={() => {}}
+        actionItems={DRAWER_ACTION_ITEMS}
+        navItems={DRAWER_NAV_ITEMS}
+      />
+    </>
+  );
+}
+
+function MobileMenuDrawerLoggedInDemo() {
+  const [menuOpen, setMenuOpen] = useState(true);
+  return (
+    <>
+      <Header>
+        <TopBar />
+        <HeaderMainSection
+          orgName="Názov služby"
+          orgSubtitle="Názov organizácie"
+          user={{ name: 'Meno', caption: 'Popisný text' }}
+          onMenuClick={() => setMenuOpen(true)}
+        />
+        <WebsiteNavigation items={NAV_ITEMS} />
+      </Header>
+      <HeaderDrawer
+        open={menuOpen}
+        onOpenChange={setMenuOpen}
+        user={{ name: 'Meno', caption: 'Popisný text' }}
+        profileDetails={[
+          { label: 'Číslo schránky', value: 'E000738420402' },
+          { label: 'IČO', value: '123456789' },
+          { label: 'Zastupovanie', value: 'Zákonné' },
+        ]}
+        onMyZone={() => {}}
+        onSwitchRepresentation={() => {}}
+        onLogout={() => {}}
+        actionItems={DRAWER_ACTION_ITEMS}
+        navItems={DRAWER_NAV_ITEMS}
+      />
+    </>
+  );
+}
+
+/** Prihlásený užívateľ — profil s info riadkami, Moja zóna, Prepnúť zastupovanie, Odhlásiť sa. */
+export const MobileMenuDrawerLoggedIn: Story = {
+  name: 'Mobilné menu — prihlásený',
+  render: () => <MobileMenuDrawerLoggedInDemo />,
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Verzia zásuvky pre prihláseného užívateľa — zobrazuje avatar, info o účte a akčné tlačidlá.',
+      },
+    },
+  },
+};
+
+/** Mobilná zásuvka — zobrazí sa po kliknutí na tlačidlo Menu (≤520 px). */
+export const MobileMenuDrawer: Story = {
+  name: 'Mobilné menu (zásuvka)',
+  render: () => <MobileMenuDrawerDemo />,
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Mobilná navigačná zásuvka s prihlásením, vyhľadávaním, akčnou zónou a navigáciou. Tlačidlo Menu je viditeľné pri šírke ≤ 520 px.',
       },
     },
   },

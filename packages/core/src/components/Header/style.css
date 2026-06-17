@@ -100,4 +100,161 @@
       @apply hidden;
     }
   }
+
+  /* ─── HeaderDrawer ──────────────────────────────────────────────────────── */
+
+  .idsk-header-drawer__overlay {
+    @apply fixed inset-0 z-[200] bg-surface-overlay;
+  }
+
+  .idsk-header-drawer {
+    @apply fixed inset-0 z-[201] flex h-screen w-full flex-col bg-surface-default;
+
+    box-shadow: -4px 0 30px rgb(0 0 0 / 25%);
+  }
+
+  .idsk-header-drawer__close-bar {
+    @apply sticky top-0 z-[2] flex shrink-0 items-center justify-end;
+    @apply border-b border-border-subtle bg-surface-default;
+    @apply py-space-1 pr-space-1;
+  }
+
+  .idsk-header-drawer__body {
+    @apply flex flex-1 flex-col gap-space-4 overflow-y-auto pt-space-3;
+  }
+
+  .idsk-header-drawer__section {
+    @apply flex flex-col gap-space-4 px-space-3;
+  }
+
+  .idsk-header-drawer__section-title {
+    @apply text-headline-m text-text-primary;
+  }
+
+  .idsk-header-drawer__divider-wrapper {
+    @apply shrink-0 px-space-3;
+  }
+
+  .idsk-header-drawer__divider {
+    @apply h-[2px] w-full rounded-rounding-2 bg-border-default;
+  }
+
+  /* ─── Profile ────────────────────────────────────────────────────────────── */
+
+  .idsk-header-drawer__profile {
+    @apply flex flex-col gap-space-4;
+  }
+
+  .idsk-header-drawer__profile-row {
+    @apply flex items-center gap-space-2;
+  }
+
+  .idsk-header-drawer__avatar-icon {
+    @apply flex size-[40px] shrink-0 items-center justify-center overflow-hidden rounded-full bg-neutral-900 text-base-white;
+  }
+
+  .idsk-header-drawer__avatar-photo {
+    @apply size-full rounded-full object-cover;
+  }
+
+  .idsk-header-drawer__profile-info {
+    @apply flex min-w-0 flex-col;
+  }
+
+  .idsk-header-drawer__profile-name {
+    @apply truncate text-main-body-1 text-text-primary;
+  }
+
+  .idsk-header-drawer__profile-caption {
+    @apply truncate text-caption text-text-secondary;
+  }
+
+  .idsk-header-drawer__profile-details {
+    @apply flex flex-col gap-space-1 text-main-body-1;
+  }
+
+  .idsk-header-drawer__profile-detail-row {
+    @apply flex gap-space-3;
+  }
+
+  .idsk-header-drawer__profile-detail-label {
+    @apply w-[110px] shrink-0 text-text-secondary;
+  }
+
+  .idsk-header-drawer__profile-detail-value {
+    @apply text-text-primary;
+  }
+
+  .idsk-header-drawer__profile-actions {
+    @apply flex flex-col gap-space-4;
+  }
+
+  /* ─── Search ─────────────────────────────────────────────────────────────── */
+
+  .idsk-header-drawer__search {
+    @apply flex h-[41px] w-full items-stretch;
+  }
+
+  .idsk-header-drawer__search-input {
+    @apply min-w-0 flex-1 rounded-l-rounding-1;
+    @apply border-2 border-r-0 border-primary-500;
+    @apply bg-surface-default px-space-3 py-space-2;
+    @apply text-main-body text-text-primary;
+    @apply idsk-focus-outline-native;
+  }
+
+  .idsk-header-drawer__search-input::-webkit-search-cancel-button {
+    display: none;
+  }
+
+  .idsk-header-drawer__search-submit {
+    @apply flex shrink-0 cursor-pointer items-center justify-center transition-colors;
+    @apply min-w-[41px] rounded-r-rounding-1;
+    @apply border-2 border-primary-500;
+    @apply bg-surface-default text-primary-500;
+    @apply idsk-focus-outline;
+  }
+
+  .idsk-header-drawer__search-submit:hover {
+    @apply bg-primary-100;
+  }
+
+  /* ─── Zones (action zone + navigation) ──────────────────────────────────── */
+
+  .idsk-header-drawer__zone {
+    @apply flex flex-col gap-space-4;
+  }
+
+  .idsk-header-drawer__zone-header {
+    @apply flex items-center px-space-3;
+  }
+
+  .idsk-header-drawer__items {
+    @apply m-0 flex list-none flex-col p-0;
+  }
+
+  .idsk-header-drawer__item {
+    @apply flex w-full;
+  }
+
+  .idsk-header-drawer__item-link {
+    @apply relative flex w-full cursor-pointer items-center gap-space-2;
+    @apply bg-transparent px-space-3 py-(--component-button-padding-vertical-l);
+    @apply border-0 text-left text-button text-primary-500;
+    @apply idsk-focus-outline idsk-hover-outline;
+
+    text-decoration: none;
+  }
+
+  .idsk-header-drawer__item-link--active {
+    @apply border-l-[3px] border-primary-500;
+  }
+
+  .idsk-header-drawer__item-icon {
+    @apply flex size-[25px] shrink-0 items-center justify-center;
+  }
+
+  .idsk-header-drawer__item-arrow {
+    @apply shrink-0;
+  }
 }
