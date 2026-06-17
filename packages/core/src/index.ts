@@ -16,6 +16,8 @@ export * from './components/TopBar';
 export * from './components/LanguagePicker';
 export * from './components/NotificationButton';
 export * from './components/UserAvatar';
+export * from './components/HeaderMenuItem';
+export * from './components/WebsiteNavigation';
 export * from './lib/utils';
 export { default as SlovakStateSignIcon } from './assets/icons/SlovakStateSignIcon';
 export type { SlovakStateSignIconProps } from './assets/icons/SlovakStateSignIcon';

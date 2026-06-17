@@ -1,6 +1,22 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { Button, Header, HeaderMainSection, TopBar } from '@idsk/core';
+import { Button, Header, HeaderMainSection, TopBar, WebsiteNavigation } from '@idsk/core';
+
+const DROPDOWN_ITEMS = [
+  { label: 'Položka 1', href: '#' },
+  { label: 'Položka 2', href: '#' },
+  { label: 'Položka 3', href: '#' },
+  { label: 'Položka 4', href: '#' },
+  { label: 'Položka 5', href: '#' },
+];
+
+const NAV_ITEMS = [
+  { label: 'Sekcia', href: '#' },
+  { label: 'Sekcia', href: '#' },
+  { label: 'Sekcia', href: '#', active: true },
+  { label: 'Sekcia', variant: 'dropdown' as const, dropdownItems: DROPDOWN_ITEMS },
+  { label: 'Sekcia', variant: 'dropdown' as const, dropdownItems: DROPDOWN_ITEMS },
+];
 
 const meta = {
   title: 'Components/Header',
@@ -18,13 +34,14 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-/** Štandardná hlavička s TopBar-om a sekciou s logom, názvom organizácie a prihlásením. */
+/** Štandardná hlavička s TopBar-om, sekciou s logom a navigačnou lištou. */
 export const Default: Story = {
   args: {},
   render: (args) => (
     <Header {...args}>
       <TopBar />
       <HeaderMainSection orgName="Názov organizácie" orgSubtitle="Podnadpis" />
+      <WebsiteNavigation items={NAV_ITEMS} />
     </Header>
   ),
   parameters: {
@@ -37,7 +54,7 @@ export const Default: Story = {
   },
 };
 
-/** Rozbalený TopBar spolu s hlavnou sekciou. */
+/** Rozbalený TopBar spolu s hlavnou sekciou a navigáciou. */
 export const WithExpandedTopBar: Story = {
   name: 'S rozbaleným TopBar-om',
   args: {},
@@ -45,6 +62,7 @@ export const WithExpandedTopBar: Story = {
     <Header {...args}>
       <TopBar defaultExpanded />
       <HeaderMainSection orgName="Názov organizácie" orgSubtitle="Podnadpis" />
+      <WebsiteNavigation items={NAV_ITEMS} />
     </Header>
   ),
   parameters: {
@@ -72,6 +90,7 @@ export const WithCustomActions: Story = {
           </Button>
         }
       />
+      <WebsiteNavigation items={NAV_ITEMS} />
     </Header>
   ),
   parameters: {
@@ -97,12 +116,14 @@ export const MinimalActions: Story = {
         showSearch={false}
         showLogin={false}
       />
+      <WebsiteNavigation items={NAV_ITEMS} />
     </Header>
   ),
   parameters: {
     docs: {
       description: {
-        story: 'Verzia bez vyhľadávacieho tlačidla a bez prihlásenia — len logo a názov.',
+        story:
+          'Verzia bez vyhľadávacieho tlačidla a bez prihlásenia — len logo, názov a navigácia.',
       },
     },
   },
@@ -116,6 +137,7 @@ export const Transparent: Story = {
       <Header {...args}>
         <TopBar />
         <HeaderMainSection orgName="Názov organizácie" orgSubtitle="Podnadpis" />
+        <WebsiteNavigation items={NAV_ITEMS} />
       </Header>
     </div>
   ),
@@ -148,6 +170,7 @@ export const LoggedIn: Story = {
           </Button>
         }
       />
+      <WebsiteNavigation items={NAV_ITEMS} />
     </Header>
   ),
   parameters: {
@@ -179,6 +202,7 @@ export const LoggedInWithPhoto: Story = {
           avatarSrc: 'https://i.pravatar.cc/40',
         }}
       />
+      <WebsiteNavigation items={NAV_ITEMS} />
     </Header>
   ),
   parameters: {
@@ -198,6 +222,7 @@ export const Sticky: Story = {
       <Header {...args}>
         <TopBar />
         <HeaderMainSection orgName="Názov organizácie" orgSubtitle="Podnadpis" />
+        <WebsiteNavigation items={NAV_ITEMS} />
       </Header>
       <div style={{ padding: '1rem', height: '600px', color: '#6b7280' }}>
         Obsah stránky — posúvajte pre overenie sticky správania.

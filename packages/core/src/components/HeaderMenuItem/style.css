@@ -1,0 +1,64 @@
+@reference "../../style/tailwind.css";
+
+@layer components {
+  /* ─── Trigger ────────────────────────────────────────────────────────────── */
+
+  .idsk-header-menu-item {
+    @apply relative flex h-[48px] cursor-pointer flex-col items-start bg-transparent p-0 text-left no-underline;
+    @apply idsk-focus-outline;
+  }
+
+  /* Hover: sivý inset rámček, len na zariadeniach s myšou */
+  @media (hover: hover) {
+    .idsk-header-menu-item:not([data-state='open']):hover::before {
+      @apply pointer-events-none absolute content-[''];
+
+      inset: 1px 0 0;
+      border: var(--stroke-thickness-hover-ring) solid var(--hover-ring);
+      border-radius: var(--stroke-thickness-hover-ring);
+      z-index: 1;
+    }
+  }
+
+  /* Content vnútri triggera — nesie spodný okraj indikátor */
+  .idsk-header-menu-item__content {
+    @apply flex h-full items-center border-b-[3px] border-b-transparent px-space-2;
+  }
+
+  /* Active/Selected: 3px modrý spodný okraj */
+  .idsk-header-menu-item--active .idsk-header-menu-item__content {
+    @apply border-b-text-accent;
+  }
+
+  /* Open (dropdown rozbalený): modrý spodný okraj + svetlomodrý bg */
+  .idsk-header-menu-item--open .idsk-header-menu-item__content {
+    background-color: var(--component-button-tertiary-background-active);
+
+    @apply border-b-text-accent;
+  }
+
+  .idsk-header-menu-item__label {
+    @apply text-button whitespace-nowrap text-text-accent;
+  }
+
+  .idsk-header-menu-item__icon {
+    @apply flex items-center text-text-accent;
+  }
+
+  /* ─── Dropdown panel ─────────────────────────────────────────────────────── */
+
+  .idsk-header-menu-item__panel {
+    @apply z-50 flex w-[249px] flex-col overflow-hidden rounded-(--corner-radius-rounding-s) border-2 border-border-subtle bg-surface-default;
+
+    box-shadow: 0 12px 16px rgb(26 26 26 / 24%);
+  }
+
+  .idsk-header-menu-item__panel-item {
+    @apply relative flex min-h-12 cursor-pointer items-center px-space-4 py-space-2 idsk-text-main-body-1 text-text-primary no-underline outline-none select-none;
+
+    /* Hover aj keyboard focus (Radix nastavuje data-highlighted pre oboje) */
+    &[data-highlighted] {
+      @apply bg-surface-subtle underline decoration-solid decoration-2 decoration-skip-ink-none;
+    }
+  }
+}

@@ -2,7 +2,7 @@
 
 @layer components {
   .idsk-header {
-    @apply w-full border-b border-border-default bg-surface-default font-sans;
+    @apply w-full bg-surface-default font-sans;
   }
 
   .idsk-header--transparent {

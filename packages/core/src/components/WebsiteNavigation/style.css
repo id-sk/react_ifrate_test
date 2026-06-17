@@ -1,0 +1,32 @@
+@reference "../../style/tailwind.css";
+
+@layer components {
+  .idsk-website-nav {
+    @apply flex w-full flex-col items-center bg-surface-default px-space-6 pt-space-1;
+  }
+
+  .idsk-website-nav__container {
+    @apply flex w-full max-w-[1120px] items-start gap-space-4;
+  }
+
+  .idsk-website-nav__item {
+    @apply relative flex h-[48px] cursor-pointer flex-col items-start border-b-2 border-b-transparent bg-transparent p-0 text-left;
+    @apply hover:border-b-text-accent;
+  }
+
+  .idsk-website-nav__item--active {
+    @apply border-b-text-accent;
+  }
+
+  .idsk-website-nav__item-content {
+    @apply flex h-full items-center px-space-2;
+  }
+
+  .idsk-website-nav__item-label {
+    @apply text-button text-text-accent;
+  }
+
+  .idsk-website-nav__item-arrow {
+    @apply flex items-center text-text-accent;
+  }
+}
