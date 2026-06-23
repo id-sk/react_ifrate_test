@@ -12,6 +12,9 @@ const headerVariants = cva('idsk-header', {
     sticky: {
       true: 'idsk-header--sticky',
     },
+    hasNavigation: {
+      false: 'idsk-header--no-navigation',
+    },
   },
   defaultVariants: {
     variant: 'default',
@@ -23,11 +26,11 @@ export interface HeaderProps
   extends React.HTMLAttributes<HTMLElement>, VariantProps<typeof headerVariants> {}
 
 const Header = React.forwardRef<HTMLElement, HeaderProps>(
-  ({ className, variant, sticky, children, ...props }, ref) => (
+  ({ className, variant, sticky, hasNavigation, children, ...props }, ref) => (
     <header
       ref={ref}
       data-idsk="header"
-      className={cn(headerVariants({ variant, sticky, className }))}
+      className={cn(headerVariants({ variant, sticky, hasNavigation, className }))}
       {...props}
     >
       {children}

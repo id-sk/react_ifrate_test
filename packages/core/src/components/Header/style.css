@@ -13,6 +13,10 @@
     @apply sticky top-0 z-[100];
   }
 
+  .idsk-header--no-navigation .idsk-website-nav {
+    @apply hidden;
+  }
+
   /* ─── HeaderMainSection ─────────────────────────────────────────────── */
 
   .idsk-header-main {
@@ -31,6 +35,15 @@
     @apply flex shrink-0 items-center justify-center;
   }
 
+  .idsk-header-main__logo-link {
+    @apply idsk-focus-outline flex items-center;
+  }
+
+  .idsk-header-main__logo svg,
+  .idsk-header-main__logo img {
+    max-height: 50px;
+  }
+
   .idsk-header-main__brand {
     @apply flex min-w-0 flex-col justify-center;
   }
@@ -44,7 +57,7 @@
   }
 
   .idsk-header-main__actions {
-    @apply flex shrink-0 items-center gap-space-4;
+    @apply flex shrink-0 items-center gap-space-5;
   }
 
   /* ─── Avatar ────────────────────────────────────────────────────────── */

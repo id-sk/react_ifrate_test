@@ -30,7 +30,7 @@ describe('TopBar', () => {
 
     it('renders the language picker by default', () => {
       render(<TopBar />);
-      expect(screen.getByRole('button', { name: /Slovensky/i })).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: /Slovenčina/i })).toBeInTheDocument();
     });
 
     it('hides the language picker when showLanguagePicker=false', () => {
@@ -180,6 +180,36 @@ describe('TopBar', () => {
       await user.click(screen.getByRole('button', { name: /Slovenčina/i }));
       await user.click(screen.getByRole('menuitem', { name: /English/i }));
       expect(onLanguageChange).toHaveBeenCalledWith('en');
+    });
+  });
+
+  // ---------------------------------------------------------------------------
+  // ARIA attributes (AC compliance)
+  // ---------------------------------------------------------------------------
+  describe('ARIA attributes', () => {
+    it('toggle button has aria-controls pointing to the panel', () => {
+      render(<TopBar />);
+      expect(screen.getByRole('button', { name: /Oficiálna stránka/i })).toHaveAttribute(
+        'aria-controls',
+        'idsk-top-bar-panel',
+      );
+    });
+
+    it('panel element id matches aria-controls value', () => {
+      const { container } = render(<TopBar />);
+      expect(container.querySelector('#idsk-top-bar-panel')).toBeInTheDocument();
+    });
+
+    it('language picker trigger has aria-haspopup="listbox"', () => {
+      render(<TopBar />);
+      const langBtn = screen.getByRole('button', { name: /Slovenčina/i });
+      expect(langBtn).toHaveAttribute('aria-haspopup', 'listbox');
+    });
+
+    it('language picker trigger has aria-expanded', () => {
+      render(<TopBar />);
+      const langBtn = screen.getByRole('button', { name: /Slovenčina/i });
+      expect(langBtn).toHaveAttribute('aria-expanded');
     });
   });
 

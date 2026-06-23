@@ -35,8 +35,14 @@ export interface HeaderMainSectionProps extends React.HTMLAttributes<HTMLDivElem
    * Pass `null` to hide the logo.
    */
   logo?: React.ReactNode;
+  /** When provided, wraps the logo in an `<a>` tag linking to the homepage. */
+  logoHref?: string;
+  /** Accessible label for the logo link (e.g. "Odkaz na domovskú stránku Ministerstva…"). */
+  logoAriaLabel?: string;
   /** Primary headline next to the logo (org name or service name). */
   orgName?: string;
+  /** When `true`, renders `orgName` as an `<h1>` instead of a `<span>`. */
+  orgNameAsHeading?: boolean;
   /** Secondary line below the headline. */
   orgSubtitle?: string;
 
@@ -66,6 +72,10 @@ export interface HeaderMainSectionProps extends React.HTMLAttributes<HTMLDivElem
   menuLabel?: string;
   /** Called when the mobile menu button is clicked. */
   onMenuClick?: () => void;
+  /** Whether the mobile drawer is currently open — sets `aria-expanded` on the menu button. */
+  menuDrawerOpen?: boolean;
+  /** ID of the mobile drawer element — sets `aria-controls` on the menu button. */
+  menuDrawerId?: string;
 
   /**
    * When provided the login button is hidden and an avatar is shown instead.
@@ -86,7 +96,10 @@ const HeaderMainSection = React.forwardRef<HTMLDivElement, HeaderMainSectionProp
     {
       className,
       logo = <SlovakStateSignIcon />,
+      logoHref,
+      logoAriaLabel,
       orgName,
+      orgNameAsHeading = false,
       orgSubtitle,
       showSearch = true,
       onSearch,
@@ -102,6 +115,8 @@ const HeaderMainSection = React.forwardRef<HTMLDivElement, HeaderMainSectionProp
       actions,
       menuLabel = 'Menu',
       onMenuClick,
+      menuDrawerOpen,
+      menuDrawerId,
       user,
       showLogin,
       loginLabel = 'Prihlásiť sa',
@@ -122,10 +137,28 @@ const HeaderMainSection = React.forwardRef<HTMLDivElement, HeaderMainSectionProp
         <div className="idsk-header-main__container">
           {(logo || orgName) && (
             <div className="idsk-header-main__owner">
-              {logo && <div className="idsk-header-main__logo">{logo}</div>}
+              {logo && (
+                <div className="idsk-header-main__logo">
+                  {logoHref ? (
+                    <a
+                      href={logoHref}
+                      aria-label={logoAriaLabel}
+                      className="idsk-header-main__logo-link"
+                    >
+                      {logo}
+                    </a>
+                  ) : (
+                    logo
+                  )}
+                </div>
+              )}
               {orgName && (
                 <div className="idsk-header-main__brand">
-                  <span className="idsk-header-main__org-name">{orgName}</span>
+                  {orgNameAsHeading ? (
+                    <h1 className="idsk-header-main__org-name">{orgName}</h1>
+                  ) : (
+                    <span className="idsk-header-main__org-name">{orgName}</span>
+                  )}
                   {orgSubtitle && (
                     <span className="idsk-header-main__org-subtitle">{orgSubtitle}</span>
                   )}
@@ -140,6 +173,9 @@ const HeaderMainSection = React.forwardRef<HTMLDivElement, HeaderMainSectionProp
               size="md"
               className="idsk-header-main__menu-btn"
               onClick={onMenuClick}
+              aria-expanded={menuDrawerOpen}
+              aria-controls={menuDrawerId}
+              aria-haspopup="dialog"
               leftIcon={<MenuIcon size={25} />}
             >
               {menuLabel}

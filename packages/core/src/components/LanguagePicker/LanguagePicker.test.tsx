@@ -25,6 +25,11 @@ describe('LanguagePicker', () => {
       expect(screen.getByRole('button')).toBeInTheDocument();
     });
 
+    it('trigger has aria-haspopup="listbox" (AC: prepínač jazykov)', () => {
+      render(<LanguagePicker defaultValue="sk" languages={LANGUAGES} />);
+      expect(screen.getByRole('button')).toHaveAttribute('aria-haspopup', 'listbox');
+    });
+
     it('displays the label of the selected language', () => {
       render(<LanguagePicker defaultValue="sk" languages={LANGUAGES} />);
       expect(screen.getByRole('button')).toHaveTextContent('Slovenčina');

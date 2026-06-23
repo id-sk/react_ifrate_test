@@ -60,6 +60,7 @@ const LanguagePicker = React.forwardRef<HTMLButtonElement, LanguagePickerProps>(
       <DropdownMenu.Root open={isOpen} onOpenChange={handleOpenChange}>
         <DropdownMenu.Trigger
           ref={ref}
+          aria-haspopup="listbox"
           className={cn(
             'idsk-button idsk-button--tertiary idsk-button--sm',
             onDark && !isOpen ? 'idsk-button--color-white' : '',

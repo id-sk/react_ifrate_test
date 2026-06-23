@@ -37,24 +37,27 @@ const WebsiteNavigation = React.forwardRef<HTMLElement, WebsiteNavigationProps>(
       {...props}
     >
       <div className="idsk-website-nav__container">
-        {items.map((item) => {
-          const itemKey = item.id ?? `${item.label}|${item.href ?? ''}`;
-          return (
-            <HeaderMenuItem
-              key={itemKey}
-              href={item.href}
-              variant={item.variant}
-              active={item.active}
-              onClick={item.onClick}
-              dropdownItems={item.dropdownItems}
-              open={item.open}
-              defaultOpen={item.defaultOpen}
-              onOpenChange={item.onOpenChange}
-            >
-              {item.label}
-            </HeaderMenuItem>
-          );
-        })}
+        <ul className="idsk-website-nav__list" role="list">
+          {items.map((item) => {
+            const itemKey = item.id ?? `${item.label}|${item.href ?? ''}`;
+            return (
+              <li key={itemKey} className="idsk-website-nav__list-item">
+                <HeaderMenuItem
+                  href={item.href}
+                  variant={item.variant}
+                  active={item.active}
+                  onClick={item.onClick}
+                  dropdownItems={item.dropdownItems}
+                  open={item.open}
+                  defaultOpen={item.defaultOpen}
+                  onOpenChange={item.onOpenChange}
+                >
+                  {item.label}
+                </HeaderMenuItem>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </nav>
   ),
