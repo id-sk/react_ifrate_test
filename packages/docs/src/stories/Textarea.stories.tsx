@@ -113,27 +113,6 @@ export const Optional: Story = {
 };
 
 /**
- * Pole s počítadlom znakov (maxLength)
- */
-export const WithCharacterCount: Story = {
-  name: 'S počítadlom znakov',
-  args: {
-    label: 'Názov textového poľa',
-    maxLength: 200,
-    description: 'Popisný text',
-  },
-  decorators: desktopDecorator,
-  parameters: {
-    docs: {
-      description: {
-        story:
-          'V pravom dolnom rohu sa zobrazuje dynamické počítadlo znakov vo formáte aktuálny_počet/maximálny_počet. Prop maxLength je povinný.',
-      },
-    },
-  },
-};
-
-/**
  * Pole s podnadpisom (subheading)
  */
 export const WithSubheading: Story = {
