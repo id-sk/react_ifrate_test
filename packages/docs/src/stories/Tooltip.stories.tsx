@@ -33,6 +33,12 @@ const meta = {
   },
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component:
+          'Kontextová nápoveda zobrazená po kliknutí alebo nabehnutí na ikonu „i". Podporuje štyri smery zobrazenia (`top`, `bottom`, `left`, `right`) s automatickým prispôsobením viewportu, voliteľný viditeľný `label` a prístupný `ariaLabel` pre čítačky obrazovky. Maximálna dĺžka obsahu je 290 znakov.',
+      },
+    },
   },
 } satisfies Meta<typeof Tooltip>;
 

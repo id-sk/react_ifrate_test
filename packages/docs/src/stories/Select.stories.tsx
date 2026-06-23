@@ -63,6 +63,12 @@ const meta = {
   },
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component:
+          'Rozbaľovacie pole postavené na Radix UI Select. Podporuje povinné/nepovinné označenie, podnadpis labelu (`labelDescription`), pomocný text (`inputDescription`), chybový stav, tooltip, dve veľkosti (`default`, `sm`), zoskupené možnosti (`groups`) a riadený (`controlled`) aj neriadený (`uncontrolled`) režim.',
+      },
+    },
   },
 } satisfies Meta<typeof Select>;
 

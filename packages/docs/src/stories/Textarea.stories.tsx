@@ -56,6 +56,12 @@ const meta = {
   },
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component:
+          'Viacriadkové textové pole. Podporuje povinné/nepovinné označenie, podnadpis (`subheading`), pomocný text (`description`), chybový stav (`error`), tooltip, dynamické počítadlo znakov (`maxLength`) a nastaviteľnú počiatočnú výšku (`rows`).',
+      },
+    },
   },
 } satisfies Meta<typeof Textarea>;
 

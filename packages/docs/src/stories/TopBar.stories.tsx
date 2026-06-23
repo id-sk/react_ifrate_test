@@ -51,8 +51,15 @@ export const Collapsed: Story = {
     defaultExpanded: false,
     showLanguagePicker: true,
     languages: LANGUAGES,
-
     showWebsiteListLink: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Predvolený zbalený stav — zobrazuje iba tlačidlo „Oficiálna stránka" a výber jazyka. Kliknutím sa rozbalí informačný panel.',
+      },
+    },
   },
 };
 
@@ -62,8 +69,15 @@ export const Expanded: Story = {
     defaultExpanded: true,
     showLanguagePicker: true,
     languages: LANGUAGES,
-
     showWebsiteListLink: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Rozbalený stav — zobrazuje celý informačný panel s vysvetlením, ako rozpoznať officiálnu stránku štátu.',
+      },
+    },
   },
 };
 
@@ -73,6 +87,14 @@ export const WithoutLanguagePicker: Story = {
     defaultExpanded: true,
     showLanguagePicker: false,
     showWebsiteListLink: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'TopBar bez výberu jazyka (`showLanguagePicker=false`) — vhodné pre stránky dostupné iba v jednom jazyku.',
+      },
+    },
   },
 };
 
@@ -84,5 +106,13 @@ export const CustomDisclaimer: Story = {
       'Toto je webová stránka Ministerstva vnútra SR. Webové stránky s doménou .gov.sk sú overené stránky štátnych orgánov.',
     showLanguagePicker: true,
     showWebsiteListLink: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Vlastný text upozornenia cez prop `govDisclaimer` — umožňuje prispôsobiť správu pre konkrétny rezort alebo organizáciu.',
+      },
+    },
   },
 };

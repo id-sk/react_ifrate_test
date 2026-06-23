@@ -4,6 +4,14 @@ import { AccordionList } from '@idsk/core';
 const meta = {
   title: 'Organisms/AccordionList',
   component: AccordionList,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'AccordionList je kompozitný komponent kombinujúci nadpis, tlačidlo „Otvoriť všetko / Zavrieť všetko" a akordeón. Používa sa na zoskupenie viacerých rozbaľovacích sekcií pod spoločným záhlavím.',
+      },
+    },
+  },
 } satisfies Meta<typeof AccordionList>;
 
 export default meta;

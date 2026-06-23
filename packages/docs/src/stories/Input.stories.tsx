@@ -56,6 +56,12 @@ const meta = {
   },
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component:
+          'Textové vstupné pole pre jednoriadkový vstup. Podporuje povinné/nepovinné označenie, podnadpis (`subheading`), pomocný text (`description`), chybový stav (`error`), tooltip, dve veľkosti (`default`, `sm`) a natívny typ (`text`, `email`, `password`, …).',
+      },
+    },
   },
 } satisfies Meta<typeof Input>;
 

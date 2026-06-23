@@ -7,6 +7,12 @@ const meta = {
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component:
+          'Avatar používateľa zobrazuje identitu prihláseného používateľa. Podporuje tri varianty ikony: profilová fotografia (`avatarSrc`), iniciály (`initials`) a generická ikona osoby (predvolená). Pri nastavení `onClick` je komponent interaktívny a slúži ako tlačidlo; bez `onClick` sa renderuje ako `div`.',
+      },
+    },
   },
   argTypes: {
     name: { control: 'text' },

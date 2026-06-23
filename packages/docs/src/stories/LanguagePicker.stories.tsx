@@ -46,6 +46,14 @@ export const Default: Story = {
     defaultValue: 'sk',
     languages: LANGUAGES,
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Základný stav — tlačidlo zobrazuje aktívny jazyk, kliknutím sa otvorí rozbaľovací zoznam dostupných jazykov.',
+      },
+    },
+  },
 };
 
 export const OnDarkBackground: Story = {
@@ -70,6 +78,14 @@ export const ControlledOpen: Story = {
     defaultValue: 'sk',
     languages: LANGUAGES,
     open: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Prop `open=true` vynúti trvalo otvorený stav zoznamu — užitočné pri debugovaní alebo testovaní rozbaľovacieho panela.',
+      },
+    },
   },
 };
 

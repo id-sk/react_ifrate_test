@@ -6,6 +6,14 @@ import { initIDSK } from '@idsk/core/vanilla';
 const meta: Meta<typeof Accordion> = {
   title: 'Molecules/Accordion',
   component: Accordion,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Akordeón umožňuje používateľom postupne odhaľovať obsah sekcií kliknutím na ich nadpisy. Podporuje režim viacerých otvorených sekcií, jednoduchého otvorenia (`singleOpen`), predvolene otvorenej sekcie (`defaultOpen`) a tlačidla „Otvoriť všetko / Zavrieť všetko" (`showToggleAll`).',
+      },
+    },
+  },
   decorators: [
     (Story) => {
       useEffect(() => {

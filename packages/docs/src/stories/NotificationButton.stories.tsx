@@ -32,6 +32,13 @@ export const Bell: Story = {
     hasNew: false,
     'aria-label': 'Notifikácie',
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Ikona zvončeka bez aktívneho badge — žiadne nové notifikácie.',
+      },
+    },
+  },
 };
 
 export const BellWithNew: Story = {
@@ -42,6 +49,14 @@ export const BellWithNew: Story = {
     newLabel: 'Nová notifikácia',
     'aria-label': 'Notifikácie',
   },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Ikona zvončeka s červeným badge indikátorom (`hasNew=true`). Text `newLabel` je prístupný pre čítačky obrazovky.',
+      },
+    },
+  },
 };
 
 export const Mail: Story = {
@@ -50,6 +65,13 @@ export const Mail: Story = {
     icon: <MailIcon size={25} />,
     hasNew: false,
     'aria-label': 'Správy',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Ikona emailu bez aktívneho badge — žiadne nové správy.',
+      },
+    },
   },
 };
 
@@ -60,5 +82,12 @@ export const MailWithNew: Story = {
     hasNew: true,
     newLabel: 'Nová správa',
     'aria-label': 'Správy',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Ikona emailu s červeným badge indikátorom novej správy.',
+      },
+    },
   },
 };
