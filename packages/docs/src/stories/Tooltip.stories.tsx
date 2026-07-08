@@ -109,7 +109,7 @@ export const LongContent: Story = {
   name: 'Dlhý obsah (blízko limitu)',
   args: {
     content:
-      'Zadajte vaše rodné číslo presne tak, ako je uvedené na občianskom preukaze alebo cestovnom pase. Rodné číslo sa skladá z 10 číslic a môže obsahovať lomku. Príklad: 900101/1234.',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.',
   },
   parameters: {
     docs: {
@@ -172,7 +172,7 @@ export const FormIntegration: Story = {
       <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
         <Tooltip
           label="Rodné číslo"
-          content="Zadajte rodné číslo vo formáte RRMMDD/XXXX. Nájdete ho na občianskom preukaze."
+          content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt."
           ariaLabel="Nápoveda k rodnému číslu"
           preferredPosition="top"
         />
@@ -183,7 +183,7 @@ export const FormIntegration: Story = {
       <RadioGroup
         legend="Pohlavie"
         tooltip={{
-          content: 'Pohlavie je potrebné pre správne spracovanie rodného čísla.',
+          content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
           ariaLabel: 'Nápoveda k pohláviu',
           preferredPosition: 'right',
         }}
@@ -196,7 +196,7 @@ export const FormIntegration: Story = {
       <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
         <Tooltip
           label="Krajina pôvodu"
-          content="Vyberte krajinu, v ktorej ste sa narodili, nie krajinu vášho aktuálneho bydliska."
+          content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt."
           ariaLabel="Nápoveda k krajine pôvodu"
           preferredPosition="top"
         />
