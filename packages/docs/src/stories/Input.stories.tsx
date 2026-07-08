@@ -227,8 +227,8 @@ export const Sizes: Story = {
   decorators: desktopDecorator,
   render: (args) => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-      <Input {...args} size="sm" label="Malé pole (sm)" />
-      <Input {...args} size="default" label="Veľké pole (default)" />
+      <Input {...args} size="sm" label="Malé pole" />
+      <Input {...args} size="default" label="Veľké pole" />
     </div>
   ),
   parameters: {
