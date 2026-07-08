@@ -169,7 +169,10 @@
     @apply idsk-text-main-body-1 text-text-secondary;
   }
 
-  .idsk-select__label-description,
+  .idsk-select__label-description {
+    @apply max-w-[740px] idsk-text-hint;
+  }
+
   .idsk-select__description {
     @apply idsk-text-hint;
   }
