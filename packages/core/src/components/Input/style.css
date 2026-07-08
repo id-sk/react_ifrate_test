@@ -18,7 +18,7 @@
     @apply placeholder:text-text-secondary;
     @apply focus-visible:outline-none;
     @apply idsk-hover-outline;
-    @apply disabled:cursor-not-allowed disabled:border-neutral-400;
+    @apply disabled:cursor-not-allowed disabled:border-neutral-400 disabled:hover:ring-0;
   }
 
   .idsk-input__label {
