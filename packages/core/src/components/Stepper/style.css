@@ -134,14 +134,6 @@
     @apply idsk-focus-outline;
   }
 
-  button.idsk-stepper__step:focus-visible::after {
-    @apply !rounded-tr-none !rounded-br-none;
-  }
-
-  button.idsk-stepper__step:active:focus-visible::after {
-    @apply !rounded-bl-none;
-  }
-
   @media (hover: hover) {
     button.idsk-stepper__step:hover .idsk-stepper__label {
       @apply underline decoration-solid decoration-2 decoration-skip-ink-none;
