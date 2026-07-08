@@ -21,7 +21,7 @@ const meta = {
     },
     hint: {
       control: 'text',
-      description: 'Pomocný text',
+      description: 'Doplnkový text',
     },
     errorMessage: {
       control: 'text',
