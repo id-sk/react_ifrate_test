@@ -97,7 +97,7 @@
 
 .idsk-checkbox-group__items,
 .idsk-checkbox-group__subgroup {
-  @apply flex flex-col gap-y-space-3 md:gap-y-space-4;
+  @apply flex flex-col gap-y-space-4;
 }
 
 .idsk-checkbox-group__subgroup {
