@@ -228,13 +228,13 @@ export const Sizes: Story = {
   render: (args) => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
       <Input {...args} size="sm" label="Malé pole (sm)" />
-      <Input {...args} size="default" label="Štandardné pole (default)" />
+      <Input {...args} size="default" label="Veľké pole (default)" />
     </div>
   ),
   parameters: {
     docs: {
       description: {
-        story: 'Komponent podporuje dve veľkosti: sm (malé) a default (štandardné).',
+        story: 'Komponent podporuje dve veľkosti: sm (malé) a default (veľké).',
       },
     },
   },
