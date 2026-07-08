@@ -190,7 +190,7 @@ function Select({
               position="popper"
               side="bottom"
               avoidCollisions={false}
-              sideOffset={2}
+              sideOffset={5}
             >
               <RadixSelect.Viewport className="idsk-select__dropdown-viewport">
                 {groups
