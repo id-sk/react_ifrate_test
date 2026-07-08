@@ -1,4 +1,4 @@
-import { Input, Radio, RadioGroup, Tooltip } from '@idsk/core';
+import { Input, Radio, RadioGroup, Select, Tooltip } from '@idsk/core';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta = {
@@ -172,7 +172,7 @@ export const FormIntegration: Story = {
       <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
         <Tooltip
           label="Rodné číslo"
-          content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt."
+          content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
           ariaLabel="Nápoveda k rodnému číslu"
           preferredPosition="top"
         />
@@ -183,7 +183,8 @@ export const FormIntegration: Story = {
       <RadioGroup
         legend="Pohlavie"
         tooltip={{
-          content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+          content:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
           ariaLabel: 'Nápoveda k pohláviu',
           preferredPosition: 'right',
         }}
@@ -193,29 +194,22 @@ export const FormIntegration: Story = {
       </RadioGroup>
 
       {/* Select s tooltipom */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-        <Tooltip
-          label="Krajina pôvodu"
-          content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt."
-          ariaLabel="Nápoveda k krajine pôvodu"
-          preferredPosition="top"
-        />
-        <select
-          aria-label="Krajina pôvodu"
-          style={{
-            padding: '8px 12px',
-            borderRadius: '4px',
-            border: '2px solid #1a1a1a',
-            width: '100%',
-          }}
-        >
-          <option value="">Vyberte krajinu...</option>
-          <option value="sk">Slovenská republika</option>
-          <option value="cz">Česká republika</option>
-          <option value="at">Rakúsko</option>
-          <option value="hu">Maďarsko</option>
-        </select>
-      </div>
+      <Select
+        label="Krajina pôvodu"
+        placeholder="Vyberte krajinu..."
+        options={[
+          { label: 'Slovenská republika', value: 'sk' },
+          { label: 'Česká republika', value: 'cz' },
+          { label: 'Rakúsko', value: 'at' },
+          { label: 'Maďarsko', value: 'hu' },
+        ]}
+        tooltip={{
+          content:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+          ariaLabel: 'Nápoveda k krajine pôvodu',
+          preferredPosition: 'top',
+        }}
+      />
     </div>
   ),
   parameters: {
