@@ -63,7 +63,8 @@ function Stepper({
             const isLast = index === total - 1;
             const isColEnd = index === colMidpoint - 1 && !isLast;
             const isColStart = index === colMidpoint;
-            const canClick = onStepClick !== undefined && index <= maxReachedStep && !isActive;
+            const canClick =
+              onStepClick !== undefined && !isActive && (step.isSummary || index <= maxReachedStep);
 
             return (
               <StepperItem
