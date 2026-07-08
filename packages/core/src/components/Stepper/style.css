@@ -143,10 +143,6 @@
   }
 
   @media (hover: hover) {
-    button.idsk-stepper__step:hover {
-      @apply rounded-tl-rounding-1 rounded-bl-rounding-1 bg-surface-default/70;
-    }
-
     button.idsk-stepper__step:hover .idsk-stepper__label {
       @apply underline decoration-solid decoration-2 decoration-skip-ink-none;
     }
