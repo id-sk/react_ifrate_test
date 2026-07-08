@@ -138,7 +138,7 @@ export const WithDescription: Story = {
   name: 'S popisom',
   args: {
     label: 'Názov textového poľa',
-    description: 'Popisný text',
+    description: 'Doplnkový text',
   },
   decorators: desktopDecorator,
   parameters: {
@@ -226,7 +226,7 @@ export const Desktop: Story = {
     label: 'Názov textového poľa',
     subheading: 'Popisný text',
     placeholder: 'Napr. Placeholder',
-    description: 'Popisný text',
+    description: 'Doplnkový text',
     variant: 'error',
     errorDescription: 'Chybový text',
     required: true,
@@ -247,7 +247,7 @@ export const Mobile: Story = {
     label: 'Názov textového poľa',
     subheading: 'Popisný text',
     placeholder: 'Napr. Placeholder',
-    description: 'Popisný text',
+    description: 'Doplnkový text',
     maxLength: 500,
   },
   globals: {
