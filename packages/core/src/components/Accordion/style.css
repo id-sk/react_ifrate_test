@@ -35,7 +35,6 @@
     @apply cursor-pointer border-none bg-surface-subtle;
     @apply font-sans text-text-primary;
     @apply rounded-rounding-m;
-    @apply disabled:pointer-events-none;
     @apply focus-visible:outline-none;
   }
 

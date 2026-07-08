@@ -29,7 +29,7 @@
 
 .idsk-radio__input:disabled,
 .idsk-radio__input:disabled + .idsk-radio__label {
-  @apply cursor-default text-neutral-400;
+  @apply cursor-not-allowed text-neutral-400;
 }
 
 .idsk-radio__input:disabled + .idsk-radio__label::before {

@@ -60,7 +60,7 @@
 
 .idsk-checkbox__input:disabled,
 .idsk-checkbox__input:disabled + .idsk-checkbox__label {
-  @apply cursor-default text-neutral-400;
+  @apply cursor-not-allowed text-neutral-400;
 }
 
 .idsk-checkbox__hint {

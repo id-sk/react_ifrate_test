@@ -8,7 +8,7 @@
     @apply transition-colors;
     @apply idsk-focus-outline idsk-hover-outline;
     @apply idsk-hover-underline-2;
-    @apply disabled:pointer-events-none;
+    @apply disabled:cursor-not-allowed;
   }
 
   /* ========== SIZES ========== */
