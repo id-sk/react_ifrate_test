@@ -2,7 +2,7 @@
 
 @layer components {
   .idsk-accordion {
-    @apply flex w-full flex-col gap-space-1;
+    @apply flex w-full flex-col gap-space-4;
   }
 
   .idsk-accordion__item {
