@@ -40,21 +40,13 @@ export const Default: Story = {
           </p>
         ),
       },
-      {
-        title: 'Nadpis akordeónu',
-        children: (
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua.
-          </p>
-        ),
-      },
     ],
   },
   parameters: {
     docs: {
       description: {
-        story: 'Základný akordeón s dvoma alebo viacerými sekciami.',
+        story:
+          'Základný akordeón s jednou sekciou. Pre viacero sekcií naraz použite komponent AccordionList.',
       },
     },
   },
@@ -100,15 +92,6 @@ export const WithDescription: Story = {
           </p>
         ),
       },
-      {
-        title: 'Nadpis akordeónu',
-        children: (
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua.
-          </p>
-        ),
-      },
     ],
   },
   parameters: {
@@ -116,45 +99,6 @@ export const WithDescription: Story = {
       description: {
         story:
           'Akordeón s voliteľným popisom (`description`) pod nadpisom — použite keď nadpis nie je sám osebe dostatočne zrejmý.',
-      },
-    },
-  },
-};
-
-export const MultiExpand: Story = {
-  args: {
-    items: [
-      {
-        title: 'Nadpis akordeónu',
-        children: (
-          <p>Akordeón podporuje otvorenie viacerých sekcií súčasne — každá je nezávislá.</p>
-        ),
-      },
-      {
-        title: 'Nadpis akordeónu',
-        children: (
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua.
-          </p>
-        ),
-      },
-      {
-        title: 'Nadpis akordeónu',
-        children: (
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua.
-          </p>
-        ),
-      },
-    ],
-  },
-  parameters: {
-    docs: {
-      description: {
-        story:
-          'Akordeón so viacerými sekciami — rozbalenie jednej sekcie neuzavrie ostatné. Všetky sekcie môžu byť otvorené naraz.',
       },
     },
   },
@@ -172,15 +116,6 @@ export const WithDefaultOpen: Story = {
           </p>
         ),
         defaultOpen: true,
-      },
-      {
-        title: 'Nadpis akordeónu',
-        children: (
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua.
-          </p>
-        ),
       },
     ],
   },
@@ -200,25 +135,7 @@ export const SingleOpen: Story = {
     items: [
       {
         title: 'Nadpis akordeónu',
-        children: <p>Otvorenie tejto sekcie automaticky zatvorí ostatné.</p>,
-      },
-      {
-        title: 'Nadpis akordeónu',
-        children: (
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua.
-          </p>
-        ),
-      },
-      {
-        title: 'Nadpis akordeónu',
-        children: (
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua.
-          </p>
-        ),
+        children: <p>Sekcia v režime `singleOpen`.</p>,
       },
     ],
   },
@@ -226,7 +143,7 @@ export const SingleOpen: Story = {
     docs: {
       description: {
         story:
-          'Akordeón v režime `singleOpen` — v danom okamihu môže byť otvorená iba jedna sekcia. Otvorenie novej sekcie automaticky zatvorí predchádzajúcu.',
+          'Akordeón v režime `singleOpen`. Pri viacerých sekciách naraz použite komponent AccordionList.',
       },
     },
   },
@@ -245,31 +162,13 @@ export const WithToggleAll: Story = {
           </p>
         ),
       },
-      {
-        title: 'Nadpis akordeónu',
-        children: (
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua.
-          </p>
-        ),
-      },
-      {
-        title: 'Nadpis akordeónu',
-        children: (
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua.
-          </p>
-        ),
-      },
     ],
   },
   parameters: {
     docs: {
       description: {
         story:
-          'Akordeón s tlačidlom „Otvoriť všetko / Zavrieť všetko". Tlačidlo synchrónne ovláda všetky sekcie v skupine.',
+          'Akordeón s tlačidlom „Otvoriť všetko / Zavrieť všetko". Pri viacerých sekciách naraz použite komponent AccordionList.',
       },
     },
   },
@@ -286,25 +185,7 @@ export const WithDisabled: Story = {
             incididunt ut labore et dolore magna aliqua.
           </p>
         ),
-      },
-      {
-        title: 'Nadpis akordeónu',
-        children: (
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua.
-          </p>
-        ),
         disabled: true,
-      },
-      {
-        title: 'Nadpis akordeónu',
-        children: (
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua.
-          </p>
-        ),
       },
     ],
   },
