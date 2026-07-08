@@ -91,7 +91,7 @@ const Tooltip: React.FC<TooltipProps> = ({
               side={preferredPosition}
               avoidCollisions
               collisionPadding={10}
-              sideOffset={8}
+              sideOffset={5}
               className="idsk-tooltip__content"
               onPointerDownOutside={() => setOpen(false)}
             >
