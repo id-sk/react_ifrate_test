@@ -3,7 +3,7 @@
 @layer components {
   /* ========== ROOT ========== */
   .idsk-stepper {
-    @apply flex flex-col relative w-full font-sans;
+    @apply relative flex w-full flex-col font-sans;
   }
 
   /* ========== HEADER / TOGGLE ========== */
@@ -197,7 +197,7 @@
   }
 
   .idsk-stepper__number {
-    @apply text-[15px] leading-none font-normal;
+    @apply text-[15px] leading-none font-bold;
   }
 
   /* ========== LABEL ========== */
