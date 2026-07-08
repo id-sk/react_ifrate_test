@@ -8,6 +8,10 @@
   .idsk-textarea__wrapper {
     @apply relative flex w-full;
 
+    --idsk-focus-ring-radius: calc(
+      var(--cornerradius-rounding-1) + var(--idsk-focus-ring-width) + var(--idsk-focus-ring-gap)
+    );
+
     &:has(.idsk-textarea:focus-visible)::before {
       @apply idsk-focus-ring-pseudo;
     }
