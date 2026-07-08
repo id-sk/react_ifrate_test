@@ -48,7 +48,7 @@
   }
 
   .idsk-accordion__button:disabled {
-    @apply cursor-not-allowed text-text-disabled opacity-60;
+    @apply cursor-not-allowed text-text-disabled opacity-60 hover:ring-0;
   }
 
   .idsk-accordion__title-row {

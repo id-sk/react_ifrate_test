@@ -8,7 +8,7 @@
     @apply transition-colors;
     @apply idsk-focus-outline idsk-hover-outline;
     @apply idsk-hover-underline-2;
-    @apply disabled:cursor-not-allowed;
+    @apply disabled:cursor-not-allowed disabled:hover:ring-0;
   }
 
   /* ========== SIZES ========== */
@@ -39,7 +39,7 @@
 
   /* ========== WHITE COLOR SCHEME — ring overrides for dark backgrounds ========== */
   @media (hover: hover) {
-    .idsk-button.idsk-button--color-white:hover {
+    .idsk-button.idsk-button--color-white:not(:disabled):hover {
       @apply ring-base-white;
     }
   }
