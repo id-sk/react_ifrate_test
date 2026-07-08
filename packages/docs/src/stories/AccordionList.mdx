@@ -21,23 +21,25 @@ Komponent `AccordionList` obaľuje existujúci `Accordion` a pridáva štruktúr
 
 ## Props komponentu
 
-| Prop         | Typ                    | Predvolená | Popis                                                                            |
-| ------------ | ---------------------- | ---------- | -------------------------------------------------------------------------------- |
-| `title`      | `string`               | —          | Nadpis zobrazený v záhlaví (Headline L)                                         |
-| `items`      | `AccordionItemProps[]` | —          | Zoznam sekcií akordeónu — rovnaké ako prop `items` komponentu `Accordion`       |
-| `className`  | `string`               | `''`       | Extra CSS triedy na koreňovom elemente                                           |
-| `singleOpen` | `boolean`              | `false`    | Ak `true`, v danom okamihu môže byť otvorená iba jedna sekcia; tlačidlo „Otvoriť všetky" sa skryje |
+| Prop         | Typ                    | Predvolená                      | Popis                                                                                              |
+| ------------ | ---------------------- | ------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `title`      | `string`               | —                               | Nadpis zobrazený v záhlaví (Headline M)                                                            |
+| `items`      | `AccordionItemProps[]` | —                               | Zoznam sekcií akordeónu — rovnaké ako prop `items` komponentu `Accordion`                          |
+| `className`  | `string`               | `''`                            | Extra CSS triedy na koreňovom elemente                                                             |
+| `singleOpen` | `boolean`              | `false`                         | Ak `true`, v danom okamihu môže byť otvorená iba jedna sekcia; tlačidlo „Otvoriť všetky" sa skryje |
+| `hint`       | `boolean`              | `false`                         | Ak `true`, pod nadpisom sa zobrazí popisný text (`hintText`)                                       |
+| `hintText`   | `string`               | `'Popis akordeónového zoznamu'` | Popisný text pod nadpisom — zobrazí sa iba ak je `hint` nastavený na `true`                        |
 
 ## Štruktúra položky
 
 Každá položka (`AccordionItemProps`) prijíma:
 
-| Prop          | Typ                   | Popis                                                                    |
-| ------------- | --------------------- | ------------------------------------------------------------------------ |
+| Prop          | Typ                   | Popis                                                                   |
+| ------------- | --------------------- | ----------------------------------------------------------------------- |
 | `title`       | `string`              | Nadpis sekcie — zobrazený ako Headline M (24 px, tučné)                 |
 | `children`    | `ReactNode`           | Obsah sekcie (ľubovoľné JSX), zobrazený po rozbalení                    |
 | `id`          | `string` (voliteľné)  | ID pre `aria-controls` / `id` obsahu; ak chýba, generuje sa automaticky |
-| `hint`        | `string` (voliteľné)  | Krátky popis pod nadpisom                                                |
+| `hint`        | `string` (voliteľné)  | Krátky popis pod nadpisom                                               |
 | `disabled`    | `boolean` (voliteľné) | Sekcia je nedostupná — vylúčená z tab poradia                           |
 | `defaultOpen` | `boolean` (voliteľné) | Sekcia je predvolene rozbalená pri prvom render                         |
 
@@ -50,11 +52,11 @@ Každá položka (`AccordionItemProps`) prijíma:
 
 ### Klávesové skratky
 
-| Kláves | Akcia |
-| --- | --- |
-| `Tab` | Presun fokusu na ďalšie tlačidlo (toggle-all → sekcie) |
-| `Shift + Tab` | Presun fokusu späť |
-| `Enter` alebo `Space` | Aktivácia tlačidla s fokusom |
+| Kláves                | Akcia                                                  |
+| --------------------- | ------------------------------------------------------ |
+| `Tab`                 | Presun fokusu na ďalšie tlačidlo (toggle-all → sekcie) |
+| `Shift + Tab`         | Presun fokusu späť                                     |
+| `Enter` alebo `Space` | Aktivácia tlačidla s fokusom                           |
 
 ## Single Open mód
 
@@ -81,7 +83,7 @@ import { AccordionList } from '@idsk/core';
       children: <p>Heslo zmeníte v nastaveniach účtu.</p>,
     },
   ]}
-/>
+/>;
 ```
 
 <Stories />

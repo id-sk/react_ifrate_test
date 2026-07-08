@@ -6,28 +6,40 @@
   }
 
   .idsk-accordion__item {
-    @apply rounded-rounding-m border-2 border-border-subtle;
+    @apply relative rounded-rounding-m border-2 border-border-subtle;
+
+    --idsk-focus-ring-radius: calc(
+      var(--corner-radius-rounding-m) + var(--idsk-focus-ring-width) + var(--idsk-focus-ring-gap)
+    );
+
+    &:has(.idsk-accordion__button:focus-visible)::after {
+      @apply pointer-events-none absolute z-1 rounded-(--idsk-focus-ring-radius) content-[''];
+
+      /* This element's own 2px border sits inside the box that ::after is
+         positioned against (the padding box), so the ring's inset must add
+         that border width back on top of the usual width+gap offset —
+         otherwise the ring ends up flush against this border instead of
+         floating 2px outside it. */
+      inset: calc(
+        -1 * var(--idsk-focus-ring-width) - var(--idsk-focus-ring-gap) -
+          var(--stroke-thickness-default)
+      );
+      border: var(--idsk-focus-ring-width) solid var(--idsk-focus-ring-color);
+    }
   }
 
   .idsk-accordion__button {
-    @apply idsk-focus-outline idsk-hover-outline;
+    @apply idsk-hover-outline;
     @apply flex flex-col gap-space-1;
     @apply w-full p-space-4 text-left;
     @apply cursor-pointer border-none bg-surface-subtle;
     @apply font-sans text-text-primary;
     @apply rounded-rounding-m;
     @apply disabled:pointer-events-none;
-
-    --idsk-focus-ring-radius: 10px;
-    --idsk-focus-ring-gap: 4px;
+    @apply focus-visible:outline-none;
   }
 
   .idsk-accordion__button[aria-expanded='true'] {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-
-  .idsk-accordion__button[aria-expanded='true']:focus-visible::after {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   }

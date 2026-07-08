@@ -4,7 +4,7 @@
  *
  * These tests cover behaviour that requires a real browser engine:
  *   - Toggle-all button expands / collapses all sections
- *   - Icon rotation on the toggle-all button
+ *   - Icon swap (up/down arrow) on the toggle-all button
  *   - CSS focus-ring visual indicator
  *   - Tab / Shift+Tab keyboard navigation
  *   - Mobile viewport responsiveness
@@ -76,30 +76,28 @@ test.describe('Toggle-all button', () => {
 });
 
 // ---------------------------------------------------------------------------
-// Icon rotation on toggle-all  (AC: chevron rotuje pri rozbalení)
+// Icon swap on toggle-all  (AC: UnfoldMore/UnfoldLess ikona podľa stavu)
 // ---------------------------------------------------------------------------
-test.describe('Toggle-all icon rotation', () => {
+test.describe('Toggle-all icon swap', () => {
   test.use({ viewport: { width: 800, height: 600 } });
 
-  test('chevron rotates 180deg when all are expanded', async ({ mount, page }) => {
+  test('shows the unfold-less icon when all are expanded', async ({ mount, page }) => {
     await mount(<AccordionList title="Nadpis" items={defaultItems} />);
     await page.getByRole('button', { name: 'Otvoriť všetko' }).click();
-    await page.waitForTimeout(250);
-    const rotateValue = await page
-      .locator('.idsk-accordion-list__toggle-icon')
-      .evaluate((el) => window.getComputedStyle(el).rotate);
-    expect(rotateValue).toMatch(/180/);
+    const pathData = await page.locator('.idsk-accordion-list__toggle-icon path').getAttribute('d');
+    expect(pathData).toBe(
+      'M7.71875 19.3644L9.19792 20.8332L12.5 17.5311L15.8021 20.8332L17.2708 19.3644L12.5 14.5832L7.71875 19.3644ZM17.2812 5.63525L15.8021 4.1665L12.5 7.46859L9.19792 4.1665L7.71875 5.63525L12.5 10.4165L17.2812 5.63525Z',
+    );
   });
 
-  test('chevron returns to default rotation when collapsed', async ({ mount, page }) => {
+  test('shows the unfold-more icon when collapsed', async ({ mount, page }) => {
     await mount(<AccordionList title="Nadpis" items={defaultItems} />);
     await page.getByRole('button', { name: 'Otvoriť všetko' }).click();
     await page.getByRole('button', { name: 'Zavrieť všetko' }).click();
-    await page.waitForTimeout(250);
-    const rotateValue = await page
-      .locator('.idsk-accordion-list__toggle-icon')
-      .evaluate((el) => window.getComputedStyle(el).rotate);
-    expect(rotateValue).not.toMatch(/^180/);
+    const pathData = await page.locator('.idsk-accordion-list__toggle-icon path').getAttribute('d');
+    expect(pathData).toBe(
+      'M12.5 6.07292L15.8021 9.375L17.2708 7.90625L12.5 3.125L7.71875 7.90625L9.19792 9.375L12.5 6.07292ZM12.5 18.9271L9.19792 15.625L7.72917 17.0937L12.5 21.875L17.2812 17.0937L15.8021 15.625L12.5 18.9271Z',
+    );
   });
 });
 
@@ -278,11 +276,7 @@ test.describe('Automated a11y — axe in browser', () => {
   });
 
   test('has no a11y violations — with disabled item', async ({ mount, page }) => {
-    const items = [
-      defaultItems[0],
-      { ...defaultItems[1], disabled: true },
-      defaultItems[2],
-    ];
+    const items = [defaultItems[0], { ...defaultItems[1], disabled: true }, defaultItems[2]];
     await mount(
       <main>
         <AccordionList title="Nadpis" items={items} />

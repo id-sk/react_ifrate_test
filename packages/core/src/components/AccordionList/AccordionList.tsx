@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import { Accordion } from '../Accordion';
 import type { AccordionItemProps } from '../Accordion';
-import KeyboardArrowDownIcon from '../../assets/icons/KeyboardArrowDownIcon';
+import UnfoldMoreIcon from '../../assets/icons/UnfoldMoreIcon';
+import UnfoldLessIcon from '../../assets/icons/UnfoldLessIcon';
 
 export interface AccordionListProps {
   title: string;
   items: AccordionItemProps[];
   className?: string;
   singleOpen?: boolean;
+  hint?: boolean;
+  hintText?: string;
 }
 
 export const AccordionList: React.FC<AccordionListProps> = ({
@@ -15,6 +18,8 @@ export const AccordionList: React.FC<AccordionListProps> = ({
   items,
   className = '',
   singleOpen = false,
+  hint = false,
+  hintText = 'Popis akordeónového zoznamu',
 }) => {
   const enabledIndices = items.reduce<number[]>(
     (acc, item, i) => (!item.disabled ? [...acc, i] : acc),
@@ -35,7 +40,10 @@ export const AccordionList: React.FC<AccordionListProps> = ({
   return (
     <div className={`idsk-accordion-list${className ? ` ${className}` : ''}`}>
       <div className="idsk-accordion-list__header">
-        <p className="idsk-accordion-list__title">{title}</p>
+        <div className="idsk-accordion-list__label">
+          <p className="idsk-accordion-list__title">{title}</p>
+          {hint && <p className="idsk-accordion-list__hint">{hintText}</p>}
+        </div>
         {!singleOpen && (
           <button
             type="button"
@@ -44,11 +52,19 @@ export const AccordionList: React.FC<AccordionListProps> = ({
             onClick={toggleAll}
           >
             <span>{allExpanded ? 'Zavrieť všetko' : 'Otvoriť všetko'}</span>
-            <KeyboardArrowDownIcon
-              size={25}
-              className="idsk-accordion-list__toggle-icon"
-              aria-hidden="true"
-            />
+            {allExpanded ? (
+              <UnfoldLessIcon
+                size={25}
+                className="idsk-accordion-list__toggle-icon"
+                aria-hidden="true"
+              />
+            ) : (
+              <UnfoldMoreIcon
+                size={25}
+                className="idsk-accordion-list__toggle-icon"
+                aria-hidden="true"
+              />
+            )}
           </button>
         )}
       </div>

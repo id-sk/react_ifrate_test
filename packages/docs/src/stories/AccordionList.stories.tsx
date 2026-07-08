@@ -20,6 +20,8 @@ type Story = StoryObj<typeof AccordionList>;
 export const Default: Story = {
   args: {
     title: 'Nadpis',
+    hint: true,
+    hintText: 'Popis akordeónového zoznamu',
     items: [
       {
         title: 'Prvá sekcia',
@@ -39,7 +41,7 @@ export const Default: Story = {
     docs: {
       description: {
         story:
-          'Accordion list so záhlavím obsahujúcim nadpis a tlačidlo „Otvoriť všetko / Zavrieť všetko".',
+          'Accordion list so záhlavím obsahujúcim nadpis, popis a tlačidlo „Otvoriť všetko / Zavrieť všetko".',
       },
     },
   },
@@ -48,6 +50,8 @@ export const Default: Story = {
 export const WithDefaultOpen: Story = {
   args: {
     title: 'Nadpis',
+    hint: true,
+    hintText: 'Popis akordeónového zoznamu',
     items: [
       {
         title: 'Predvolene rozbalená sekcia',
@@ -72,6 +76,8 @@ export const WithDefaultOpen: Story = {
 export const SingleOpen: Story = {
   args: {
     title: 'Nadpis',
+    hint: true,
+    hintText: 'Popis akordeónového zoznamu',
     singleOpen: true,
     items: [
       {
@@ -101,6 +107,8 @@ export const SingleOpen: Story = {
 export const WithDisabled: Story = {
   args: {
     title: 'Nadpis',
+    hint: true,
+    hintText: 'Popis akordeónového zoznamu',
     items: [
       {
         title: 'Aktívna sekcia',

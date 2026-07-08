@@ -117,11 +117,14 @@ test.describe('Keyboard focus visual indicator', () => {
 
     const hasFocusStyle = await button.evaluate((el) => {
       const s = window.getComputedStyle(el);
-      const after = window.getComputedStyle(el, '::after');
+      // Focus ring is on the parent item's ::after pseudo-element
+      const item = el.closest('.idsk-accordion__item');
+      const after = item ? window.getComputedStyle(item, '::after') : null;
       const hasOutline =
         s.outlineWidth !== '0px' && s.outlineStyle !== 'none' && s.outlineStyle !== '';
       const hasBoxShadow = s.boxShadow !== 'none' && s.boxShadow !== '';
       const hasPseudoBorder =
+        after !== null &&
         after.content !== 'none' &&
         after.content !== '' &&
         after.borderWidth !== '0px' &&
