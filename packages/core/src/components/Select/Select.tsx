@@ -27,7 +27,7 @@ const selectVariants = cva('idsk-select', {
 
 /** A single option rendered inside the Select dropdown. */
 export interface SelectOption {
-  value: string;
+  value?: string;
   label: string;
   disabled?: boolean;
 }
@@ -201,8 +201,8 @@ function Select({
                         </RadixSelect.Label>
                         {group.options.map((option) => (
                           <RadixSelect.Item
-                            key={option.value}
-                            value={option.value}
+                            key={option.value ?? option.label}
+                            value={option.value ?? option.label}
                             disabled={option.disabled}
                             className="idsk-select__item"
                           >
@@ -213,8 +213,8 @@ function Select({
                     ))
                   : options?.map((option) => (
                       <RadixSelect.Item
-                        key={option.value}
-                        value={option.value}
+                        key={option.value ?? option.label}
+                        value={option.value ?? option.label}
                         disabled={option.disabled}
                         className="idsk-select__item"
                       >

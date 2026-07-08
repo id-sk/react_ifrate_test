@@ -362,3 +362,25 @@ export const Controlled: Story = {
     },
   },
 };
+
+export const WithOptionWithoutValue: Story = {
+  args: {
+    label: 'Krajina bez explicitnej hodnoty',
+    placeholder: 'Vyberte krajinu',
+    required: true,
+    options: [
+      { label: 'Nevyberte žiadnu' },
+      { value: 'sk', label: 'Slovensko' },
+      { value: 'cz', label: 'Česká republika' },
+      { value: 'at', label: 'Rakúsko' },
+    ],
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Možnosť bez explicitnej `value` vlastnosti — label sa použije ako hodnota. Užitočné pre placeholder alebo default možnosti.',
+      },
+    },
+  },
+};
