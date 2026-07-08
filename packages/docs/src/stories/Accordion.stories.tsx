@@ -10,7 +10,7 @@ const meta: Meta<typeof Accordion> = {
     docs: {
       description: {
         component:
-          'Akordeón umožňuje používateľom postupne odhaľovať obsah sekcií kliknutím na ich nadpisy. Podporuje režim viacerých otvorených sekcií, jednoduchého otvorenia (`singleOpen`), predvolene otvorenej sekcie (`defaultOpen`) a tlačidla „Otvoriť všetko / Zavrieť všetko" (`showToggleAll`).',
+          'Akordeón umožňuje používateľom postupne odhaľovať obsah sekcií kliknutím na ich nadpisy. Podporuje predvolene otvorenú sekciu (`defaultOpen`).',
       },
     },
   },
@@ -124,51 +124,6 @@ export const WithDefaultOpen: Story = {
       description: {
         story:
           'Akordeón s predvolene rozbalenou sekciou — použite `defaultOpen: true` na položke. Sekciu možno kedykoľvek zatvoriť.',
-      },
-    },
-  },
-};
-
-export const SingleOpen: Story = {
-  args: {
-    singleOpen: true,
-    items: [
-      {
-        title: 'Nadpis akordeónu',
-        children: <p>Sekcia v režime `singleOpen`.</p>,
-      },
-    ],
-  },
-  parameters: {
-    docs: {
-      description: {
-        story:
-          'Akordeón v režime `singleOpen`. Pri viacerých sekciách naraz použite komponent AccordionList.',
-      },
-    },
-  },
-};
-
-export const WithToggleAll: Story = {
-  args: {
-    showToggleAll: true,
-    items: [
-      {
-        title: 'Nadpis akordeónu',
-        children: (
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua.
-          </p>
-        ),
-      },
-    ],
-  },
-  parameters: {
-    docs: {
-      description: {
-        story:
-          'Akordeón s tlačidlom „Otvoriť všetko / Zavrieť všetko". Pri viacerých sekciách naraz použite komponent AccordionList.',
       },
     },
   },
