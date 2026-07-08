@@ -329,6 +329,23 @@ const ControlledSelect = (args: ComponentProps<typeof Select>) => {
   );
 };
 
+export const AlwaysOpen: Story = {
+  name: 'Vždy otvorený',
+  args: {
+    label: 'Vždy otvorené rozbaľovacie pole',
+    open: true,
+    onOpenChange: () => {},
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Riadený stav `open={true}` s prázdnym `onOpenChange` — dropdown zostáva natrvalo otvorený, užitočné pre vizuálnu kontrolu a dokumentáciu obsahu ponuky.',
+      },
+    },
+  },
+};
+
 export const Controlled: Story = {
   render: (args) => <ControlledSelect {...args} />,
   args: {

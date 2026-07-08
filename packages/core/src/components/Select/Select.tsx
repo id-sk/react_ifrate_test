@@ -58,6 +58,9 @@ export interface SelectProps extends VariantProps<typeof selectVariants> {
   value?: string;
   defaultValue?: string;
   onValueChange?: (value: string) => void;
+  open?: boolean;
+  defaultOpen?: boolean;
+  onOpenChange?: (open: boolean) => void;
   /** @deprecated Use onValueChange instead. Kept for back-compat; not invoked by the custom select. */
   onChange?: React.ChangeEventHandler<HTMLSelectElement>;
 }
@@ -83,6 +86,9 @@ function Select({
   onChange,
   name,
   autoComplete,
+  open,
+  defaultOpen,
+  onOpenChange,
   ref,
 }: SelectProps) {
   if (process.env.NODE_ENV !== 'production' && onChange) {
@@ -145,6 +151,9 @@ function Select({
           disabled={disabled}
           required={required}
           name={name}
+          open={open}
+          defaultOpen={defaultOpen}
+          onOpenChange={onOpenChange}
         >
           <RadixSelect.Trigger
             id={selectId}
