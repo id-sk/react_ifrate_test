@@ -39,6 +39,7 @@ const LanguagePicker = React.forwardRef<HTMLButtonElement, LanguagePickerProps>(
   ) => {
     const [uncontrolledOpen, setUncontrolledOpen] = useState(defaultOpen);
     const isOpen = open ?? uncontrolledOpen;
+    const pointerHandledRef = React.useRef(false);
 
     const [uncontrolledValue, setUncontrolledValue] = useState(
       defaultValue ?? languages[0]?.value ?? '',
@@ -67,6 +68,16 @@ const LanguagePicker = React.forwardRef<HTMLButtonElement, LanguagePickerProps>(
             isOpen && 'idsk-language-picker__trigger--open',
             className,
           )}
+          onPointerDown={() => {
+            pointerHandledRef.current = true;
+          }}
+          onClick={() => {
+            // Radix's DropdownMenu.Trigger only reacts to onPointerDown/onKeyDown.
+            // Assistive tech (JAWS/NVDA/VoiceOver) can activate a button by dispatching
+            // a bare "click" with no preceding pointerdown, which Radix then ignores.
+            if (!pointerHandledRef.current) handleOpenChange(!isOpen);
+            pointerHandledRef.current = false;
+          }}
         >
           <span className="idsk-button__text">{currentLabel}</span>
           <span className="idsk-button__icon" aria-hidden="true">

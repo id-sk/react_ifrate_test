@@ -2,7 +2,7 @@
  * @vitest-environment jsdom
  */
 import '@testing-library/jest-dom/vitest';
-import { cleanup, render, screen } from '@testing-library/react';
+import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
@@ -102,6 +102,30 @@ describe('LanguagePicker', () => {
       await user.click(screen.getByRole('button'));
       await user.click(screen.getByRole('menuitem', { name: 'English' }));
       expect(screen.getByRole('button')).toHaveTextContent('Slovenčina');
+    });
+  });
+
+  describe('Assistive technology activation', () => {
+    it('opens the menu on a bare click event with no preceding pointerdown', () => {
+      // Simulates assistive tech (JAWS/NVDA/VoiceOver) activation, which can dispatch
+      // a "click" directly without the pointerdown Radix's Trigger listens for.
+      render(<LanguagePicker defaultValue="sk" languages={LANGUAGES} />);
+      const trigger = screen.getByRole('button');
+      expect(trigger).toHaveAttribute('aria-expanded', 'false');
+
+      fireEvent.click(trigger);
+
+      expect(trigger).toHaveAttribute('aria-expanded', 'true');
+    });
+
+    it('does not double-toggle when pointerdown already opened the menu', () => {
+      render(<LanguagePicker defaultValue="sk" languages={LANGUAGES} />);
+      const trigger = screen.getByRole('button');
+
+      fireEvent.pointerDown(trigger, { button: 0 });
+      fireEvent.click(trigger);
+
+      expect(trigger).toHaveAttribute('aria-expanded', 'true');
     });
   });
 

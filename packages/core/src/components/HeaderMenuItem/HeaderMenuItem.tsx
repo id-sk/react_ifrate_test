@@ -65,6 +65,7 @@ const HeaderMenuItem = React.forwardRef<HTMLElement, HeaderMenuItemProps>(
   ) => {
     const [uncontrolledOpen, setUncontrolledOpen] = useState(defaultOpen);
     const isOpen = open ?? uncontrolledOpen;
+    const pointerHandledRef = React.useRef(false);
 
     function handleOpenChange(next: boolean) {
       if (open === undefined) setUncontrolledOpen(next);
@@ -82,6 +83,16 @@ const HeaderMenuItem = React.forwardRef<HTMLElement, HeaderMenuItemProps>(
               isOpen && 'idsk-header-menu-item--open',
             )}
             aria-current={active ? 'page' : undefined}
+            onPointerDown={() => {
+              pointerHandledRef.current = true;
+            }}
+            onClick={() => {
+              // Radix's DropdownMenu.Trigger only reacts to onPointerDown/onKeyDown.
+              // Assistive tech (JAWS/NVDA/VoiceOver) can activate a button by dispatching
+              // a bare "click" with no preceding pointerdown, which Radix then ignores.
+              if (!pointerHandledRef.current) handleOpenChange(!isOpen);
+              pointerHandledRef.current = false;
+            }}
             {...(props as React.ButtonHTMLAttributes<HTMLButtonElement>)}
           >
             <span className="idsk-header-menu-item__content">
