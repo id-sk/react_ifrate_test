@@ -215,7 +215,7 @@ const HeaderDrawer = ({
 
             {/* Divider after profile */}
             {hasContentBelowProfile && (
-              <div className="idsk-header-drawer__divider-wrapper">
+              <div className="idsk-header-drawer__divider-wrapper" aria-hidden="true">
                 <div className="idsk-header-drawer__divider" />
               </div>
             )}
@@ -282,7 +282,7 @@ const HeaderDrawer = ({
 
             {/* Divider before navigation */}
             {hasNavItems && hasContentBelowProfile && (
-              <div className="idsk-header-drawer__divider-wrapper">
+              <div className="idsk-header-drawer__divider-wrapper" aria-hidden="true">
                 <div className="idsk-header-drawer__divider" />
               </div>
             )}
