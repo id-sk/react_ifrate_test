@@ -94,8 +94,18 @@ const Tooltip: React.FC<TooltipProps> = ({
               sideOffset={5}
               className="idsk-tooltip__content"
               onPointerDownOutside={() => setOpen(false)}
+              aria-label={content}
             >
-              {content}
+              {/*
+                Radix renders `children` twice: once visibly here, and once inside
+                its own hidden role="tooltip" node (wired to the trigger via its
+                internal aria-describedby). Passing `aria-label` above makes that
+                hidden node use plain text instead of re-rendering our children, so
+                hiding this visible copy from the accessibility tree doesn't wipe
+                out the tooltip's accessible name and screen readers only announce
+                the content once.
+              */}
+              <span aria-hidden="true">{content}</span>
               <RadixTooltip.Arrow asChild className="idsk-tooltip__arrow" width={25} height={18}>
                 <svg
                   width="25"
