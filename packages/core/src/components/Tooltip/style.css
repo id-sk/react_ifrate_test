@@ -71,6 +71,7 @@
   /* Arrow */
   .idsk-tooltip__arrow {
     @apply text-neutral-900;
+
     pointer-events: bounding-box;
   }
 

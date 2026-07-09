@@ -1,4 +1,4 @@
-import React, { useEffect, useId, useRef, useState } from 'react';
+import React, { useId, useRef, useState } from 'react';
 
 import { cn } from '../../lib/utils';
 import { StepperItem } from './StepperItem';
@@ -39,9 +39,11 @@ function Stepper({
   const colMidpoint = Math.ceil(total / 2);
 
   const [maxReachedStep, setMaxReachedStep] = useState(clampedActive);
-  useEffect(() => {
+  const [prevClampedActive, setPrevClampedActive] = useState(clampedActive);
+  if (clampedActive !== prevClampedActive) {
+    setPrevClampedActive(clampedActive);
     setMaxReachedStep((prev) => Math.max(prev, clampedActive));
-  }, [clampedActive]);
+  }
 
   return (
     <nav aria-label="Kroky formuláru" className={cn('idsk-stepper', className)} {...props}>

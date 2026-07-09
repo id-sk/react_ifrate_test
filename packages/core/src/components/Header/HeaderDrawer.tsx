@@ -235,7 +235,7 @@ const HeaderDrawer = ({
                 <div className="idsk-header-drawer__zone-header">
                   <h2 className="idsk-header-drawer__section-title">{actionZoneLabel}</h2>
                 </div>
-                <ul className="idsk-header-drawer__items" role="list">
+                <ul className="idsk-header-drawer__items">
                   {actionItems.map((item, i) =>
                     item.href ? (
                       <li key={i} className="idsk-header-drawer__item">
@@ -285,7 +285,7 @@ const HeaderDrawer = ({
                 <div className="idsk-header-drawer__zone-header">
                   <h2 className="idsk-header-drawer__section-title">{navLabel}</h2>
                 </div>
-                <ul className="idsk-header-drawer__items" role="list">
+                <ul className="idsk-header-drawer__items">
                   {navItems.map((item, i) => {
                     const linkClass = `idsk-header-drawer__item-link${item.active ? ' idsk-header-drawer__item-link--active' : ''}`;
                     return item.href ? (

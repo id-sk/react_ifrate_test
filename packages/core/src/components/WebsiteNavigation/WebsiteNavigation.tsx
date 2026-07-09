@@ -37,7 +37,7 @@ const WebsiteNavigation = React.forwardRef<HTMLElement, WebsiteNavigationProps>(
       {...props}
     >
       <div className="idsk-website-nav__container">
-        <ul className="idsk-website-nav__list" role="list">
+        <ul className="idsk-website-nav__list">
           {items.map((item) => {
             const itemKey = item.id ?? `${item.label}|${item.href ?? ''}`;
             return (
