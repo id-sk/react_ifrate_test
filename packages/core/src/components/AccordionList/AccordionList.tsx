@@ -41,7 +41,7 @@ export const AccordionList: React.FC<AccordionListProps> = ({
     <div className={`idsk-accordion-list${className ? ` ${className}` : ''}`}>
       <div className="idsk-accordion-list__header">
         <div className="idsk-accordion-list__label">
-          <p className="idsk-accordion-list__title">{title}</p>
+          <h2 className="idsk-accordion-list__title">{title}</h2>
           {hint && <p className="idsk-accordion-list__hint">{hintText}</p>}
         </div>
         {!singleOpen && (
