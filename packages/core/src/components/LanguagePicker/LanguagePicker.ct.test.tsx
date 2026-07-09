@@ -19,23 +19,23 @@ test.describe('LanguagePicker', () => {
   test('opens dropdown when trigger is clicked', async ({ mount, page }) => {
     await mount(<LanguagePicker defaultValue="sk" languages={LANGUAGES} />);
     await page.getByRole('button').click();
-    await expect(page.getByRole('menuitem', { name: 'English' })).toBeVisible();
-    await expect(page.getByRole('menuitem', { name: 'Deutsch' })).toBeVisible();
+    await expect(page.getByRole('menuitemradio', { name: 'English' })).toBeVisible();
+    await expect(page.getByRole('menuitemradio', { name: 'Deutsch' })).toBeVisible();
   });
 
   test('selects a language and updates the trigger label', async ({ mount, page }) => {
     await mount(<LanguagePicker defaultValue="sk" languages={LANGUAGES} />);
     await page.getByRole('button').click();
-    await page.getByRole('menuitem', { name: 'English' }).click();
+    await page.getByRole('menuitemradio', { name: 'English' }).click();
     await expect(page.getByRole('button')).toContainText('English');
   });
 
   test('closes dropdown on Escape key', async ({ mount, page }) => {
     await mount(<LanguagePicker defaultValue="sk" languages={LANGUAGES} />);
     await page.getByRole('button').click();
-    await expect(page.getByRole('menuitem', { name: 'English' })).toBeVisible();
+    await expect(page.getByRole('menuitemradio', { name: 'English' })).toBeVisible();
     await page.keyboard.press('Escape');
-    await expect(page.getByRole('menuitem', { name: 'English' })).not.toBeVisible();
+    await expect(page.getByRole('menuitemradio', { name: 'English' })).not.toBeVisible();
   });
 
   test('adds trigger--open class when dropdown is open', async ({ mount, page }) => {

@@ -79,7 +79,9 @@ const LanguagePicker = React.forwardRef<HTMLButtonElement, LanguagePickerProps>(
             pointerHandledRef.current = false;
           }}
         >
-          <span className="idsk-button__text">{currentLabel}</span>
+          <span className="idsk-button__text" lang={currentValue}>
+            {currentLabel}
+          </span>
           <span className="idsk-button__icon" aria-hidden="true">
             {isOpen ? <ArrowDropUpIcon size={25} /> : <ArrowDropDownIcon size={25} />}
           </span>
@@ -93,6 +95,9 @@ const LanguagePicker = React.forwardRef<HTMLButtonElement, LanguagePickerProps>(
             {languages.map((lang) => (
               <DropdownMenu.Item
                 key={lang.value}
+                role="menuitemradio"
+                aria-checked={lang.value === currentValue}
+                lang={lang.value}
                 className="idsk-language-picker__item"
                 {...(lang.value === currentValue ? { 'data-selected': '' } : {})}
                 onSelect={() => handleSelect(lang.value)}

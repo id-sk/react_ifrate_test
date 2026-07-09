@@ -73,8 +73,8 @@ describe('LanguagePicker', () => {
       const user = userEvent.setup();
       render(<LanguagePicker defaultValue="sk" languages={LANGUAGES} />);
       await user.click(screen.getByRole('button'));
-      expect(screen.getByRole('menuitem', { name: 'English' })).toBeInTheDocument();
-      expect(screen.getByRole('menuitem', { name: 'Deutsch' })).toBeInTheDocument();
+      expect(screen.getByRole('menuitemradio', { name: 'English' })).toBeInTheDocument();
+      expect(screen.getByRole('menuitemradio', { name: 'Deutsch' })).toBeInTheDocument();
     });
 
     it('calls onValueChange with the selected language value', async () => {
@@ -84,7 +84,7 @@ describe('LanguagePicker', () => {
         <LanguagePicker defaultValue="sk" languages={LANGUAGES} onValueChange={onValueChange} />,
       );
       await user.click(screen.getByRole('button'));
-      await user.click(screen.getByRole('menuitem', { name: 'English' }));
+      await user.click(screen.getByRole('menuitemradio', { name: 'English' }));
       expect(onValueChange).toHaveBeenCalledWith('en');
     });
 
@@ -92,7 +92,7 @@ describe('LanguagePicker', () => {
       const user = userEvent.setup();
       render(<LanguagePicker defaultValue="sk" languages={LANGUAGES} />);
       await user.click(screen.getByRole('button'));
-      await user.click(screen.getByRole('menuitem', { name: 'English' }));
+      await user.click(screen.getByRole('menuitemradio', { name: 'English' }));
       expect(screen.getByRole('button')).toHaveTextContent('English');
     });
 
@@ -100,8 +100,37 @@ describe('LanguagePicker', () => {
       const user = userEvent.setup();
       render(<LanguagePicker value="sk" languages={LANGUAGES} />);
       await user.click(screen.getByRole('button'));
-      await user.click(screen.getByRole('menuitem', { name: 'English' }));
+      await user.click(screen.getByRole('menuitemradio', { name: 'English' }));
       expect(screen.getByRole('button')).toHaveTextContent('Slovenčina');
+    });
+  });
+
+  describe('Language selection semantics (AC: menuitemradio, aria-checked, lang)', () => {
+    it('marks the selected language item with aria-checked="true" and others "false"', async () => {
+      const user = userEvent.setup();
+      render(<LanguagePicker defaultValue="sk" languages={LANGUAGES} />);
+      await user.click(screen.getByRole('button'));
+      expect(screen.getByRole('menuitemradio', { name: 'Slovenčina' })).toHaveAttribute(
+        'aria-checked',
+        'true',
+      );
+      expect(screen.getByRole('menuitemradio', { name: 'English' })).toHaveAttribute(
+        'aria-checked',
+        'false',
+      );
+    });
+
+    it('sets lang on each item to its language value', async () => {
+      const user = userEvent.setup();
+      render(<LanguagePicker defaultValue="sk" languages={LANGUAGES} />);
+      await user.click(screen.getByRole('button'));
+      expect(screen.getByRole('menuitemradio', { name: 'English' })).toHaveAttribute('lang', 'en');
+      expect(screen.getByRole('menuitemradio', { name: 'Deutsch' })).toHaveAttribute('lang', 'de');
+    });
+
+    it('sets lang on the trigger text to the current language value', () => {
+      render(<LanguagePicker defaultValue="sk" languages={LANGUAGES} />);
+      expect(screen.getByText('Slovenčina')).toHaveAttribute('lang', 'sk');
     });
   });
 
@@ -132,7 +161,7 @@ describe('LanguagePicker', () => {
   describe('Controlled open state', () => {
     it('respects controlled open=true', () => {
       render(<LanguagePicker open languages={LANGUAGES} defaultValue="sk" />);
-      expect(screen.getByRole('menuitem', { name: 'English' })).toBeInTheDocument();
+      expect(screen.getByRole('menuitemradio', { name: 'English' })).toBeInTheDocument();
     });
 
     it('calls onOpenChange when the trigger is clicked', async () => {
