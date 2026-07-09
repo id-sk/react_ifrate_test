@@ -22,27 +22,27 @@ const headerMenuItemVariants = cva('idsk-header-menu-item', {
 });
 
 export interface HeaderMenuDropdownItem {
-  /** Unique key — falls back to `label` when omitted. */
+  /** Jedinečný kľúč — vráti sa na `label`, ak je vynechaný. */
   id?: string;
-  /** Label shown in the dropdown panel. */
+  /** Označenie zobrazené v paneli rozbaľovacieho menu. */
   label: string;
-  /** When provided, the item renders as an `<a>` tag. */
+  /** Keď je poskytnuté, položka sa vykresľuje ako značka `<a>`. */
   href?: string;
-  /** Called when this item is selected. */
+  /** Volaný, keď je táto položka vybraná. */
   onClick?: () => void;
 }
 
 export interface HeaderMenuItemProps
   extends React.HTMLAttributes<HTMLElement>, VariantProps<typeof headerMenuItemVariants> {
-  /** Navigation target URL. When provided and `variant="link"`, renders an `<a>` tag. */
+  /** URL cieľa navigácie. Keď je poskytnuté a `variant="link"`, vykresľuje značku `<a>`. */
   href?: string;
-  /** Items shown in the dropdown panel (only for `variant="dropdown"`). */
+  /** Položky zobrazené v paneli rozbaľovacieho menu (len pre `variant="dropdown"`). */
   dropdownItems?: HeaderMenuDropdownItem[];
-  /** Controlled open state of the dropdown. */
+  /** Riadený stav otvorenia rozbaľovacieho menu. */
   open?: boolean;
-  /** Default open state (uncontrolled). */
+  /** Predvolený stav otvorenia (neriadzený). */
   defaultOpen?: boolean;
-  /** Called when the dropdown open state changes. */
+  /** Volaný, keď sa zmení stav otvorenia rozbaľovacieho menu. */
   onOpenChange?: (open: boolean) => void;
 }
 

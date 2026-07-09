@@ -10,20 +10,20 @@ export interface WebsiteNavigationItem extends Pick<
   HeaderMenuItemProps,
   'variant' | 'active' | 'onClick' | 'open' | 'defaultOpen' | 'onOpenChange'
 > {
-  /** Unique key — falls back to `label|href` when omitted. */
+  /** Jedinečný kľúč — vracia sa na `label|href` ak je vynechaný. */
   id?: string;
-  /** Label text. */
+  /** Text štítka. */
   label: string;
-  /** Navigation target URL (only for `variant="link"`). */
+  /** Cieľová URL navigácie (len pre `variant="link"`). */
   href?: string;
-  /** Items shown in the dropdown panel (only for `variant="dropdown"`). */
+  /** Položky zobrazené v rozbaľovacom paneli (len pre `variant="dropdown"`). */
   dropdownItems?: HeaderMenuDropdownItem[];
 }
 
 export interface WebsiteNavigationProps extends React.HTMLAttributes<HTMLElement> {
-  /** Navigation items to render. */
+  /** Položky navigácie na vykreslenie. */
   items: WebsiteNavigationItem[];
-  /** Accessible label for the `<nav>` landmark. */
+  /** Prístupný popis pre `<nav>` orientačný bod. */
   ariaLabel?: string;
 }
 

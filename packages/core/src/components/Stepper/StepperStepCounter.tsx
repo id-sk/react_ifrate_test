@@ -3,9 +3,9 @@ import React from 'react';
 import { cn } from '../../lib/utils';
 
 export interface StepperStepCounterProps extends React.HTMLAttributes<HTMLSpanElement> {
-  /** Current step number (1-based). */
+  /** Číslo aktuálneho kroku (1-indexovaný). */
   step: number;
-  /** Total number of steps. */
+  /** Celkový počet krokov. */
   total: number;
 }
 

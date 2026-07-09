@@ -14,11 +14,11 @@ export interface StepItem {
 
 export interface StepperProps extends React.HTMLAttributes<HTMLElement> {
   steps: StepItem[];
-  /** 0-indexed current step. */
+  /** Aktuálny krok (0-indexovaný). */
   activeStep: number;
-  /** When provided, completed steps become clickable navigation buttons. */
+  /** Keď sa poskytnú, dokončené kroky sa stanú klikateľnými navigačnými tlačidlami. */
   onStepClick?: (index: number) => void;
-  /** Whether the step list starts expanded. Defaults to false. */
+  /** Či sa zoznam krokov na začiatku rozbalí. Predvolene false. */
   defaultExpanded?: boolean;
 }
 

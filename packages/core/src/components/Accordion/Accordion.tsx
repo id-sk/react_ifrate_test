@@ -8,7 +8,7 @@ export interface AccordionItemProps {
   disabled?: boolean;
   defaultOpen?: boolean;
   description?: string;
-  /** Prepared for Tag components — not yet rendered, reserved for future use */
+  /** Pripravené pre komponenty Tag — zatiaľ nevykresľované, vyhradené na budúce použitie */
   tags?: React.ReactNode;
 }
 
@@ -17,9 +17,9 @@ export interface AccordionProps {
   className?: string;
   singleOpen?: boolean;
   showToggleAll?: boolean;
-  /** Controlled mode: pass current expanded set from parent */
+  /** Riadený režim: poskytnúť aktuálnu množinu rozbalených prvkov od nadriadeného prvku */
   expandedItems?: Set<number>;
-  /** Controlled mode: called when expanded set changes */
+  /** Riadený režim: volaný keď sa zmení množina rozbalených prvkov */
   onExpandedChange?: (items: Set<number>) => void;
 }
 

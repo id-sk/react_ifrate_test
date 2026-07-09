@@ -25,20 +25,20 @@ const selectVariants = cva('idsk-select', {
   },
 });
 
-/** A single option rendered inside the Select dropdown. */
+/** Jednotlivá možnosť zobrazená v rozbaľovacom zozname Select. */
 export interface SelectOption {
   value?: string;
   label: string;
   disabled?: boolean;
 }
 
-/** A labelled group of options (equivalent to HTML `<optgroup>`). */
+/** Označená skupina možností (ekvivalent HTML `<optgroup>`). */
 export interface SelectOptionGroup {
   label: string;
   options: SelectOption[];
 }
 
-/** Props for the Select component. */
+/** Vlastnosti komponentu Select. */
 export interface SelectProps extends VariantProps<typeof selectVariants> {
   ref?: React.Ref<HTMLButtonElement>;
   id?: string;
@@ -61,7 +61,7 @@ export interface SelectProps extends VariantProps<typeof selectVariants> {
   open?: boolean;
   defaultOpen?: boolean;
   onOpenChange?: (open: boolean) => void;
-  /** @deprecated Use onValueChange instead. Kept for back-compat; not invoked by the custom select. */
+  /** @deprecated Namiesto toho použite onValueChange. Zachované pre spätnú kompatibilitu; nie je vyvolané vlastným selectom. */
   onChange?: React.ChangeEventHandler<HTMLSelectElement>;
 }
 

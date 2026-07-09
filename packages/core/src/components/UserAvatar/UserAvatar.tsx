@@ -3,24 +3,24 @@ import React from 'react';
 import PersonIcon from '../../assets/icons/PersonIcon';
 import { cn } from '../../lib/utils';
 
-/** Auto-derived from props: photo URL → foto, initials text → initials, neither → avatar icon. */
+/** Automaticky určený z props: URL fotografie → foto, iniciály → initials, žiadne → ikona avatara. */
 export type UserAvatarType = 'foto' | 'avatar' | 'initials';
 
 export interface UserAvatarProps extends Omit<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
   'onClick'
 > {
-  /** Display name shown next to the avatar. */
+  /** Zobrazované meno vedľa avatara. */
   name: string;
-  /** Caption / role shown below the name. */
+  /** Podnadpis / úloha zobrazená pod menom. */
   caption?: string;
-  /** Photo URL — activates the *foto* variant. */
+  /** URL fotografie — aktivuje variant *foto*. */
   avatarSrc?: string;
-  /** Short initials text (e.g. "MM") — activates the *initials* variant. */
+  /** Krátke iniciály (napr. "MM") — aktivuje variant *initials*. */
   initials?: string;
-  /** Show name + caption beside the avatar circle. Defaults to `true`. */
+  /** Zobraziť meno + podnadpis vedľa kruhu avatara. Predvolene `true`. */
   showDetails?: boolean;
-  /** When provided the component renders as a `<button>` and becomes interactive. */
+  /** Ak je poskytnute, komponent sa vykresľuje ako `<button>` a stáva sa interaktívnym. */
   onClick?: () => void;
 }
 

@@ -3,13 +3,13 @@ import React from 'react';
 import { cn } from '../../lib/utils';
 
 export interface StepperLoaderProps extends React.HTMLAttributes<HTMLDivElement> {
-  /** Current value (e.g. current step, 1-based). */
+  /** Aktuálna hodnota (napr. aktuálny krok, 1-indexovaný). */
   value: number;
-  /** Minimum value. Defaults to 1. */
+  /** Minimálna hodnota. Predvolene 1. */
   min?: number;
-  /** Maximum value (e.g. total steps). */
+  /** Maximálna hodnota (napr. celkový počet krokov). */
   max: number;
-  /** Accessible label for the progress bar. */
+  /** Dostupný popis pre lištu priebehu. */
   label?: string;
 }
 

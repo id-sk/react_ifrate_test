@@ -34,7 +34,7 @@ export interface TextareaProps
 }
 
 /**
- * Textarea component for multi-line text entry.
+ * Komponent Textarea na viacriadkový vstup textu.
  */
 function Textarea({
   className,

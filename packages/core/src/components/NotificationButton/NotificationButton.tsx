@@ -3,11 +3,11 @@ import React from 'react';
 import { cn } from '../../lib/utils';
 
 export interface NotificationButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  /** Icon to display inside the button. */
+  /** Ikona na zobrazenie v tlačidle. */
   icon: React.ReactNode;
-  /** When true a red badge dot is rendered to signal a new notification. */
+  /** Keď je pravda, vykreslí sa červený bodkový odznak signalizujúci novú notifikáciu. */
   hasNew?: boolean;
-  /** Text appended to aria-label when a badge is present. */
+  /** Text pridaný k aria-label, keď je prítomný odznak. */
   newLabel?: string;
 }
 

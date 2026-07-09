@@ -37,17 +37,17 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {
   ref?: React.Ref<HTMLButtonElement>;
   /**
-   * If true, the button will be rendered as a child component (using Radix UI Slot).
-   * Useful for rendering the button as a link or other element while maintaining styles.
+   * Ak je pravda, tlačidlo sa bude vykresľovať ako podradená komponenta (pomocou Radix UI Slot).
+   * Užitočné na vykresľovanie tlačidla ako odkazu alebo iného prvku pri zachovaní štýlov.
    */
   asChild?: boolean;
-  /** Icon rendered before the button label (ľavá ikona). Wrapped in aria-hidden automatically. */
+  /** Ikona vykresľovaná pred označením tlačidla. Automaticky obalená v aria-hidden. */
   leftIcon?: React.ReactNode;
-  /** Icon rendered after the button label (pravá ikona). Wrapped in aria-hidden automatically. */
+  /** Ikona vykresľovaná za označením tlačidla. Automaticky obalená v aria-hidden. */
   rightIcon?: React.ReactNode;
   /**
-   * Renders a square icon-only button (no visible text). Equal padding on all sides.
-   * Requires `aria-label` for accessibility when no visible text is present.
+   * Vykresľuje tlačidlo so samými ikonami (bez viditeľného textu). Rovnaké odsadenie zo všetkých strán.
+   * Vyžaduje `aria-label` pre dostupnosť, keď nie je prítomný žiadny viditeľný text.
    */
   iconOnly?: boolean;
 }

@@ -1,9 +1,9 @@
 /**
- * Tooltip — WCAG 2.1 compliant contextual help component.
+ * Tooltip — kontextová nápoveda kompatibilná s WCAG 2.1.
  *
- * IMPORTANT: `content` must be plain text only (max 290 characters).
- * Do NOT pass interactive elements (links, buttons) — this violates
- * WCAG 2.1 SC 1.4.13 and breaks keyboard / screen-reader navigation.
+ * DÔLEŽITÉ: `content` musí byť iba čistý text (max 290 znakov).
+ * NEPRENÁŠAJTE interaktívne prvky (odkazy, tlačidlá) — to porušuje
+ * WCAG 2.1 SC 1.4.13 a zlomí navigáciu pomocou klávesnice / čítačky obrazovky.
  */
 
 import { Tooltip as RadixTooltip } from 'radix-ui';
@@ -12,20 +12,20 @@ import { cn } from '../../lib/utils';
 import InfoOutlineIcon from '../../assets/icons/InfoOutlineIcon.tsx';
 
 export interface TooltipProps {
-  /** Preferred display direction. Falls back automatically when viewport space is insufficient. */
+  /** Preferovaný smer zobrazenia. Automaticky sa zmení, ak nie je dostatok miesta. */
   preferredPosition?: 'top' | 'bottom' | 'left' | 'right';
-  /** Visible label rendered to the left of the info icon. */
+  /** Viditeľný text zobrazený vľavo od ikony informácií. */
   label?: string;
   /**
-   * Tooltip body text — plain text only, max 290 characters.
-   * Do NOT pass interactive elements (links, buttons): this violates WCAG 2.1 SC 1.4.13.
+   * Text na body tooltipnu — iba čistý text, max 290 znakov.
+   * NEPRENÁŠAJTE interaktívne prvky (odkazy, tlačidlá): to porušuje WCAG 2.1 SC 1.4.13.
    */
   content: string;
-  /** Accessible name for the trigger button, announced by screen readers. */
+  /** Prístupný popis spúšťačového tlačidla oznamovaný čítačkou obrazovky. */
   ariaLabel?: string;
-  /** Additional class names applied to the outer wrapper. */
+  /** Dodatočné triedy CSS aplikované na vonkajší obal. */
   className?: string;
-  /** Start with the tooltip open — useful for documentation and testing. */
+  /** Tooltip je inicializovaný ako otvorený — užitočné pre dokumentáciu a testovanie. */
   defaultOpen?: boolean;
 }
 

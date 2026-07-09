@@ -14,15 +14,15 @@ import { cn } from '../../lib/utils';
 // ─── User / Avatar ───────────────────────────────────────────────────────────
 
 export interface HeaderUser {
-  /** Display name shown next to the avatar. */
+  /** Zobrazované meno vedľa avatara. */
   name: string;
-  /** Caption / role shown below the name. */
+  /** Popisok / funkcia zobrazená pod menom. */
   caption?: string;
-  /** Photo URL — activates the *foto* variant. */
+  /** URL fotografie — aktivuje variant *foto*. */
   avatarSrc?: string;
-  /** Short initials (e.g. "MM") — activates the *initials* variant. */
+  /** Krátke iniciály (napr. „MM“) — aktivuje variant *initials*. */
   initials?: string;
-  /** Called when the avatar button is clicked. */
+  /** Volané pri kliknutí na tlačidlo avatara. */
   onClick?: () => void;
 }
 
@@ -30,60 +30,60 @@ export interface HeaderUser {
 
 export interface HeaderMainSectionProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
-   * Logo element rendered on the left side.
-   * Defaults to the Slovak state sign (Štátny znak SR).
-   * Pass `null` to hide the logo.
+   * Logo zobrazené vľavo.
+   * Predvolene štátny znak SR.
+   * Odovzdaním `null` logo skryjete.
    */
   logo?: React.ReactNode;
-  /** When provided, wraps the logo in an `<a>` tag linking to the homepage. */
+  /** Keď je zadané, logo sa obalí do značky `<a>` odkazujúcej na domovskú stránku. */
   logoHref?: string;
-  /** Accessible label for the logo link (e.g. "Odkaz na domovskú stránku Ministerstva…"). */
+  /** Prístupný popis odkazu na logo (napr. „Odkaz na domovskú stránku Ministerstva…“). */
   logoAriaLabel?: string;
-  /** Primary headline next to the logo (org name or service name). */
+  /** Hlavný nadpis vedľa loga (názov organizácie alebo služby). */
   orgName?: string;
-  /** When `true`, renders `orgName` as an `<h1>` instead of a `<span>`. */
+  /** Keď je `true`, vykreslí `orgName` ako `<h1>` namiesto `<span>`. */
   orgNameAsHeading?: boolean;
-  /** Secondary line below the headline. */
+  /** Doplnkový riadok pod hlavným nadpisom. */
   orgSubtitle?: string;
 
-  /** Show the search icon button. Defaults to `true`. */
+  /** Zobraziť tlačidlo vyhľadávania. Predvolene `true`. */
   showSearch?: boolean;
   onSearch?: () => void;
   searchAriaLabel?: string;
 
-  /** Show mail icon button. Defaults to `false`. */
+  /** Zobraziť tlačidlo ikony pošty. Predvolene `false`. */
   showMail?: boolean;
-  /** Show a red badge on the mail button. */
+  /** Zobraziť červený odznak na tlačidle pošty. */
   mailHasNew?: boolean;
   onMail?: () => void;
   mailAriaLabel?: string;
 
-  /** Show notifications icon button. Defaults to `false`. */
+  /** Zobraziť tlačidlo ikony notifikácií. Predvolene `false`. */
   showNotifications?: boolean;
-  /** Show a red badge on the notifications button. */
+  /** Zobraziť červený odznak na tlačidle notifikácií. */
   notificationsHasNew?: boolean;
   onNotifications?: () => void;
   notificationsAriaLabel?: string;
 
-  /** Extra elements inserted between the icon buttons and the right-most button. */
+  /** Ďalšie prvky vložené medzi ikonové tlačidlá a krajné tlačidlo. */
   actions?: React.ReactNode;
 
-  /** Label for the mobile menu button (≤520px). Defaults to `'Menu'`. */
+  /** Text mobilného tlačidla menu (≤520px). Predvolene `'Menu'`. */
   menuLabel?: string;
-  /** Called when the mobile menu button is clicked. */
+  /** Volané pri kliknutí na mobilné tlačidlo menu. */
   onMenuClick?: () => void;
-  /** Whether the mobile drawer is currently open — sets `aria-expanded` on the menu button. */
+  /** Či je mobilná zásuvka aktuálne otvorená — nastavuje `aria-expanded` na tlačidle menu. */
   menuDrawerOpen?: boolean;
-  /** ID of the mobile drawer element — sets `aria-controls` on the menu button. */
+  /** ID prvku mobilnej zásuvky — nastavuje `aria-controls` na tlačidle menu. */
   menuDrawerId?: string;
 
   /**
-   * When provided the login button is hidden and an avatar is shown instead.
-   * Explicitly pass `showLogin={true}` to force the login button alongside the avatar.
+   * Keď je zadané, tlačidlo prihlásenia sa skryje a namiesto neho sa zobrazí avatar.
+   * Explicitným zadaním `showLogin={true}` vynútite tlačidlo prihlásenia popri avatare.
    */
   user?: HeaderUser;
 
-  /** Show the login button. Defaults to `true` unless `user` is set. */
+  /** Zobraziť tlačidlo prihlásenia. Predvolene `true`, pokiaľ nie je zadané `user`. */
   showLogin?: boolean;
   loginLabel?: string;
   onLogin?: () => void;
