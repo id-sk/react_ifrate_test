@@ -13,7 +13,7 @@ const LANGUAGES = [
 test.describe('LanguagePicker', () => {
   test('renders trigger with the default language label', async ({ mount }) => {
     const component = await mount(<LanguagePicker defaultValue="sk" languages={LANGUAGES} />);
-    await expect(component.getByRole('button')).toContainText('Slovenčina');
+    await expect(component).toContainText('Slovenčina');
   });
 
   test('opens dropdown when trigger is clicked', async ({ mount, page }) => {
@@ -41,6 +41,8 @@ test.describe('LanguagePicker', () => {
   test('adds trigger--open class when dropdown is open', async ({ mount, page }) => {
     await mount(<LanguagePicker defaultValue="sk" languages={LANGUAGES} />);
     await page.getByRole('button').click();
-    await expect(page.getByRole('button')).toHaveClass(/idsk-language-picker__trigger--open/);
+    // Radix marks #root aria-hidden while the portal-rendered menu is open, so the
+    // trigger drops out of the accessibility tree — query by class, not role, here.
+    await expect(page.locator('.idsk-language-picker__trigger--open')).toBeAttached();
   });
 });

@@ -21,7 +21,11 @@ const envRules = ['document-title', 'page-has-heading-one', 'region'];
 test.describe('Rendering', () => {
   test('renders a <header> element', async ({ mount }) => {
     const component = await mount(<Header />);
-    await expect(component.locator('header')).toBeVisible();
+    // An empty <header> has a zero-size box, so `toBeVisible` (which requires
+    // non-zero dimensions) doesn't apply here — assert it's attached with the
+    // right tag instead.
+    await expect(component).toBeAttached();
+    await expect(component).toHaveJSProperty('tagName', 'HEADER');
   });
 
   test('renders children', async ({ mount }) => {
@@ -31,17 +35,17 @@ test.describe('Rendering', () => {
 
   test('default variant has idsk-header--default class', async ({ mount }) => {
     const component = await mount(<Header variant="default" />);
-    await expect(component.locator('.idsk-header--default')).toBeAttached();
+    await expect(component).toHaveClass(/idsk-header--default/);
   });
 
   test('transparent variant has idsk-header--transparent class', async ({ mount }) => {
     const component = await mount(<Header variant="transparent" />);
-    await expect(component.locator('.idsk-header--transparent')).toBeAttached();
+    await expect(component).toHaveClass(/idsk-header--transparent/);
   });
 
   test('sticky prop has idsk-header--sticky class', async ({ mount }) => {
     const component = await mount(<Header sticky />);
-    await expect(component.locator('.idsk-header--sticky')).toBeAttached();
+    await expect(component).toHaveClass(/idsk-header--sticky/);
   });
 });
 

@@ -15,11 +15,7 @@ import { Stepper } from './Stepper';
 
 const envRules = ['document-title', 'page-has-heading-one', 'region'];
 
-const defaultSteps = [
-  { label: 'Osobné údaje' },
-  { label: 'Adresa' },
-  { label: 'Potvrdenie' },
-];
+const defaultSteps = [{ label: 'Osobné údaje' }, { label: 'Adresa' }, { label: 'Potvrdenie' }];
 
 // ---------------------------------------------------------------------------
 // Keyboard navigation
@@ -65,7 +61,10 @@ test.describe('Keyboard navigation', () => {
         />
       </div>,
     );
-    const stepBtn = page.getByRole('button').nth(1);
+    // The dropdown (with clickable step buttons) is rendered before the toggle
+    // button in DOM order for screen-reader navigation, so the first completed
+    // step (index 0) is the first `button` on the page, not the second.
+    const stepBtn = page.getByRole('button').nth(0);
     await stepBtn.focus();
     await page.keyboard.press('Enter');
     expect(clickedIndex).toBe(0);
@@ -85,7 +84,10 @@ test.describe('Keyboard navigation', () => {
         />
       </div>,
     );
-    const stepBtn = page.getByRole('button').nth(1);
+    // The dropdown (with clickable step buttons) is rendered before the toggle
+    // button in DOM order for screen-reader navigation, so the first completed
+    // step (index 0) is the first `button` on the page, not the second.
+    const stepBtn = page.getByRole('button').nth(0);
     await stepBtn.focus();
     await stepBtn.press(' ');
     expect(clickedIndex).toBe(0);
@@ -172,10 +174,7 @@ test.describe('Automated a11y — axe in browser', () => {
     expect(results.violations).toHaveLength(0);
   });
 
-  test('expanded stepper with clickable steps has no a11y violations', async ({
-    mount,
-    page,
-  }) => {
+  test('expanded stepper with clickable steps has no a11y violations', async ({ mount, page }) => {
     await mount(
       <main>
         <Stepper steps={defaultSteps} activeStep={2} onStepClick={() => {}} defaultExpanded />

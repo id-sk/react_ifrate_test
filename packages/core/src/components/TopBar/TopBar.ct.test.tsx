@@ -21,10 +21,13 @@ test('clicking toggle expands the panel', async ({ mount }) => {
   await expect(component.locator('#idsk-top-bar-panel')).toBeVisible();
 });
 
-test('clicking toggle twice collapses the panel again', async ({ mount }) => {
+test('clicking toggle twice collapses the panel again', async ({ mount, page }) => {
   const component = await mount(<TopBar />);
   const btn = component.getByRole('button', { name: /Oficiálna stránka/i });
   await btn.click();
+  // Button has a 300ms guard against accidental double-click activations
+  // (e.g. form resubmission) — wait past it so the second click registers.
+  await page.waitForTimeout(350);
   await btn.click();
   await expect(component.locator('#idsk-top-bar-panel')).toBeHidden();
 });
@@ -36,12 +39,12 @@ test('defaultExpanded=true shows panel on mount', async ({ mount }) => {
 
 test('language picker is visible by default', async ({ mount }) => {
   const component = await mount(<TopBar />);
-  await expect(component.getByRole('button', { name: /Slovensky/i })).toBeVisible();
+  await expect(component.getByRole('button', { name: /Slovenčina/i })).toBeVisible();
 });
 
 test('language picker hidden when showLanguagePicker=false', async ({ mount }) => {
   const component = await mount(<TopBar showLanguagePicker={false} />);
-  await expect(component.getByRole('button', { name: /Slovensky/i })).toBeHidden();
+  await expect(component.getByRole('button', { name: /Slovenčina/i })).toBeHidden();
 });
 
 test('renders without overflow on mobile viewport', async ({ mount, page }) => {
