@@ -26,16 +26,19 @@ type Story = StoryObj<typeof meta>;
 
 /** Prostý navigačný odkaz. */
 export const Link: Story = {
+  name: 'Odkaz',
   args: { children: 'Sekcia', href: '#', variant: 'link' },
 };
 
 /** Aktívna položka — modrý spodný okraj. */
 export const Active: Story = {
+  name: 'Aktívna položka',
   args: { children: 'Sekcia', href: '#', variant: 'link', active: true },
 };
 
 /** Položka so šípkou a dropdown panelom s položkami. */
 export const Dropdown: Story = {
+  name: 'Rozbaľovacia položka',
   args: {
     children: 'Sekcia',
     variant: 'dropdown',
@@ -51,6 +54,7 @@ export const Dropdown: Story = {
 
 /** Všetky varianty vedľa seba v navigačnej lište. */
 export const InNavigation: Story = {
+  name: 'V navigačnej lište',
   args: {},
   render: () => (
     <Header>

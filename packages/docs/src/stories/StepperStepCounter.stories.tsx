@@ -33,6 +33,7 @@ export default meta;
 type Story = StoryObj<StepperStepCounterProps>;
 
 export const Default: Story = {
+  name: 'Predvolený stav',
   parameters: {
     docs: {
       description: { story: 'Predvolený stav — zobrazuje aktuálny krok a celkový počet krokov.' },
@@ -41,6 +42,7 @@ export const Default: Story = {
 };
 
 export const FirstStep: Story = {
+  name: 'Prvý krok',
   args: { step: 1, total: 5 },
   parameters: {
     docs: { description: { story: 'Prvý krok z piatich.' } },
@@ -48,6 +50,7 @@ export const FirstStep: Story = {
 };
 
 export const LastStep: Story = {
+  name: 'Posledný krok',
   args: { step: 5, total: 5 },
   parameters: {
     docs: { description: { story: 'Posledný krok — progres je na konci.' } },
@@ -55,6 +58,7 @@ export const LastStep: Story = {
 };
 
 export const ManySteps: Story = {
+  name: 'Veľa krokov',
   args: { step: 8, total: 16 },
   parameters: {
     docs: { description: { story: 'Väčší počet krokov.' } },

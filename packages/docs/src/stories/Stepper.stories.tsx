@@ -82,6 +82,7 @@ const manySteps: StepItem[] = [
 /* ─── Collapsed (default) ─── */
 
 export const Collapsed: Story = {
+  name: 'Zbalený stav',
   args: {
     steps: fiveSteps,
     activeStep: 2,
@@ -97,6 +98,7 @@ export const Collapsed: Story = {
 /* ─── Expanded ─── */
 
 export const Expanded: Story = {
+  name: 'Rozbalený stav',
   args: {
     steps: fiveSteps,
     activeStep: 2,
@@ -112,6 +114,7 @@ export const Expanded: Story = {
 /* ─── First step ─── */
 
 export const FirstStep: Story = {
+  name: 'Prvý krok',
   args: {
     steps: fiveSteps,
     activeStep: 0,
@@ -125,6 +128,7 @@ export const FirstStep: Story = {
 /* ─── Last step ─── */
 
 export const LastStep: Story = {
+  name: 'Posledný krok',
   args: {
     steps: fiveSteps,
     activeStep: 4,
@@ -138,6 +142,7 @@ export const LastStep: Story = {
 /* ─── With summary step ─── */
 
 export const WithSummary: Story = {
+  name: 'So zhrnutím',
   args: {
     steps: fiveStepsWithSummary,
     activeStep: 2,
@@ -156,6 +161,7 @@ export const WithSummary: Story = {
 /* ─── Many steps (2-column on desktop) ─── */
 
 export const ManySteps: Story = {
+  name: 'Veľa krokov',
   args: {
     steps: manySteps,
     activeStep: 5,
@@ -186,6 +192,7 @@ function ClickableDemo(args: StepperProps) {
 }
 
 export const Clickable: Story = {
+  name: 'Klikateľné kroky',
   render: (args) => <ClickableDemo {...args} />,
   parameters: {
     docs: {
@@ -200,6 +207,7 @@ export const Clickable: Story = {
 /* ─── Mobile view ─── */
 
 export const Mobile: Story = {
+  name: 'Mobilné zobrazenie',
   args: {
     steps: fiveStepsWithSummary,
     activeStep: 2,

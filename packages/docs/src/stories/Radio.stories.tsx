@@ -57,6 +57,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Velky: Story = {
+  name: 'Veľký',
   args: {
     label: 'Menovka',
     hint: 'Pomôcka',
@@ -73,6 +74,7 @@ export const Velky: Story = {
 };
 
 export const Maly: Story = {
+  name: 'Malý',
   args: {
     label: 'Menovka',
     hint: 'Pomôcka',
@@ -89,6 +91,7 @@ export const Maly: Story = {
 };
 
 export const S_PomocnymTextom: Story = {
+  name: 'S pomocným textom',
   args: {
     label: 'Menovka',
     hint: 'Pomôcka',
@@ -103,6 +106,7 @@ export const S_PomocnymTextom: Story = {
 };
 
 export const S_Chybou: Story = {
+  name: 'S chybou',
   args: {
     label: 'Menovka',
     errorMessage: 'Chybový text',
@@ -117,6 +121,7 @@ export const S_Chybou: Story = {
 };
 
 export const Povinny: Story = {
+  name: 'Povinný',
   args: {
     label: 'Menovka',
     required: true,
@@ -131,6 +136,7 @@ export const Povinny: Story = {
 };
 
 export const Zakazany: Story = {
+  name: 'Zakázaný',
   args: {
     label: 'Menovka',
     disabled: true,
@@ -168,6 +174,7 @@ export const Skupina: Story = {
 };
 
 export const SkupinaSOtazkou: Story = {
+  name: 'Skupina s otázkou',
   render: () => (
     <RadioGroup
       legend="Ako cestujete do práce?"
@@ -201,6 +208,7 @@ export const SkupinaSOtazkou: Story = {
 };
 
 export const SkupinaS_Chybou: Story = {
+  name: 'Skupina s chybou',
   render: () => (
     <RadioGroup legend="Obľúbené ovocie" errorMessage="Musíte vybrať jednu možnosť">
       <Radio label="Jablko" name="fruit-error" value="apple" />
@@ -218,6 +226,7 @@ export const SkupinaS_Chybou: Story = {
 };
 
 export const Mobile: Story = {
+  name: 'Mobilné zobrazenie',
   args: { label: 'Menovka', hint: 'Pomôcka' },
   globals: {
     viewport: {

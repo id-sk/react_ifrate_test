@@ -18,6 +18,7 @@ export default meta;
 type Story = StoryObj<typeof AccordionList>;
 
 export const Default: Story = {
+  name: 'Predvolený',
   args: {
     title: 'Nadpis',
     hint: true,
@@ -48,6 +49,7 @@ export const Default: Story = {
 };
 
 export const WithDefaultOpen: Story = {
+  name: 'Predvolene rozbalený',
   args: {
     title: 'Nadpis',
     hint: true,
@@ -74,6 +76,7 @@ export const WithDefaultOpen: Story = {
 };
 
 export const SingleOpen: Story = {
+  name: 'Jedna sekcia naraz',
   args: {
     title: 'Nadpis',
     hint: true,
@@ -105,6 +108,7 @@ export const SingleOpen: Story = {
 };
 
 export const WithDisabled: Story = {
+  name: 'S deaktivovanou sekciou',
   args: {
     title: 'Nadpis',
     hint: true,

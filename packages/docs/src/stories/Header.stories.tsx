@@ -221,6 +221,7 @@ type Story = StoryObj<HeaderStoryArgs>;
 
 /** Štandardná hlavička s TopBar-om, sekciou s logom a navigačnou lištou. */
 export const Default: Story = {
+  name: 'Predvolený',
   parameters: {
     docs: {
       description: {
@@ -305,6 +306,7 @@ export const MinimalActions: Story = {
 
 /** Transparentná hlavička na farebnom pozadí. */
 export const Transparent: Story = {
+  name: 'Priehľadný variant',
   args: { variant: 'transparent' },
   render: ({ variant, sticky, ...rest }) => (
     <div style={{ background: 'linear-gradient(135deg, #1e3a5f 0%, #4a7fb5 100%)', padding: 0 }}>

@@ -39,6 +39,7 @@ const DEFAULT_ITEMS = [
 
 /** Štandardná navigačná lišta s obyčajnými a rozbaľovacími položkami. */
 export const Default: Story = {
+  name: 'Predvolená',
   args: {
     items: DEFAULT_ITEMS,
   },

@@ -265,6 +265,7 @@ export const Desktop: Story = {
 };
 
 export const Mobile: Story = {
+  name: 'Mobilné zobrazenie',
   args: {
     label: 'Názov textového poľa',
     subheading: 'Podnadpis textového poľa',

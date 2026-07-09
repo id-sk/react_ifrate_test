@@ -55,12 +55,14 @@ export default meta;
 type Story = StoryObj<StepperItemProps>;
 
 export const Upcoming: Story = {
+  name: 'Nadchádzajúci krok',
   parameters: {
     docs: { description: { story: 'Nadchádzajúci krok — vyplnený modrý kruh s číslom.' } },
   },
 };
 
 export const Completed: Story = {
+  name: 'Dokončený krok',
   args: { isCompleted: true },
   parameters: {
     docs: { description: { story: 'Dokončený krok — modrý kruh so zaškrtnutím.' } },
@@ -68,6 +70,7 @@ export const Completed: Story = {
 };
 
 export const Active: Story = {
+  name: 'Aktívny krok',
   args: { isActive: true },
   parameters: {
     docs: { description: { story: 'Aktívny krok — modrý pill, biely indikátor s modrým číslom.' } },
@@ -75,6 +78,7 @@ export const Active: Story = {
 };
 
 export const Summary: Story = {
+  name: 'Súhrnný krok',
   args: { isSummary: true },
   parameters: {
     docs: { description: { story: 'Zhrnutie — kruh s ikonou zoznamu.' } },
@@ -82,6 +86,7 @@ export const Summary: Story = {
 };
 
 export const SummaryActive: Story = {
+  name: 'Aktívny súhrnný krok',
   args: { isSummary: true, isActive: true },
   parameters: {
     docs: { description: { story: 'Aktívne zhrnutie — modrý pill s bielou ikonou.' } },
@@ -89,6 +94,7 @@ export const SummaryActive: Story = {
 };
 
 export const Clickable: Story = {
+  name: 'Klikateľný krok',
   args: { isCompleted: true, onClick: () => {} },
   parameters: {
     docs: { description: { story: 'Klikateľný krok (dokončený) — renderuje sa ako button.' } },
@@ -96,6 +102,7 @@ export const Clickable: Story = {
 };
 
 export const WithLines: Story = {
+  name: 'S čiarami',
   parameters: {
     docs: { description: { story: 'Krok s čiarami — zvislé čiary nad a pod indikátorom.' } },
   },

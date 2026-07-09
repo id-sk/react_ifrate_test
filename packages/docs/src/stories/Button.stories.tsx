@@ -111,6 +111,7 @@ type Story = StoryObj<ButtonStoryArgs>;
 
 /* ─── Primary ─── */
 export const Primary = {
+  name: 'Primárne',
   args: { variant: 'primary', children: 'Tlačidlo' },
   parameters: {
     docs: {
@@ -122,6 +123,7 @@ export const Primary = {
   },
 } satisfies Story;
 export const PrimarySuccess = {
+  name: 'Primárne — zelené',
   args: { variant: 'primary', colorScheme: 'success', children: 'Tlačidlo' },
   parameters: {
     docs: {
@@ -132,6 +134,7 @@ export const PrimarySuccess = {
   },
 } satisfies Story;
 export const PrimaryDisabled = {
+  name: 'Primárne — zakázané',
   args: { variant: 'primary', disabled: true, children: 'Tlačidlo' },
   parameters: {
     docs: {
@@ -144,6 +147,7 @@ export const PrimaryDisabled = {
 
 /* ─── Secondary ─── */
 export const Secondary = {
+  name: 'Sekundárne',
   args: { variant: 'secondary', children: 'Tlačidlo' },
   parameters: {
     docs: {
@@ -154,6 +158,7 @@ export const Secondary = {
   },
 } satisfies Story;
 export const SecondaryError = {
+  name: 'Sekundárne — červené',
   args: { variant: 'secondary', colorScheme: 'error', children: 'Tlačidlo' },
   parameters: {
     docs: {
@@ -164,6 +169,7 @@ export const SecondaryError = {
   },
 } satisfies Story;
 export const SecondarySuccess = {
+  name: 'Sekundárne — zelené',
   args: { variant: 'secondary', colorScheme: 'success', children: 'Tlačidlo' },
   parameters: {
     docs: {
@@ -174,6 +180,7 @@ export const SecondarySuccess = {
   },
 } satisfies Story;
 export const SecondaryDisabled = {
+  name: 'Sekundárne — zakázané',
   args: { variant: 'secondary', disabled: true, children: 'Tlačidlo' },
   parameters: {
     docs: {
@@ -186,6 +193,7 @@ export const SecondaryDisabled = {
 
 /* ─── Tertiary ─── */
 export const Tertiary = {
+  name: 'Terciárne',
   args: { variant: 'tertiary', children: 'Tlačidlo' },
   parameters: {
     docs: {
@@ -197,6 +205,7 @@ export const Tertiary = {
   },
 } satisfies Story;
 export const TertiaryError = {
+  name: 'Terciárne — červené',
   args: { variant: 'tertiary', colorScheme: 'error', children: 'Tlačidlo' },
   parameters: {
     docs: {
@@ -207,6 +216,7 @@ export const TertiaryError = {
   },
 } satisfies Story;
 export const TertiarySuccess = {
+  name: 'Terciárne — zelené',
   args: { variant: 'tertiary', colorScheme: 'success', children: 'Tlačidlo' },
   parameters: {
     docs: {
@@ -217,6 +227,7 @@ export const TertiarySuccess = {
   },
 } satisfies Story;
 export const TertiaryDisabled = {
+  name: 'Terciárne — zakázané',
   args: { variant: 'tertiary', disabled: true, children: 'Tlačidlo' },
   parameters: {
     docs: {
@@ -227,6 +238,7 @@ export const TertiaryDisabled = {
   },
 } satisfies Story;
 export const TertiaryWhite = {
+  name: 'Terciárne — biele',
   args: { variant: 'tertiary', colorScheme: 'white', children: 'Tlačidlo' },
   decorators: [
     (Story) => (
@@ -253,6 +265,7 @@ export const TertiaryWhite = {
 
 /* ─── Tertiary No Padding ─── */
 export const TertiaryNoPadding = {
+  name: 'Bez odsadenia',
   args: { variant: 'tertiaryNoPadding', children: 'Tlačidlo' },
   parameters: {
     docs: {
@@ -266,6 +279,7 @@ export const TertiaryNoPadding = {
 
 /* ─── Sizes ─── */
 export const SizeSM = {
+  name: 'Malá veľkosť',
   args: { size: 'sm', children: 'Tlačidlo' },
   parameters: {
     docs: {
@@ -276,6 +290,7 @@ export const SizeSM = {
   },
 } satisfies Story;
 export const SizeMD = {
+  name: 'Stredná veľkosť',
   args: { size: 'md', children: 'Tlačidlo' },
   parameters: {
     docs: {
@@ -286,6 +301,7 @@ export const SizeMD = {
   },
 } satisfies Story;
 export const SizeLG = {
+  name: 'Veľká veľkosť',
   args: { size: 'lg', children: 'Tlačidlo' },
   parameters: {
     docs: {
@@ -298,6 +314,7 @@ export const SizeLG = {
 
 /* ─── With icons ─── */
 export const WithLeftIcon = {
+  name: 'Ľavá ikona',
   args: {
     children: 'Tlačidlo',
     leftIconName: 'SendIcon',
@@ -313,6 +330,7 @@ export const WithLeftIcon = {
 } satisfies Story;
 
 export const WithRightIcon = {
+  name: 'Pravá ikona',
   args: {
     children: 'Tlačidlo',
     rightIconName: 'DownloadIcon',
@@ -327,6 +345,7 @@ export const WithRightIcon = {
 } satisfies Story;
 
 export const WithBothIcons = {
+  name: 'Obe ikony',
   args: {
     children: 'Tlačidlo',
     leftIconName: 'AddIcon',
@@ -343,6 +362,7 @@ export const WithBothIcons = {
 
 /* ─── Icon only ─── */
 export const IconOnly = {
+  name: 'Len ikona',
   args: {
     iconOnly: true,
     leftIconName: 'SendIcon',
@@ -359,6 +379,7 @@ export const IconOnly = {
 } satisfies Story;
 
 export const IconOnlySecondary = {
+  name: 'Len ikona — sekundárne',
   args: {
     iconOnly: true,
     variant: 'secondary',
@@ -376,6 +397,7 @@ export const IconOnlySecondary = {
 } satisfies Story;
 
 export const IconOnlyTertiary = {
+  name: 'Len ikona — terciárne',
   args: {
     iconOnly: true,
     variant: 'tertiary',
@@ -393,6 +415,7 @@ export const IconOnlyTertiary = {
 } satisfies Story;
 
 export const IconOnlySM = {
+  name: 'Len ikona — malé',
   args: {
     iconOnly: true,
     size: 'sm',
@@ -411,6 +434,7 @@ export const IconOnlySM = {
 
 /* ─── AsChild ─── */
 export const AsChild = {
+  name: 'Ako iný prvok',
   args: {
     asChild: true,
     children: <a href="https://example.com">Link tlačidlo</a>,
@@ -427,6 +451,7 @@ export const AsChild = {
 
 /* ─── Mobile ─── */
 export const Mobile: Story = {
+  name: 'Mobilné zobrazenie',
   args: { children: 'Tlačidlo' },
   globals: {
     viewport: {

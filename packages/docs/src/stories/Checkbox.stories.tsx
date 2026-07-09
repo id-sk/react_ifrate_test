@@ -57,6 +57,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Velky: Story = {
+  name: 'Veľký',
   args: {
     label: 'Menovka',
     size: 'default',
@@ -71,6 +72,7 @@ export const Velky: Story = {
 };
 
 export const Maly: Story = {
+  name: 'Malý',
   args: {
     label: 'Menovka',
     size: 'sm',
@@ -86,6 +88,7 @@ export const Maly: Story = {
 };
 
 export const MalyDlhyText: Story = {
+  name: 'Malý s dlhým textom',
   args: {
     label:
       'Malý checkbox s veľmi dlhým textom, ktorý by sa mal taktiež správne zalamovať. Odsadenie by malo byť menšie ako pri veľkom checkboxe (34px namiesto 44px).',
@@ -101,6 +104,7 @@ export const MalyDlhyText: Story = {
 };
 
 export const S_PomocnymTextom: Story = {
+  name: 'S pomocným textom',
   args: {
     label: 'Menovka',
     hint: 'Pomôcka',
@@ -115,6 +119,7 @@ export const S_PomocnymTextom: Story = {
 };
 
 export const DlhyPomocnyText: Story = {
+  name: 'Dlhý pomocný text',
   args: {
     label: 'Menovka',
     hint: 'Toto je veľmi dlhý pomocný text, ktorý by sa mal správne zalamovať pod labelom checkboxu. Mal by dodržiavať rovnaké odsadenie od ľavého okraja ako samotný label.',
@@ -129,6 +134,7 @@ export const DlhyPomocnyText: Story = {
 };
 
 export const Tooltip: Story = {
+  name: 'S nápoveďou',
   args: {
     label: 'Menovka',
     hint: 'Pomôcka',
@@ -148,6 +154,7 @@ export const Tooltip: Story = {
 };
 
 export const S_Chybou: Story = {
+  name: 'S chybou',
   args: {
     label: 'Menovka',
     errorMessage: 'Chybový text',
@@ -162,6 +169,7 @@ export const S_Chybou: Story = {
 };
 
 export const Povinny: Story = {
+  name: 'Povinný',
   args: {
     label: 'Menovka',
     required: true,
@@ -176,6 +184,7 @@ export const Povinny: Story = {
 };
 
 export const Zakazany: Story = {
+  name: 'Zakázaný',
   args: {
     label: 'Menovka',
     disabled: true,
@@ -190,6 +199,7 @@ export const Zakazany: Story = {
 };
 
 export const DlhyText: Story = {
+  name: 'Dlhý text',
   args: {
     label:
       'Toto je veľmi dlhý text pre label checkboxu, ktorý by sa mal správne zalomiť na viacerých riadkoch, ak je kontajner príliš úzky. Overujeme, či odsadenie od samotného checkboxu zostáva zachované aj pri dlhšom texte.',
@@ -204,6 +214,7 @@ export const DlhyText: Story = {
 };
 
 export const ViacriadkovyText: Story = {
+  name: 'Viacriadkový text',
   args: {
     label: (
       <span>
@@ -225,6 +236,7 @@ export const ViacriadkovyText: Story = {
 };
 
 export const Indeterminate: Story = {
+  name: 'Neurčitý stav',
   args: {
     label: 'Menovka',
     indeterminate: true,
@@ -270,6 +282,7 @@ function IndeterminateImplementaciaDemo() {
 }
 
 export const IndeterminateImplementacia: Story = {
+  name: 'Neurčitý stav — implementácia',
   render: () => <IndeterminateImplementaciaDemo />,
   parameters: {
     docs: {
@@ -309,6 +322,7 @@ export const Skupina: Story = {
 };
 
 export const SkupinaSOtazkou: Story = {
+  name: 'Skupina s otázkou',
   render: () => (
     <CheckboxGroup
       legend="Aké druhy dopravy používate?"
@@ -347,6 +361,7 @@ export const SkupinaSOtazkou: Story = {
 };
 
 export const Mobile: Story = {
+  name: 'Mobilné zobrazenie',
   globals: {
     viewport: {
       value: 'mobile1',

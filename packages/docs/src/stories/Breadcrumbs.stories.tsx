@@ -18,6 +18,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
+  name: 'Predvolená',
   args: {
     items: [{ label: 'Domov', href: '/' }, { label: 'Aktuálna stránka' }],
   },
@@ -31,6 +32,7 @@ export const Default: Story = {
 };
 
 export const ThreeLevels: Story = {
+  name: 'Tri úrovne',
   args: {
     items: [
       { label: 'Domov', href: '/' },
@@ -49,6 +51,7 @@ export const ThreeLevels: Story = {
 };
 
 export const FiveLevels: Story = {
+  name: 'Päť úrovní',
   args: {
     items: [
       { label: 'Domov', href: '/' },
@@ -68,6 +71,7 @@ export const FiveLevels: Story = {
 };
 
 export const CollapseOnMobile: Story = {
+  name: 'Zbalené na mobiloch',
   args: {
     collapseMobile: true,
     items: [
@@ -89,6 +93,7 @@ export const CollapseOnMobile: Story = {
 };
 
 export const Mobile: Story = {
+  name: 'Mobilné zobrazenie',
   args: {
     items: [
       { label: 'Domov', href: '/' },

@@ -142,6 +142,7 @@ export const AllPositions: Story = {
 };
 
 export const Mobile: Story = {
+  name: 'Mobilné zobrazenie',
   globals: {
     viewport: {
       value: 'mobile1',

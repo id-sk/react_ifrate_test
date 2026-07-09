@@ -76,6 +76,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
+  name: 'Predvolený',
   parameters: {
     docs: {
       description: {
@@ -86,6 +87,7 @@ export const Default: Story = {
 };
 
 export const Required: Story = {
+  name: 'Povinné pole',
   args: {
     required: true,
     labelDescription: 'Popis rozbaľovacieho poľa',
@@ -101,6 +103,7 @@ export const Required: Story = {
 };
 
 export const Optional: Story = {
+  name: 'Nepovinné pole',
   args: {
     required: false,
   },
@@ -114,6 +117,7 @@ export const Optional: Story = {
 };
 
 export const WithLabelDescription: Story = {
+  name: 'S popisom menovky',
   args: {
     required: true,
     labelDescription: 'Popis rozbaľovacieho poľa',
@@ -128,6 +132,7 @@ export const WithLabelDescription: Story = {
 };
 
 export const WithHint: Story = {
+  name: 'S pomocným textom',
   args: {
     required: true,
     labelDescription: 'Popis rozbaľovacieho poľa',
@@ -143,6 +148,7 @@ export const WithHint: Story = {
 };
 
 export const Error: Story = {
+  name: 'Chybový stav',
   args: {
     variant: 'error',
     required: true,
@@ -160,6 +166,7 @@ export const Error: Story = {
 };
 
 export const ErrorWithHint: Story = {
+  name: 'Chybový stav s pomocným textom',
   args: {
     variant: 'error',
     required: true,
@@ -177,6 +184,7 @@ export const ErrorWithHint: Story = {
 };
 
 export const Disabled: Story = {
+  name: 'Zakázané',
   args: {
     required: true,
     labelDescription: 'Popis rozbaľovacieho poľa',
@@ -192,6 +200,7 @@ export const Disabled: Story = {
 };
 
 export const Selected: Story = {
+  name: 'Predvybraná hodnota',
   args: {
     required: true,
     labelDescription: 'Popis rozbaľovacieho poľa',
@@ -208,6 +217,7 @@ export const Selected: Story = {
 };
 
 export const SizeSm: Story = {
+  name: 'Malá veľkosť',
   args: {
     size: 'sm',
     required: true,
@@ -223,6 +233,7 @@ export const SizeSm: Story = {
 };
 
 export const SelectedSizeSm: Story = {
+  name: 'Predvybraná hodnota — malá veľkosť',
   args: {
     size: 'sm',
     required: true,
@@ -239,6 +250,7 @@ export const SelectedSizeSm: Story = {
 };
 
 export const WithGroups: Story = {
+  name: 'So skupinami možností',
   args: {
     label: 'Mesto',
     placeholder: 'Vyberte mesto',
@@ -272,6 +284,7 @@ export const WithGroups: Story = {
 };
 
 export const WithDisabledOption: Story = {
+  name: 'S deaktivovanou možnosťou',
   args: {
     label: 'Krajina',
     placeholder: 'Vyberte krajinu',
@@ -347,6 +360,7 @@ export const AlwaysOpen: Story = {
 };
 
 export const Controlled: Story = {
+  name: 'Riadený stav (controlled)',
   render: (args) => <ControlledSelect {...args} />,
   args: {
     label: 'Riadený select',
@@ -364,6 +378,7 @@ export const Controlled: Story = {
 };
 
 export const WithOptionWithoutValue: Story = {
+  name: 'S možnosťou bez hodnoty',
   args: {
     label: 'Krajina bez explicitnej hodnoty',
     placeholder: 'Vyberte krajinu',

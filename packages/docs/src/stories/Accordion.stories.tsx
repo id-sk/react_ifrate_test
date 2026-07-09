@@ -29,6 +29,7 @@ export default meta;
 type Story = StoryObj<typeof Accordion>;
 
 export const Default: Story = {
+  name: 'Predvolený',
   args: {
     items: [
       {
@@ -53,6 +54,7 @@ export const Default: Story = {
 };
 
 export const Mobile: Story = {
+  name: 'Mobilné zobrazenie',
   args: {
     ...Default.args,
   },
@@ -79,6 +81,7 @@ export const Mobile: Story = {
 };
 
 export const WithDescription: Story = {
+  name: 'S popisom',
   args: {
     items: [
       {
@@ -105,6 +108,7 @@ export const WithDescription: Story = {
 };
 
 export const WithDefaultOpen: Story = {
+  name: 'Predvolene rozbalený',
   args: {
     items: [
       {
@@ -130,6 +134,7 @@ export const WithDefaultOpen: Story = {
 };
 
 export const WithDisabled: Story = {
+  name: 'S deaktivovanou sekciou',
   args: {
     items: [
       {

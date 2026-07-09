@@ -28,6 +28,7 @@ type Story = StoryObj<typeof meta>;
 
 /** Foto — profile photo in a circle. Clicking opens a profile page. */
 export const Foto: Story = {
+  name: 'Profilová fotografia',
   args: {
     name: 'Meno Priezvisko',
     caption: 'Popisný text',
@@ -38,6 +39,7 @@ export const Foto: Story = {
 
 /** Avatar — generic person icon on a black circle (default when no photo or initials). */
 export const Avatar: Story = {
+  name: 'Generická ikona',
   args: {
     name: 'Meno Priezvisko',
     caption: 'Popisný text',
@@ -47,6 +49,7 @@ export const Avatar: Story = {
 
 /** Inicials — user initials on a black circle. */
 export const Initials: Story = {
+  name: 'Iniciály',
   args: {
     name: 'Meno Priezvisko',
     caption: 'Popisný text',
@@ -57,6 +60,7 @@ export const Initials: Story = {
 
 /** Non-interactive — no onClick, rendered as a div. */
 export const NonInteractive: Story = {
+  name: 'Statický',
   args: {
     name: 'Meno Priezvisko',
     caption: 'Popisný text',
@@ -66,6 +70,7 @@ export const NonInteractive: Story = {
 
 /** Without details — only the avatar circle, no name or caption. */
 export const NoDetails: Story = {
+  name: 'Bez popisov',
   args: {
     name: 'Meno Priezvisko',
     initials: 'MM',
@@ -76,6 +81,7 @@ export const NoDetails: Story = {
 
 /** All three variants side by side. */
 export const AllVariants: Story = {
+  name: 'Všetky varianty',
   args: { name: 'Meno Priezvisko' },
   render: () => (
     <div style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
