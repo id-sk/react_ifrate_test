@@ -65,6 +65,26 @@ export interface HeaderDrawerProps {
   navItems?: HeaderDrawerNavItem[];
 }
 
+function ProfileRowContent({ user }: { user: HeaderUser }) {
+  return (
+    <>
+      <div className="idsk-header-drawer__avatar-icon" aria-hidden="true">
+        {user.avatarSrc ? (
+          <img src={user.avatarSrc} alt="" className="idsk-header-drawer__avatar-photo" />
+        ) : (
+          <PersonIcon size={25} />
+        )}
+      </div>
+      <div className="idsk-header-drawer__profile-info">
+        <span className="idsk-header-drawer__profile-name">{user.name}</span>
+        {user.caption && (
+          <span className="idsk-header-drawer__profile-caption">{user.caption}</span>
+        )}
+      </div>
+    </>
+  );
+}
+
 // ─── Component ───────────────────────────────────────────────────────────────
 
 const HeaderDrawer = ({
@@ -124,25 +144,19 @@ const HeaderDrawer = ({
               <h2 className="idsk-header-drawer__section-title">Profil</h2>
               {user ? (
                 <div className="idsk-header-drawer__profile">
-                  <div className="idsk-header-drawer__profile-row">
-                    <div className="idsk-header-drawer__avatar-icon" aria-hidden="true">
-                      {user.avatarSrc ? (
-                        <img
-                          src={user.avatarSrc}
-                          alt=""
-                          className="idsk-header-drawer__avatar-photo"
-                        />
-                      ) : (
-                        <PersonIcon size={25} />
-                      )}
+                  {user.onClick ? (
+                    <button
+                      type="button"
+                      className="idsk-header-drawer__profile-row idsk-header-drawer__profile-row--interactive idsk-focus-outline idsk-hover-outline"
+                      onClick={user.onClick}
+                    >
+                      <ProfileRowContent user={user} />
+                    </button>
+                  ) : (
+                    <div className="idsk-header-drawer__profile-row">
+                      <ProfileRowContent user={user} />
                     </div>
-                    <div className="idsk-header-drawer__profile-info">
-                      <span className="idsk-header-drawer__profile-name">{user.name}</span>
-                      {user.caption && (
-                        <span className="idsk-header-drawer__profile-caption">{user.caption}</span>
-                      )}
-                    </div>
-                  </div>
+                  )}
                   {profileDetails.length > 0 && (
                     <dl className="idsk-header-drawer__profile-details">
                       {profileDetails.map((detail, i) => (
@@ -236,13 +250,11 @@ const HeaderDrawer = ({
                   <h2 className="idsk-header-drawer__section-title">{actionZoneLabel}</h2>
                 </div>
                 <ul className="idsk-header-drawer__items">
-                  {actionItems.map((item, i) =>
-                    item.href ? (
+                  {actionItems.map((item, i) => {
+                    const itemLinkClass = `idsk-header-drawer__item-link${item.active ? ' idsk-header-drawer__item-link--active' : ''}`;
+                    return item.href ? (
                       <li key={i} className="idsk-header-drawer__item">
-                        <a
-                          href={item.href}
-                          className={`idsk-header-drawer__item-link${item.active ? 'idsk-header-drawer__item-link--active' : ''}`}
-                        >
+                        <a href={item.href} className={itemLinkClass}>
                           {item.icon && (
                             <span className="idsk-header-drawer__item-icon" aria-hidden="true">
                               {item.icon}
@@ -253,11 +265,7 @@ const HeaderDrawer = ({
                       </li>
                     ) : (
                       <li key={i} className="idsk-header-drawer__item">
-                        <button
-                          type="button"
-                          onClick={item.onClick}
-                          className={`idsk-header-drawer__item-link${item.active ? 'idsk-header-drawer__item-link--active' : ''}`}
-                        >
+                        <button type="button" onClick={item.onClick} className={itemLinkClass}>
                           {item.icon && (
                             <span className="idsk-header-drawer__item-icon" aria-hidden="true">
                               {item.icon}
@@ -266,8 +274,8 @@ const HeaderDrawer = ({
                           <span>{item.label}</span>
                         </button>
                       </li>
-                    ),
-                  )}
+                    );
+                  })}
                 </ul>
               </div>
             )}

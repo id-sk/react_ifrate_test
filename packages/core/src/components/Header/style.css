@@ -28,7 +28,7 @@
   }
 
   .idsk-header-main__owner {
-    @apply flex min-w-0 flex-[1_0_0] items-center gap-space-3;
+    @apply flex min-w-0 flex-1 items-center gap-space-3;
   }
 
   .idsk-header-main__logo {
@@ -162,6 +162,15 @@
     @apply flex items-center gap-space-2;
   }
 
+  .idsk-header-drawer__profile-row--interactive {
+    @apply cursor-pointer rounded-rounding-s;
+
+    background: none;
+    border: none;
+    padding: 0;
+    text-align: left;
+  }
+
   .idsk-header-drawer__avatar-icon {
     @apply flex size-[40px] shrink-0 items-center justify-center overflow-hidden rounded-full bg-neutral-900 text-base-white;
   }
@@ -220,12 +229,20 @@
     display: none;
   }
 
+  /*
+   * Uses idsk-focus-outline-native (box-shadow ring-offset), not
+   * idsk-focus-outline (pseudo-element border): the ring-offset shadow is
+   * painted in a solid, opaque colour, so the gap renders cleanly even on
+   * the edge fused to the adjacent input. The pseudo-element approach's gap
+   * is transparent and lets the input show through instead, reading as
+   * glued on that side.
+   */
   .idsk-header-drawer__search-submit {
     @apply flex shrink-0 cursor-pointer items-center justify-center transition-colors;
     @apply min-w-[41px] rounded-r-rounding-1;
     @apply border-2 border-primary-500;
     @apply bg-surface-default text-primary-500;
-    @apply idsk-focus-outline;
+    @apply idsk-focus-outline-native idsk-hover-outline;
   }
 
   .idsk-header-drawer__search-submit:hover {
@@ -251,12 +268,22 @@
   }
 
   .idsk-header-drawer__item-link {
-    @apply relative flex w-full cursor-pointer items-center gap-space-2;
+    @apply relative flex w-full cursor-pointer items-center gap-space-2 rounded-rounding-s;
     @apply bg-transparent px-space-3 py-(--component-button-padding-vertical-l);
     @apply border-0 text-left text-button text-primary-500;
-    @apply idsk-focus-outline idsk-hover-outline;
+    @apply idsk-focus-outline idsk-hover-outline hover:ring-inset;
 
     text-decoration: none;
+  }
+
+  /*
+   * Item links span edge-to-edge inside the scrollable drawer body
+   * (overflow-y-auto forces overflow-x to clip too), so the focus ring
+   * must render inset instead of bleeding past the row — otherwise its
+   * left/right edges get cut off by the scroll container.
+   */
+  .idsk-header-drawer__item-link:focus-visible::after {
+    inset: 0;
   }
 
   .idsk-header-drawer__item-link--active {

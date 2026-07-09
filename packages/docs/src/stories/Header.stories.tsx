@@ -6,6 +6,7 @@ import {
   Header,
   HeaderDrawer,
   HeaderMainSection,
+  type HeaderUser,
   MailIcon,
   NotificationsIcon,
   TopBar,
@@ -27,6 +28,45 @@ const NAV_ITEMS = [
   { label: 'Sekcia', variant: 'dropdown' as const, dropdownItems: DROPDOWN_ITEMS },
   { label: 'Sekcia', variant: 'dropdown' as const, dropdownItems: DROPDOWN_ITEMS },
 ];
+
+const DRAWER_ACTION_ITEMS = [
+  { label: 'eSchránka', href: '#', icon: <MailIcon size={25} /> },
+  { label: 'Notifikácie', href: '#', icon: <NotificationsIcon size={25} /> },
+  { label: 'Placeholder', href: '#' },
+  { label: 'Tlačidlo' },
+];
+
+const DRAWER_NAV_ITEMS = [
+  { label: 'Sekcia', href: '#' },
+  { label: 'Sekcia', href: '#' },
+  { label: 'Sekcia', href: '#' },
+  { label: 'Sekcia', href: '#', hasDropdown: true },
+  { label: 'Sekcia', href: '#', hasDropdown: true },
+];
+
+/** Wires a Header's mobile Menu button to a real HeaderDrawer instance, so the
+ * hamburger button opens a working drawer in every story instead of doing nothing. */
+function DrawerHost({
+  user,
+  children,
+}: {
+  user?: HeaderUser;
+  children: (onMenuClick: () => void) => React.ReactNode;
+}) {
+  const [menuOpen, setMenuOpen] = useState(false);
+  return (
+    <>
+      {children(() => setMenuOpen(true))}
+      <HeaderDrawer
+        open={menuOpen}
+        onOpenChange={setMenuOpen}
+        user={user}
+        onLogin={() => {}}
+        navItems={DRAWER_NAV_ITEMS}
+      />
+    </>
+  );
+}
 
 type HeaderStoryArgs = {
   // Header
@@ -56,7 +96,8 @@ function MainSection({
   showLogin,
   loginLabel,
   menuLabel,
-}: Partial<HeaderStoryArgs>) {
+  onMenuClick,
+}: Partial<HeaderStoryArgs> & { onMenuClick?: () => void }) {
   return (
     <HeaderMainSection
       orgName={orgName}
@@ -69,6 +110,7 @@ function MainSection({
       showLogin={showLogin}
       loginLabel={loginLabel}
       menuLabel={menuLabel}
+      onMenuClick={onMenuClick}
     />
   );
 }
@@ -77,11 +119,15 @@ const meta = {
   title: 'Organisms/Header',
   component: Header,
   render: ({ variant, sticky, ...rest }: HeaderStoryArgs) => (
-    <Header variant={variant} sticky={sticky}>
-      <TopBar />
-      <MainSection {...rest} />
-      <WebsiteNavigation items={NAV_ITEMS} />
-    </Header>
+    <DrawerHost>
+      {(onMenuClick) => (
+        <Header variant={variant} sticky={sticky}>
+          <TopBar />
+          <MainSection {...rest} onMenuClick={onMenuClick} />
+          <WebsiteNavigation items={NAV_ITEMS} />
+        </Header>
+      )}
+    </DrawerHost>
   ),
   args: {
     variant: 'default',
@@ -189,11 +235,15 @@ export const Default: Story = {
 export const WithExpandedTopBar: Story = {
   name: 'S rozbaleným TopBar-om',
   render: ({ variant, sticky, ...rest }) => (
-    <Header variant={variant} sticky={sticky}>
-      <TopBar defaultExpanded />
-      <MainSection {...rest} />
-      <WebsiteNavigation items={NAV_ITEMS} />
-    </Header>
+    <DrawerHost>
+      {(onMenuClick) => (
+        <Header variant={variant} sticky={sticky}>
+          <TopBar defaultExpanded />
+          <MainSection {...rest} onMenuClick={onMenuClick} />
+          <WebsiteNavigation items={NAV_ITEMS} />
+        </Header>
+      )}
+    </DrawerHost>
   ),
   parameters: {
     docs: {
@@ -208,18 +258,23 @@ export const WithExpandedTopBar: Story = {
 export const WithCustomActions: Story = {
   name: 'S vlastnými akciami',
   render: ({ variant, sticky, ...rest }) => (
-    <Header variant={variant} sticky={sticky}>
-      <TopBar />
-      <HeaderMainSection
-        {...rest}
-        actions={
-          <Button variant="tertiary" size="md">
-            Tlačidlo
-          </Button>
-        }
-      />
-      <WebsiteNavigation items={NAV_ITEMS} />
-    </Header>
+    <DrawerHost>
+      {(onMenuClick) => (
+        <Header variant={variant} sticky={sticky}>
+          <TopBar />
+          <HeaderMainSection
+            {...rest}
+            onMenuClick={onMenuClick}
+            actions={
+              <Button variant="tertiary" size="md">
+                Tlačidlo
+              </Button>
+            }
+          />
+          <WebsiteNavigation items={NAV_ITEMS} />
+        </Header>
+      )}
+    </DrawerHost>
   ),
   parameters: {
     docs: {
@@ -253,11 +308,15 @@ export const Transparent: Story = {
   args: { variant: 'transparent' },
   render: ({ variant, sticky, ...rest }) => (
     <div style={{ background: 'linear-gradient(135deg, #1e3a5f 0%, #4a7fb5 100%)', padding: 0 }}>
-      <Header variant={variant} sticky={sticky}>
-        <TopBar />
-        <MainSection {...rest} />
-        <WebsiteNavigation items={NAV_ITEMS} />
-      </Header>
+      <DrawerHost>
+        {(onMenuClick) => (
+          <Header variant={variant} sticky={sticky}>
+            <TopBar />
+            <MainSection {...rest} onMenuClick={onMenuClick} />
+            <WebsiteNavigation items={NAV_ITEMS} />
+          </Header>
+        )}
+      </DrawerHost>
     </div>
   ),
   parameters: {
@@ -273,23 +332,28 @@ export const Transparent: Story = {
 export const LoggedIn: Story = {
   name: 'Prihlásený užívateľ',
   render: () => (
-    <Header>
-      <TopBar />
-      <HeaderMainSection
-        orgName="Názov služby"
-        orgSubtitle="Názov organizácie"
-        showMail
-        showNotifications
-        notificationsHasNew
-        user={{ name: 'Meno', caption: 'Popisný text' }}
-        actions={
-          <Button variant="tertiary" size="md">
-            Tlačidlo
-          </Button>
-        }
-      />
-      <WebsiteNavigation items={NAV_ITEMS} />
-    </Header>
+    <DrawerHost user={{ name: 'Meno', caption: 'Popisný text', onClick: () => {} }}>
+      {(onMenuClick) => (
+        <Header>
+          <TopBar />
+          <HeaderMainSection
+            orgName="Názov služby"
+            orgSubtitle="Názov organizácie"
+            showMail
+            showNotifications
+            notificationsHasNew
+            user={{ name: 'Meno', caption: 'Popisný text', onClick: () => {} }}
+            onMenuClick={onMenuClick}
+            actions={
+              <Button variant="tertiary" size="md">
+                Tlačidlo
+              </Button>
+            }
+          />
+          <WebsiteNavigation items={NAV_ITEMS} />
+        </Header>
+      )}
+    </DrawerHost>
   ),
   parameters: {
     docs: {
@@ -305,22 +369,35 @@ export const LoggedIn: Story = {
 export const LoggedInWithPhoto: Story = {
   name: 'Prihlásený — s fotkou',
   render: () => (
-    <Header>
-      <TopBar />
-      <HeaderMainSection
-        orgName="Názov služby"
-        orgSubtitle="Názov organizácie"
-        showMail
-        mailHasNew
-        showNotifications
-        user={{
-          name: 'Meno',
-          caption: 'Popisný text',
-          avatarSrc: 'https://i.pravatar.cc/40',
-        }}
-      />
-      <WebsiteNavigation items={NAV_ITEMS} />
-    </Header>
+    <DrawerHost
+      user={{
+        name: 'Meno',
+        caption: 'Popisný text',
+        avatarSrc: 'https://i.pravatar.cc/40',
+        onClick: () => {},
+      }}
+    >
+      {(onMenuClick) => (
+        <Header>
+          <TopBar />
+          <HeaderMainSection
+            orgName="Názov služby"
+            orgSubtitle="Názov organizácie"
+            showMail
+            mailHasNew
+            showNotifications
+            user={{
+              name: 'Meno',
+              caption: 'Popisný text',
+              avatarSrc: 'https://i.pravatar.cc/40',
+              onClick: () => {},
+            }}
+            onMenuClick={onMenuClick}
+          />
+          <WebsiteNavigation items={NAV_ITEMS} />
+        </Header>
+      )}
+    </DrawerHost>
   ),
   parameters: {
     docs: {
@@ -330,21 +407,6 @@ export const LoggedInWithPhoto: Story = {
     },
   },
 };
-
-const DRAWER_ACTION_ITEMS = [
-  { label: 'eSchránka', href: '#', icon: <MailIcon size={25} /> },
-  { label: 'Notifikácie', href: '#', icon: <NotificationsIcon size={25} /> },
-  { label: 'Placeholder', href: '#' },
-  { label: 'Tlačidlo' },
-];
-
-const DRAWER_NAV_ITEMS = [
-  { label: 'Sekcia', href: '#' },
-  { label: 'Sekcia', href: '#' },
-  { label: 'Sekcia', href: '#' },
-  { label: 'Sekcia', href: '#', hasDropdown: true },
-  { label: 'Sekcia', href: '#', hasDropdown: true },
-];
 
 function MobileMenuDrawerDemo() {
   const [menuOpen, setMenuOpen] = useState(true);
@@ -379,7 +441,7 @@ function MobileMenuDrawerLoggedInDemo() {
         <HeaderMainSection
           orgName="Názov služby"
           orgSubtitle="Názov organizácie"
-          user={{ name: 'Meno', caption: 'Popisný text' }}
+          user={{ name: 'Meno', caption: 'Popisný text', onClick: () => {} }}
           onMenuClick={() => setMenuOpen(true)}
         />
         <WebsiteNavigation items={NAV_ITEMS} />
@@ -387,7 +449,7 @@ function MobileMenuDrawerLoggedInDemo() {
       <HeaderDrawer
         open={menuOpen}
         onOpenChange={setMenuOpen}
-        user={{ name: 'Meno', caption: 'Popisný text' }}
+        user={{ name: 'Meno', caption: 'Popisný text', onClick: () => {} }}
         profileDetails={[
           { label: 'Číslo schránky', value: 'E000738420402' },
           { label: 'IČO', value: '123456789' },
@@ -431,25 +493,30 @@ export const MobileMenuDrawer: Story = {
   },
 };
 
-/** Prilepená hlavička pri scrollovaní. */
+/** Ukotvená hlavička pri scrollovaní. */
 export const Sticky: Story = {
+  name: 'Ukotvený obsah',
   args: { sticky: true },
   render: ({ variant, sticky, ...rest }) => (
     <div style={{ height: '300px', overflowY: 'auto', border: '1px solid #e5e7eb' }}>
-      <Header variant={variant} sticky={sticky}>
-        <TopBar />
-        <MainSection {...rest} />
-        <WebsiteNavigation items={NAV_ITEMS} />
-      </Header>
+      <DrawerHost>
+        {(onMenuClick) => (
+          <Header variant={variant} sticky={sticky}>
+            <TopBar />
+            <MainSection {...rest} onMenuClick={onMenuClick} />
+            <WebsiteNavigation items={NAV_ITEMS} />
+          </Header>
+        )}
+      </DrawerHost>
       <div style={{ padding: '1rem', height: '600px', color: '#6b7280' }}>
-        Obsah stránky — posúvajte pre overenie sticky správania.
+        Obsah stránky — posúvajte pre overenie ukotveného správania.
       </div>
     </div>
   ),
   parameters: {
     docs: {
       description: {
-        story: 'Sticky variant — hlavička zostáva viditeľná pri scrollovaní stránky.',
+        story: 'Ukotvený variant — hlavička zostáva viditeľná pri scrollovaní stránky.',
       },
     },
   },
