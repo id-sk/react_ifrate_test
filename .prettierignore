@@ -19,6 +19,10 @@ test-results/
 
 # Lock files (optional, depending on preference)
 package-lock.json
+pnpm-lock.yaml
+
+# Generated icon components
+packages/core/src/assets/icons/
 
 # Changelog (managed by auto-changelog)
 CHANGELOG.md

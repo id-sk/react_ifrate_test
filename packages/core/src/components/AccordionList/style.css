@@ -26,7 +26,7 @@
     @apply flex shrink-0 cursor-pointer items-center gap-space-2;
     @apply border-none bg-transparent px-0 py-[8px];
     @apply font-sans text-button text-primary-500 underline decoration-solid decoration-from-font;
-    @apply decoration-skip-ink-none [text-underline-position:from-font];
+    @apply [text-underline-position:from-font] decoration-skip-ink-none;
     @apply min-w-[41px] rounded-rounding-s;
   }
 

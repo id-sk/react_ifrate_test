@@ -26,6 +26,18 @@
     "storybook": {
       "cache": false,
       "persistent": true
+    },
+    "//#lint": {
+      "outputs": []
+    },
+    "//#lint:style": {
+      "outputs": []
+    },
+    "//#typecheck": {
+      "outputs": []
+    },
+    "//#format:check": {
+      "outputs": []
     }
   }
 }

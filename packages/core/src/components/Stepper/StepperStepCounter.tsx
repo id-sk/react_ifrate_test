@@ -13,7 +13,9 @@ function StepperStepCounter({ step, total, className, ...props }: StepperStepCou
   return (
     <span className={cn('idsk-stepper-step-counter', className)} {...props}>
       <span className="idsk-stepper-step-counter__label">Krok</span>
-      <span className="idsk-stepper-step-counter__value">{step}/{total}</span>
+      <span className="idsk-stepper-step-counter__value">
+        {step}/{total}
+      </span>
     </span>
   );
 }

@@ -10,10 +10,11 @@
   "scripts": {
     "dev": "turbo run dev --filter=@idsk/core",
     "dev:docs": "turbo run storybook --filter=@idsk/docs",
-    "build": "pnpm lint && pnpm typecheck && turbo run build",
+    "build": "turbo run lint lint:style typecheck format:check && turbo run build",
     "storybook": "turbo run storybook --filter=@idsk/docs",
     "test": "turbo run test test-ct",
     "test-ct": "turbo run test-ct --filter=@idsk/core",
+    "check": "turbo run lint lint:style typecheck format:check",
     "lint": "eslint .",
     "lint:style": "stylelint \"**/*.css\"",
     "lint:fix": "eslint . --fix",

@@ -32,7 +32,10 @@ describe('StepperLoader', () => {
 
   it('sets aria-label when label prop is provided', () => {
     render(<StepperLoader value={1} max={3} label="Krok 1 z 3" />);
-    expect(document.querySelector('.idsk-stepper-loader')).toHaveAttribute('aria-label', 'Krok 1 z 3');
+    expect(document.querySelector('.idsk-stepper-loader')).toHaveAttribute(
+      'aria-label',
+      'Krok 1 z 3',
+    );
   });
 
   it('fill width is 0% when value is 0', () => {

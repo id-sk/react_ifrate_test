@@ -34,7 +34,9 @@ type Story = StoryObj<StepperStepCounterProps>;
 
 export const Default: Story = {
   parameters: {
-    docs: { description: { story: 'Predvolený stav — zobrazuje aktuálny krok a celkový počet krokov.' } },
+    docs: {
+      description: { story: 'Predvolený stav — zobrazuje aktuálny krok a celkový počet krokov.' },
+    },
   },
 };
 
