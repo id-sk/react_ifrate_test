@@ -91,6 +91,7 @@ const LanguagePicker = React.forwardRef<HTMLButtonElement, LanguagePickerProps>(
             className="idsk-language-picker__dropdown"
             align="end"
             sideOffset={5}
+            collisionPadding={8}
           >
             {languages.map((lang) => (
               <DropdownMenu.Item

@@ -6,9 +6,10 @@
   }
 
   .idsk-language-picker__dropdown {
-    @apply z-50 overflow-hidden rounded-rounding-1 border-2 border-border-subtle bg-surface-default;
+    @apply z-50 overflow-y-auto rounded-rounding-1 border-2 border-border-subtle bg-surface-default;
 
     min-width: var(--radix-popper-anchor-width, 10rem);
+    max-height: var(--radix-dropdown-menu-content-available-height, 20rem);
     box-shadow: var(--idsk-shadow-middle);
   }
 
