@@ -11,7 +11,7 @@ const meta = {
     docs: {
       description: {
         component:
-          'Ikonové tlačidlo s voliteľným červeným badge indikátorom novej notifikácie. Ikona sa odovzdáva ako prop — môže to byť zvon, email, alebo ľubovoľná iná ikona.',
+          'Ikonové tlačidlo s voliteľným červeným badge indikátorom novej notifikácie. Ikona sa odovzdáva ako prop — môže to byť zvon, email, alebo ľubovoľná iná ikona. Keď je `hasNew=true`, komponent automaticky doplní text `newLabel` priamo do `aria-label` (napr. „Notifikácie - Nová notifikácia“), pretože čítače obrazovky ignorujú textový obsah potomkov, ak je na prvku nastavený `aria-label`.',
       },
     },
   },
@@ -53,7 +53,7 @@ export const BellWithNew: Story = {
     docs: {
       description: {
         story:
-          'Ikona zvončeka s červeným badge indikátorom (`hasNew=true`). Text `newLabel` je prístupný pre čítačky obrazovky.',
+          'Ikona zvončeka s červeným badge indikátorom (`hasNew=true`). Výsledný `aria-label` je „Notifikácie - Nová notifikácia“.',
       },
     },
   },
@@ -86,7 +86,8 @@ export const MailWithNew: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Ikona emailu s červeným badge indikátorom novej správy.',
+        story:
+          'Ikona emailu s červeným badge indikátorom novej správy. Výsledný `aria-label` je „Správy - Nová správa“.',
       },
     },
   },
