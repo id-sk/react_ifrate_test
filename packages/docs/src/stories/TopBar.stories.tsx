@@ -103,7 +103,7 @@ export const CustomDisclaimer: Story = {
   args: {
     defaultExpanded: true,
     govDisclaimer:
-      'Toto je webová stránka Ministerstva vnútra SR. Webové stránky s doménou .gov.sk sú overené stránky štátnych orgánov.',
+      'Toto je oficiálna webová stránka orgánu verejnej moci SR. Webové stránky, ktoré využívajú doménu .gov.sk, sú oficiálne webové stránky orgánov verejnej moci alebo elektronických služieb štátu.',
     showLanguagePicker: true,
     showWebsiteListLink: true,
   },
