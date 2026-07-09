@@ -113,7 +113,7 @@ function Checkbox({
         </div>
       )}
       {errorMessage && (
-        <div id={errorId} className="idsk-checkbox__error-message">
+        <div id={errorId} className="idsk-checkbox__error-message" role="alert">
           {errorMessage}
         </div>
       )}
@@ -170,7 +170,7 @@ const CheckboxGroup: React.FC<CheckboxGroupProps> = ({
         </div>
       )}
       {errorMessage && (
-        <div id={errorId} className="idsk-checkbox-group__error-message">
+        <div id={errorId} className="idsk-checkbox-group__error-message" role="alert">
           {errorMessage}
         </div>
       )}

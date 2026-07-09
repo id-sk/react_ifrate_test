@@ -80,7 +80,7 @@ function Radio({
         </div>
       )}
       {errorMessage && (
-        <div id={errorId} className="idsk-radio__error-message">
+        <div id={errorId} className="idsk-radio__error-message" role="alert">
           {errorMessage}
         </div>
       )}
@@ -137,7 +137,7 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
         </div>
       )}
       {errorMessage && (
-        <div id={errorId} className="idsk-radio-group__error-message">
+        <div id={errorId} className="idsk-radio-group__error-message" role="alert">
           {errorMessage}
         </div>
       )}

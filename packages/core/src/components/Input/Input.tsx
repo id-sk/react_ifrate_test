@@ -114,7 +114,7 @@ function Input({
       )}
 
       {isError && errorDescription && (
-        <span id={errorId} className="idsk-input__error-description">
+        <span id={errorId} className="idsk-input__error-description" role="alert">
           {errorDescription}
         </span>
       )}

@@ -234,7 +234,7 @@ function Select({
       )}
 
       {isError && errorDescription && (
-        <span id={errorId} className="idsk-select__error-description">
+        <span id={errorId} className="idsk-select__error-description" role="alert">
           {errorDescription}
         </span>
       )}

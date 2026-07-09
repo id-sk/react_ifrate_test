@@ -147,7 +147,7 @@ function Textarea({
           )}
 
           {isError && errorDescription && (
-            <span id={errorId} className="idsk-textarea__error-description">
+            <span id={errorId} className="idsk-textarea__error-description" role="alert">
               {errorDescription}
             </span>
           )}
