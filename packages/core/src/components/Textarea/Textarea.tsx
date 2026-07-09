@@ -59,6 +59,7 @@ function Textarea({
   const hintId = `${textareaId}-hint`;
   const errorId = `${textareaId}-error`;
   const counterSrId = `${textareaId}-counter-sr`;
+  const subheadingId = `${textareaId}-subheading`;
 
   const isError = variant === 'error';
 
@@ -77,6 +78,7 @@ function Textarea({
   };
 
   const ariaDescribedByParts = [
+    subheading ? subheadingId : null,
     description ? hintId : null,
     maxLength !== undefined ? counterSrId : null,
   ].filter(Boolean) as string[];
@@ -99,9 +101,12 @@ function Textarea({
             )}
             {tooltip && <Tooltip {...tooltip} />}
           </span>
-
-          {subheading && <span className="idsk-textarea__subheading">{subheading}</span>}
         </Label.Root>
+      )}
+      {subheading && (
+        <span id={subheadingId} className="idsk-textarea__subheading">
+          {subheading}
+        </span>
       )}
       <div className={cn('idsk-textarea__wrapper')}>
         <textarea
