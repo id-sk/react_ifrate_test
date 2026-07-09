@@ -61,10 +61,10 @@ test.describe('Keyboard navigation', () => {
         />
       </div>,
     );
-    // The dropdown (with clickable step buttons) is rendered before the toggle
-    // button in DOM order for screen-reader navigation, so the first completed
-    // step (index 0) is the first `button` on the page, not the second.
-    const stepBtn = page.getByRole('button').nth(0);
+    // The toggle button is rendered before the dropdown in DOM order so
+    // keyboard/screen-reader focus order matches the visual order, so the
+    // first completed step (index 0) is the second `button` on the page.
+    const stepBtn = page.getByRole('button').nth(1);
     await stepBtn.focus();
     await page.keyboard.press('Enter');
     expect(clickedIndex).toBe(0);
@@ -84,10 +84,10 @@ test.describe('Keyboard navigation', () => {
         />
       </div>,
     );
-    // The dropdown (with clickable step buttons) is rendered before the toggle
-    // button in DOM order for screen-reader navigation, so the first completed
-    // step (index 0) is the first `button` on the page, not the second.
-    const stepBtn = page.getByRole('button').nth(0);
+    // The toggle button is rendered before the dropdown in DOM order so
+    // keyboard/screen-reader focus order matches the visual order, so the
+    // first completed step (index 0) is the second `button` on the page.
+    const stepBtn = page.getByRole('button').nth(1);
     await stepBtn.focus();
     await stepBtn.press(' ');
     expect(clickedIndex).toBe(0);

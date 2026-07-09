@@ -11,11 +11,6 @@
     @apply relative flex w-full items-stretch;
     @apply rounded-rounding-2;
     @apply min-h-[48px];
-
-    /* Visually first despite sitting after the dropdown in DOM.
-       DOM order is dropdown→header so AT reads expanded content before
-       the step counter and progress bar. */
-    order: -1;
   }
 
   .idsk-stepper__header-content {

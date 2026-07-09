@@ -343,7 +343,7 @@ describe('Stepper', () => {
       render(
         <Stepper steps={defaultSteps} activeStep={2} onStepClick={onStepClick} defaultExpanded />,
       );
-      const stepButtons = screen.getAllByRole('button').slice(0, -1); // exclude toggle (last in DOM)
+      const stepButtons = screen.getAllByRole('button').slice(1); // exclude toggle (first in DOM)
       await user.click(stepButtons[0]);
       expect(onStepClick).toHaveBeenCalledWith(0);
     });
@@ -354,7 +354,7 @@ describe('Stepper', () => {
       render(
         <Stepper steps={defaultSteps} activeStep={2} onStepClick={onStepClick} defaultExpanded />,
       );
-      const stepButtons = screen.getAllByRole('button').slice(0, -1); // exclude toggle (last in DOM)
+      const stepButtons = screen.getAllByRole('button').slice(1); // exclude toggle (first in DOM)
       await user.click(stepButtons[1]);
       expect(onStepClick).toHaveBeenCalledWith(1);
     });
@@ -362,7 +362,7 @@ describe('Stepper', () => {
     it('clicking a step button collapses the dropdown', async () => {
       const user = userEvent.setup();
       render(<Stepper steps={defaultSteps} activeStep={2} onStepClick={vi.fn()} defaultExpanded />);
-      const stepButtons = screen.getAllByRole('button').slice(0, -1); // exclude toggle (last in DOM)
+      const stepButtons = screen.getAllByRole('button').slice(1); // exclude toggle (first in DOM)
       await user.click(stepButtons[0]);
       expect(document.querySelector('.idsk-stepper__dropdown')).toHaveAttribute('hidden');
     });
@@ -370,7 +370,7 @@ describe('Stepper', () => {
     it('moves focus to toggle button after clicking a step', async () => {
       const user = userEvent.setup();
       render(<Stepper steps={defaultSteps} activeStep={2} onStepClick={vi.fn()} defaultExpanded />);
-      const stepButtons = screen.getAllByRole('button').slice(0, -1); // exclude toggle (last in DOM)
+      const stepButtons = screen.getAllByRole('button').slice(1); // exclude toggle (first in DOM)
       await user.click(stepButtons[0]);
       expect(screen.getByRole('button', { name: 'Zobraziť zoznam krokov' })).toHaveFocus();
     });
@@ -389,7 +389,7 @@ describe('Stepper', () => {
       render(
         <Stepper steps={defaultSteps} activeStep={2} onStepClick={onStepClick} defaultExpanded />,
       );
-      const stepButton = screen.getAllByRole('button')[0];
+      const stepButton = screen.getAllByRole('button')[1];
       stepButton.focus();
       await user.keyboard('{Enter}');
       expect(onStepClick).toHaveBeenCalledWith(0);
@@ -417,8 +417,9 @@ describe('Stepper', () => {
       rerender(
         <Stepper steps={defaultSteps} activeStep={0} onStepClick={onStepClick} defaultExpanded />,
       );
-      // First step button in dropdown is index 1 (index 0 is active, not a button)
-      const stepButtons = screen.getAllByRole('button').slice(0, -1);
+      // Exclude toggle (first in DOM); first step button in dropdown then maps to
+      // step index 1 (step index 0 is active, not a button).
+      const stepButtons = screen.getAllByRole('button').slice(1);
       await user.click(stepButtons[0]);
       expect(onStepClick).toHaveBeenCalledWith(1);
     });
@@ -429,7 +430,7 @@ describe('Stepper', () => {
       render(
         <Stepper steps={defaultSteps} activeStep={2} onStepClick={onStepClick} defaultExpanded />,
       );
-      const stepButton = screen.getAllByRole('button')[0];
+      const stepButton = screen.getAllByRole('button')[1];
       stepButton.focus();
       await user.keyboard(' ');
       expect(onStepClick).toHaveBeenCalledWith(0);
