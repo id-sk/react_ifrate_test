@@ -464,27 +464,30 @@ describe('Stepper', () => {
   // Connectors
   // ---------------------------------------------------------------------------
   describe('Connector', () => {
-    it('renders a connector after every step except the last', async () => {
+    it('renders a top and bottom connector line for every step', async () => {
       const user = userEvent.setup();
       render(<Stepper steps={defaultSteps} activeStep={0} />);
       await user.click(screen.getByRole('button'));
-      expect(document.querySelectorAll('.idsk-stepper__connector')).toHaveLength(2);
+      expect(document.querySelectorAll('.idsk-stepper__line--top')).toHaveLength(
+        defaultSteps.length,
+      );
+      expect(document.querySelectorAll('.idsk-stepper__line--bottom')).toHaveLength(
+        defaultSteps.length,
+      );
     });
 
-    it('does not render a connector after the last step', async () => {
-      const user = userEvent.setup();
-      render(<Stepper steps={[{ label: 'Krok 1' }]} activeStep={0} />);
-      await user.click(screen.getByRole('button'));
-      expect(document.querySelectorAll('.idsk-stepper__connector')).toHaveLength(0);
-    });
-
-    it('connectors are aria-hidden', async () => {
+    it('connector lines sit inside an aria-hidden indicator column', async () => {
       const user = userEvent.setup();
       render(<Stepper steps={defaultSteps} activeStep={0} />);
       await user.click(screen.getByRole('button'));
       document
-        .querySelectorAll('.idsk-stepper__connector')
-        .forEach((c) => expect(c).toHaveAttribute('aria-hidden', 'true'));
+        .querySelectorAll('.idsk-stepper__line--top, .idsk-stepper__line--bottom')
+        .forEach((line) =>
+          expect(line.closest('.idsk-stepper__indicator-col')).toHaveAttribute(
+            'aria-hidden',
+            'true',
+          ),
+        );
     });
   });
 
