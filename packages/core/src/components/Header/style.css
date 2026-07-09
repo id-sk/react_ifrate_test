@@ -10,7 +10,7 @@
   }
 
   .idsk-header--sticky {
-    @apply sticky top-0 z-[100];
+    @apply sticky top-0 z-100;
   }
 
   .idsk-header--no-navigation .idsk-website-nav {
@@ -71,7 +71,7 @@
   }
 
   button.idsk-header-main__avatar {
-    @apply cursor-pointer rounded-(--corner-radius-rounding-s);
+    @apply cursor-pointer rounded-rounding-s;
   }
 
   .idsk-header-main__avatar-inner {
@@ -117,17 +117,17 @@
   /* ─── HeaderDrawer ──────────────────────────────────────────────────────── */
 
   .idsk-header-drawer__overlay {
-    @apply fixed inset-0 z-[200] bg-surface-overlay;
+    @apply fixed inset-0 z-200 bg-surface-overlay;
   }
 
   .idsk-header-drawer {
-    @apply fixed inset-0 z-[201] flex h-screen w-full flex-col bg-surface-default;
+    @apply fixed inset-0 z-201 flex h-screen w-full flex-col bg-surface-default;
 
     box-shadow: -4px 0 30px rgb(0 0 0 / 25%);
   }
 
   .idsk-header-drawer__close-bar {
-    @apply sticky top-0 z-[2] flex shrink-0 items-center justify-end;
+    @apply sticky top-0 z-2 flex shrink-0 items-center justify-end;
     @apply border-b border-border-subtle bg-surface-default;
     @apply py-space-1 pr-space-1;
   }
