@@ -38,7 +38,7 @@
   }
 
   .idsk-stepper__toggle-btn:focus-visible {
-    @apply relative z-[2] outline-offset-2;
+    @apply relative z-2 outline-offset-2;
 
     outline: var(--idsk-focus-ring-width) solid var(--idsk-focus-ring-color);
   }
