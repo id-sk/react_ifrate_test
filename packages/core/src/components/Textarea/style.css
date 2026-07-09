@@ -43,7 +43,7 @@
   }
 
   .idsk-textarea__label-text {
-    @apply flex items-center gap-x-(--spacing-space-1) idsk-text-main-body;
+    @apply flex items-center gap-x-space-1 idsk-text-main-body;
   }
 
   .idsk-textarea__label-required {
