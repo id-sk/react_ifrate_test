@@ -70,6 +70,13 @@ const meta = {
       },
     },
   },
+  decorators: [
+    (Story) => (
+      <div style={{ width: '610px' }}>
+        <Story />
+      </div>
+    ),
+  ],
 } satisfies Meta<typeof Select>;
 
 export default meta;
