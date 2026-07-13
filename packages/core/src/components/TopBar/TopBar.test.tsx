@@ -178,7 +178,7 @@ describe('TopBar', () => {
         />,
       );
       await user.click(screen.getByRole('button', { name: /Slovenčina/i }));
-      await user.click(screen.getByRole('menuitem', { name: /English/i }));
+      await user.click(screen.getByRole('menuitemradio', { name: /English/i }));
       expect(onLanguageChange).toHaveBeenCalledWith('en');
     });
   });
