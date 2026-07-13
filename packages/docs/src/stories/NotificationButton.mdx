@@ -1,0 +1,61 @@
+import { Meta, Subtitle, Primary, Controls, Stories } from '@storybook/addon-docs/blocks';
+import * as NotificationButtonStories from './NotificationButton.stories';
+
+<Meta of={NotificationButtonStories} />
+
+# NotificationButton (Tlačidlo notifikácií)
+
+<Subtitle>
+  Ikonové tlačidlo s voliteľným červeným badge indikátorom novej notifikácie — zvon, email alebo
+  ľubovoľná ikona.
+</Subtitle>
+
+## Overview (Prehľad)
+
+Komponent `NotificationButton` je akčné ikonové tlačidlo pre hlavičku. Ikona sa odovzdáva ako prop `icon` — môže to byť zvonček, obálka alebo ľubovoľná iná ikona. Pri `hasNew={true}` sa nad ikonou vykreslí malý červený bodkový badge.
+
+Keď je badge aktívny, komponent automaticky doplní `newLabel` do `aria-label` (napr. „Notifikácie - Nová notifikácia"), pretože čítačky obrazovky ignorujú textový obsah potomkov, ak je na prvku nastavený `aria-label`.
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Props komponentu
+
+| Prop         | Typ               | Predvolená           | Popis                                             |
+| ------------ | ----------------- | -------------------- | ------------------------------------------------- |
+| `icon`       | `React.ReactNode` | —                    | Ikona zobrazená v tlačidle (povinné)              |
+| `hasNew`     | `boolean`         | `false`              | Zobraziť červený badge novej notifikácie          |
+| `newLabel`   | `string`          | `'Nová notifikácia'` | Text pridaný k `aria-label`, keď je badge aktívny |
+| `aria-label` | `string`          | —                    | Prístupný názov tlačidla (napr. „Notifikácie")    |
+
+## Prístupnosť (Accessibility)
+
+- Natívny `<button>` — prístupný cez `Tab`, `Enter` a `Space`
+- Ikona je dekoratívna — obalená `aria-hidden="true"`
+- Červený badge je čisto vizuálny (`aria-hidden="true"`); jeho význam nesie text v `aria-label`
+- Pri `hasNew` sa `newLabel` skladá do `aria-label` v tvare `„{aria-label} - {newLabel}"`
+
+## Použitie
+
+```tsx
+import { NotificationButton, NotificationsIcon, MailIcon } from '@idsk/core';
+
+// Zvonček bez novej notifikácie
+<NotificationButton icon={<NotificationsIcon size={25} />} aria-label="Notifikácie" />
+
+// Zvonček s novou notifikáciou → aria-label „Notifikácie - Nová notifikácia"
+<NotificationButton
+  icon={<NotificationsIcon size={25} />}
+  hasNew
+  newLabel="Nová notifikácia"
+  aria-label="Notifikácie"
+/>
+
+// Email s novou správou
+<NotificationButton icon={<MailIcon size={25} />} hasNew newLabel="Nová správa" aria-label="Správy" />
+```
+
+<Stories />

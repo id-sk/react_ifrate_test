@@ -1,0 +1,71 @@
+import { Meta, Subtitle, Primary, Controls, Stories } from '@storybook/addon-docs/blocks';
+import * as HeaderMenuItemStories from './HeaderMenuItem.stories';
+
+<Meta of={HeaderMenuItemStories} />
+
+# HeaderMenuItem (Položka navigácie)
+
+<Subtitle>
+  Jednotlivá položka navigačnej lišty hlavičky — prostý odkaz alebo spúšťač rozbaľovacieho menu.
+</Subtitle>
+
+## Overview (Prehľad)
+
+Komponent `HeaderMenuItem` je stavebný prvok navigačnej lišty (`WebsiteNavigation`). Renderuje sa ako `<a>`, keď je zadaný `href`, inak ako `<button>`. Podporuje dva varianty:
+
+- **`variant="link"`** — prostý navigačný odkaz,
+- **`variant="dropdown"`** — spúšťač rozbaľovacieho panela so šípkou nadol (cez Radix UI).
+
+Aktívna položka (`active`) je zvýraznená modrým spodným okrajom a nesie `aria-current="page"`.
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Props komponentu
+
+| Prop            | Typ                        | Predvolená | Popis                                                        |
+| --------------- | -------------------------- | ---------- | ------------------------------------------------------------ |
+| `variant`       | `'link' \| 'dropdown'`     | `'link'`   | Prostý odkaz alebo spúšťač rozbaľovacieho menu               |
+| `active`        | `boolean`                  | `false`    | Aktívna položka (`aria-current="page"`)                      |
+| `href`          | `string`                   | —          | Cieľová URL — pri zadaní sa renderuje `<a>`                  |
+| `dropdownItems` | `HeaderMenuDropdownItem[]` | —          | Položky rozbaľovacieho panela (len pre `variant="dropdown"`) |
+| `open`          | `boolean`                  | —          | Riadený stav otvorenia rozbaľovacieho menu                   |
+| `defaultOpen`   | `boolean`                  | `false`    | Predvolený stav otvorenia (neriadený)                        |
+| `onOpenChange`  | `(open: boolean) => void`  | —          | Callback pri zmene stavu otvorenia                           |
+
+## Prístupnosť (Accessibility)
+
+- Renderuje sémantický `<a>` (s `href`) alebo `<button>` (bez `href`)
+- Aktívna položka má `aria-current="page"`
+- Spúšťač rozbaľovacieho menu má `aria-expanded`, ktoré reflektuje stav panela (cez Radix UI)
+- Ikona šípky je dekoratívna — `aria-hidden="true"`
+
+## Použitie
+
+```tsx
+import { HeaderMenuItem } from '@idsk/core';
+
+// Prostý odkaz
+<HeaderMenuItem href="/sekcia">Sekcia</HeaderMenuItem>
+
+// Aktívna položka
+<HeaderMenuItem href="/sekcia" active>Sekcia</HeaderMenuItem>
+
+// Rozbaľovacie menu
+<HeaderMenuItem
+  variant="dropdown"
+  dropdownItems={[
+    { label: 'Položka 1', href: '#' },
+    { label: 'Položka 2', href: '#' },
+  ]}
+>
+  Sekcia
+</HeaderMenuItem>
+```
+
+> V praxi sa položky zvyčajne deklarujú cez pole `items` v komponente `WebsiteNavigation`, ktorý ich za vás vyskladá.
+
+<Stories />

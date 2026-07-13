@@ -472,7 +472,10 @@ export const MobileMenuDrawerLoggedIn: Story = {
   name: 'Mobilné menu — prihlásený',
   render: () => <MobileMenuDrawerLoggedInDemo />,
   parameters: {
+    // Auto-opens a full-screen Radix Dialog drawer on mount; excluded from the
+    // docs page so it doesn't cover the whole page. Still available as a canvas story.
     docs: {
+      disable: true,
       description: {
         story:
           'Verzia zásuvky pre prihláseného užívateľa — zobrazuje avatar, info o účte a akčné tlačidlá.',
@@ -486,7 +489,10 @@ export const MobileMenuDrawer: Story = {
   name: 'Mobilné menu (zásuvka)',
   render: () => <MobileMenuDrawerDemo />,
   parameters: {
+    // Auto-opens a full-screen Radix Dialog drawer on mount; excluded from the
+    // docs page so it doesn't cover the whole page. Still available as a canvas story.
     docs: {
+      disable: true,
       description: {
         story:
           'Mobilná navigačná zásuvka s prihlásením, vyhľadávaním, akčnou zónou a navigáciou. Tlačidlo Menu je viditeľné pri šírke ≤ 520 px.',

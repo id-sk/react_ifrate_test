@@ -1,0 +1,42 @@
+import { Meta, Subtitle, Primary, Controls, Stories } from '@storybook/addon-docs/blocks';
+import * as StepperStepCounterStories from './StepperStepCounter.stories';
+
+<Meta of={StepperStepCounterStories} />
+
+# StepperStepCounter (Počítadlo krokov)
+
+<Subtitle>
+  Textové počítadlo pozície v procese vo formáte „Krok N/N" — súčasť komponentu Stepper, použiteľné
+  aj samostatne.
+</Subtitle>
+
+## Overview (Prehľad)
+
+Komponent `StepperStepCounter` zobrazuje aktuálnu pozíciu vo viacstupienkovom procese v tvare „Krok N/N" (napr. „Krok 2/5"). Poskytuje stručnú textovú informáciu o postupe — dopĺňa vizuálny progres bar `StepperLoader`. Používa sa v hlavičke komponentu `Stepper`, ale možno ho nasadiť aj samostatne.
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Props komponentu
+
+| Prop    | Typ      | Predvolená | Popis                   |
+| ------- | -------- | ---------- | ----------------------- |
+| `step`  | `number` | —          | Aktuálny krok (1-based) |
+| `total` | `number` | —          | Celkový počet krokov    |
+
+## Použitie
+
+```tsx
+import { StepperStepCounter } from '@idsk/core';
+
+// Krok 2 z 5
+<StepperStepCounter step={2} total={5} />
+
+// Posledný krok
+<StepperStepCounter step={5} total={5} />
+```
+
+<Stories />

@@ -1,0 +1,61 @@
+import { Meta, Subtitle, Primary, Controls, Stories } from '@storybook/addon-docs/blocks';
+import * as StepperItemStories from './StepperItem.stories';
+
+<Meta of={StepperItemStories} />
+
+# StepperItem (Krok krokovníka)
+
+<Subtitle>
+  Jeden krok v zozname komponentu Stepper — indikátor stavu (číslo, zaškrtnutie alebo ikona
+  zhrnutia) a textový popis kroku.
+</Subtitle>
+
+## Overview (Prehľad)
+
+Komponent `StepperItem` reprezentuje jednu položku (`<li>`) v zozname krokov krokovníka. Jeho vizuál sa mení podľa stavu:
+
+- **nadchádzajúci** — vyplnený modrý kruh s číslom kroku,
+- **dokončený** (`isCompleted`) — modrý kruh so zaškrtnutím,
+- **aktívny** (`isActive`) — modrý pill s bielym indikátorom,
+- **zhrnutie** (`isSummary`) — kruh s ikonou zoznamu.
+
+Ak je zadaný `onClick`, krok sa renderuje ako `<button>` (napr. pre spätnú navigáciu na dokončený krok), inak ako statický `<div>`.
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Props komponentu
+
+| Prop          | Typ          | Predvolená | Popis                                              |
+| ------------- | ------------ | ---------- | -------------------------------------------------- |
+| `label`       | `string`     | —          | Text kroku zobrazený vedľa indikátora              |
+| `stepNumber`  | `number`     | —          | Číslo kroku v indikátore (pre nadchádzajúce kroky) |
+| `isCompleted` | `boolean`    | `false`    | Krok je dokončený — zobrazí zaškrtnutie            |
+| `isActive`    | `boolean`    | `false`    | Krok je aktívny — modrý pill background            |
+| `isSummary`   | `boolean`    | `false`    | Krok je zhrnutie — zobrazí ikonu zoznamu           |
+| `onClick`     | `() => void` | —          | Ak je zadaný, krok sa renderuje ako `<button>`     |
+
+## Prístupnosť (Accessibility)
+
+- Klikateľné kroky sú natívne `<button>` — dostupné cez `Tab`, `Enter` a `Space`
+- Statické kroky sú `<div>` — nevyvolávajú zbytočné interakcie
+- Indikátory (číslo, zaškrtnutie, ikona) sú vizuálne; význam nesie textový `label`
+
+## Použitie
+
+> `StepperItem` je zvyčajne interná časť komponentu `Stepper`, ktorý zoznam krokov vyskladá za vás. Používajte ho priamo len pri vlastnom rozložení krokov.
+
+```tsx
+import { StepperItem } from '@idsk/core';
+
+<ol>
+  <StepperItem label="Osobné údaje" isCompleted onClick={() => goToStep(1)} />
+  <StepperItem label="Adresa" stepNumber={2} isActive />
+  <StepperItem label="Zhrnutie" isSummary />
+</ol>;
+```
+
+<Stories />

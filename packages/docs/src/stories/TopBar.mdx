@@ -1,0 +1,70 @@
+import { Meta, Subtitle, Primary, Controls, Stories } from '@storybook/addon-docs/blocks';
+import * as TopBarStories from './TopBar.stories';
+
+<Meta of={TopBarStories} />
+
+# TopBar (Horný pruh)
+
+<Subtitle>
+  Horný informačný pruh každej stránky verejnej správy — rozbaliteľné upozornenie o oficiálnosti
+  stránky a výber jazyka.
+</Subtitle>
+
+## Overview (Prehľad)
+
+Komponent `TopBar` je úzky pruh umiestnený na samom vrchu stránky. V zbalenom stave zobrazuje tlačidlo „Oficiálna stránka" a voliteľný výber jazyka. Po kliknutí sa rozbalí informačný panel vysvetľujúci, ako rozpoznať oficiálnu stránku štátu (doména `.gov.sk`).
+
+Stav rozbalenia je možné použiť neriadene (`defaultExpanded`) aj riadene (`expanded` + `onExpandedChange`).
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Props komponentu
+
+| Prop                   | Typ                           | Predvolená | Popis                                    |
+| ---------------------- | ----------------------------- | ---------- | ---------------------------------------- |
+| `defaultExpanded`      | `boolean`                     | `false`    | Počiatočný stav rozbalenia (neriadený)   |
+| `expanded`             | `boolean`                     | —          | Riadený stav rozbalenia                  |
+| `onExpandedChange`     | `(expanded: boolean) => void` | —          | Callback pri zmene stavu rozbalenia      |
+| `govDisclaimer`        | `string`                      | text SR    | Text upozornenia o oficiálnej stránke    |
+| `showLanguagePicker`   | `boolean`                     | `true`     | Zobraziť výber jazyka                    |
+| `languages`            | `LanguageOption[]`            | 5 jazykov  | Zoznam dostupných jazykov                |
+| `languageValue`        | `string`                      | —          | Riadená hodnota vybraného jazyka         |
+| `onLanguageChange`     | `(value: string) => void`     | —          | Callback pri zmene jazyka                |
+| `showWebsiteListLink`  | `boolean`                     | `true`     | Zobraziť odkaz na zoznam webových sídiel |
+| `websiteListLinkLabel` | `string`                      | —          | Text odkazu na zoznam sídiel             |
+| `websiteListLinkHref`  | `string`                      | —          | URL odkazu na zoznam sídiel              |
+
+## Prístupnosť (Accessibility)
+
+- Tlačidlo rozbalenia má `aria-expanded` a `aria-controls="idsk-top-bar-panel"` prepojené s panelom
+- Panel s informáciami má zodpovedajúce `id`, ktoré cieľuje `aria-controls`
+- Výber jazyka je spúšťač s `aria-haspopup="listbox"` a `aria-expanded` (viď LanguagePicker)
+- Celý pruh je ovládateľný z klávesnice
+
+## Použitie
+
+```tsx
+import { TopBar } from '@idsk/core';
+
+// Základné použitie (zbalený, s výberom jazyka)
+<TopBar />
+
+// Predvolene rozbalený
+<TopBar defaultExpanded />
+
+// Bez výberu jazyka a vlastný text
+<TopBar showLanguagePicker={false} govDisclaimer="Vlastné upozornenie…" />
+
+// Riadený jazyk
+<TopBar languageValue={lang} onLanguageChange={setLang} />
+```
+
+## Vanilla JS (progressive enhancement)
+
+Komponent má vanilla variant inicializovaný cez `data-idsk="top-bar"`. Po načítaní `vanilla.ts` napojí obsluhu tlačidla rozbalenia a synchronizuje `aria-expanded` so stavom panela.
+
+<Stories />

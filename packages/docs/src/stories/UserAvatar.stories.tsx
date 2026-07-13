@@ -4,7 +4,6 @@ import { UserAvatar } from '@idsk/core';
 const meta = {
   title: 'Atoms/UserAvatar',
   component: UserAvatar,
-  tags: ['autodocs'],
   parameters: {
     layout: 'centered',
     docs: {

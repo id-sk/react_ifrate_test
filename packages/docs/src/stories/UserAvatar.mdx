@@ -1,0 +1,65 @@
+import { Meta, Subtitle, Primary, Controls, Stories } from '@storybook/addon-docs/blocks';
+import * as UserAvatarStories from './UserAvatar.stories';
+
+<Meta of={UserAvatarStories} />
+
+# UserAvatar (Avatar používateľa)
+
+<Subtitle>
+  Zobrazuje identitu prihláseného používateľa — profilovú fotografiu, iniciály alebo generickú ikonu
+  osoby, voliteľne s menom a podnadpisom.
+</Subtitle>
+
+## Overview (Prehľad)
+
+Komponent `UserAvatar` reprezentuje prihláseného používateľa. Typ zobrazenia sa určuje automaticky z props:
+
+- `avatarSrc` → variant **foto** (profilová fotografia),
+- `initials` → variant **initials** (iniciály na tmavom kruhu),
+- žiadne z nich → variant **avatar** (generická ikona osoby).
+
+Ak je zadaný `onClick`, komponent sa renderuje ako `<button>` a stáva sa interaktívnym (napr. otvorí profil). Bez `onClick` sa renderuje ako statický `<div>`.
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Props komponentu
+
+| Prop          | Typ          | Predvolená | Popis                                                         |
+| ------------- | ------------ | ---------- | ------------------------------------------------------------- |
+| `name`        | `string`     | —          | Zobrazované meno vedľa avatara (povinné)                      |
+| `caption`     | `string`     | —          | Podnadpis / úloha zobrazená pod menom                         |
+| `avatarSrc`   | `string`     | —          | URL fotografie — aktivuje variant _foto_                      |
+| `initials`    | `string`     | —          | Krátke iniciály (napr. „MM") — aktivuje variant _initials_    |
+| `showDetails` | `boolean`    | `true`     | Zobraziť meno + podnadpis vedľa kruhu                         |
+| `onClick`     | `() => void` | —          | Ak je zadaný, komponent je `<button>` a stáva sa interaktívny |
+
+## Prístupnosť (Accessibility)
+
+- Kruh avatara (fotografia / ikona / iniciály) je čisto vizuálny — má `aria-hidden="true"`
+- Pri skrytých popisoch (`showDetails={false}`) preberá `aria-label` hodnotu `name`, aby tlačidlo zostalo pomenované
+- Interaktívny variant je natívny `<button>` — prístupný cez `Tab`, `Enter` a `Space`
+- Statický variant nevyvoláva zbytočné interakcie čítačiek obrazovky
+
+## Použitie
+
+```tsx
+import { UserAvatar } from '@idsk/core';
+
+// S profilovou fotografiou
+<UserAvatar name="Meno Priezvisko" caption="Popisný text" avatarSrc="/avatar.jpg" onClick={openProfile} />
+
+// S iniciálami
+<UserAvatar name="Meno Priezvisko" caption="Popisný text" initials="MM" onClick={openProfile} />
+
+// Generická ikona (bez fotky a iniciál)
+<UserAvatar name="Meno Priezvisko" caption="Popisný text" onClick={openProfile} />
+
+// Iba kruh, bez popisov
+<UserAvatar name="Meno Priezvisko" initials="MM" showDetails={false} onClick={openProfile} />
+```
+
+<Stories />

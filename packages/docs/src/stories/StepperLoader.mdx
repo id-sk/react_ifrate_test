@@ -1,0 +1,49 @@
+import { Meta, Subtitle, Primary, Controls, Stories } from '@storybook/addon-docs/blocks';
+import * as StepperLoaderStories from './StepperLoader.stories';
+
+<Meta of={StepperLoaderStories} />
+
+# StepperLoader (Progres krokovníka)
+
+<Subtitle>
+  Progres bar zobrazujúci postup vo viacstupienkovom procese — súčasť komponentu Stepper, použiteľný
+  aj samostatne.
+</Subtitle>
+
+## Overview (Prehľad)
+
+Komponent `StepperLoader` vizualizuje postup pomocou progres baru. Naplnenie sa počíta z hodnôt `min`, `value` a `max` (napr. `value=2, max=5` → krok 2 z 5). Používa sa v hlavičke komponentu `Stepper`, ale možno ho nasadiť aj samostatne — všade, kde treba zobraziť lineárny postup.
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Props komponentu
+
+| Prop    | Typ      | Predvolená | Popis                                          |
+| ------- | -------- | ---------- | ---------------------------------------------- |
+| `value` | `number` | —          | Aktuálna hodnota (napr. číslo kroku)           |
+| `max`   | `number` | —          | Maximálna hodnota (napr. celkový počet krokov) |
+| `min`   | `number` | `1`        | Minimálna hodnota                              |
+| `label` | `string` | —          | Prístupný popis pre čítačky obrazovky          |
+
+## Prístupnosť (Accessibility)
+
+- Progres bar má prístupný popis cez `label` — čítačky oznámia aktuálny postup (napr. „Krok 2 z 5")
+- Vizuálne naplnenie je doplnkom k textovej informácii, nie jej náhradou
+
+## Použitie
+
+```tsx
+import { StepperLoader } from '@idsk/core';
+
+// Krok 2 z 5
+<StepperLoader value={2} max={5} label="Krok 2 z 5" />
+
+// Dokončený proces
+<StepperLoader value={5} max={5} label="Krok 5 z 5" />
+```
+
+<Stories />

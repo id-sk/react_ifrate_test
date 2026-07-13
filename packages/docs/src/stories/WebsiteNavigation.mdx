@@ -1,0 +1,68 @@
+import { Meta, Subtitle, Primary, Controls, Stories } from '@storybook/addon-docs/blocks';
+import * as WebsiteNavigationStories from './WebsiteNavigation.stories';
+
+<Meta of={WebsiteNavigationStories} />
+
+# WebsiteNavigation (Navigačná lišta)
+
+<Subtitle>
+  Horizontálna navigačná lišta hlavičky — prosté odkazy aj spúšťače rozbaľovacích menu, riadené
+  jedným poľom položiek.
+</Subtitle>
+
+## Overview (Prehľad)
+
+Komponent `WebsiteNavigation` renderuje `<nav>` orientačný bod umiestnený pod hlavnou sekciou hlavičky. Každá položka poľa `items` sa vykreslí ako `HeaderMenuItem` — buď prostý odkaz (`variant="link"`), alebo spúšťač rozbaľovacieho menu (`variant="dropdown"`). Aktívna položka je zvýraznená modrým spodným okrajom.
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Props komponentu
+
+| Prop        | Typ                       | Predvolená           | Popis                                      |
+| ----------- | ------------------------- | -------------------- | ------------------------------------------ |
+| `items`     | `WebsiteNavigationItem[]` | —                    | Zoznam navigačných položiek (povinné)      |
+| `ariaLabel` | `string`                  | `'Hlavná navigácia'` | Prístupný popis pre `<nav>` orientačný bod |
+
+## Štruktúra položky (`WebsiteNavigationItem`)
+
+| Prop            | Typ                        | Popis                                                        |
+| --------------- | -------------------------- | ------------------------------------------------------------ |
+| `label`         | `string`                   | Text štítka                                                  |
+| `href`          | `string`                   | Cieľová URL (len pre `variant="link"`)                       |
+| `variant`       | `'link' \| 'dropdown'`     | Typ položky — odkaz alebo rozbaľovacie menu                  |
+| `active`        | `boolean`                  | Aktívna položka (`aria-current="page"`)                      |
+| `dropdownItems` | `HeaderMenuDropdownItem[]` | Položky rozbaľovacieho panela (len pre `variant="dropdown"`) |
+
+## Prístupnosť (Accessibility)
+
+- Koreň je `<nav>` s `aria-label` — čítačky obrazovky ho identifikujú ako orientačný bod
+- Aktívna položka má `aria-current="page"`
+- Spúšťače rozbaľovacích menu majú `aria-haspopup` a `aria-expanded` (cez Radix UI)
+- Celá navigácia je ovládateľná z klávesnice
+
+## Použitie
+
+```tsx
+import { WebsiteNavigation } from '@idsk/core';
+
+<WebsiteNavigation
+  items={[
+    { label: 'Domov', href: '/', active: true },
+    { label: 'O nás', href: '/o-nas' },
+    {
+      label: 'Služby',
+      variant: 'dropdown',
+      dropdownItems: [
+        { label: 'Služba 1', href: '/sluzby/1' },
+        { label: 'Služba 2', href: '/sluzby/2' },
+      ],
+    },
+  ]}
+/>;
+```
+
+<Stories />

@@ -1,0 +1,65 @@
+import { Meta, Subtitle, Primary, Controls, Stories } from '@storybook/addon-docs/blocks';
+import * as LanguagePickerStories from './LanguagePicker.stories';
+
+<Meta of={LanguagePickerStories} />
+
+# LanguagePicker (Výber jazyka)
+
+<Subtitle>
+  Prepínač jazykov — tlačidlo zobrazujúce aktuálny jazyk, ktoré po kliknutí otvorí rozbaľovací
+  zoznam dostupných jazykov.
+</Subtitle>
+
+## Overview (Prehľad)
+
+Komponent `LanguagePicker` umožňuje používateľom prepínať jazyk rozhrania. Spúšťač zobrazuje aktívny jazyk; po kliknutí sa otvorí menu (cez Radix UI `DropdownMenu`) so zoznamom jazykov. Stav výberu aj otvorenia je možné použiť neriadene (`defaultValue` / `defaultOpen`) aj riadene (`value` + `onValueChange` / `open` + `onOpenChange`).
+
+Prop `onDark` prepne spúšťač na biely variant vhodný na tmavé pozadie (napr. v `TopBar`).
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Props komponentu
+
+| Prop            | Typ                       | Predvolená | Popis                                          |
+| --------------- | ------------------------- | ---------- | ---------------------------------------------- |
+| `languages`     | `LanguageOption[]`        | `[]`       | Zoznam dostupných jazykov (`{ value, label }`) |
+| `value`         | `string`                  | —          | Riadená hodnota vybraného jazyka               |
+| `defaultValue`  | `string`                  | —          | Počiatočná hodnota (neriadený stav)            |
+| `onValueChange` | `(value: string) => void` | —          | Callback pri zmene jazyka                      |
+| `open`          | `boolean`                 | —          | Riadený stav otvorenia menu                    |
+| `defaultOpen`   | `boolean`                 | `false`    | Počiatočný stav otvorenia (neriadený)          |
+| `onOpenChange`  | `(open: boolean) => void` | —          | Callback pri zmene stavu otvorenia             |
+| `onDark`        | `boolean`                 | `false`    | Biely variant tlačidla pre tmavé pozadie       |
+
+## Prístupnosť (Accessibility)
+
+- Spúšťač je natívny `<button>` s `aria-haspopup="listbox"` a `aria-expanded`
+- Položky jazykov majú `role="menuitemradio"` a `aria-checked` reflektujúce aktuálny výber
+- Ikona šípky je dekoratívna — `aria-hidden="true"`
+- Menu je plne ovládateľné z klávesnice (šípky, `Enter`, `Escape`) cez Radix UI
+
+## Použitie
+
+```tsx
+import { LanguagePicker } from '@idsk/core';
+
+const languages = [
+  { value: 'sk', label: 'Slovenčina' },
+  { value: 'en', label: 'English' },
+];
+
+// Neriadený
+<LanguagePicker defaultValue="sk" languages={languages} />
+
+// Riadený
+<LanguagePicker value={lang} onValueChange={setLang} languages={languages} />
+
+// Na tmavom pozadí (TopBar)
+<LanguagePicker defaultValue="sk" languages={languages} onDark />
+```
+
+<Stories />

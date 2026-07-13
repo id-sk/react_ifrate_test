@@ -1,0 +1,84 @@
+import { Meta, Subtitle, Primary, Controls, Stories } from '@storybook/addon-docs/blocks';
+import * as HeaderStories from './Header.stories';
+
+<Meta of={HeaderStories} />
+
+# Header (Hlavička)
+
+<Subtitle>
+  Kompozitná hlavička stránky verejnej správy — spája TopBar, hlavnú sekciu s logom a akciami a
+  navigačnú lištu do jedného ukotviteľného celku.
+</Subtitle>
+
+## Overview (Prehľad)
+
+Komponent `Header` je kontajner, ktorý skladá tri stavebné bloky v pevnom poradí zhora nadol:
+
+1. **`TopBar`** — horný informačný pruh (oficiálnosť stránky, výber jazyka),
+2. **`HeaderMainSection`** — logo, názov organizácie, vyhľadávanie a akčná zóna (prihlásenie / avatar / notifikácie),
+3. **`WebsiteNavigation`** — horizontálna navigačná lišta.
+
+Bloky sa vkladajú ako `children`, takže hlavičku možno ľubovoľne skladať alebo vynechať jednotlivé časti. Na mobilných zariadeniach (≤ 520 px) sa akcie a navigácia zbaľujú do zásuvky `HeaderDrawer`, ktorú otvára tlačidlo **Menu**.
+
+<Primary />
+
+## Props
+
+<Controls />
+
+## Zloženie
+
+```tsx
+<Header variant="default" sticky>
+  <TopBar />
+  <HeaderMainSection orgName="Názov organizácie" orgSubtitle="Podnadpis" />
+  <WebsiteNavigation items={navItems} />
+</Header>
+```
+
+| Prop       | Typ                          | Predvolená  | Popis                                              |
+| ---------- | ---------------------------- | ----------- | -------------------------------------------------- |
+| `variant`  | `'default' \| 'transparent'` | `'default'` | Vizuálny štýl — priehľadný variant pre hero sekcie |
+| `sticky`   | `boolean`                    | `false`     | Hlavička zostáva ukotvená pri scrollovaní          |
+| `children` | `React.ReactNode`            | —           | TopBar, HeaderMainSection a WebsiteNavigation      |
+
+## Mobilná zásuvka (HeaderDrawer)
+
+Pri šírke ≤ 520 px sa v `HeaderMainSection` zobrazí tlačidlo **Menu**. Jeho `onMenuClick` má otvoriť inštanciu `HeaderDrawer`, ktorá obsahuje prihlásenie / profil, vyhľadávanie, akčné položky a navigáciu. Pre prihláseného používateľa zásuvka navyše zobrazuje info riadky účtu a akcie **Moja zóna**, **Prepnúť zastupovanie** a **Odhlásiť sa**.
+
+## Prístupnosť (Accessibility)
+
+- `TopBar` používa `aria-expanded` / `aria-controls` na tlačidle rozbalenia informačného panela
+- `HeaderMainSection` renderuje akcie ako natívne `<button>` prvky, prístupné cez klávesnicu
+- `WebsiteNavigation` je `<nav>` s `aria-label` a aktívnou položkou označenou `aria-current="page"`
+- Mobilné tlačidlo Menu ovláda zásuvku cez štandardný dialógový vzor (fokus je uväznený v otvorenej zásuvke)
+
+## Použitie
+
+```tsx
+import { Header, HeaderMainSection, HeaderDrawer, TopBar, WebsiteNavigation } from '@idsk/core';
+
+function PageHeader() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  return (
+    <>
+      <Header sticky>
+        <TopBar />
+        <HeaderMainSection
+          orgName="Názov organizácie"
+          orgSubtitle="Podnadpis"
+          showSearch
+          showLogin
+          onMenuClick={() => setMenuOpen(true)}
+        />
+        <WebsiteNavigation items={navItems} />
+      </Header>
+
+      <HeaderDrawer open={menuOpen} onOpenChange={setMenuOpen} navItems={drawerNavItems} />
+    </>
+  );
+}
+```
+
+<Stories />
