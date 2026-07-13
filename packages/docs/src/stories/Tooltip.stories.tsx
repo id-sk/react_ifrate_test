@@ -31,6 +31,13 @@ const meta = {
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commo.',
     ariaLabel: 'Nápoveda k dátumu narodenia',
   },
+  decorators: [
+    (Story) => (
+      <div style={{ padding: '180px 100px' }}>
+        <Story />
+      </div>
+    ),
+  ],
   parameters: {
     layout: 'centered',
     docs: {
@@ -151,7 +158,7 @@ export const Mobile: Story = {
   },
   decorators: [
     (Story) => (
-      <div style={{ width: '100%', maxWidth: '375px', padding: '24px' }}>
+      <div style={{ width: '100%', maxWidth: '375px', padding: '180px 24px' }}>
         <Story />
       </div>
     ),
