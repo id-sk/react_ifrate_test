@@ -3,10 +3,11 @@
 @layer components {
   .idsk-header {
     @apply w-full bg-surface-default font-sans;
+    @apply shadow-[0_10px_20px_-10px_rgb(26_26_26/0.2)];
   }
 
   .idsk-header--transparent {
-    @apply border-b-transparent bg-transparent;
+    @apply border-b-transparent bg-transparent shadow-none;
   }
 
   .idsk-header--sticky {
