@@ -184,7 +184,7 @@ importers:
   packages/docs:
     dependencies:
       '@idsk/core':
-        specifier: workspace:*
+        specifier: '*'
         version: link:../core
     devDependencies:
       '@storybook/addon-a11y':
